@@ -5,8 +5,8 @@ using UnityEngine;
 public class BeatmapSpawner : MonoBehaviour {
     //The notes select sprite for themselves depending on settings, this just instantiates them in scene
     [SerializeField]
-    [Header("List of all prefabs, 1-8")]
-    List<GameObject> prefabsNotes;
+    [Header("Note prefab, selects sprite on spawn")]
+    GameObject note;
 
     [SerializeField]
     [Header("Object in scene references")]
@@ -29,7 +29,7 @@ public class BeatmapSpawner : MonoBehaviour {
         //turn char into int, -1 to be position 3 in list
         int itemValueInt = (int.Parse(itemValue.ToString())) - 1;
         //spawn gameobject depending on itemValueInt
-        GameObject currentNote = GameObject.Instantiate(prefabsNotes[itemValueInt]);
+        GameObject currentNote = GameObject.Instantiate(note);
         //set variables in gameobject
         //get notecontroller here, but later
         //set item type in gameobject to select features

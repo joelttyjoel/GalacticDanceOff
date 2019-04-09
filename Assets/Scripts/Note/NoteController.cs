@@ -44,6 +44,6 @@ public class NoteController : MonoBehaviour {
         Vector3 currentPos = transform.position;
         transform.position = new Vector3(originalPos.x - (distanceSpawnDestroyer * percentageOfTravel), currentPos.y, currentPos.z);
 
-        if (percentageOfTravel > 1f) Destroy(this.gameObject);
+        if (percentageOfTravel > 1.2f) Destroy(this.gameObject);
     }
 }

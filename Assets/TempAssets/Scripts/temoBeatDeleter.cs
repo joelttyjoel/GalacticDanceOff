@@ -4,19 +4,27 @@ using UnityEngine;
 
 public class temoBeatDeleter : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+
+    [SerializeField]
+    private GameObject beatSpawner;
+    private tempSpawnerScript tss;
+
+    // Use this for initialization
+    void Start ()
+    {
+        tss = beatSpawner.GetComponent<tempSpawnerScript>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(other.gameObject, 0.1f);
+        tss.GetComponent<tempSpawnerScript>().DeleteFirstInQueue();
+        //Destroy(other.gameObject, 0.1f);
         Debug.Log("Missed beat");
     }
 }

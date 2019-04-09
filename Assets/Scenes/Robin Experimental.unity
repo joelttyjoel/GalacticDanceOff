@@ -268,6 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde333975c3802543af84137bcd6501c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beatSpawner: {fileID: 1429739936}
 --- !u!23 &616043674
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -482,7 +483,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2ad186e0fcf84448b0ba41678a1ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitDistance: 0.5
   perfectDistance: 0.2
+  beatSpawner: {fileID: 1429739936}
 --- !u!1 &1429739936
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,6 +531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beatObjectPrefab: {fileID: 1366912035676130, guid: 407865fec06b19e47b2de255e381ce4b,
     type: 2}
+  beatChecker: {fileID: 1302668203}
   bpm: 60
 --- !u!23 &1429739939
 MeshRenderer:

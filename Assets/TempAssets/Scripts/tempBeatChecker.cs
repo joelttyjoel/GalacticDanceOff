@@ -8,40 +8,68 @@ public class tempBeatChecker : MonoBehaviour {
 
 
     [SerializeField]
+    private float hitDistance = 0.5f;
+    [SerializeField]
     private float perfectDistance = 0.1f;
+
+    [SerializeField]
+    private GameObject beatSpawner;
+    private tempSpawnerScript tss;
 
 	// Use this for initialization
 	void Start ()
     {
-		
+        tss = beatSpawner.GetComponent<tempSpawnerScript>();
 	}
 	
+    //Change and use time instead of distance between the checker and beat!
 	// Update is called once per frame
-	void FixedUpdate ()
+	void Update ()
     {
-        /*
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (gameObject.GetComponent<Collider>().)
+            GameObject beat = tss.GetFirstInQueue();
+            if (beat)   //beat != null
+            {
+                if (Mathf.Abs(transform.position.x - beat.transform.position.x) <= hitDistance)
+                {
+                    if (Mathf.Abs(transform.position.x - beat.transform.position.x) <= perfectDistance)
+                    {
+                        Debug.Log("Perfect");
+                    }
+
+                    else
+                    {
+                        Debug.Log("Hit");
+                    }
+
+                    tss.DeleteFirstInQueue();
+                }
+            }
         }
-        */
 	}
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (Mathf.Abs(transform.position.x - other.transform.position.x) <= perfectDistance)
-            {
-                Debug.Log("Perfect");
-            }
 
-            else
-            {
-                Debug.Log("Beat hit");
-            }
+    //Draw Gismo to view distance in inspector
 
-            Destroy(other.gameObject);
-        }
-    }
+
+
+
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Space))
+    //    {
+    //        if (Mathf.Abs(transform.position.x - other.transform.position.x) <= perfectDistance)
+    //        {
+    //            Debug.Log("Perfect");
+    //        }
+
+    //        else
+    //        {
+    //            Debug.Log("Beat hit");
+    //        }
+
+    //        Destroy(other.gameObject);
+    //    }
+    //}
 }

@@ -13,6 +13,7 @@ public class BeatmapReader : MonoBehaviour {
     public float bpm;
     public float howLongBeats = 0;
     public float beatsPerTakt = 0;
+    public float thingsPerBeat = 0;
     public int currentLineNumber = 0;
     
     [Header("Run")]
@@ -42,6 +43,9 @@ public class BeatmapReader : MonoBehaviour {
         //set fixed update metronome to thing
         Time.fixedDeltaTime = timeToWait;
         //StartCoroutine(Metronome());
+        //things per beat deciding
+        if (beatsPerTakt == 8) thingsPerBeat = 2;
+        else thingsPerBeat = 4;
     }
     
     void Update() {
@@ -81,7 +85,7 @@ public class BeatmapReader : MonoBehaviour {
                 //check if has note, if not do nothing
                 if (currentLineArray.Length > 6)
                 {
-                    beatmapSpawner.SpawnItem(currentLineArray[6]);
+                    beatmapSpawner.SpawnItem(currentLineArray[6], (timeToWait * thingsPerBeat));
                 }
             }
             //if stop thing

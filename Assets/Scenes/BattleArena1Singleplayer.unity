@@ -698,8 +698,10 @@ GameObject:
   - component: {fileID: 701672780}
   - component: {fileID: 701672779}
   - component: {fileID: 701672778}
+  - component: {fileID: 701672782}
+  - component: {fileID: 701672783}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: BeatMapSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -765,12 +767,51 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 701672777}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.7680764, y: -1.0668218, z: 1.8178196}
+  m_LocalPosition: {x: 1.85, y: 1.4, z: -4.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &701672782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 701672777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4156693024322cd4ebbf508e813f79e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatMap: {fileID: 4900000, guid: 24e5f6948c21d554ea116a847e0e5078, type: 3}
+  bpm: 0
+  howLongBeats: 0
+  beatsPerTakt: 0
+  currentLineNumber: 0
+  runBeatMap: 0
+  metronome: 0
+--- !u!114 &701672783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 701672777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b304774cf87d66a4d9015629e7d6b4d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabsNotes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  thing: {fileID: 1459376430}
 --- !u!1 &1057524933
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,7 +944,7 @@ MeshRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1459376430}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1

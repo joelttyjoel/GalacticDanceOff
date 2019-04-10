@@ -24,17 +24,15 @@ public class BeatmapSpawner : MonoBehaviour {
 		
 	}
 
-    public void SpawnItem(char itemValue, float timeToWait)
+    public void SpawnItem(int itemValue, float timeToWait)
     {
-        //turn char into int, -1 to be position 3 in list
-        int itemValueInt = (int.Parse(itemValue.ToString())) - 1;
         //spawn gameobject depending on itemValueInt
         GameObject currentNote = GameObject.Instantiate(note);
         //set variables in gameobject
-        //get notecontroller here, but later
         //set item type in gameobject to select features
         NoteController controllerNote = currentNote.GetComponent<NoteController>();
-        controllerNote.noteType = itemValueInt;
+        //-1 due to thing
+        controllerNote.noteType = itemValue - 1;
         //hand distance to child
         controllerNote.distanceSpawnDestroyer = distanceThisToDestroyer;
         //hand timeWait

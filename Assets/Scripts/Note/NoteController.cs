@@ -27,7 +27,11 @@ public class NoteController : MonoBehaviour {
     private Vector3 originalPos;
 
     //GET THIS FROM BIG THING SOMEWHERE ELSE INSTEAD, PROBABLY JUST ONCE IN SPAWNER
-    private float beatsUntilGoal = 4f;
+    [Header("BEATS PER THING, GET FROM GM LATER")]
+    public float beatsUntilGoal = 4f;
+    [Header("GET ELSEWHERE LATER TOO, percentage above thing")]
+    public float percentageAboveFinal = 0.1f;
+    private float totalPercentageFinal = 1.0f;
 
     void Start () {
         //choose sprite dending on input method
@@ -36,8 +40,10 @@ public class NoteController : MonoBehaviour {
         timeAtBirth = Time.time;
         //set time until goal
         timeUntilGoal = beatsUntilGoal * timePerBeat;
-
+        //set original position, moves from there X wise
         originalPos = transform.position;
+        //set total final
+        totalPercentageFinal = totalPercentageFinal + percentageAboveFinal;
     }
 	
 	void Update () {
@@ -48,7 +54,7 @@ public class NoteController : MonoBehaviour {
         Vector3 currentPos = transform.position;
         transform.position = new Vector3(originalPos.x - (distanceSpawnDestroyer * percentageOfTravel), currentPos.y, currentPos.z);
 
-        if (percentageOfTravel > 1.02f) GoneTooFar();
+        if (percentageOfTravel > totalPercentageFinal) GoneTooFar();
     }
 
     private void GoneTooFar()

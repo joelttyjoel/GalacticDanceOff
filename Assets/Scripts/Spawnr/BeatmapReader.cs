@@ -81,7 +81,6 @@ public class BeatmapReader : MonoBehaviour {
         //read through beatmap, if note send info to spawner, if end, go out of
         while (beatMapIsRunning)
         {
-            Debug.Log("Do a run " + currentNoteIndex);
             //wait at start of thing, starts as soon as metronome changes from what was at start
             yield return new WaitUntil(() => hasHadCooldown != metronome);
             hasHadCooldown = metronome;

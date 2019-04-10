@@ -20,6 +20,8 @@ public class NoteController : MonoBehaviour {
     [HideInInspector]
     public GameObject noteChecker;
 
+    [Header("Settings")]
+    public float fadeDistance = 0.5f;
     public float percentageOfTravel = 0f;
 
 
@@ -38,6 +40,7 @@ public class NoteController : MonoBehaviour {
         GetComponent<SpriteRenderer>().sprite = sprites1[noteType];
         //set birth time
         timeAtBirth = Time.time;
+        //Debug.Log(timeAtBirth);
         //set time until goal
         timeUntilGoal = beatsUntilGoal * timePerBeat;
         //set original position, moves from there X wise
@@ -60,13 +63,24 @@ public class NoteController : MonoBehaviour {
     private void GoneTooFar()
     {
         //will deque
-        Destroy(this.gameObject);
-        //noteChecker.GetComponent<checker>().deque();
-        //StartCoroutine.HasBeenHit();
+
+        //do fadeout once too far
+        StartCoroutine(HasGoneTooFarFade());
     }
 
-    //public IEnumerator()
-    //{
-        //slow fade until destroy
-    //}
+    public IEnumerator HasGoneTooFarFade()
+    {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        float opacity = 1.0f;
+        while(true)
+        {
+            //Should be adjustd to something irrelevant of bpm
+            yield return new WaitForEndOfFrame();
+            sr.color = new Color(1, 1, 1, opacity);
+            //fade depending on how far of distance is made
+            opacity = (1 - ((percentageOfTravel - totalPercentageFinal) / fadeDistance));
+            //Debug.Log((1 - ((percentageOfTravel - totalPercentageFinal) / fadeDistance)));
+            if (opacity <= 0.1f) Destroy(this.gameObject);
+        }
+    }
 }

@@ -35,6 +35,8 @@ public class NoteController : MonoBehaviour {
     public float percentageAboveFinal = 0.1f;
     private float totalPercentageFinal = 1.0f;
 
+    private bool hasgoneTooFar = false;
+
     void Start () {
         //choose sprite dending on input method
         GetComponent<SpriteRenderer>().sprite = sprites1[noteType];
@@ -57,7 +59,11 @@ public class NoteController : MonoBehaviour {
         Vector3 currentPos = transform.position;
         transform.position = new Vector3(originalPos.x - (distanceSpawnDestroyer * percentageOfTravel), currentPos.y, currentPos.z);
 
-        if (percentageOfTravel > totalPercentageFinal) GoneTooFar();
+        if (percentageOfTravel > totalPercentageFinal && !hasgoneTooFar)
+        {
+            hasgoneTooFar = true;
+            GoneTooFar();
+        }
     }
 
     private void GoneTooFar()

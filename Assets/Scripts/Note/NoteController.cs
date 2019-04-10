@@ -20,6 +20,8 @@ public class NoteController : MonoBehaviour {
     [HideInInspector]
     public GameObject noteChecker;
 
+    [Header("Settings")]
+    public float fadeDistance = 0.5f;
     public float percentageOfTravel = 0f;
 
 
@@ -27,17 +29,26 @@ public class NoteController : MonoBehaviour {
     private Vector3 originalPos;
 
     //GET THIS FROM BIG THING SOMEWHERE ELSE INSTEAD, PROBABLY JUST ONCE IN SPAWNER
-    private float beatsUntilGoal = 4f;
+    [Header("BEATS PER THING, GET FROM GM LATER")]
+    public float beatsUntilGoal = 4f;
+    [Header("GET ELSEWHERE LATER TOO, percentage above thing")]
+    public float percentageAboveFinal = 0.1f;
+    private float totalPercentageFinal = 1.0f;
+
+    private bool hasgoneTooFar = false;
 
     void Start () {
         //choose sprite dending on input method
         GetComponent<SpriteRenderer>().sprite = sprites1[noteType];
         //set birth time
         timeAtBirth = Time.time;
+        //Debug.Log(timeAtBirth);
         //set time until goal
         timeUntilGoal = beatsUntilGoal * timePerBeat;
-
+        //set original position, moves from there X wise
         originalPos = transform.position;
+        //set total final
+        totalPercentageFinal = totalPercentageFinal + percentageAboveFinal;
     }
 	
 	void Update () {
@@ -48,19 +59,34 @@ public class NoteController : MonoBehaviour {
         Vector3 currentPos = transform.position;
         transform.position = new Vector3(originalPos.x - (distanceSpawnDestroyer * percentageOfTravel), currentPos.y, currentPos.z);
 
-        if (percentageOfTravel > 1.02f) GoneTooFar();
+        if (percentageOfTravel > totalPercentageFinal && !hasgoneTooFar)
+        {
+            hasgoneTooFar = true;
+            GoneTooFar();
+        }
     }
 
     private void GoneTooFar()
     {
         //will deque
-        Destroy(this.gameObject);
-        //noteChecker.GetComponent<checker>().deque();
-        //StartCoroutine.HasBeenHit();
+
+        //do fadeout once too far
+        StartCoroutine(HasGoneTooFarFade());
     }
 
-    //public IEnumerator()
-    //{
-        //slow fade until destroy
-    //}
+    public IEnumerator HasGoneTooFarFade()
+    {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        float opacity = 1.0f;
+        while(true)
+        {
+            //Should be adjustd to something irrelevant of bpm
+            yield return new WaitForEndOfFrame();
+            sr.color = new Color(1, 1, 1, opacity);
+            //fade depending on how far of distance is made
+            opacity = (1 - ((percentageOfTravel - totalPercentageFinal) / fadeDistance));
+            //Debug.Log((1 - ((percentageOfTravel - totalPercentageFinal) / fadeDistance)));
+            if (opacity <= 0.1f) Destroy(this.gameObject);
+        }
+    }
 }

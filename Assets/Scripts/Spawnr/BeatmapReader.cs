@@ -25,19 +25,21 @@ public class BeatmapReader : MonoBehaviour {
     private string beatMapPath;
     private string[] beatMapLines;
 
+    //1-8 = notes, 0 = nothing, 9 = stop
+    public List<int> easyToReadBeats;
+
     private float timeToWait;
 
     private bool beatMapIsRunning = false;
-
     private bool hasHadCooldown = true;
 
     void Start() {
-        //setup text document
-        beatMapPath = (AssetDatabase.GetAssetPath(beatMap));
         //get all lines as string array
-        beatMapLines = File.ReadAllLines(beatMapPath);
+        beatMapLines = File.ReadAllLines(AssetDatabase.GetAssetPath(beatMap));
         //get setup for start
         GoToStartOfBeats();
+        //create easy to read beatlist for computer
+        CreateEasyToReadBeats();
         //set things once bpm has been recieved
         timeToWait = ((60 / bpm) / beatsPerTakt);
         //set fixed update metronome to thing
@@ -71,49 +73,43 @@ public class BeatmapReader : MonoBehaviour {
         //get thing
         BeatmapSpawner beatmapSpawner = GetComponent<BeatmapSpawner>();
         //thing for cooldown check
-        hasHadCooldown = true;
+        hasHadCooldown = metronome;
 
-        //read through beatmap, send info at current to function in spawner
+        float totalWaitTime = timeToWait * thingsPerBeat;
+
+        int currentNoteIndex = 0;
+        //read through beatmap, if note send info to spawner, if end, go out of
         while (beatMapIsRunning)
         {
-            //computations wont take too long, if needed, shift due to time
-            string currentLine = beatMapLines[currentLineNumber];
-            char[] currentLineArray = currentLine.ToCharArray();
-            //beat thing, most commonly just does this then last parts
-            if (currentLineArray[1] == '/')
-            {
-                //check if has note, if not do nothing
-                if (currentLineArray.Length > 6)
-                {
-                    beatmapSpawner.SpawnItem(currentLineArray[6], (timeToWait * thingsPerBeat));
-                }
-            }
-            //if stop thing
-            else if (currentLineArray[0].ToString() + currentLineArray[1].ToString() == "--")
-            {
-                if (currentLineArray[2] == 's')
-                {
-                    //dirty, but basicly move outside of while loop and have beatMap start at next line
-                    goto atStop;
-                }
-            }
-            //else is comment or something else, do nothing just move on without pause
-            else
-            {
-                goto noCooldown;
-            }
-            //in almost all cases, do a wait then move to next
-            //start cooldown thing to wait on instead of waiting here
+            //wait at start of thing, starts as soon as metronome changes from what was at start
             yield return new WaitUntil(() => hasHadCooldown != metronome);
             hasHadCooldown = metronome;
 
-            noCooldown:;
-            currentLineNumber++;
+            //read what is in list, do that
+            int currentValue = easyToReadBeats[currentNoteIndex];
+            //NOTES
+            if (currentValue > 0 && currentValue < 9)
+            {
+                beatmapSpawner.SpawnItem(currentValue, totalWaitTime);
+            }
+            //NOTHING
+            else if (currentValue == 0)
+            {
+                //do tiny thing to equal note spawning
+                int hi;
+                hi = 1 + 1;
+            }
+            //IF NOTHING, JUST MOVE TO NEXT AND WAIT
+            else
+            {
+                goto atStop;
+            }
+
+            currentNoteIndex++;
         }
 
         //wen done, is here
         atStop:;
-        GoToStartOfBeats();
         beatMapIsRunning = false;
         yield return new WaitForEndOfFrame();
     }
@@ -154,7 +150,7 @@ public class BeatmapReader : MonoBehaviour {
         //skips initial comments, reads data at start etc
         currentLineNumber = 0;
         //do until break
-        while(currentLineNumber < 1000)
+        while(currentLineNumber < 2000)
         {
             string currentLine = beatMapLines[currentLineNumber];
             char[] currentLineArray = currentLine.ToCharArray();
@@ -200,5 +196,50 @@ public class BeatmapReader : MonoBehaviour {
         }
         //when done, end here
         atStart:;
+    }
+
+    private void CreateEasyToReadBeats()
+    {
+        bool hasReachedEnd = false;
+        //while last read isn't equal to stop
+        while (!hasReachedEnd)
+        {
+            //computations wont take too long, if needed, shift due to time
+            string currentLine = beatMapLines[currentLineNumber];
+            char[] currentLineArray = currentLine.ToCharArray();
+
+            //beat thing, most commonly just does this then last parts
+            if (currentLineArray[1] == '/')
+            {
+                //check if has note, if so add thing to list
+                if (currentLineArray.Length > 6)
+                {
+                    //thing
+                    //beatmapSpawner.SpawnItem(currentLineArray[6], (timeToWait * thingsPerBeat));
+                    easyToReadBeats.Add(int.Parse(currentLineArray[6].ToString()));
+                }
+                //else add 0 to list
+                else
+                {
+                    easyToReadBeats.Add(0);
+                }
+            }
+            else if(currentLineArray[0] == '#')
+            {
+                //litrally nothing
+            }
+            //if command thing, can only be stop for now
+            else if (currentLineArray[0] == '-')
+            {
+                if (currentLineArray[2] == 's')
+                {
+                    easyToReadBeats.Add(9);
+                    hasReachedEnd = true;
+                }
+            }
+
+            //move onto next line in textDocumentArray
+            currentLineNumber++;
+        }
     }
 }

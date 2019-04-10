@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class temoBeatDeleter : MonoBehaviour {
+public class NoteChecker : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -13,10 +13,4 @@ public class temoBeatDeleter : MonoBehaviour {
 	void Update () {
 		
 	}
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Destroy(other.gameObject, 0.1f);
-        Debug.Log("Missed beat");
-    }
 }

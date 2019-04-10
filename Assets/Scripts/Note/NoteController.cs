@@ -17,9 +17,13 @@ public class NoteController : MonoBehaviour {
     public float distanceSpawnDestroyer;
     [HideInInspector]
     public float timePerBeat;
+    [HideInInspector]
+    public GameObject noteChecker;
+
+    public float percentageOfTravel = 0f;
+
 
     private float timeUntilGoal;
-    private float percentageOfTravel = 0f;
     private Vector3 originalPos;
 
     //GET THIS FROM BIG THING SOMEWHERE ELSE INSTEAD, PROBABLY JUST ONCE IN SPAWNER
@@ -44,6 +48,19 @@ public class NoteController : MonoBehaviour {
         Vector3 currentPos = transform.position;
         transform.position = new Vector3(originalPos.x - (distanceSpawnDestroyer * percentageOfTravel), currentPos.y, currentPos.z);
 
-        if (percentageOfTravel > 1.2f) Destroy(this.gameObject);
+        if (percentageOfTravel > 1.02f) GoneTooFar();
     }
+
+    private void GoneTooFar()
+    {
+        //will deque
+        Destroy(this.gameObject);
+        //noteChecker.GetComponent<checker>().deque();
+        //StartCoroutine.HasBeenHit();
+    }
+
+    //public IEnumerator()
+    //{
+        //slow fade until destroy
+    //}
 }

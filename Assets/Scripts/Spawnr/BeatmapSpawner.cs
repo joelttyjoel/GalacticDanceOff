@@ -39,11 +39,13 @@ public class BeatmapSpawner : MonoBehaviour {
         controllerNote.distanceSpawnDestroyer = distanceThisToDestroyer;
         //hand timeWait
         controllerNote.timePerBeat = timeToWait;
+        //set checker
+        controllerNote.noteChecker = noteDestroyer;
         //set position to position of the spawner
         currentNote.transform.position = this.transform.position;
         //set parent to notes, this keeps things sorted in scene
         currentNote.transform.SetParent(noteParent.transform);
-        
+
         //push to list in note destroyer
         //DO THIS HERE
 

@@ -19,30 +19,26 @@ public class NoteController : MonoBehaviour {
     public float timePerBeat;
     [HideInInspector]
     public GameObject noteChecker;
-
-    [Header("Settings")]
-    public float fadeDistance = 0.5f;
-    public float percentageOfTravel = 0f;
-
-
+    
+    private float fadeDistance = 0.5f;
+    private float percentageOfTravel = 0f;
     private float timeUntilGoal;
     private Vector3 originalPos;
-
-    //GET THIS FROM BIG THING SOMEWHERE ELSE INSTEAD, PROBABLY JUST ONCE IN SPAWNER
-    [Header("BEATS PER THING, GET FROM GM LATER")]
-    public float beatsUntilGoal = 4f;
-    [Header("GET ELSEWHERE LATER TOO, percentage above thing")]
+    public float beatsUntilGoal = 1f;
     public float percentageAboveFinal = 0.1f;
     private float totalPercentageFinal = 1.0f;
-
     private bool hasgoneTooFar = false;
 
-    void Start () {
+    void Start()
+    {
+        //set things from GameManager
+        beatsUntilGoal = GameManagerController.instance.beatsSpawnToGoal_akaSpeed;
+        //distance after good when item should be dequed and fade away
+        percentageAboveFinal = GameManagerController.instance.percentageGoodFromCenter;
+        //fade distance
+        fadeDistance = GameManagerController.instance.fadeDistance;
         //choose sprite dending on input method
         GetComponent<SpriteRenderer>().sprite = sprites1[noteType];
-        //set birth time
-        timeAtBirth = Time.time;
-        //Debug.Log(timeAtBirth);
         //set time until goal
         timeUntilGoal = beatsUntilGoal * timePerBeat;
         //set original position, moves from there X wise
@@ -50,8 +46,8 @@ public class NoteController : MonoBehaviour {
         //set total final
         totalPercentageFinal = totalPercentageFinal + percentageAboveFinal;
     }
-	
-	void Update () {
+
+    void Update () {
         //compare current time to birth time
         timeSinceBirth = Time.time - timeAtBirth;
         //depending on how far compared to full time, do the do, percentage of completed

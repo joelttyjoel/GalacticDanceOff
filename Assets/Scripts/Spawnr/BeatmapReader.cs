@@ -21,6 +21,8 @@ public class BeatmapReader : MonoBehaviour {
     [HideInInspector]
     public bool metronome = false;
 
+    private float currentTickTime = 0f;
+
     //private
     private string beatMapPath;
     private string[] beatMapLines;
@@ -90,7 +92,7 @@ public class BeatmapReader : MonoBehaviour {
             //NOTES
             if (currentValue > 0 && currentValue < 9)
             {
-                beatmapSpawner.SpawnItem(currentValue, totalWaitTime);
+                beatmapSpawner.SpawnItem(currentValue, totalWaitTime, currentTickTime);
             }
             //NOTHING
             else if (currentValue == 0)
@@ -120,29 +122,11 @@ public class BeatmapReader : MonoBehaviour {
             inputBool = !inputBool;
     }
 
-    //IEnumerator Metronome()
-    //{
-    //    float thisTimeToWait = timeToWait + metronomeOffset;
-    //    while (true)
-    //    {
-    //        yield return new WaitForSeconds(thisTimeToWait);
-    //        metronome = !metronome;
-    //    }
-    //}
-
-    //double timeDifference = 0;
-    //double lastTime = 0;
-    //double nowTime = 0;
     //METRONOME
     void FixedUpdate()
     {
-        //nowTime = Time.timeSinceLevelLoad;
-        ////now - last
-        //timeDifference = nowTime - lastTime;
-        //Debug.Log("TimeDifference: " + timeDifference);
-        ////set last to now, which is last for next loop
-        //lastTime = nowTime;
         metronome = !metronome;
+        currentTickTime = Time.time;
     }
 
     private void GoToStartOfBeats()

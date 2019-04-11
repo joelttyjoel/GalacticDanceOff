@@ -37,12 +37,10 @@ public class NoteController : MonoBehaviour {
 
     private bool hasgoneTooFar = false;
 
-    void Start () {
+    private void Start()
+    {
         //choose sprite dending on input method
         GetComponent<SpriteRenderer>().sprite = sprites1[noteType];
-        //set birth time
-        timeAtBirth = Time.time;
-        //Debug.Log(timeAtBirth);
         //set time until goal
         timeUntilGoal = beatsUntilGoal * timePerBeat;
         //set original position, moves from there X wise
@@ -50,8 +48,8 @@ public class NoteController : MonoBehaviour {
         //set total final
         totalPercentageFinal = totalPercentageFinal + percentageAboveFinal;
     }
-	
-	void Update () {
+
+    void Update () {
         //compare current time to birth time
         timeSinceBirth = Time.time - timeAtBirth;
         //depending on how far compared to full time, do the do, percentage of completed

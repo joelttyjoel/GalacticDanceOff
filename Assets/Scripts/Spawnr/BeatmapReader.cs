@@ -6,8 +6,8 @@ using UnityEditor;
 
 public class BeatmapReader : MonoBehaviour {
     //public
-    [Header("Beatmap")]
-    public TextAsset beatMap;
+    //[Header("Beatmap")]
+    //public TextAsset beatMap;
     //ev hide so noone changes, gets confused
     [Header("Beatmap settings")]
     public float bpm;
@@ -15,27 +15,25 @@ public class BeatmapReader : MonoBehaviour {
     public float beatsPerTakt = 0;
     public float thingsPerBeat = 0;
     public int currentLineNumber = 0;
-    
-    [Header("Run")]
-    public bool runBeatMap = false;
-    [HideInInspector]
-    public bool metronome = false;
-
     private float currentTickTime = 0f;
-
-    //private
-    private string beatMapPath;
-    private string[] beatMapLines;
 
     //1-8 = notes, 0 = nothing, 9 = stop
     public List<int> easyToReadBeats;
+
+    //private
+    [HideInInspector]
+    public bool metronome = false;
+    private string beatMapPath;
+    private string[] beatMapLines;
 
     private float timeToWait;
 
     private bool beatMapIsRunning = false;
     private bool hasHadCooldown = true;
-
-    void Start() {
+    
+    public void StartRunningBeatmap(TextAsset beatMap)
+    {
+        if (beatMapIsRunning) return;
         //get all lines as string array
         beatMapLines = File.ReadAllLines(AssetDatabase.GetAssetPath(beatMap));
         //get setup for start
@@ -50,22 +48,9 @@ public class BeatmapReader : MonoBehaviour {
         //things per beat deciding
         if (beatsPerTakt == 8) thingsPerBeat = 2;
         else thingsPerBeat = 4;
-    }
-    
-    void Update() {
-        //replace with public function instead for next stuff
-        //starts runbeatmap() and disables bool button to start again, meh
-        if (runBeatMap == true && beatMapIsRunning == false)
-        {
-            runBeatMap = false;
-            StartCoroutine(RunBeatmap());
-        }
-        if (runBeatMap == true) runBeatMap = false;
-    }
 
-    public void StartRunningBeatmap()
-    {
-        if(!beatMapIsRunning) StartCoroutine(RunBeatmap());
+        //actually start courutine
+        StartCoroutine(RunBeatmap());
     }
 
     IEnumerator RunBeatmap()
@@ -114,12 +99,6 @@ public class BeatmapReader : MonoBehaviour {
         atStop:;
         beatMapIsRunning = false;
         yield return new WaitForEndOfFrame();
-    }
-    
-    IEnumerator WaitForXThenFlip(float waitFor, bool inputBool)
-    {
-            yield return new WaitForSeconds(waitFor);
-            inputBool = !inputBool;
     }
 
     //METRONOME

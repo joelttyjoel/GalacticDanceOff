@@ -6,10 +6,15 @@ public class GuiController: MonoBehaviour {
 
 	public GameObject pausePanel;
 	private float countdown;
+	private float pauseTime;
+	private bool pausable;
 
 	public void Start()
 	{
-		countdown = 3f;
+		pauseTime = 0;
+		countdown = 2f;
+		pausable = true;
+		pausePanel.SetActive (false);
 	}
 
 	//pauses the game with time.timescale
@@ -17,7 +22,6 @@ public class GuiController: MonoBehaviour {
 	{
 		Time.timeScale = 0f;
 		pausePanel.SetActive (true);
-
 	}
 
 	//resumes the game
@@ -30,13 +34,23 @@ public class GuiController: MonoBehaviour {
 	//resumes the game with a delay
 	IEnumerator StartDelay()
 	{
-		float pauseTime = Time.realtimeSinceStartup + countdown;
+		pauseTime = Time.realtimeSinceStartup + countdown;
 		while (Time.realtimeSinceStartup < pauseTime) 
 		{
 			Debug.Log ("working=");
+
 			yield return 0;
 		}
-		Time.timeScale = 1f;
+		//makes it possible to pause the game.
+		if (pausePanel.activeInHierarchy) 
+		{
+			pausable = false;
+		}
+		if (pausable) 
+		{
+			Time.timeScale = 1f;
+		}
+		pausable = true;
 	}
 
 	public void Update()

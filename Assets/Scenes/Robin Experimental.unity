@@ -267,7 +267,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 272969166}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.397, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1521878812}
@@ -284,7 +284,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d937454927f23a4cb5e579fff30302f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistanceFromCheckArea: 0.1
+  minDistancePercentageFromCheckArea: 0.2
+  perfectPercentageDistance: 0.1
 --- !u!1 &286355570
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,6 +1216,8 @@ GameObject:
   - component: {fileID: 1361836011}
   - component: {fileID: 1361836010}
   - component: {fileID: 1361836009}
+  - component: {fileID: 1361836013}
+  - component: {fileID: 1361836012}
   m_Layer: 0
   m_Name: BeatMapSpawner
   m_TagString: Untagged
@@ -1241,7 +1244,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1361836007}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b304774cf87d66a4d9015629e7d6b4d5, type: 3}
   m_Name: 
@@ -1256,7 +1259,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1361836007}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4156693024322cd4ebbf508e813f79e7, type: 3}
   m_Name: 
@@ -1281,6 +1284,40 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1361836012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1361836007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f371a18a346a647b1f2d0fedc12c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  note: {fileID: 1171383707890576, guid: 1e8cffe6838288444890393d478ecf20, type: 2}
+  noteCheckerGameobject: {fileID: 272969166}
+  noteParent: {fileID: 261128090}
+  distanceThisToDestroyer: 0
+--- !u!114 &1361836013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1361836007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 431864b0ff062a14db04e5002d47ed2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatMap: {fileID: 4900000, guid: 24e5f6948c21d554ea116a847e0e5078, type: 3}
+  bpm: 0
+  howLongBeats: 0
+  beatsPerTakt: 0
+  thingsPerBeat: 0
+  currentLineNumber: 0
+  runBeatMap: 0
+  metronome: 0
 --- !u!1 &1429739936
 GameObject:
   m_ObjectHideFlags: 0

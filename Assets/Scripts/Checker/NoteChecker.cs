@@ -27,12 +27,14 @@ public class NoteChecker : MonoBehaviour {
 
     private Queue<GameObject> noteQueue = new Queue<GameObject>();
 
-
+    [SerializeField]
+    private GameObject spawnObject;
+    //private float distanceFromSpawn;
 
 	// Use this for initialization
 	void Start ()
     {
-		
+
 	}
 	
 
@@ -50,7 +52,7 @@ public class NoteChecker : MonoBehaviour {
         //etc
         */
 
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             NoteKeyDown(1);
         }
@@ -64,7 +66,7 @@ public class NoteChecker : MonoBehaviour {
             /*&& noteQueue.Peek() != null)*/
         {
             GameObject note = noteQueue.Peek();
-            NoteController noteCon = note.GetComponent<NoteController>();
+            OldNoteController noteCon = note.GetComponent<OldNoteController>();
 
             //Checks if the right key for the note was pressed and the note is in the right area
             if (noteCon.percentageOfTravel >= (1 - minDistancePercentageFromCheckArea)
@@ -97,7 +99,7 @@ public class NoteChecker : MonoBehaviour {
 
 
     //The note was hit
-    private void NoteHit(NoteController noteCon)
+    private void NoteHit(OldNoteController noteCon)
     {
         if (noteCon.percentageOfTravel >= (1 - perfectPercentageDistance))
         {
@@ -117,17 +119,19 @@ public class NoteChecker : MonoBehaviour {
     }
 
     //The note was hit and not perfectly timed
-    private void NormalHit(NoteController noteCon)
+    private void NormalHit(OldNoteController noteCon)
     {
         //Effects or other things
         GainPoints(false);
+        Debug.Log("Hit");
     }
 
     //Perfect timed hit
-    private void PerfectHit(NoteController noteCon)
+    private void PerfectHit(OldNoteController noteCon)
     {
         //Effects or other things
         GainPoints(true);
+        Debug.Log("Perfect");
     }
 
 
@@ -162,5 +166,17 @@ public class NoteChecker : MonoBehaviour {
         {
             return null;
         }
+    }
+
+
+
+    private void OnDrawGizmos()
+    {
+        float distanceFromSpawn = Mathf.Abs(transform.position.x - spawnObject.transform.position.x);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(transform.position, new Vector3(distanceFromSpawn * minDistancePercentageFromCheckArea, 1, 0.25f));
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(transform.position, new Vector3(distanceFromSpawn * perfectPercentageDistance, 1, 0.25f));
     }
 }

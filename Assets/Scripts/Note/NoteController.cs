@@ -21,7 +21,7 @@ public class NoteController : MonoBehaviour {
     public GameObject noteChecker;
     
     private float fadeDistance = 0.5f;
-    private float percentageOfTravel = 0f;
+    public float percentageOfTravel = 0f;
     private float timeUntilGoal;
     private Vector3 originalPos;
     public float beatsUntilGoal = 1f;
@@ -65,9 +65,14 @@ public class NoteController : MonoBehaviour {
     private void GoneTooFar()
     {
         //will deque
-
+        noteChecker.GetComponent<NoteChecker>().DequeueNote();
         //do fadeout once too far
         StartCoroutine(HasGoneTooFarFade());
+    }
+
+    public void HasBeenHit()
+    {
+        Destroy(this.gameObject);
     }
 
     public IEnumerator HasGoneTooFarFade()

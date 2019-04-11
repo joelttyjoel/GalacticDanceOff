@@ -19,11 +19,9 @@ public class NoteChecker : MonoBehaviour {
     private int pointLostPerMissedNote = 20;
     */
 
-
-    [SerializeField]
-    private float minDistancePercentageFromCheckArea = 0.2f;
-    [SerializeField]
-    private float perfectPercentageDistance = 0.05f;
+        
+    private float goodPercentageDistance;
+    private float perfectPercentageDistance;
 
     private Queue<GameObject> noteQueue = new Queue<GameObject>();
 
@@ -34,17 +32,20 @@ public class NoteChecker : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-
-	}
+        goodPercentageDistance = GameManagerController.instance.percentageGoodFromCenter;
+        perfectPercentageDistance = GameManagerController.instance.percentagePerfectFromCenter;
+    }
 	
 
 	// Update is called once per frame
 	void LateUpdate ()
     {
+        //else, continue
+
         //Get button down
         /*
         //Note1
-		if (Input.GetButtonDown("Note1"))
+        if (Input.GetButtonDown("Note1"))
         {
             NoteKeyDown(1);
         }
@@ -61,47 +62,41 @@ public class NoteChecker : MonoBehaviour {
 
     private void NoteKeyDown(int noteKey)
     {
-        //If the queue contains more than one object
-        if (noteQueue.Count > 0)
-            /*&& noteQueue.Peek() != null)*/
+        if(noteQueue.Count == 0)
         {
-            GameObject note = noteQueue.Peek();
-            OldNoteController noteCon = note.GetComponent<OldNoteController>();
-
-            //Checks if the right key for the note was pressed and the note is in the right area
-            if (noteCon.percentageOfTravel >= (1 - minDistancePercentageFromCheckArea)
-                /*&& noteCon.NoteValue() == noteKey*/)
-            {
-                NoteHit(noteCon);
-            }
-
-            //Otherwise the note was not hit
-            else
-            {
-                NoteMiss();
-            }
+            QueEmptyHit();
+            return;
         }
 
+        GameObject note = noteQueue.Peek();
+        NoteController noteCon = note.GetComponent<NoteController>();
+
+        //Checks if the right key for the note was pressed and the note is in the right area
+        if (noteCon.percentageOfTravel >= (1 - goodPercentageDistance)
+            && noteCon.percentageOfTravel <= (1 + goodPercentageDistance)
+            /*&& noteCon.NoteValue() == noteKey*/)
+        {
+            NoteGeneralHit(noteCon);
+        }
+
+        //Otherwise the note was not hit
         else
         {
-            Debug.Log("No notes");
-            NoteMiss();
+            NoteMiss(noteCon);
         }
     }
 
-
-    //The note was missed
-    private void NoteMiss()
+    private void QueEmptyHit()
     {
-        //Effects or other things
-        LosePoints();
+        Debug.Log("Que empty");
     }
 
-
-    //The note was hit
-    private void NoteHit(OldNoteController noteCon)
+    //The note was hit, now compare what type of hit
+    private void NoteGeneralHit(NoteController noteCon)
     {
-        if (noteCon.percentageOfTravel >= (1 - perfectPercentageDistance))
+        //defines what score hit it get
+        if (noteCon.percentageOfTravel >= (1 - perfectPercentageDistance)
+            && noteCon.percentageOfTravel <= (1 + perfectPercentageDistance))
         {
             PerfectHit(noteCon);
         }
@@ -111,15 +106,23 @@ public class NoteChecker : MonoBehaviour {
             NormalHit(noteCon);
         }
 
+        //Both types of hit has to deque and do hasbeenhit(), makes sence
+        DequeueNote();
+        noteCon.HasBeenHit();
+    }
 
-        //Do something else that both perfect and the normal hit does?
-
-        //Destroy note for now
-        Destroy(DequeueNote());
+    //The note was missed
+    private void NoteMiss(NoteController noteCon)
+    {
+        //DequeueNote();
+        //noteCon.HasBeenHit();
+        //Effects or other things
+        LosePoints();
+        Debug.Log("Miss");
     }
 
     //The note was hit and not perfectly timed
-    private void NormalHit(OldNoteController noteCon)
+    private void NormalHit(NoteController noteCon)
     {
         //Effects or other things
         GainPoints(false);
@@ -127,7 +130,7 @@ public class NoteChecker : MonoBehaviour {
     }
 
     //Perfect timed hit
-    private void PerfectHit(OldNoteController noteCon)
+    private void PerfectHit(NoteController noteCon)
     {
         //Effects or other things
         GainPoints(true);
@@ -174,9 +177,9 @@ public class NoteChecker : MonoBehaviour {
     {
         float distanceFromSpawn = Mathf.Abs(transform.position.x - spawnObject.transform.position.x);
         Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(transform.position, new Vector3(distanceFromSpawn * minDistancePercentageFromCheckArea, 1, 0.25f));
+        Gizmos.DrawWireCube(transform.position, new Vector3(2 * distanceFromSpawn * goodPercentageDistance, 1, 0.25f));
 
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(transform.position, new Vector3(distanceFromSpawn * perfectPercentageDistance, 1, 0.25f));
+        Gizmos.DrawWireCube(transform.position, new Vector3(2 * distanceFromSpawn * perfectPercentageDistance, 1, 0.25f));
     }
 }

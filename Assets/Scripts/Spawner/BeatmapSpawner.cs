@@ -10,14 +10,17 @@ public class BeatmapSpawner : MonoBehaviour {
 
     [SerializeField]
     [Header("Object in scene references")]
-    GameObject noteDestroyer;
+    GameObject noteCheckerGameobject;
+    private NoteChecker noteCheck;
+
     [SerializeField]
     GameObject noteParent;
 
     public float distanceThisToDestroyer;
 
     void Start () {
-        distanceThisToDestroyer = Vector3.Distance(transform.position, noteDestroyer.transform.position);
+        distanceThisToDestroyer = Vector3.Distance(transform.position, noteCheckerGameobject.transform.position);
+        noteCheck = noteCheckerGameobject.GetComponent<NoteChecker>();
     }
 	
 	void Update () {
@@ -40,14 +43,14 @@ public class BeatmapSpawner : MonoBehaviour {
         //hand timeWait
         controllerNote.timePerBeat = timeToWait;
         //set checker
-        controllerNote.noteChecker = noteDestroyer;
+        controllerNote.noteChecker = noteCheckerGameobject;
         //set position to position of the spawner
         currentNote.transform.position = this.transform.position;
         //set parent to notes, this keeps things sorted in scene
         currentNote.transform.SetParent(noteParent.transform);
 
         //push to list in note destroyer
-        //DO THIS HERE
+        noteCheck.EnqueueNote(currentNote);
 
         //use this value and a switch case to spawn shit
         //Debug.Log("Spawn this: " + itemValue.ToString());

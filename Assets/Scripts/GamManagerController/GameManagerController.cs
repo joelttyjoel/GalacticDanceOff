@@ -20,9 +20,11 @@ public class GameManagerController : MonoBehaviour {
     public float beatsSpawnToGoal_akaSpeed = 2f;
 
     [Header("Note settings")]
+    //settings perfect, good
     public float percentagePerfectFromCenter = 0.05f;
     //stupid name but can't short that man
     public float percentageGoodFromCenter = 0.1f;
+    //note fade distance after has gone too far
     public float fadeDistance = 0.5f;
 
     //beatmap reader reference

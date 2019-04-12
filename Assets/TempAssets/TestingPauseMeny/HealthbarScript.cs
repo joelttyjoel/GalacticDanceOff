@@ -6,41 +6,60 @@ public class HealthbarScript : MonoBehaviour {
 
 	private float maxHealth;
 	private float currentHealth;
-	private float damage;
-	private Vector3 initialScale;
-	private Vector3 finalScale;
-	private float timeScale = 0.5f;
+	public float damage;
+	private float tmpHealth;
+	private Vector3 originalScale;
+	private bool takingDamage;
+
 	void Start()
 	{
-		maxHealth = 100f;
 		currentHealth = 100f;
-		initialScale = gameObject.transform.localScale;
-		damage = 5;
-		finalScale = gameObject.transform.localScale;
-
+		maxHealth = 100f;
+		takingDamage = false;
 	}
-		
-	IEnumerator LerpHealth()
-	{
-		float progress = 0f;
-
-		while (progress <= 5f) 
-		{
-			transform.localScale = Vector3.Lerp (initialScale, finalScale, Time.deltaTime);
-			progress += Time.deltaTime;
-			yield return null;
-		}
-		transform.localScale = finalScale;
-	}
-	//progress = mathf.lerp prograessbar,
 	void Update()
 	{
-		if (Input.GetKeyUp (KeyCode.Space)) 
+		if (Input.GetKeyUp (KeyCode.O)) 
 		{
-			currentHealth -= damage;
-			finalScale.x = 0.5f;
-			StartCoroutine ("LerpHealth");
+			damage = -damage;
 		}
+		if (Input.GetKeyUp (KeyCode.P) && !takingDamage) 
+		{
+			takingDamage = true;
+			tmpHealth = currentHealth;
 
+			if (currentHealth >= 0) 
+			{
+				currentHealth -= damage;
+				StartCoroutine ("lerpScale");
+
+			}
+
+		}
 	}
+	IEnumerator lerpScale()
+	{
+		float time = 0.5f;
+		originalScale = transform.localScale;
+		Vector3 targetScale = originalScale - new Vector3 (damage/100f,
+			0f, 0f);
+		float originalTime = time;
+		while (time > 0f) 
+		{
+			time -= Time.deltaTime;
+			//originalTime += Time.deltaTime * 5f;
+			if (transform.localScale.x > 0f) 
+			{
+				transform.localScale = Vector3.Lerp (targetScale, originalScale, time / originalTime);
+			} 
+			yield return 0;
+		}
+		transform.localScale = targetScale;
+		if (transform.localScale.x < 0f) 
+		{
+			transform.localScale = new Vector3 (0, transform.localScale.y, transform.localScale.z);
+		} 
+		takingDamage = false;
+	}
+
 }

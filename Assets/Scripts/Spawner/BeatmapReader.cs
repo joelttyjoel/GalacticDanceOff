@@ -30,6 +30,8 @@ public class BeatmapReader : MonoBehaviour {
 
     private bool beatMapIsRunning = false;
     private bool hasHadCooldown = true;
+
+    private int thingsPerBeatCounter = 0;
     
     public void StartRunningBeatmap(TextAsset beatMap)
     {
@@ -77,7 +79,7 @@ public class BeatmapReader : MonoBehaviour {
             //NOTES
             if (currentValue > 0 && currentValue < 9)
             {
-                beatmapSpawner.SpawnItem(currentValue, totalWaitTime, currentTickTime);
+                beatmapSpawner.SpawnNote(currentValue, totalWaitTime, currentTickTime);
             }
             //NOTHING
             else if (currentValue == 0)
@@ -92,6 +94,12 @@ public class BeatmapReader : MonoBehaviour {
                 goto atStop;
             }
 
+            //count thingsPerBeat to get full metronome switch
+            //0, 1, 2, 3, 4
+            if (thingsPerBeatCounter == thingsPerBeat) thingsPerBeatCounter = 0;
+            if (thingsPerBeatCounter == 0) beatmapSpawner.SpawnFret(totalWaitTime, currentTickTime);
+
+            thingsPerBeatCounter++;
             currentNoteIndex++;
         }
 
@@ -104,8 +112,8 @@ public class BeatmapReader : MonoBehaviour {
     //METRONOME
     void FixedUpdate()
     {
-        metronome = !metronome;
         currentTickTime = Time.time;
+        metronome = !metronome;
     }
 
     private void GoToStartOfBeats()

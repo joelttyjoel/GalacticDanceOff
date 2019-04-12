@@ -2,13 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NoteController : MonoBehaviour {
-    [SerializeField]
-    [Header("Sprites for input1")]
-    List<Sprite> sprites1;
-
-    [HideInInspector]
-    public int noteType;
+public class FretController : MonoBehaviour {
     [HideInInspector]
     public float timeAtBirth;
     [HideInInspector]
@@ -17,16 +11,19 @@ public class NoteController : MonoBehaviour {
     public float distanceSpawnDestroyer;
     [HideInInspector]
     public float timePerBeat;
-    [HideInInspector]
-    public GameObject noteChecker;
     
+    //nd fade
     private float fadeDistance = 0.5f;
+    private float percentageAboveFinal = 0.1f;
+    private float totalPercentageFinal = 1.0f;
+
+    //start fade
+    private float startFadeDistance = 0.5f;
+
     public float percentageOfTravel = 0f;
     private float timeUntilGoal;
     private Vector3 originalPos;
-    public float beatsUntilGoal = 1f;
-    public float percentageAboveFinal = 0.1f;
-    private float totalPercentageFinal = 1.0f;
+    private float beatsUntilGoal = 1f;
     private bool hasgoneTooFar = false;
 
     void Start()
@@ -37,14 +34,17 @@ public class NoteController : MonoBehaviour {
         percentageAboveFinal = GameManagerController.instance.percentageGoodFromCenter;
         //fade distance
         fadeDistance = GameManagerController.instance.fadeDistance;
-        //choose sprite dending on input method
-        GetComponent<SpriteRenderer>().sprite = sprites1[noteType];
+        //start fade distance
+        startFadeDistance = GameManagerController.instance.startFadeDistance;
         //set time until goal
         timeUntilGoal = beatsUntilGoal * timePerBeat;
         //set original position, moves from there X wise
         originalPos = transform.position;
         //set total final
         totalPercentageFinal = totalPercentageFinal + percentageAboveFinal;
+
+        //start fade in 
+        StartCoroutine(OnSpawnFade());
     }
 
     void Update () {
@@ -64,15 +64,8 @@ public class NoteController : MonoBehaviour {
 
     private void GoneTooFar()
     {
-        //will deque
-        noteChecker.GetComponent<NoteChecker>().DequeueNote();
         //do fadeout once too far
         StartCoroutine(HasGoneTooFarFade());
-    }
-
-    public void HasBeenHit()
-    {
-        Destroy(this.gameObject);
     }
 
     public IEnumerator HasGoneTooFarFade()
@@ -88,6 +81,29 @@ public class NoteController : MonoBehaviour {
             opacity = (1 - ((percentageOfTravel - totalPercentageFinal) / fadeDistance));
             //Debug.Log((1 - ((percentageOfTravel - totalPercentageFinal) / fadeDistance)));
             if (opacity <= 0.1f) Destroy(this.gameObject);
+        }
+    }
+
+    public IEnumerator OnSpawnFade()
+    {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        float startColor = 0.5f;
+        //set start
+        sr.color = new Color(startColor, startColor, startColor, 1f);
+        while (true)
+        {
+            //wait for 1 frame
+            yield return new WaitForEndOfFrame();
+            //set color to this, wont be set above 1 due to chck at end
+            sr.color = new Color(startColor, startColor, startColor, 1f);
+            //fade depending on how far of distance is made
+            startColor = 0.5f + (percentageOfTravel / startFadeDistance);
+            //if startcolor >= 1f, set all to full white then end
+            if (startColor >= 1f)
+            {
+                sr.color = new Color(1f, 1f, 1f, 1f);
+                break;
+            }
         }
     }
 }

@@ -7,16 +7,22 @@ public class BeatmapSpawner : MonoBehaviour {
     [SerializeField]
     [Header("Note prefab, selects sprite on spawn")]
     GameObject note;
+    [SerializeField]
+    GameObject fret;
 
     [SerializeField]
     [Header("Object in scene references")]
     GameObject noteCheckerGameobject;
-    private NoteChecker noteCheck;
+    NoteChecker noteCheck;
 
     [SerializeField]
     GameObject noteParent;
+    [SerializeField]
+    private GameObject fretParent;
 
     public float distanceThisToDestroyer;
+
+    private float distanceBehindNotes = 0.01f;
 
     void Start () {
         distanceThisToDestroyer = Vector3.Distance(transform.position, noteCheckerGameobject.transform.position);
@@ -27,7 +33,7 @@ public class BeatmapSpawner : MonoBehaviour {
 		
 	}
 
-    public void SpawnItem(int itemValue, float timeToWait, float currentTickTime)
+    public void SpawnNote(int itemValue, float timeToWait, float currentTickTime)
     {
         //spawn gameobject depending on itemValueInt
         GameObject currentNote = GameObject.Instantiate(note);
@@ -51,8 +57,25 @@ public class BeatmapSpawner : MonoBehaviour {
 
         //push to list in note destroyer
         noteCheck.EnqueueNote(currentNote);
+    }
 
-        //use this value and a switch case to spawn shit
-        //Debug.Log("Spawn this: " + itemValue.ToString());
+    public void SpawnFret(float timeToWait, float currentTickTime)
+    {
+        //spawn gameobject depending on itemValueInt
+        GameObject currentFret = GameObject.Instantiate(fret);
+        //set variables in gameobject
+        //set item type in gameobject to select features
+        FretController controllerFret = currentFret.GetComponent<FretController>();
+        //set birth time
+        controllerFret.timeAtBirth = currentTickTime;
+        //hand distance to child
+        controllerFret.distanceSpawnDestroyer = distanceThisToDestroyer;
+        //hand timeWait
+        controllerFret.timePerBeat = timeToWait;
+        //set position to position of the spawner
+        Vector3 newPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z + distanceBehindNotes);
+        currentFret.transform.position = newPosition;
+        //set parent to notes, this keeps things sorted in scene
+        currentFret.transform.SetParent(fretParent.transform);
     }
 }

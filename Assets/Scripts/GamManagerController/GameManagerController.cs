@@ -26,6 +26,8 @@ public class GameManagerController : MonoBehaviour {
     public float percentageGoodFromCenter = 0.1f;
     //note fade distance after has gone too far
     public float fadeDistance = 0.5f;
+    //fade from grey ish to white at start, hmm
+    public float startFadeDistance = 1.0f;
 
     //beatmap reader reference
     private BeatmapReader beatMapReader;

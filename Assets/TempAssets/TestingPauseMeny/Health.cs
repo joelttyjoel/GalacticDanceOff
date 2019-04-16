@@ -2,37 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour {
-
-	public float maxHealth;
+public class Health : MonoBehaviour 
+{
 	public float currentHealth;
-	public float damage;
-	public Vector3 tmpVect;
-	public Vector3 finalVect;
-	// Use this for initialization
-	void Start () {
-		tmpVect = transform.localScale;
-		finalVect = transform.localScale;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (Input.GetKeyUp (KeyCode.O)) 
-		{
-			//take damage
-			currentHealth -= damage;
-			tmpVect = transform.localScale;
-			finalVect = new Vector3(currentHealth/maxHealth,
-				transform.localScale.y, transform.localScale.z);
-			}
-		if (Input.GetKeyUp (KeyCode.P)) 
-		{
-			//gain hp
-			currentHealth += damage;
-			tmpVect = transform.localScale;
-			finalVect = new Vector3(currentHealth/maxHealth,
-				transform.localScale.y, transform.localScale.z);
+	public float maxHealth;
+	public float dmg;
+	public float speed;
+
+	void Update()
+	{
+
+		handleBar ();
+
+		if (Input.GetKeyDown (KeyCode.P)) {
+			currentHealth += dmg;
+
 		}
-		transform.localScale = Vector3.Lerp (tmpVect, finalVect, currentHealth/maxHealth);
+		if (Input.GetKeyDown (KeyCode.O)) 
+		{
+			currentHealth -= dmg;
+
+		}
 	}
+
+	private void handleBar()
+	{
+		if (transform.localScale.y != currentHealth / 100f) 
+		{
+			Vector3 targetVect = new Vector3 (transform.localScale.x, 
+				currentHealth/100f, transform.localScale.z);
+			transform.localScale = Vector3.Lerp (transform.localScale, 
+				targetVect, Time.deltaTime* 3f);
+		}
+	}
+
 }

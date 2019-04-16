@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
 	void Update()
 	{
 
-		handleBar ();
+		handleBar (currentHealth);
 
 		if (Input.GetKeyDown (KeyCode.P)) {
 			currentHealth += dmg;
@@ -25,12 +25,13 @@ public class Health : MonoBehaviour
 		}
 	}
 
-	private void handleBar()
+	//makes EGOBar always move towards its current EGO
+	private void handleBar(float currentHealth)
 	{
-		if (transform.localScale.y != currentHealth / 100f) 
+		if (transform.localScale.y != this.currentHealth / 100f) 
 		{
 			Vector3 targetVect = new Vector3 (transform.localScale.x, 
-				currentHealth/100f, transform.localScale.z);
+				this.currentHealth/100f, transform.localScale.z);
 			transform.localScale = Vector3.Lerp (transform.localScale, 
 				targetVect, Time.deltaTime* 3f);
 		}

@@ -12,13 +12,47 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 114576168512814104}
-  - {fileID: 114145289327853940}
-  EditorEvents: []
-  MasterBankRef: {fileID: 114145289327853940}
-  StringsBankRef: {fileID: 114576168512814104}
-  stringsBankWriteTime: 636909392563835307
+  - {fileID: 114092338179826512}
+  - {fileID: 114158185951634730}
+  EditorEvents:
+  - {fileID: 114931391115580408}
+  MasterBankRef: {fileID: 114158185951634730}
+  StringsBankRef: {fileID: 114092338179826512}
+  stringsBankWriteTime: 636910099732803565
   cacheVersion: 2
+--- !u!114 &114072710678528864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Transition
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114092338179826512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: Assets\Fmod\Build\GDO Fmod\Build\Desktop\Master Bank.strings.bank
+  lastModified: 636910099732803565
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 668
+  Exists: 1
 --- !u!114 &114145289327853940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32,12 +66,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: D:\GDO gitkraken\GalacticDanceOff\Assets\Fmod\Build\GDO Fmod\Build\Desktop\Master
     Bank.bank
-  lastModified: 636909392563356835
+  lastModified: 636910099732773636
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 12474
+    Value: 1405024
   Exists: 1
+--- !u!114 &114158185951634730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: D:\GDO gitkraken\GalacticDanceOff\Assets\Fmod\Build\GDO Fmod\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636910099732773636
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 1405024
+  Exists: 1
+--- !u!114 &114297405878201732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Transition
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114576168512814104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50,9 +118,117 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\Fmod\Build\GDO Fmod\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636909392563835307
+  lastModified: 636910099732803565
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 858
+    Value: 668
   Exists: 1
+--- !u!114 &114577085461011992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Progression
+  Min: 0
+  Max: 2
+  Default: 0
+--- !u!114 &114642911595585682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Progression
+  Min: 0
+  Max: 2
+  Default: 0
+--- !u!114 &114651734581535308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music
+  guid: 31a83b688572bd45b234472e250a3a5d
+  Banks:
+  - {fileID: 114145289327853940}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 114577085461011992}
+  - {fileID: 114949291524428682}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 93333
+--- !u!114 &114768223532773784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Progression
+  Min: 0
+  Max: 2
+  Default: 0
+--- !u!114 &114931391115580408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music
+  guid: 31a83b688572bd45b234472e250a3a5d
+  Banks:
+  - {fileID: 114158185951634730}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 114768223532773784}
+  - {fileID: 114072710678528864}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 93333
+--- !u!114 &114949291524428682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Transition
+  Min: 0
+  Max: 1
+  Default: 0

@@ -53,10 +53,39 @@ public class NoteChecker : MonoBehaviour {
         //etc
         */
 
-        if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.W))
         {
-            NoteKeyDown(1);
+            NoteKeyDown(0);
         }
+		else if (Input.GetKeyDown(KeyCode.A))
+		{
+			NoteKeyDown(1);
+		}
+		else if (Input.GetKeyDown(KeyCode.D))
+		{
+			NoteKeyDown(2);
+		}
+		else if (Input.GetKeyDown(KeyCode.S))
+		{
+			NoteKeyDown(3);
+		}
+		//
+		if (Input.GetKeyDown(KeyCode.UpArrow))
+		{
+			NoteKeyDown(4);
+		}
+		else if (Input.GetKeyDown(KeyCode.DownArrow))
+		{
+			NoteKeyDown(5);
+		}
+		else if (Input.GetKeyDown(KeyCode.LeftArrow))
+		{
+			NoteKeyDown(6);
+		}
+		else if (Input.GetKeyDown(KeyCode.RightArrow))
+		{
+			NoteKeyDown(7);
+		}
 	}
 
 
@@ -74,7 +103,7 @@ public class NoteChecker : MonoBehaviour {
         //Checks if the right key for the note was pressed and the note is in the right area
         if (noteCon.percentageOfTravel >= (1 - goodPercentageDistance)
             && noteCon.percentageOfTravel <= (1 + goodPercentageDistance)
-            /*&& noteCon.NoteValue() == noteKey*/)
+			&& noteCon.noteType == noteKey)
         {
             NoteGeneralHit(noteCon);
         }

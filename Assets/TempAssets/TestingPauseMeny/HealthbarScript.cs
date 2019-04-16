@@ -6,41 +6,70 @@ public class HealthbarScript : MonoBehaviour {
 
 	private float maxHealth;
 	private float currentHealth;
-	private float damage;
+	public float dmg;
 	private Vector3 initialScale;
-	private Vector3 finalScale;
-	private float timeScale = 0.5f;
+	private bool takingDamage;
+	[Range (0, 10)]
+	public float decreaseSpeed;
+
 	void Start()
 	{
-		maxHealth = 100f;
 		currentHealth = 100f;
-		initialScale = gameObject.transform.localScale;
-		damage = 5;
-		finalScale = gameObject.transform.localScale;
-
+		maxHealth = 100f;
+		takingDamage = false;
 	}
-		
-	IEnumerator LerpHealth()
-	{
-		float progress = 0f;
-
-		while (progress <= 5f) 
-		{
-			transform.localScale = Vector3.Lerp (initialScale, finalScale, Time.deltaTime);
-			progress += Time.deltaTime;
-			yield return null;
-		}
-		transform.localScale = finalScale;
-	}
-	//progress = mathf.lerp prograessbar,
 	void Update()
 	{
-		if (Input.GetKeyUp (KeyCode.Space)) 
+		//taking dmg
+		if (Input.GetKeyUp (KeyCode.P) && !takingDamage) 
 		{
-			currentHealth -= damage;
-			finalScale.x = 0.5f;
-			StartCoroutine ("LerpHealth");
+			takingDamage = true;
+
+			if (currentHealth >= 0) 
+			{
+				
+				StartCoroutine (lerpScale(decreaseSpeed, dmg));
+			}
+
+		}
+	}
+
+
+	IEnumerator lerpScale(float time, float damage)
+	{
+		currentHealth -= damage;
+
+		//slower if taking lethal damage. time = time for health to go down
+		if (currentHealth <= 0) 
+		{
+			time *= 1.75f;
 		}
 
+		initialScale = transform.localScale;
+		//transforming damage to decimal
+		Vector3 targetScale = initialScale - new Vector3 (damage/100f,
+			0f, 0f);
+		float originalTime = time;
+
+		//smooth healthloss
+		while (time > 0f) 
+		{
+			time -= Time.deltaTime;
+			originalTime += Time.deltaTime * 2.5f;
+			//setting scale
+			if (transform.localScale.x > 0f) 
+			{
+				transform.localScale = Vector3.Lerp (targetScale, initialScale, time / originalTime);
+			}
+			if (transform.localScale.x < 0f) 
+			{
+				transform.localScale = new Vector3 (0, transform.localScale.y, transform.localScale.z);
+			} 
+			yield return 0;
+		}
+
+		transform.localScale = targetScale;
+		takingDamage = false;
 	}
+
 }

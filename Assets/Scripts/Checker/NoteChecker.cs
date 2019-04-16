@@ -61,11 +61,11 @@ public class NoteChecker : MonoBehaviour {
 		{
 			NoteKeyDown(1);
 		}
-		else if (Input.GetKeyDown(KeyCode.D))
+		else if (Input.GetKeyDown(KeyCode.S))
 		{
 			NoteKeyDown(2);
 		}
-		else if (Input.GetKeyDown(KeyCode.S))
+		else if (Input.GetKeyDown(KeyCode.D))
 		{
 			NoteKeyDown(3);
 		}
@@ -74,11 +74,11 @@ public class NoteChecker : MonoBehaviour {
 		{
 			NoteKeyDown(4);
 		}
-		else if (Input.GetKeyDown(KeyCode.DownArrow))
+		else if (Input.GetKeyDown(KeyCode.LeftArrow))
 		{
 			NoteKeyDown(5);
 		}
-		else if (Input.GetKeyDown(KeyCode.LeftArrow))
+		else if (Input.GetKeyDown(KeyCode.DownArrow))
 		{
 			NoteKeyDown(6);
 		}

@@ -17,12 +17,12 @@ public class MusicController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.S))
+        if (Input.GetKeyUp(KeyCode.U))
         {
             myEmitter.EventInstance.triggerCue();
         }
 
-        if (Input.GetKeyUp(KeyCode.A))
+        if (Input.GetKeyUp(KeyCode.I))
         {
             myEmitter.SetParameter("Restart", 1f);
 

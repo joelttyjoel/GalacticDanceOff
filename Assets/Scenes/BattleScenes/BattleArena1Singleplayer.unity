@@ -258,11 +258,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentBeatMap: 0
-  beatMaps:
-  - {fileID: 4900000, guid: e91ecd9e7c8e5d34593a01f869ba1489, type: 3}
+  beatMapNamesInOrder:
+  - Test_Funk_sekvens_1
   egoMeterLeft: 0
   egoMeterRight: 0
-  beatsSpawnToGoal_akaSpeed: 4
+  beatsSpawnToGoal_akaSpeed: 2
   percentagePerfectFromCenter: 0.05
   percentageGoodFromCenter: 0.09
   fadeDistance: 0.25
@@ -2120,20 +2120,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: event:/Funk/Funk01
+  Event: event:/Funk/FunkSong1
   PlayEvent: 1
   StopEvent: 2
   CollisionTag: 
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
-  Params:
-  - Name: Transition
-    Value: 1
-  - Name: Restart
-    Value: 0
-  - Name: Progression
-    Value: 0
+  Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 0

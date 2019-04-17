@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEditor;
 
 public class BeatmapReader : MonoBehaviour {
     //public
@@ -37,7 +36,8 @@ public class BeatmapReader : MonoBehaviour {
     {
         if (beatMapIsRunning) return;
         //get all lines as string array
-        beatMapLines = File.ReadAllLines(AssetDatabase.GetAssetPath(beatMap));
+        //Debug.Log("THIS IS PATH: " + Application.dataPath);
+        beatMapLines = File.ReadAllLines(Application.dataPath + "/StreamingAssets/Beatmaps/" + beatMap.name + ".txt");
         //get setup for start
         GoToStartOfBeats();
         //create easy to read beatlist for computer

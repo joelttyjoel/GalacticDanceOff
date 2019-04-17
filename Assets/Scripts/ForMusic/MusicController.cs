@@ -11,7 +11,7 @@ public class MusicController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        myEmitter.EventInstance.triggerCue();
     }
 
     // Update is called once per frame

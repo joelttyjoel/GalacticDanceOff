@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.10.00">
     <object class="Event" id="{dc4f1845-ee85-4c1c-8125-91cf4d283a9a}">
         <property name="name">
-            <value>Funk01</value>
+            <value>FunkSong1</value>
         </property>
         <property name="note">
             <value>Progression gör att vi kan gå från looopen i A delen till transition delen genom att sätta den på 1
@@ -47,7 +47,7 @@ Cues används för att starta låten. </value>
             <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
         </relationship>
         <relationship name="parameters">
-            <destination>{6d9e88f8-5d01-401f-bc6c-fa1126589e31}</destination>
+            <destination>{5269f2b5-a924-46fa-b14a-f1d18bc95acd}</destination>
             <destination>{14ea632f-dcff-4f25-9830-f77e1b786ff5}</destination>
             <destination>{3c4cc9c6-6d20-49b6-a197-c7f45302c9f2}</destination>
         </relationship>
@@ -99,6 +99,8 @@ Cues används för att starta låten. </value>
             <destination>{be869dfe-4b25-4f6f-a0c5-370dcb869fc6}</destination>
             <destination>{dfb8f734-8380-42a5-beac-8637d4d5f189}</destination>
             <destination>{7dc9c82e-755d-4f22-9946-45f2524ee9e3}</destination>
+            <destination>{b96875d3-cef4-40b3-85ea-3ae741e1b9ff}</destination>
+            <destination>{df266048-4e49-40b9-9b39-65c7bf60b498}</destination>
         </relationship>
         <relationship name="mixerGroup">
             <destination>{1b79d87f-5911-4d94-a1bb-2f3a60565f21}</destination>
@@ -122,22 +124,26 @@ Cues används för att starta låten. </value>
             <destination>{06ddc658-217f-4e23-91e0-b7caaeae627c}</destination>
             <destination>{be869dfe-4b25-4f6f-a0c5-370dcb869fc6}</destination>
             <destination>{2ab8b2ab-6ec1-494f-b57f-bd172d2680c1}</destination>
+            <destination>{b96875d3-cef4-40b3-85ea-3ae741e1b9ff}</destination>
+            <destination>{df266048-4e49-40b9-9b39-65c7bf60b498}</destination>
         </relationship>
         <relationship name="markers">
             <destination>{37a94092-f6f2-4dd7-ad43-8ea7a324259b}</destination>
             <destination>{9c928bbe-9117-4b18-a0a7-ff2278c9b9c4}</destination>
-            <destination>{d0202abf-0f81-4169-9339-afbac4dbff9f}</destination>
-            <destination>{f5804ec0-0084-427e-aaf2-ca9fc03e8fac}</destination>
-            <destination>{6b07c7b1-07fd-44b0-8e3e-a7894faa0b91}</destination>
-            <destination>{135bc63d-aaf5-497f-a385-0ef60acff467}</destination>
-            <destination>{592d0142-81b4-4559-8dc2-28cab4b802a0}</destination>
             <destination>{8565b75b-4a47-4858-90e0-37110cc8bf6f}</destination>
             <destination>{c963982e-8a77-4621-943b-191ae63db2e6}</destination>
+            <destination>{50ad5f85-9525-4527-b2cf-c860fcefe05b}</destination>
+            <destination>{b8748403-87f3-4701-bd17-d8529d0f74ae}</destination>
+            <destination>{fa142b55-bac3-415f-a0f8-2960cd8713a4}</destination>
+            <destination>{1d2d3341-addb-45d3-8813-a823ff82d086}</destination>
+            <destination>{0cb7041f-67e4-4655-864c-ead2dd46086f}</destination>
+            <destination>{cd31b779-870c-4a5a-b1fe-c8767158c8cf}</destination>
+            <destination>{440f588c-d30e-4672-bd00-a97b7c0c7f45}</destination>
         </relationship>
     </object>
-    <object class="ParameterProxy" id="{6d9e88f8-5d01-401f-bc6c-fa1126589e31}">
+    <object class="ParameterProxy" id="{5269f2b5-a924-46fa-b14a-f1d18bc95acd}">
         <relationship name="preset">
-            <destination>{3c058cb2-2a7b-4ae9-a65d-04b953a2d830}</destination>
+            <destination>{aaf21166-e8ed-46a3-a054-e24c0cf294e8}</destination>
         </relationship>
     </object>
     <object class="ParameterProxy" id="{14ea632f-dcff-4f25-9830-f77e1b786ff5}">
@@ -197,7 +203,7 @@ Cues används för att starta låten. </value>
     </object>
     <object class="SingleSound" id="{48b16d70-fa12-46eb-a741-ee94803e2c46}">
         <property name="start">
-            <value>2.6666666666666665</value>
+            <value>5.333333333333333</value>
         </property>
         <property name="length">
             <value>42.666666666666664</value>
@@ -211,7 +217,7 @@ Cues används för att starta låten. </value>
     </object>
     <object class="SingleSound" id="{06ddc658-217f-4e23-91e0-b7caaeae627c}">
         <property name="start">
-            <value>50.666666666666664</value>
+            <value>53.333333333333336</value>
         </property>
         <property name="length">
             <value>42.666666666666664</value>
@@ -225,7 +231,7 @@ Cues används för att starta låten. </value>
     </object>
     <object class="SingleSound" id="{be869dfe-4b25-4f6f-a0c5-370dcb869fc6}">
         <property name="start">
-            <value>45.333333333333329</value>
+            <value>47.999999999999993</value>
         </property>
         <property name="length">
             <value>5.333333333333333</value>
@@ -250,6 +256,31 @@ Cues används för att starta låten. </value>
             <value>0</value>
         </property>
     </object>
+    <object class="SingleSound" id="{b96875d3-cef4-40b3-85ea-3ae741e1b9ff}">
+        <property name="length">
+            <value>2.6666666666666665</value>
+        </property>
+        <relationship name="automators">
+            <destination>{a1167d20-6aa8-4bf3-b149-668f666b0c3f}</destination>
+        </relationship>
+        <relationship name="audioFile">
+            <destination>{d7499256-d95b-439f-9114-5c3811335c96}</destination>
+        </relationship>
+    </object>
+    <object class="SingleSound" id="{df266048-4e49-40b9-9b39-65c7bf60b498}">
+        <property name="start">
+            <value>96</value>
+        </property>
+        <property name="length">
+            <value>2.6666666666666665</value>
+        </property>
+        <relationship name="automators">
+            <destination>{e0a96979-4054-4b6e-b0a1-9404b4785f1e}</destination>
+        </relationship>
+        <relationship name="audioFile">
+            <destination>{d7499256-d95b-439f-9114-5c3811335c96}</destination>
+        </relationship>
+    </object>
     <object class="EventMixerGroup" id="{1b79d87f-5911-4d94-a1bb-2f3a60565f21}">
         <property name="name">
             <value>Main</value>
@@ -266,7 +297,7 @@ Cues används för att starta låten. </value>
     </object>
     <object class="SingleSound" id="{2ab8b2ab-6ec1-494f-b57f-bd172d2680c1}">
         <property name="start">
-            <value>48</value>
+            <value>50.666666666666664</value>
         </property>
         <property name="length">
             <value>2.6666666666666665</value>
@@ -289,6 +320,9 @@ Cues används för att starta låten. </value>
         </property>
     </object>
     <object class="SingleSound" id="{05de57e0-d85c-4585-ada4-f29b49f50955}">
+        <property name="start">
+            <value>2.6666666666666665</value>
+        </property>
         <property name="length">
             <value>2.6666666666666665</value>
         </property>
@@ -326,7 +360,7 @@ Cues används för att starta låten. </value>
     </object>
     <object class="LoopRegion" id="{9c928bbe-9117-4b18-a0a7-ff2278c9b9c4}">
         <property name="position">
-            <value>45.333333333333329</value>
+            <value>47.999999999999993</value>
         </property>
         <property name="length">
             <value>2.6666666666666665</value>
@@ -336,85 +370,6 @@ Cues används för att starta låten. </value>
         </relationship>
         <relationship name="markerTrack">
             <destination>{53c3a07a-ab1c-4277-9999-b5b872c86c81}</destination>
-        </relationship>
-    </object>
-    <object class="NamedMarker" id="{d0202abf-0f81-4169-9339-afbac4dbff9f}">
-        <property name="position">
-            <value>48</value>
-        </property>
-        <property name="name">
-            <value>Marker A</value>
-        </property>
-        <relationship name="timeline">
-            <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
-        </relationship>
-        <relationship name="markerTrack">
-            <destination>{017b67f0-da26-4e4c-8b6a-82ff4824c241}</destination>
-        </relationship>
-    </object>
-    <object class="TransitionRegion" id="{f5804ec0-0084-427e-aaf2-ca9fc03e8fac}">
-        <property name="position">
-            <value>45.333333333333329</value>
-        </property>
-        <property name="length">
-            <value>2.6666666666666665</value>
-        </property>
-        <relationship name="triggerConditions">
-            <destination>{e834ad41-05a5-4063-8867-feb5a908c657}</destination>
-        </relationship>
-        <relationship name="destination">
-            <destination>{d0202abf-0f81-4169-9339-afbac4dbff9f}</destination>
-        </relationship>
-        <relationship name="timeline">
-            <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
-        </relationship>
-        <relationship name="markerTrack">
-            <destination>{aabb69bc-595c-49b1-a0e7-c54346c74cba}</destination>
-        </relationship>
-    </object>
-    <object class="LoopRegion" id="{6b07c7b1-07fd-44b0-8e3e-a7894faa0b91}">
-        <property name="position">
-            <value>24</value>
-        </property>
-        <property name="length">
-            <value>21.333333333333329</value>
-        </property>
-        <relationship name="triggerConditions">
-            <destination>{955a00e3-40ab-4941-999d-d4279869f719}</destination>
-        </relationship>
-        <relationship name="timeline">
-            <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
-        </relationship>
-        <relationship name="markerTrack">
-            <destination>{53c3a07a-ab1c-4277-9999-b5b872c86c81}</destination>
-        </relationship>
-    </object>
-    <object class="LoopRegion" id="{135bc63d-aaf5-497f-a385-0ef60acff467}">
-        <property name="position">
-            <value>72</value>
-        </property>
-        <property name="length">
-            <value>21.333333333333329</value>
-        </property>
-        <relationship name="triggerConditions">
-            <destination>{645e0f90-e282-49aa-8f9d-80e4e8b2bcd7}</destination>
-        </relationship>
-        <relationship name="timeline">
-            <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
-        </relationship>
-        <relationship name="markerTrack">
-            <destination>{53c3a07a-ab1c-4277-9999-b5b872c86c81}</destination>
-        </relationship>
-    </object>
-    <object class="SustainPoint" id="{592d0142-81b4-4559-8dc2-28cab4b802a0}">
-        <property name="position">
-            <value>0</value>
-        </property>
-        <relationship name="timeline">
-            <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
-        </relationship>
-        <relationship name="markerTrack">
-            <destination>{f4f5d363-eabf-42f1-a456-b901d4e173c4}</destination>
         </relationship>
     </object>
     <object class="NamedMarker" id="{8565b75b-4a47-4858-90e0-37110cc8bf6f}">
@@ -433,7 +388,7 @@ Cues används för att starta låten. </value>
     </object>
     <object class="TransitionRegion" id="{c963982e-8a77-4621-943b-191ae63db2e6}">
         <property name="position">
-            <value>2.6666666666666665</value>
+            <value>5.333333333333333</value>
         </property>
         <property name="length">
             <value>90.666666666666657</value>
@@ -452,6 +407,122 @@ Cues används för att starta låten. </value>
         </relationship>
         <relationship name="markerTrack">
             <destination>{2e2ca341-2841-428c-bfc8-83f2401d05dd}</destination>
+        </relationship>
+    </object>
+    <object class="LoopRegion" id="{50ad5f85-9525-4527-b2cf-c860fcefe05b}">
+        <property name="position">
+            <value>0</value>
+        </property>
+        <property name="length">
+            <value>2.6666666666666665</value>
+        </property>
+        <relationship name="timeline">
+            <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
+        </relationship>
+        <relationship name="markerTrack">
+            <destination>{53c3a07a-ab1c-4277-9999-b5b872c86c81}</destination>
+        </relationship>
+    </object>
+    <object class="NamedMarker" id="{b8748403-87f3-4701-bd17-d8529d0f74ae}">
+        <property name="position">
+            <value>2.6666666666666665</value>
+        </property>
+        <property name="name">
+            <value>StartLvl0</value>
+        </property>
+        <relationship name="timeline">
+            <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
+        </relationship>
+        <relationship name="markerTrack">
+            <destination>{f4f5d363-eabf-42f1-a456-b901d4e173c4}</destination>
+        </relationship>
+    </object>
+    <object class="TransitionRegion" id="{fa142b55-bac3-415f-a0f8-2960cd8713a4}">
+        <property name="position">
+            <value>0</value>
+        </property>
+        <property name="length">
+            <value>2.6666666666666665</value>
+        </property>
+        <relationship name="triggerConditions">
+            <destination>{46e83ced-b340-4e08-9605-567bac9854c8}</destination>
+        </relationship>
+        <relationship name="destination">
+            <destination>{b8748403-87f3-4701-bd17-d8529d0f74ae}</destination>
+        </relationship>
+        <relationship name="timeline">
+            <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
+        </relationship>
+        <relationship name="markerTrack">
+            <destination>{c40bb085-1d42-4cff-9016-e2520cff12a6}</destination>
+        </relationship>
+    </object>
+    <object class="NamedMarker" id="{1d2d3341-addb-45d3-8813-a823ff82d086}">
+        <property name="position">
+            <value>50.666666666666664</value>
+        </property>
+        <property name="name">
+            <value>StartLvl1</value>
+        </property>
+        <relationship name="timeline">
+            <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
+        </relationship>
+        <relationship name="markerTrack">
+            <destination>{f4f5d363-eabf-42f1-a456-b901d4e173c4}</destination>
+        </relationship>
+    </object>
+    <object class="TransitionRegion" id="{0cb7041f-67e4-4655-864c-ead2dd46086f}">
+        <property name="position">
+            <value>48</value>
+        </property>
+        <property name="length">
+            <value>2.6666666666666661</value>
+        </property>
+        <relationship name="triggerConditions">
+            <destination>{e77ea6e2-6042-4fac-861c-cc246f036745}</destination>
+        </relationship>
+        <relationship name="destination">
+            <destination>{1d2d3341-addb-45d3-8813-a823ff82d086}</destination>
+        </relationship>
+        <relationship name="timeline">
+            <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
+        </relationship>
+        <relationship name="markerTrack">
+            <destination>{c40bb085-1d42-4cff-9016-e2520cff12a6}</destination>
+        </relationship>
+    </object>
+    <object class="LoopRegion" id="{cd31b779-870c-4a5a-b1fe-c8767158c8cf}">
+        <property name="position">
+            <value>96</value>
+        </property>
+        <property name="length">
+            <value>2.6666666666666714</value>
+        </property>
+        <relationship name="timeline">
+            <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
+        </relationship>
+        <relationship name="markerTrack">
+            <destination>{53c3a07a-ab1c-4277-9999-b5b872c86c81}</destination>
+        </relationship>
+    </object>
+    <object class="TransitionRegion" id="{440f588c-d30e-4672-bd00-a97b7c0c7f45}">
+        <property name="position">
+            <value>96</value>
+        </property>
+        <property name="length">
+            <value>2.6666666666666661</value>
+        </property>
+        <relationship name="triggerConditions">
+            <destination>{59eb6bea-7e1f-4c3e-b365-1f7b8dc91704}</destination>
+        </relationship>
+        <relationship name="destination">
+            <destination>{8565b75b-4a47-4858-90e0-37110cc8bf6f}</destination>
+        </relationship>
+        <relationship name="timeline">
+            <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
+        </relationship>
+        <relationship name="markerTrack">
+            <destination>{c40bb085-1d42-4cff-9016-e2520cff12a6}</destination>
         </relationship>
     </object>
     <object class="MixerBusEffectChain" id="{96d57944-b58e-4e54-b5d6-b664d5c82a87}">
@@ -486,6 +557,22 @@ Cues används för att starta låten. </value>
             <destination>{7ccc5b1a-c311-452e-b587-1d84c19df4af}</destination>
         </relationship>
     </object>
+    <object class="Automator" id="{a1167d20-6aa8-4bf3-b149-668f666b0c3f}">
+        <property name="nameOfPropertyBeingAutomated">
+            <value>pitch</value>
+        </property>
+        <relationship name="automationCurves">
+            <destination>{871076c2-72a8-4595-bfdf-dfa17cd5f9d6}</destination>
+        </relationship>
+    </object>
+    <object class="Automator" id="{e0a96979-4054-4b6e-b0a1-9404b4785f1e}">
+        <property name="nameOfPropertyBeingAutomated">
+            <value>pitch</value>
+        </property>
+        <relationship name="automationCurves">
+            <destination>{de15cbd2-2dc2-4e5b-88ea-009bffa970f6}</destination>
+        </relationship>
+    </object>
     <object class="MixerBusEffectChain" id="{9c23b009-0b8c-45d1-924b-f48db1b0d47f}">
         <relationship name="effects">
             <destination>{6e562b22-a2fd-4eca-bf4f-a127caf0d9d3}</destination>
@@ -498,39 +585,6 @@ Cues används för att starta låten. </value>
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{2ce8c4f7-99e3-4072-bed1-5b7bad978591}"/>
-    <object class="ParameterCondition" id="{e834ad41-05a5-4063-8867-feb5a908c657}">
-        <property name="minimum">
-            <value>1</value>
-        </property>
-        <property name="maximum">
-            <value>1</value>
-        </property>
-        <relationship name="parameter">
-            <destination>{6d86cf1e-4103-4704-b253-56c4b54907ec}</destination>
-        </relationship>
-    </object>
-    <object class="ParameterCondition" id="{955a00e3-40ab-4941-999d-d4279869f719}">
-        <property name="minimum">
-            <value>0</value>
-        </property>
-        <property name="maximum">
-            <value>0.81000006198883057</value>
-        </property>
-        <relationship name="parameter">
-            <destination>{3c058cb2-2a7b-4ae9-a65d-04b953a2d830}</destination>
-        </relationship>
-    </object>
-    <object class="ParameterCondition" id="{645e0f90-e282-49aa-8f9d-80e4e8b2bcd7}">
-        <property name="minimum">
-            <value>1</value>
-        </property>
-        <property name="maximum">
-            <value>1</value>
-        </property>
-        <relationship name="parameter">
-            <destination>{3c058cb2-2a7b-4ae9-a65d-04b953a2d830}</destination>
-        </relationship>
-    </object>
     <object class="ParameterCondition" id="{3f6c2519-8bfc-4d1d-ae80-359cb868258c}">
         <property name="minimum">
             <value>1</value>
@@ -553,6 +607,39 @@ Cues används för att starta låten. </value>
             <destination>{5622000c-8eb8-4f78-840e-89fed5ad4da0}</destination>
             <destination>{314ce682-5d8c-4ff2-b126-67384faa3687}</destination>
             <destination>{05b72b1c-b43e-4493-9fef-ae50c3277093}</destination>
+        </relationship>
+    </object>
+    <object class="ParameterCondition" id="{46e83ced-b340-4e08-9605-567bac9854c8}">
+        <property name="minimum">
+            <value>1</value>
+        </property>
+        <property name="maximum">
+            <value>1</value>
+        </property>
+        <relationship name="parameter">
+            <destination>{aaf21166-e8ed-46a3-a054-e24c0cf294e8}</destination>
+        </relationship>
+    </object>
+    <object class="ParameterCondition" id="{e77ea6e2-6042-4fac-861c-cc246f036745}">
+        <property name="minimum">
+            <value>1</value>
+        </property>
+        <property name="maximum">
+            <value>1</value>
+        </property>
+        <relationship name="parameter">
+            <destination>{6d86cf1e-4103-4704-b253-56c4b54907ec}</destination>
+        </relationship>
+    </object>
+    <object class="ParameterCondition" id="{59eb6bea-7e1f-4c3e-b365-1f7b8dc91704}">
+        <property name="minimum">
+            <value>1</value>
+        </property>
+        <property name="maximum">
+            <value>1</value>
+        </property>
+        <relationship name="parameter">
+            <destination>{de0b50e5-5a7d-4f83-b64f-db755269a560}</destination>
         </relationship>
     </object>
     <object class="MixerBusFader" id="{3c27c99d-a17d-48e4-8742-95acc1787dc7}"/>
@@ -586,6 +673,24 @@ Cues används för att starta låten. </value>
         <relationship name="automationPoints">
             <destination>{22ee881f-96ab-46bd-baaa-9c35a1834299}</destination>
             <destination>{c4305fea-44c3-41ff-baf3-d24abf356cf7}</destination>
+        </relationship>
+    </object>
+    <object class="AutomationCurve" id="{871076c2-72a8-4595-bfdf-dfa17cd5f9d6}">
+        <relationship name="parameter">
+            <destination>{067899df-c2c2-4aa0-9ce1-51bada182c08}</destination>
+        </relationship>
+        <relationship name="automationPoints">
+            <destination>{9f9ec7a4-651b-413e-b168-c3e81698d8dd}</destination>
+            <destination>{a6444276-2e06-4cd8-ab50-adb99bd58a85}</destination>
+        </relationship>
+    </object>
+    <object class="AutomationCurve" id="{de15cbd2-2dc2-4e5b-88ea-009bffa970f6}">
+        <relationship name="parameter">
+            <destination>{067899df-c2c2-4aa0-9ce1-51bada182c08}</destination>
+        </relationship>
+        <relationship name="automationPoints">
+            <destination>{092b2b4c-e055-4d8a-a57f-b5e47583f610}</destination>
+            <destination>{4ddb4904-17af-4946-9d6b-ba9e5a0da3e3}</destination>
         </relationship>
     </object>
     <object class="MixerBusFader" id="{6e562b22-a2fd-4eca-bf4f-a127caf0d9d3}"/>
@@ -631,6 +736,38 @@ Cues används för att starta låten. </value>
         </property>
     </object>
     <object class="AutomationPoint" id="{c4305fea-44c3-41ff-baf3-d24abf356cf7}">
+        <property name="position">
+            <value>2.6666666666666665</value>
+        </property>
+        <property name="value">
+            <value>-24</value>
+        </property>
+    </object>
+    <object class="AutomationPoint" id="{9f9ec7a4-651b-413e-b168-c3e81698d8dd}">
+        <property name="position">
+            <value>0</value>
+        </property>
+        <property name="value">
+            <value>0</value>
+        </property>
+    </object>
+    <object class="AutomationPoint" id="{a6444276-2e06-4cd8-ab50-adb99bd58a85}">
+        <property name="position">
+            <value>2.6666666666666665</value>
+        </property>
+        <property name="value">
+            <value>-24</value>
+        </property>
+    </object>
+    <object class="AutomationPoint" id="{092b2b4c-e055-4d8a-a57f-b5e47583f610}">
+        <property name="position">
+            <value>0</value>
+        </property>
+        <property name="value">
+            <value>0</value>
+        </property>
+    </object>
+    <object class="AutomationPoint" id="{4ddb4904-17af-4946-9d6b-ba9e5a0da3e3}">
         <property name="position">
             <value>2.6666666666666665</value>
         </property>

@@ -32,12 +32,12 @@ public class BeatmapReader : MonoBehaviour {
 
     private int thingsPerBeatCounter = 0;
     
-    public void StartRunningBeatmap(TextAsset beatMap)
+    public void StartRunningBeatmap(string beatMapName)
     {
         if (beatMapIsRunning) return;
         //get all lines as string array
         //Debug.Log("THIS IS PATH: " + Application.dataPath);
-        beatMapLines = File.ReadAllLines(Application.dataPath + "/StreamingAssets/Beatmaps/" + beatMap.name + ".txt");
+        beatMapLines = File.ReadAllLines(Application.dataPath + "/StreamingAssets/Beatmaps/" + beatMapName + ".txt");
         //get setup for start
         GoToStartOfBeats();
         //create easy to read beatlist for computer

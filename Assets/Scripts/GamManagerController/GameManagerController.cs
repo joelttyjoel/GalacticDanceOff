@@ -8,7 +8,7 @@ public class GameManagerController : MonoBehaviour {
     //difficulty thing? Hm is needed or not, who know
     //Array to store all beatmaps for this level
     [SerializeField]
-    public TextAsset[] beatMaps;
+    public string[] beatMapNamesInOrder;
 
     [Header("Scores: ")]
     //Scores
@@ -55,6 +55,6 @@ public class GameManagerController : MonoBehaviour {
 
     private void runBeatmap()
     {
-        beatMapReader.StartRunningBeatmap(beatMaps[currentBeatMap]);
+        beatMapReader.StartRunningBeatmap(beatMapNamesInOrder[currentBeatMap]);
     }
 }

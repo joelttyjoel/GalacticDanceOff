@@ -10,6 +10,10 @@ public class GameManagerController : MonoBehaviour {
     [SerializeField]
     public string[] beatMapNamesInOrder;
 
+    [Header("Temp settings")]
+    public bool startLevel = false;
+    public bool failLevel = false;
+
     [Header("Scores: ")]
     //Scores
     public int egoMeterLeft = 0;
@@ -31,6 +35,9 @@ public class GameManagerController : MonoBehaviour {
 
     //beatmap reader reference
     private BeatmapReader beatMapReader;
+    //music controller thing
+    private FMOD_StudioEventEmitter eventEmitter;
+    private MusicController musicController;
     //make singleton
     public static GameManagerController instance = null;
 
@@ -47,14 +54,42 @@ public class GameManagerController : MonoBehaviour {
         //get beatmapreader
         beatMapReader = GameObject.Find("BeatMapSpawner").GetComponent<BeatmapReader>();
         Debug.Assert(beatMapReader != null);
-	}
+        //get musicmanager
+        GameObject musicManager = GameObject.Find("MusicManager");
+        Debug.Assert(musicManager != null);
+        musicController = musicManager.GetComponent<MusicController>();
+        eventEmitter = musicManager.GetComponent<FMOD_StudioEventEmitter>();
+    }
 	
 	void Update () {
-        runBeatmap();
+        if(startLevel)
+        {
+            startLevel = false;
+            //if less than 2, aka 0 and 1 then do play current beatmap
+            if (currentBeatMap < 2)
+            {
+                //run current map
+                runBeatmap();
+                musicController.EnterLevelByInt(currentBeatMap);
+                //increment to next
+                currentBeatMap++;
+            }
+            //if 2 or above, set back to 0
+            else
+            {
+                currentBeatMap = 0;
+            }
+        }
+        if(failLevel)
+        {
+            musicController.RestartScene();
+            failLevel = false;
+        }
 	}
 
     private void runBeatmap()
     {
+        Debug.Log("Run beatmap: " + currentBeatMap);
         beatMapReader.StartRunningBeatmap(beatMapNamesInOrder[currentBeatMap]);
     }
 }

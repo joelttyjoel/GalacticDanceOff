@@ -41,6 +41,7 @@ public class BeatmapReader : MonoBehaviour {
         //get setup for start
         GoToStartOfBeats();
         //create easy to read beatlist for computer
+        easyToReadBeats.Clear();
         CreateEasyToReadBeats();
         //set things once bpm has been recieved
         timeToWait = ((60 / bpm) / beatsPerTakt);
@@ -185,9 +186,13 @@ public class BeatmapReader : MonoBehaviour {
                 //check if has note, if so add thing to list
                 if (currentLineArray.Length > 6)
                 {
+                    //first check so its not empty place
                     //thing
                     //beatmapSpawner.SpawnItem(currentLineArray[6], (timeToWait * thingsPerBeat));
-                    easyToReadBeats.Add(int.Parse(currentLineArray[6].ToString()));
+                    if (currentLineArray[6] != ' ')
+                    {
+                        easyToReadBeats.Add(int.Parse(currentLineArray[6].ToString()));
+                    }
                 }
                 //else add 0 to list
                 else

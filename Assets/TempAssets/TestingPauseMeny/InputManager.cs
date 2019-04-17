@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class InputManager : MonoBehaviour {
 
@@ -31,6 +32,11 @@ public class InputManager : MonoBehaviour {
 			return false;
 		}
 		return Input.GetKeyDown (buttonKeys [buttonName]);
+	}
+
+	public string[] GetButtonNames()
+	{
+		return buttonKeys.Keys.ToArray ();
 	}
 
 }

@@ -16,10 +16,14 @@ public class InputManager : MonoBehaviour {
 		buttonKeys ["A"] = KeyCode.A;
 		buttonKeys ["S"] = KeyCode.S;
 		buttonKeys ["D"] = KeyCode.D;
+		buttonKeys ["Up"] = KeyCode.UpArrow;
+		buttonKeys ["Left"] = KeyCode.LeftArrow;
+		buttonKeys ["Down"] = KeyCode.DownArrow;
+		buttonKeys ["Right"] = KeyCode.RightArrow;
+
 	}
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame

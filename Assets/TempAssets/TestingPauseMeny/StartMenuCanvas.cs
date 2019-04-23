@@ -8,9 +8,9 @@ public class StartMenuCanvas : MonoBehaviour {
 
 	public Button soloButton;
 	public Button versusButton;
-	public Button OptionButton;
-
-
+	public GameObject OptionButton;
+	public GameObject InputButtons;
+	private GameObject currentMenu;
 
 	// Use this for initialization
 	void Start () {
@@ -21,9 +21,21 @@ public class StartMenuCanvas : MonoBehaviour {
 	void Update () 
 	{
 		//if input esc.
-		if(Input.GetButtonDown("Cancel"))
+		if(Input.GetKeyDown(KeyCode.M))
 		{
-			Options();
+			OpenOptions();
+		}
+		if (Input.GetButtonDown ("Back Button")) 
+		{
+			if (currentMenu == OptionButton) 
+			{
+				CloseOptions ();
+				currentMenu = null;
+			} 
+			else 
+			{
+				currentMenu.SetActive (false);
+			}
 		}
 	}
 
@@ -38,22 +50,26 @@ public class StartMenuCanvas : MonoBehaviour {
 	{
 		Debug.Log ("Multiplay");
 	}
-
-	public void Options()
-	{
 		
-		if (!OptionButton.transform.GetChild(0).gameObject.activeInHierarchy) 
+	public void OpenOptions ()
+	{
+		currentMenu = OptionButton;
+		if (!OptionButton.transform.GetChild (0).gameObject.activeInHierarchy) 
 		{
 			Debug.Log ("Opens Options");
 			soloButton.interactable = false;
 			versusButton.interactable = false;
 			OptionButton.transform.GetChild (0).gameObject.SetActive (true);
 
-			EventSystem.current.GetComponent<EventSystem> ().SetSelectedGameObject( 
+			EventSystem.current.GetComponent<EventSystem> ().SetSelectedGameObject (
 				OptionButton.transform.GetChild (0).transform.GetChild (0).gameObject);
 
+		}
+	}
 
-		} else if (OptionButton.transform.GetChild(0).gameObject.activeInHierarchy) 
+	public void CloseOptions()
+	{
+		if (OptionButton.transform.GetChild(0).gameObject.activeInHierarchy) 
 		{
 			Debug.Log ("closes options");
 			soloButton.interactable = true;
@@ -62,6 +78,16 @@ public class StartMenuCanvas : MonoBehaviour {
 			EventSystem.current.GetComponent<EventSystem> ().SetSelectedGameObject (soloButton.gameObject);
 		}
 	}
+
+	public void KeyMapping()
+	{
+		InputButtons.SetActive (true);
+		currentMenu = InputButtons;
+		EventSystem.current.GetComponent<EventSystem> ().SetSelectedGameObject (InputButtons.transform.GetChild (0).gameObject);
+
+	}
+
+
 
 	public void ExitGame()
 	{

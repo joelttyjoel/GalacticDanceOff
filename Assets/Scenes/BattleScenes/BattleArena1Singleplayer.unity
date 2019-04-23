@@ -262,6 +262,8 @@ MonoBehaviour:
   - Test_Funk_sekvens_1
   - Test_Funk_sekvens_2
   startLevel: 0
+  failLevel: 0
+  beatGetterThingGameObject: {fileID: 2125068834}
   egoMeterLeft: 0
   egoMeterRight: 0
   beatsSpawnToGoal_akaSpeed: 4
@@ -1338,8 +1340,10 @@ MonoBehaviour:
   beatsPerTakt: 0
   thingsPerBeat: 0
   currentLineNumber: 0
+  currentTickTime: 0
   easyToReadBeats: 
   metronome: 0
+  timePer16del: 0
 --- !u!114 &701672783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2091,6 +2095,7 @@ GameObject:
   - component: {fileID: 2125068835}
   - component: {fileID: 2125068836}
   - component: {fileID: 2125068837}
+  - component: {fileID: 2125068838}
   m_Layer: 0
   m_Name: MusicManager
   m_TagString: Untagged
@@ -2145,3 +2150,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myEmitter: {fileID: 2125068836}
+--- !u!114 &2125068838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2125068834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd245f40045c5143a6de284d6af7198, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatMapSpawnerRef: {fileID: 701672777}
+  current16del: 0
+  current16delTime: 0
+  runNextBeatmap: 0
+  nameOfMapToRun: 

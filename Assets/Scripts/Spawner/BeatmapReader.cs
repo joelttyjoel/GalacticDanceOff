@@ -14,7 +14,7 @@ public class BeatmapReader : MonoBehaviour {
     public float beatsPerTakt = 0;
     public float thingsPerBeat = 0;
     public int currentLineNumber = 0;
-    private float currentTickTime = 0f;
+    public float currentTickTime = 0f;
 
     //1-8 = notes, 0 = nothing, 9 = stop
     public List<int> easyToReadBeats;
@@ -25,13 +25,12 @@ public class BeatmapReader : MonoBehaviour {
     private string beatMapPath;
     private string[] beatMapLines;
 
-    private float timeToWait;
+    [HideInInspector]
+    public float timePer16del;
 
     private bool beatMapIsRunning = false;
     private bool hasHadCooldown = true;
 
-    private int thingsPerBeatCounter = 0;
-    
     public void StartRunningBeatmap(string beatMapName)
     {
         if (beatMapIsRunning) return;
@@ -44,9 +43,9 @@ public class BeatmapReader : MonoBehaviour {
         easyToReadBeats.Clear();
         CreateEasyToReadBeats();
         //set things once bpm has been recieved
-        timeToWait = ((60 / bpm) / beatsPerTakt);
+        timePer16del = ((60 / bpm) / beatsPerTakt);
         //set fixed update metronome to thing
-        Time.fixedDeltaTime = timeToWait;
+        Time.fixedDeltaTime = timePer16del;
         //StartCoroutine(Metronome());
         //things per beat deciding
         if (beatsPerTakt == 8) thingsPerBeat = 2;
@@ -64,8 +63,9 @@ public class BeatmapReader : MonoBehaviour {
         BeatmapSpawner beatmapSpawner = GetComponent<BeatmapSpawner>();
         //thing for cooldown check
         hasHadCooldown = metronome;
-
-        float totalWaitTime = timeToWait * thingsPerBeat;
+        
+        //fix that boi too yes
+        float totalWaitTime = timePer16del * thingsPerBeat;
 
         int currentNoteIndex = 0;
         //read through beatmap, if note send info to spawner, if end, go out of
@@ -94,13 +94,7 @@ public class BeatmapReader : MonoBehaviour {
             {
                 goto atStop;
             }
-
-            //count thingsPerBeat to get full metronome switch
-            //0, 1, 2, 3, 4
-            if (thingsPerBeatCounter == thingsPerBeat) thingsPerBeatCounter = 0;
-            if (thingsPerBeatCounter == 0) beatmapSpawner.SpawnFret(totalWaitTime, currentTickTime);
-
-            thingsPerBeatCounter++;
+            
             currentNoteIndex++;
         }
 

@@ -14,6 +14,9 @@ public class GameManagerController : MonoBehaviour {
     public bool startLevel = false;
     public bool failLevel = false;
 
+    public GameObject beatGetterThingGameObject;
+    private BeatGetterFromFmodText theGetter;
+
     [Header("Scores: ")]
     //Scores
     public int egoMeterLeft = 0;
@@ -51,6 +54,9 @@ public class GameManagerController : MonoBehaviour {
     }
 
     void Start () {
+        //get temp thing
+        theGetter = beatGetterThingGameObject.GetComponent<BeatGetterFromFmodText>();
+
         //get beatmapreader
         beatMapReader = GameObject.Find("BeatMapSpawner").GetComponent<BeatmapReader>();
         Debug.Assert(beatMapReader != null);
@@ -90,6 +96,8 @@ public class GameManagerController : MonoBehaviour {
     private void runBeatmap()
     {
         Debug.Log("Run beatmap: " + currentBeatMap);
-        beatMapReader.StartRunningBeatmap(beatMapNamesInOrder[currentBeatMap]);
+        theGetter.runNextBeatmap = true;
+        theGetter.nameOfMapToRun = beatMapNamesInOrder[currentBeatMap];
+        //beatMapReader.StartRunningBeatmap(beatMapNamesInOrder[currentBeatMap]);
     }
 }

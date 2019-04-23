@@ -61,7 +61,6 @@ public class MusicController : MonoBehaviour
         //now set restart back to 0 so it doesen't fuck up rest of shit
         yield return new WaitForEndOfFrame();
         myEmitter.SetParameter("Restart", 0f);
-
         //do slow down time at same rate as thing
     }
 

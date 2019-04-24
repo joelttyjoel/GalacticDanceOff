@@ -22,18 +22,27 @@ public class BeatmapSpawner : MonoBehaviour {
 
     public float distanceThisToDestroyer;
 
+    //used to offset frets behind notes
     private float distanceBehindNotes = 0.01f;
+
+    //for creating singleton, love easy referencing
+    public static BeatmapSpawner instance = null;
+
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        //now replaces already existing gameManager instead
+        else if (instance != this)
+            Destroy(instance.gameObject);
+    }
 
     void Start () {
         distanceThisToDestroyer = Vector3.Distance(transform.position, noteCheckerGameobject.transform.position);
         noteCheck = noteCheckerGameobject.GetComponent<NoteChecker>();
     }
-	
-	void Update () {
-		
-	}
 
-    public void SpawnNote(int itemValue, float timeToWait, float currentTickTime)
+    public void SpawnNote(int itemValue, float timePerBeat, float currentTickTime)
     {
         //spawn gameobject depending on itemValueInt
         GameObject currentNote = GameObject.Instantiate(note);
@@ -47,7 +56,7 @@ public class BeatmapSpawner : MonoBehaviour {
         //hand distance to child
         controllerNote.distanceSpawnDestroyer = distanceThisToDestroyer;
         //hand timeWait
-        controllerNote.timePerBeat = timeToWait;
+        controllerNote.timePerBeat = timePerBeat;
         //set checker
         controllerNote.noteChecker = noteCheckerGameobject;
         //set position to position of the spawner
@@ -59,7 +68,7 @@ public class BeatmapSpawner : MonoBehaviour {
         noteCheck.EnqueueNote(currentNote);
     }
 
-    public void SpawnFret(float timeToWait, float currentTickTime)
+    public void SpawnFret(float timePerBeat, float currentTickTime)
     {
         //spawn gameobject depending on itemValueInt
         GameObject currentFret = GameObject.Instantiate(fret);
@@ -71,7 +80,7 @@ public class BeatmapSpawner : MonoBehaviour {
         //hand distance to child
         controllerFret.distanceSpawnDestroyer = distanceThisToDestroyer;
         //hand timeWait
-        controllerFret.timePerBeat = timeToWait;
+        controllerFret.timePerBeat = timePerBeat;
         //set position to position of the spawner
         Vector3 newPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z + distanceBehindNotes);
         currentFret.transform.position = newPosition;

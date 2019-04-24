@@ -260,9 +260,15 @@ MonoBehaviour:
   currentBeatMap: 0
   beatMapNamesInOrder:
   - Test_Funk_sekvens_1
+  - Test_Funk_sekvens_2
+  startLevel: 0
+  failLevel: 0
   egoMeterLeft: 0
   egoMeterRight: 0
-  beatsSpawnToGoal_akaSpeed: 2
+  beatsSpawnToGoal_akaSpeed: 4
+  beatsToSlowDownFor: 7
+  beatsToSpeedUpFor: 0.3
+  noteParent: {fileID: 1813713566}
   percentagePerfectFromCenter: 0.05
   percentageGoodFromCenter: 0.09
   fadeDistance: 0.25
@@ -1193,7 +1199,7 @@ Transform:
   m_GameObject: {fileID: 656219093}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2.45, z: -2.55}
-  m_LocalScale: {x: 3.43, y: 1.27, z: 1}
+  m_LocalScale: {x: 9, y: 1.27, z: 1}
   m_Children:
   - {fileID: 701672781}
   - {fileID: 1813713567}
@@ -1331,13 +1337,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4156693024322cd4ebbf508e813f79e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bpm: 0
-  howLongBeats: 0
-  beatsPerTakt: 0
   thingsPerBeat: 0
+  currentTickTime: 0
   currentLineNumber: 0
   easyToReadBeats: 
   metronome: 0
+  timePer16del: 0
 --- !u!114 &701672783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2089,6 +2094,7 @@ GameObject:
   - component: {fileID: 2125068835}
   - component: {fileID: 2125068836}
   - component: {fileID: 2125068837}
+  - component: {fileID: 2125068838}
   m_Layer: 0
   m_Name: MusicManager
   m_TagString: Untagged
@@ -2143,3 +2149,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myEmitter: {fileID: 2125068836}
+--- !u!114 &2125068838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2125068834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd245f40045c5143a6de284d6af7198, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  current16delTime: 0
+  currentLabelName: Start

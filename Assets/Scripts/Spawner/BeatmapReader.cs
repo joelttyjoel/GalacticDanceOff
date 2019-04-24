@@ -104,12 +104,12 @@ public class BeatmapReader : MonoBehaviour {
         yield return new WaitForEndOfFrame();
     }
 
-    //METRONOME
-    void FixedUpdate()
-    {
-        currentTickTime = Time.time;
-        metronome = !metronome;
-    }
+    //METRONOME, OLD BADBOY, GRRRR
+    //void FixedUpdate()
+    //{
+    //    currentTickTime = Time.time;
+    //    metronome = !metronome;
+    //}
 
     private void GoToStartOfBeats()
     {
@@ -212,4 +212,5 @@ public class BeatmapReader : MonoBehaviour {
             currentLineNumber++;
         }
     }
+    
 }

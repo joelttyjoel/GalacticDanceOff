@@ -32,11 +32,12 @@ public class BeatGetterFromFmodText : MonoBehaviour
     [StructLayout(LayoutKind.Sequential)]
     class TimelineInfo
     {
-        public int currentMusicBar = 0;
+        //label info for knowing when started
         public FMOD.StringWrapper lastMarker = new FMOD.StringWrapper();
+        //time of beat, to set time of spawn etc for bois
         public float timeOfBeat = 0;
+        //metronome for full beats
         public bool metronome1 = false;
-        public bool metronome4 = false;
     }
 
     TimelineInfo timelineInfo;
@@ -47,7 +48,6 @@ public class BeatGetterFromFmodText : MonoBehaviour
 
     //custom variables
     public GameObject beatMapSpawnerRef;
-    public int current16del = 0;
     public float current16delTime = 0f;
 
     private BeatmapReader beatMapReaderRef;
@@ -101,7 +101,7 @@ public class BeatGetterFromFmodText : MonoBehaviour
 
     void OnGUI()
     {
-        GUILayout.Box(String.Format("Current 16del = {0}, Its time = {1}", current16del, current16delTime));
+        GUILayout.Box(String.Format("Current metronome in beatmapReader = {0}, Its time = {1}", 69, current16delTime));
     }
 
     [AOT.MonoPInvokeCallback(typeof(FMOD.Studio.EVENT_CALLBACK))]
@@ -125,7 +125,6 @@ public class BeatGetterFromFmodText : MonoBehaviour
                 case FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT:
                     {
                         var parameter = (FMOD.Studio.TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(FMOD.Studio.TIMELINE_BEAT_PROPERTIES));
-                        timelineInfo.currentMusicBar = parameter.beat;
                         //tik big metronome, per beat
                         timelineInfo.metronome1= !timelineInfo.metronome1;
                         //set current time
@@ -149,25 +148,29 @@ public class BeatGetterFromFmodText : MonoBehaviour
         float waitTimePerPoll = timePer16delthis / 16;
         bool thisMetronome = timelineInfo.metronome1;
         float timePerBeat = timePer16delthis * beatsPerTaktThis;
+
+        //just sit and poll this badboi fast as fuk boi
         while (true)
         {
             yield return new WaitForSeconds(waitTimePerPoll);
-            //metronome has changed
+            //metronome has changed do create 16delar, 
             if(thisMetronome != timelineInfo.metronome1)
             {
+                //set to current to tell if changed next time
                 thisMetronome = timelineInfo.metronome1;
+                //start create x parts per beat
                 StartCoroutine(Create16Delar());
-
-                //ugly but shhhhhhh ok
+                //ugly but shhhhhhh ok, spawn fret on each beat
                 beatMapSpawnerScriptRef.SpawnFret(timePerBeat, timelineInfo.timeOfBeat);
-            }
-            //also polling if can enter next beatmap
-            if(runNextBeatmap && currentLabelName != timelineInfo.lastMarker)
-            {
-                //if can enter, set things back, run beatmap
-                currentLabelName = timelineInfo.lastMarker;
-                runNextBeatmap = false;
-                beatMapReaderRef.StartRunningBeatmap(nameOfMapToRun);
+
+                //also polling if can enter next beatmap, can only happen on beat
+                if(runNextBeatmap && currentLabelName != timelineInfo.lastMarker)
+                {
+                    //if can enter, set things back, run beatmap
+                    currentLabelName = timelineInfo.lastMarker;
+                    runNextBeatmap = false;
+                    beatMapReaderRef.StartRunningBeatmap(nameOfMapToRun);
+                }
             }
         }
     }
@@ -186,5 +189,6 @@ public class BeatGetterFromFmodText : MonoBehaviour
             yield return new WaitForSeconds(timePer16delthis);
      
         }
+
     }
 }

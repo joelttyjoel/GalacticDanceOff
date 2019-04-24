@@ -10,7 +10,15 @@ public class StartMenuCanvas : MonoBehaviour {
 	public Button versusButton;
 	public GameObject OptionButton;
 	public GameObject InputButtons;
-	private GameObject currentMenu;
+
+	public Button keyBindButton; //open keybindmenu
+	public Button volumeButton; //open volumemenu
+	public Button ExitButton; //exits
+
+	public Button keyBoardButton;
+
+	private Stack<GameObject> menuQueue = new Stack<GameObject>();
+
 
 	// Use this for initialization
 	void Start () {
@@ -27,15 +35,10 @@ public class StartMenuCanvas : MonoBehaviour {
 		}
 		if (Input.GetButtonDown ("Back Button")) 
 		{
-			if (currentMenu == OptionButton) 
-			{
+			
 				CloseOptions ();
-				currentMenu = null;
-			} 
-			else 
-			{
-				currentMenu.SetActive (false);
-			}
+				
+		
 		}
 	}
 
@@ -53,9 +56,10 @@ public class StartMenuCanvas : MonoBehaviour {
 		
 	public void OpenOptions ()
 	{
-		currentMenu = OptionButton;
+		
 		if (!OptionButton.transform.GetChild (0).gameObject.activeInHierarchy) 
 		{
+			menuQueue.Push (OptionButton.transform.GetChild (0).gameObject);
 			Debug.Log ("Opens Options");
 			soloButton.interactable = false;
 			versusButton.interactable = false;
@@ -71,6 +75,7 @@ public class StartMenuCanvas : MonoBehaviour {
 	{
 		if (OptionButton.transform.GetChild(0).gameObject.activeInHierarchy) 
 		{
+			menuQueue.Clear ();
 			Debug.Log ("closes options");
 			soloButton.interactable = true;
 			versusButton.interactable = true;
@@ -78,14 +83,16 @@ public class StartMenuCanvas : MonoBehaviour {
 			EventSystem.current.GetComponent<EventSystem> ().SetSelectedGameObject (soloButton.gameObject);
 		}
 	}
-
-	public void KeyMapping()
+		
+	public void OpenKeyBind()
 	{
+		menuQueue.Push (InputButtons);
 		InputButtons.SetActive (true);
-		currentMenu = InputButtons;
-		EventSystem.current.GetComponent<EventSystem> ().SetSelectedGameObject (InputButtons.transform.GetChild (0).gameObject);
-
+		OptionButton.transform.GetChild(0).gameObject.SetActive (false);
+		EventSystem.current.SetSelectedGameObject (
+			InputButtons.transform.GetChild (0).gameObject);
 	}
+
 
 
 

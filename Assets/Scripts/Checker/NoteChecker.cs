@@ -36,7 +36,10 @@ public class NoteChecker : MonoBehaviour {
         perfectPercentageDistance = GameManagerController.instance.percentagePerfectFromCenter;
     }
 	
-
+	void FixedUpdate()
+	{
+		Debug.Log(Time.time);
+	}
 	// Update is called once per frame
 	void LateUpdate ()
     {

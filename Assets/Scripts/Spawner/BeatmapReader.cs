@@ -9,6 +9,10 @@ public class BeatmapReader : MonoBehaviour {
     //public TextAsset beatMap;
     //ev hide so noone changes, gets confused
     [Header("Beatmap settings")]
+    public GameObject beatSpawnerTop;
+    public GameObject beatSpawnerBot;
+    private BeatmapSpawner beatSpawnerTopScript;
+    private BeatmapSpawner beatSpawnerBotScript;
     public float thingsPerBeat = 4;
     public float currentTickTime = 0f;
 
@@ -42,6 +46,12 @@ public class BeatmapReader : MonoBehaviour {
         //set shit, dunno
         thingsPerBeat = 4f;
         timePer16del = 0.1666f;
+    }
+
+    private void Start()
+    {
+        beatSpawnerTopScript = beatSpawnerTop.GetComponent<BeatmapSpawner>();
+        beatSpawnerBotScript = beatSpawnerBot.GetComponent<BeatmapSpawner>();
     }
 
     public void StartRunningBeatmap(string beatMapName)
@@ -82,7 +92,7 @@ public class BeatmapReader : MonoBehaviour {
             //NOTES
             if (currentValue > 0 && currentValue < 9)
             {
-                BeatmapSpawner.instance.SpawnNote(currentValue, totalWaitTime, currentTickTime);
+                beatSpawnerBotScript.SpawnNote(currentValue, totalWaitTime, currentTickTime);
             }
             //NOTHING
             else if (currentValue == 0)

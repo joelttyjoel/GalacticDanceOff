@@ -25,18 +25,6 @@ public class BeatmapSpawner : MonoBehaviour {
     //used to offset frets behind notes
     private float distanceBehindNotes = 0.01f;
 
-    //for creating singleton, love easy referencing
-    public static BeatmapSpawner instance = null;
-
-    void Awake()
-    {
-        if (instance == null)
-            instance = this;
-        //now replaces already existing gameManager instead
-        else if (instance != this)
-            Destroy(instance.gameObject);
-    }
-
     void Start () {
         distanceThisToDestroyer = Vector3.Distance(transform.position, noteCheckerGameobject.transform.position);
         noteCheck = noteCheckerGameobject.GetComponent<NoteChecker>();

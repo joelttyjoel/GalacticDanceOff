@@ -30,7 +30,6 @@ public class GameManagerController : MonoBehaviour {
     [Header("Note settings")]
     public float beatsToSlowDownFor = 4f;
     public float beatsToSpeedUpFor = 1f;
-    public GameObject noteParent;
     //settings perfect, good
     public float percentagePerfectFromCenter = 0.05f;
     //stupid name but can't short that man

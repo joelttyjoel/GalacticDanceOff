@@ -38,7 +38,7 @@ public class NoteChecker : MonoBehaviour {
 	
 	void FixedUpdate()
 	{
-		Debug.Log(Time.time);
+
 	}
 	// Update is called once per frame
 	void LateUpdate ()
@@ -90,41 +90,41 @@ public class NoteChecker : MonoBehaviour {
 			NoteKeyDown(7);
 		}
 
-		if (Input.GetButtonDown ("Button A")) 
-		{
-			NoteKeyDown(0);
-		}
-		else if(Input.GetButtonDown ("Button B")) 
-		{
-			NoteKeyDown(1);
-		}
-		else if (Input.GetButtonDown ("Button X")) 
-		{
-			NoteKeyDown(2);
-		}
-		else if (Input.GetButtonDown ("Button Y")) 
-		{
-			NoteKeyDown(3);
-		}
+		//if (Input.GetButtonDown ("Button A")) 
+		//{
+		//	NoteKeyDown(0);
+		//}
+		//else if(Input.GetButtonDown ("Button B")) 
+		//{
+		//	NoteKeyDown(1);
+		//}
+		//else if (Input.GetButtonDown ("Button X")) 
+		//{
+		//	NoteKeyDown(2);
+		//}
+		//else if (Input.GetButtonDown ("Button Y")) 
+		//{
+		//	NoteKeyDown(3);
+		//}
 			
 
-		if (Input.GetAxisRaw ("Vertical") > 0) 
-		{
-			NoteKeyDown (4);
-		}
-		else if (Input.GetAxisRaw ("Horizontal") > 0) 
-		{
-			NoteKeyDown (7);
-		}
+		//if (Input.GetAxisRaw ("Vertical") > 0) 
+		//{
+		//	NoteKeyDown (4);
+		//}
+		//else if (Input.GetAxisRaw ("Horizontal") > 0) 
+		//{
+		//	NoteKeyDown (7);
+		//}
 
-		if (Input.GetAxisRaw ("Vertical") < 0) 
-		{
-			NoteKeyDown (6);
-		}
-		else if (Input.GetAxisRaw ("Horizontal") < 0) 
-		{
-			NoteKeyDown (5);
-		}
+		//if (Input.GetAxisRaw ("Vertical") < 0) 
+		//{
+		//	NoteKeyDown (6);
+		//}
+		//else if (Input.GetAxisRaw ("Horizontal") < 0) 
+		//{
+		//	NoteKeyDown (5);
+		//}
 
 	}
 

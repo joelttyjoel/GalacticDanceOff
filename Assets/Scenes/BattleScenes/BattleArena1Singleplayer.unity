@@ -263,10 +263,12 @@ MonoBehaviour:
   - Test_Funk_sekvens_2
   startLevel: 0
   failLevel: 0
-  beatGetterThingGameObject: {fileID: 2125068834}
   egoMeterLeft: 0
   egoMeterRight: 0
   beatsSpawnToGoal_akaSpeed: 4
+  beatsToSlowDownFor: 7
+  beatsToSpeedUpFor: 0.3
+  noteParent: {fileID: 1813713566}
   percentagePerfectFromCenter: 0.05
   percentageGoodFromCenter: 0.09
   fadeDistance: 0.25
@@ -1335,12 +1337,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4156693024322cd4ebbf508e813f79e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bpm: 0
-  howLongBeats: 0
-  beatsPerTakt: 0
   thingsPerBeat: 0
-  currentLineNumber: 0
   currentTickTime: 0
+  currentLineNumber: 0
   easyToReadBeats: 
   metronome: 0
   timePer16del: 0
@@ -2161,7 +2160,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bd245f40045c5143a6de284d6af7198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatMapSpawnerRef: {fileID: 701672777}
   current16delTime: 0
-  runNextBeatmap: 0
-  nameOfMapToRun: 
+  currentLabelName: Start

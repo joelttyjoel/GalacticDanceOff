@@ -1,8 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
-using FMOD.Studio;
 
 public class MusicController : MonoBehaviour
 {
@@ -11,7 +9,19 @@ public class MusicController : MonoBehaviour
 
     private int numberOfLevels = 1;
 
-    //hardcode names of parameters, dont change around 
+    //hardcode names of parameters, dont change around, in fmod
+
+    //for creating singleton, love easy referencing
+    public static MusicController instance = null;
+
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        //now replaces already existing gameManager instead
+        else if (instance != this)
+            Destroy(instance.gameObject);
+    }
 
     void Start()
     {
@@ -59,7 +69,7 @@ public class MusicController : MonoBehaviour
             myEmitter.SetParameter("StartLvl" + (i).ToString(), 0f);
         }
         //now set restart back to 0 so it doesen't fuck up rest of shit
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(0.1f);
         myEmitter.SetParameter("Restart", 0f);
         //do slow down time at same rate as thing
     }

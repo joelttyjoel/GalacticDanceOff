@@ -24,6 +24,7 @@ using System.Collections;
 using System.Runtime.InteropServices;
 using UnityEngine;
 using FMODUnity;
+using FMOD.Studio;
 
 public class BeatGetterFromFmodText : MonoBehaviour
 {
@@ -47,28 +48,19 @@ public class BeatGetterFromFmodText : MonoBehaviour
     FMOD.Studio.EventInstance musicInstance;
 
     //custom variables
-    public GameObject beatMapSpawnerRef;
     public float current16delTime = 0f;
-
-    private BeatmapReader beatMapReaderRef;
-    private BeatmapSpawner beatMapSpawnerScriptRef;
-    private float timePer16delthis = 0f;
-    private float beatsPerTaktThis = 0;
-
-    private string currentLabelName = "Start";
+    
+    public string currentLabelName = "Start";
+    [NonSerialized]
     public bool runNextBeatmap = false;
+    [NonSerialized]
     public string nameOfMapToRun;
 
     void Start()
     {
         //custom stuff
-        //set time to wait from oter thing
-        beatMapReaderRef = beatMapSpawnerRef.GetComponent<BeatmapReader>();
-        beatMapSpawnerScriptRef = beatMapSpawnerRef.GetComponent<BeatmapSpawner>();
 
-        //get these two from inside the fucker instead, set in beatMapReaderRef thing plz too
-        timePer16delthis = 0.166f;
-        beatsPerTaktThis = 4;
+        
 
         //---
         timelineInfo = new TimelineInfo();
@@ -99,10 +91,10 @@ public class BeatGetterFromFmodText : MonoBehaviour
         timelineHandle.Free();
     }
 
-    void OnGUI()
-    {
-        GUILayout.Box(String.Format("Current metronome in beatmapReader = {0}, Its time = {1}", 69, current16delTime));
-    }
+    //void OnGUI()
+    //{
+    //    GUILayout.Box(String.Format("Current metronome in beatmapReader = {0}, Its time = {1}", 69, current16delTime));
+    //}
 
     [AOT.MonoPInvokeCallback(typeof(FMOD.Studio.EVENT_CALLBACK))]
     static FMOD.RESULT BeatEventCallback(FMOD.Studio.EVENT_CALLBACK_TYPE type, FMOD.Studio.EventInstance instance, IntPtr parameterPtr)
@@ -125,10 +117,13 @@ public class BeatGetterFromFmodText : MonoBehaviour
                 case FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT:
                     {
                         var parameter = (FMOD.Studio.TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(FMOD.Studio.TIMELINE_BEAT_PROPERTIES));
-                        //tik big metronome, per beat
-                        timelineInfo.metronome1= !timelineInfo.metronome1;
                         //set current time
                         timelineInfo.timeOfBeat = Time.time;
+                        //set time per 16del this
+                        //currently hardcoded how many thingsPerBeat there is, not sure how to fix
+                        BeatmapReader.instance.timePer16del = ((60 / parameter.tempo) / BeatmapReader.instance.thingsPerBeat);
+                        //tik big metronome, per beat, tick after settings
+                        timelineInfo.metronome1= !timelineInfo.metronome1;
                     }
                     break;
                 case FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER:
@@ -145,23 +140,23 @@ public class BeatGetterFromFmodText : MonoBehaviour
     //this fukker is polling if metronome per beat has changed, if changed, start create 16delar
     private IEnumerator WaitForChanges()
     {
-        float waitTimePerPoll = timePer16delthis / 16;
+        float waitTimePerPoll = BeatmapReader.instance.timePer16del / 16;
         bool thisMetronome = timelineInfo.metronome1;
-        float timePerBeat = timePer16delthis * beatsPerTaktThis;
+        float timePerBeat = BeatmapReader.instance.timePer16del * BeatmapReader.instance.thingsPerBeat;
 
         //just sit and poll this badboi fast as fuk boi
         while (true)
         {
             yield return new WaitForSeconds(waitTimePerPoll);
             //metronome has changed do create 16delar, 
-            if(thisMetronome != timelineInfo.metronome1)
+            if (thisMetronome != timelineInfo.metronome1)
             {
                 //set to current to tell if changed next time
                 thisMetronome = timelineInfo.metronome1;
                 //start create x parts per beat
                 StartCoroutine(Create16Delar());
                 //ugly but shhhhhhh ok, spawn fret on each beat
-                beatMapSpawnerScriptRef.SpawnFret(timePerBeat, timelineInfo.timeOfBeat);
+                BeatmapSpawner.instance.SpawnFret(timePerBeat, timelineInfo.timeOfBeat);
 
                 //also polling if can enter next beatmap, can only happen on beat
                 if(runNextBeatmap && currentLabelName != timelineInfo.lastMarker)
@@ -169,7 +164,7 @@ public class BeatGetterFromFmodText : MonoBehaviour
                     //if can enter, set things back, run beatmap
                     currentLabelName = timelineInfo.lastMarker;
                     runNextBeatmap = false;
-                    beatMapReaderRef.StartRunningBeatmap(nameOfMapToRun);
+                    BeatmapReader.instance.StartRunningBeatmap(nameOfMapToRun);
                 }
             }
         }
@@ -177,16 +172,16 @@ public class BeatGetterFromFmodText : MonoBehaviour
     //hits beat just as started, then 3 following with time between equal to time between 16 delar, after last wait, then hopefully started again
     private IEnumerator Create16Delar()
     {
-        for(int i = 0; i < beatsPerTaktThis; i++)
+        for(int i = 0; i < BeatmapReader.instance.thingsPerBeat; i++)
         {
             //add exact time to thing each time, starting at every beat
-            current16delTime = timelineInfo.timeOfBeat + (timePer16delthis * i);
+            current16delTime = timelineInfo.timeOfBeat + (BeatmapReader.instance.timePer16del * i);
             //Debug.Log(current16delTime.ToString() + " at beat in beat " + (i + 1).ToString());
             //set metronome in other fucker shhhhhhhh dont say it yes is ugly but shhhhhhh
-            beatMapReaderRef.metronome = !beatMapReaderRef.metronome;
-            beatMapReaderRef.currentTickTime = current16delTime;
+            BeatmapReader.instance.metronome = !BeatmapReader.instance.metronome;
+            BeatmapReader.instance.currentTickTime = current16delTime;
             //now wait
-            yield return new WaitForSeconds(timePer16delthis);
+            yield return new WaitForSeconds(BeatmapReader.instance.timePer16del);
      
         }
 

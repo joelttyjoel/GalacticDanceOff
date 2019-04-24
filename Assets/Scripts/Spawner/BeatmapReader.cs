@@ -9,27 +9,40 @@ public class BeatmapReader : MonoBehaviour {
     //public TextAsset beatMap;
     //ev hide so noone changes, gets confused
     [Header("Beatmap settings")]
-    public float bpm;
-    public float howLongBeats = 0;
-    public float beatsPerTakt = 0;
-    public float thingsPerBeat = 0;
-    public int currentLineNumber = 0;
+    public float thingsPerBeat = 4;
     public float currentTickTime = 0f;
 
     //1-8 = notes, 0 = nothing, 9 = stop
+    public int currentLineNumber = 0;
     public List<int> easyToReadBeats;
 
-    //private
+    //timing stuff
     [HideInInspector]
     public bool metronome = false;
+    [HideInInspector]
+    public float timePer16del = 0.1666f;
+    private bool beatMapIsRunning = false;
+    private bool hasHadCooldown = true;
+
+    //beatmap stuff
     private string beatMapPath;
     private string[] beatMapLines;
 
-    [HideInInspector]
-    public float timePer16del;
+    //for creating singleton, love easy referencing
+    public static BeatmapReader instance = null;
 
-    private bool beatMapIsRunning = false;
-    private bool hasHadCooldown = true;
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        //now replaces already existing gameManager instead
+        else if (instance != this)
+            Destroy(instance.gameObject);
+
+        //set shit, dunno
+        thingsPerBeat = 4f;
+        timePer16del = 0.1666f;
+    }
 
     public void StartRunningBeatmap(string beatMapName)
     {
@@ -42,16 +55,7 @@ public class BeatmapReader : MonoBehaviour {
         //create easy to read beatlist for computer
         easyToReadBeats.Clear();
         CreateEasyToReadBeats();
-        //set things once bpm has been recieved
-        timePer16del = ((60 / bpm) / beatsPerTakt);
-        //set fixed update metronome to thing
-        Time.fixedDeltaTime = timePer16del;
-        //StartCoroutine(Metronome());
-        //things per beat deciding
-        if (beatsPerTakt == 8) thingsPerBeat = 2;
-        else thingsPerBeat = 4;
-
-        //actually start courutine
+        //actually start courutine that places notes
         StartCoroutine(RunBeatmap());
     }
 
@@ -59,8 +63,6 @@ public class BeatmapReader : MonoBehaviour {
     {
         //set things here again for safety
         beatMapIsRunning = true;
-        //get thing
-        BeatmapSpawner beatmapSpawner = GetComponent<BeatmapSpawner>();
         //thing for cooldown check
         hasHadCooldown = metronome;
         
@@ -80,7 +82,7 @@ public class BeatmapReader : MonoBehaviour {
             //NOTES
             if (currentValue > 0 && currentValue < 9)
             {
-                beatmapSpawner.SpawnNote(currentValue, totalWaitTime, currentTickTime);
+                BeatmapSpawner.instance.SpawnNote(currentValue, totalWaitTime, currentTickTime);
             }
             //NOTHING
             else if (currentValue == 0)
@@ -104,6 +106,11 @@ public class BeatmapReader : MonoBehaviour {
         yield return new WaitForEndOfFrame();
     }
 
+    public void StopRunningBeatmap()
+    {
+        beatMapIsRunning = false;
+    }
+
     //METRONOME, OLD BADBOY, GRRRR
     //void FixedUpdate()
     //{
@@ -125,32 +132,32 @@ public class BeatmapReader : MonoBehaviour {
             if(currentLineArray[0].ToString() + currentLineArray[1].ToString() == "--")
             {
                 //if setBpm
-                if(currentLineArray[2] == 'b')
-                {
-                    //read line to find bpm, first char of number is at index 5
-                    string fullValString = "";
+                //if(currentLineArray[2] == 'b')
+                //{
+                //    //read line to find bpm, first char of number is at index 5
+                //    //string fullValString = "";
 
-                    int currentIndex = 5;
-                    char currentChar = currentLineArray[currentIndex];
-                    //is false when reached end of numbers
-                    while(currentChar != '-')
-                    {
-                        //add current number to string
-                        fullValString += currentChar.ToString();
-                        currentIndex++;
-                        currentChar = currentLineArray[currentIndex];
-                    }
+                //    //int currentIndex = 5;
+                //    //char currentChar = currentLineArray[currentIndex];
+                //    ////is false when reached end of numbers
+                //    //while(currentChar != '-')
+                //    //{
+                //    //    //add current number to string
+                //    //    fullValString += currentChar.ToString();
+                //    //    currentIndex++;
+                //    //    currentChar = currentLineArray[currentIndex];
+                //    //}
 
-                    bpm = int.Parse(fullValString);
-                }
-                //if set timesignature
-                else if (currentLineArray[2] == 't')
-                {
-                    howLongBeats = float.Parse(currentLineArray[4].ToString());
-                    beatsPerTakt = float.Parse(currentLineArray[6].ToString());
-                }
+                //    //bpm = int.Parse(fullValString);
+                //}
+                ////if set timesignature
+                //else if (currentLineArray[2] == 't')
+                //{
+                //    //howLongBeats = float.Parse(currentLineArray[4].ToString());
+                //    //beatsPerTakt = float.Parse(currentLineArray[6].ToString());
+                //}
                 //if start
-                else if (currentLineArray[2] == 's')
+                if (currentLineArray[2] == 's')
                 {
                     //dirty, but basicly move outside of while loop and have beatMap start at next line
                     currentLineNumber++;

@@ -22,8 +22,21 @@ public class InputManager : MonoBehaviour {
 		buttonKeys ["Right"] = KeyCode.RightArrow;
 
 	}
-	// Use this for initialization
-	void Start () {
+
+    //for creating singleton, love easy referencing
+    public static InputManager instance = null;
+
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        //now replaces already existing gameManager instead
+        else if (instance != this)
+            Destroy(instance.gameObject);
+    }
+
+    // Use this for initialization
+    void Start () {
 	}
 	
 	// Update is called once per frame

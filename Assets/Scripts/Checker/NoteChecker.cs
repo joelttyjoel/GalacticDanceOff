@@ -18,7 +18,16 @@ public class NoteChecker : MonoBehaviour {
     [SerializeField]
     private int pointLostPerMissedNote = 20;
     */
-
+    //for inputing what strings to check for in input manager
+    [System.Serializable]
+    public class InputStringsAndTheirValues
+    {
+        public string stringInputManager;
+        public int valueOfNoteCheck;
+    }
+    //ex, w 0, a 1, s 2, d 3. 
+    [SerializeField]
+    public InputStringsAndTheirValues[] inputSet = new InputStringsAndTheirValues[4];
         
     private float goodPercentageDistance;
     private float perfectPercentageDistance;
@@ -43,90 +52,61 @@ public class NoteChecker : MonoBehaviour {
 	// Update is called once per frame
 	void LateUpdate ()
     {
-        //else, continue
-
-        //Get button down
-        /*
-        //Note1
-        if (Input.GetButtonDown("Note1"))
+        //can click multiple buttons at once, grrrrr, are however checked in order which is suck, should be checked all at once
+        if(InputManager.instance.GetButtonDown(inputSet[0].stringInputManager))
         {
-            NoteKeyDown(1);
+            NoteKeyDown(inputSet[0].valueOfNoteCheck);
         }
-        //Note2...
-        //etc
-        */
-
-		if (Input.GetKeyDown(KeyCode.W))
+        if (InputManager.instance.GetButtonDown(inputSet[1].stringInputManager))
         {
-            NoteKeyDown(0);
+            NoteKeyDown(inputSet[1].valueOfNoteCheck);
         }
-		else if (Input.GetKeyDown(KeyCode.A))
-		{
-			NoteKeyDown(1);
-		}
-		else if (Input.GetKeyDown(KeyCode.S))
-		{
-			NoteKeyDown(2);
-		}
-		else if (Input.GetKeyDown(KeyCode.D))
-		{
-			NoteKeyDown(3);
-		}
-		//
-		if (Input.GetKeyDown(KeyCode.UpArrow))
-		{
-			NoteKeyDown(4);
-		}
-		else if (Input.GetKeyDown(KeyCode.LeftArrow))
-		{
-			NoteKeyDown(5);
-		}
-		else if (Input.GetKeyDown(KeyCode.DownArrow))
-		{
-			NoteKeyDown(6);
-		}
-		else if (Input.GetKeyDown(KeyCode.RightArrow))
-		{
-			NoteKeyDown(7);
-		}
+        if (InputManager.instance.GetButtonDown(inputSet[2].stringInputManager))
+        {
+            NoteKeyDown(inputSet[2].valueOfNoteCheck);
+        }
+        if (InputManager.instance.GetButtonDown(inputSet[3].stringInputManager))
+        {
+            NoteKeyDown(inputSet[3].valueOfNoteCheck);
+        }
 
-		//if (Input.GetButtonDown ("Button A")) 
-		//{
-		//	NoteKeyDown(0);
-		//}
-		//else if(Input.GetButtonDown ("Button B")) 
-		//{
-		//	NoteKeyDown(1);
-		//}
-		//else if (Input.GetButtonDown ("Button X")) 
-		//{
-		//	NoteKeyDown(2);
-		//}
-		//else if (Input.GetButtonDown ("Button Y")) 
-		//{
-		//	NoteKeyDown(3);
-		//}
-			
+        //if (Input.GetButtonDown ("Button A")) 
+        //{
+        //	NoteKeyDown(0);
+        //}
+        //else if(Input.GetButtonDown ("Button B")) 
+        //{
+        //	NoteKeyDown(1);
+        //}
+        //else if (Input.GetButtonDown ("Button X")) 
+        //{
+        //	NoteKeyDown(2);
+        //}
+        //else if (Input.GetButtonDown ("Button Y")) 
+        //{
+        //	NoteKeyDown(3);
+        //}
 
-		//if (Input.GetAxisRaw ("Vertical") > 0) 
-		//{
-		//	NoteKeyDown (4);
-		//}
-		//else if (Input.GetAxisRaw ("Horizontal") > 0) 
-		//{
-		//	NoteKeyDown (7);
-		//}
 
-		//if (Input.GetAxisRaw ("Vertical") < 0) 
-		//{
-		//	NoteKeyDown (6);
-		//}
-		//else if (Input.GetAxisRaw ("Horizontal") < 0) 
-		//{
-		//	NoteKeyDown (5);
-		//}
+        //if (Input.GetAxisRaw ("Vertical") > 0) 
+        //{
+        //	NoteKeyDown (4);
+        //}
+        //else if (Input.GetAxisRaw ("Horizontal") > 0) 
+        //{
+        //	NoteKeyDown (7);
+        //}
 
-	}
+        //if (Input.GetAxisRaw ("Vertical") < 0) 
+        //{
+        //	NoteKeyDown (6);
+        //}
+        //else if (Input.GetAxisRaw ("Horizontal") < 0) 
+        //{
+        //	NoteKeyDown (5);
+        //}
+
+    }
 
 
     private void NoteKeyDown(int noteKey)

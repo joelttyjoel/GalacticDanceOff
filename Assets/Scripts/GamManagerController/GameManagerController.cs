@@ -118,7 +118,6 @@ public class GameManagerController : MonoBehaviour {
             percentageOfTravel = (endTime - Time.time) / timeToSlowFor;
             Time.timeScale = 1f * percentageOfTravel;
             yield return new WaitForEndOfFrame();
-            Debug.Log(Time.timeScale);
         }
 
         yield return new WaitForEndOfFrame();

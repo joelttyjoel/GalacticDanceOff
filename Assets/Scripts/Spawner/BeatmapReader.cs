@@ -9,12 +9,18 @@ public class BeatmapReader : MonoBehaviour {
     //public TextAsset beatMap;
     //ev hide so noone changes, gets confused
     [Header("Beatmap settings")]
+    public GameObject beatSpawnerTop;
+    public GameObject beatSpawnerBot;
+    private BeatmapSpawner beatSpawnerTopScript;
+    private BeatmapSpawner beatSpawnerBotScript;
     public float thingsPerBeat = 4;
     public float currentTickTime = 0f;
 
     //1-8 = notes, 0 = nothing, 9 = stop
     public int currentLineNumber = 0;
-    public List<int> easyToReadBeats;
+    //top = wasd, bot = arrowkeys
+    public List<int> easyToReadBeatsTop;
+    public List<int> easyToReadBeatsBot;
 
     //timing stuff
     [HideInInspector]
@@ -44,16 +50,23 @@ public class BeatmapReader : MonoBehaviour {
         timePer16del = 0.1666f;
     }
 
+    private void Start()
+    {
+        beatSpawnerTopScript = beatSpawnerTop.GetComponent<BeatmapSpawner>();
+        beatSpawnerBotScript = beatSpawnerBot.GetComponent<BeatmapSpawner>();
+    }
+
     public void StartRunningBeatmap(string beatMapName)
     {
         if (beatMapIsRunning) return;
         //get all lines as string array
         //Debug.Log("THIS IS PATH: " + Application.dataPath);
-        beatMapLines = File.ReadAllLines(Application.dataPath + "/StreamingAssets/Beatmaps/" + beatMapName + ".txt");
+        beatMapLines = File.ReadAllLines(Application.dataPath + "/StreamingAssets/Beatmaps/2laneBeatmaps/" + beatMapName + ".txt");
         //get setup for start
         GoToStartOfBeats();
         //create easy to read beatlist for computer
-        easyToReadBeats.Clear();
+        easyToReadBeatsTop.Clear();
+        easyToReadBeatsBot.Clear();
         CreateEasyToReadBeats();
         //actually start courutine that places notes
         StartCoroutine(RunBeatmap());
@@ -78,25 +91,42 @@ public class BeatmapReader : MonoBehaviour {
             hasHadCooldown = metronome;
 
             //read what is in list, do that
-            int currentValue = easyToReadBeats[currentNoteIndex];
+            int currentValueTop = easyToReadBeatsTop[currentNoteIndex];
+            int currentValueBot = easyToReadBeatsBot[currentNoteIndex];
+            //TOP-------------------------
             //NOTES
-            if (currentValue > 0 && currentValue < 9)
+            if (currentValueTop > 0 && currentValueTop < 9)
             {
-                BeatmapSpawner.instance.SpawnNote(currentValue, totalWaitTime, currentTickTime);
+                beatSpawnerTopScript.SpawnNote(currentValueTop, totalWaitTime, currentTickTime);
             }
             //NOTHING
-            else if (currentValue == 0)
+            else if (currentValueTop == 0)
             {
-                //do tiny thing to equal note spawning
-                int hi;
-                hi = 1 + 1;
+                //nothing, empty space
             }
             //IF NOTHING, JUST MOVE TO NEXT AND WAIT
+            //If is 9, stop
             else
             {
                 goto atStop;
             }
-            
+            //BOT-------------------------
+            if (currentValueBot > 0 && currentValueBot < 9)
+            {
+                beatSpawnerBotScript.SpawnNote(currentValueBot, totalWaitTime, currentTickTime);
+            }
+            //NOTHING
+            else if (currentValueBot == 0)
+            {
+                //nothing, empty space
+            }
+            //IF NOTHING, JUST MOVE TO NEXT AND WAIT
+            //If is 9, stop
+            else
+            {
+                goto atStop;
+            }
+
             currentNoteIndex++;
         }
 
@@ -184,22 +214,9 @@ public class BeatmapReader : MonoBehaviour {
             //beat thing, most commonly just does this then last parts
             if (currentLineArray[1] == '/')
             {
-                //check if has note, if so add thing to list
-                if (currentLineArray.Length > 6)
-                {
-                    //first check so its not empty place
-                    //thing
-                    //beatmapSpawner.SpawnItem(currentLineArray[6], (timeToWait * thingsPerBeat));
-                    if (currentLineArray[6] != ' ')
-                    {
-                        easyToReadBeats.Add(int.Parse(currentLineArray[6].ToString()));
-                    }
-                }
-                //else add 0 to list
-                else
-                {
-                    easyToReadBeats.Add(0);
-                }
+                //add thing 6 to top, add thing 7 to bot, if 0, adds 0
+                easyToReadBeatsTop.Add(int.Parse(currentLineArray[6].ToString()));
+                easyToReadBeatsBot.Add(int.Parse(currentLineArray[7].ToString()));
             }
             else if(currentLineArray[0] == '#')
             {
@@ -210,7 +227,9 @@ public class BeatmapReader : MonoBehaviour {
             {
                 if (currentLineArray[2] == 's')
                 {
-                    easyToReadBeats.Add(9);
+                    //add 9 to ends of both, tis is end
+                    easyToReadBeatsTop.Add(9);
+                    easyToReadBeatsBot.Add(9);
                     hasReachedEnd = true;
                 }
             }

@@ -14,6 +14,7 @@ public class BeatmapSpawner : MonoBehaviour {
     [Header("Object in scene references")]
     GameObject noteCheckerGameobject;
     NoteChecker noteCheck;
+    private Vector3 vectorTowardsThisChecker;
 
     [SerializeField]
     GameObject noteParent;
@@ -25,21 +26,14 @@ public class BeatmapSpawner : MonoBehaviour {
     //used to offset frets behind notes
     private float distanceBehindNotes = 0.01f;
 
-    //for creating singleton, love easy referencing
-    public static BeatmapSpawner instance = null;
-
-    void Awake()
-    {
-        if (instance == null)
-            instance = this;
-        //now replaces already existing gameManager instead
-        else if (instance != this)
-            Destroy(instance.gameObject);
-    }
-
     void Start () {
+        //distance, to get position percentage
         distanceThisToDestroyer = Vector3.Distance(transform.position, noteCheckerGameobject.transform.position);
         noteCheck = noteCheckerGameobject.GetComponent<NoteChecker>();
+
+        //set vector in start, to get direction of travel
+        vectorTowardsThisChecker = noteCheck.transform.position - this.transform.position;
+        //Vector3.Normalize(vectorTowardsThisCheckerNorm);
     }
 
     public void SpawnNote(int itemValue, float timePerBeat, float currentTickTime)
@@ -49,6 +43,8 @@ public class BeatmapSpawner : MonoBehaviour {
         //set variables in gameobject
         //set item type in gameobject to select features
         NoteController controllerNote = currentNote.GetComponent<NoteController>();
+        //set direction vector
+        controllerNote.vectorStartToGoal = vectorTowardsThisChecker;
         //set birth time
         controllerNote.timeAtBirth = currentTickTime;
         //-1 due to thing
@@ -61,6 +57,7 @@ public class BeatmapSpawner : MonoBehaviour {
         controllerNote.noteChecker = noteCheckerGameobject;
         //set position to position of the spawner
         currentNote.transform.position = this.transform.position;
+        currentNote.transform.rotation = this.transform.rotation;
         //set parent to notes, this keeps things sorted in scene
         currentNote.transform.SetParent(noteParent.transform);
 
@@ -75,6 +72,8 @@ public class BeatmapSpawner : MonoBehaviour {
         //set variables in gameobject
         //set item type in gameobject to select features
         FretController controllerFret = currentFret.GetComponent<FretController>();
+        //set direction vector
+        controllerFret.vectorStartToGoal = vectorTowardsThisChecker;
         //set birth time
         controllerFret.timeAtBirth = currentTickTime;
         //hand distance to child

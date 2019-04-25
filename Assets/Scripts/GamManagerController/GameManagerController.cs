@@ -30,7 +30,6 @@ public class GameManagerController : MonoBehaviour {
     [Header("Note settings")]
     public float beatsToSlowDownFor = 4f;
     public float beatsToSpeedUpFor = 1f;
-    public GameObject noteParent;
     //settings perfect, good
     public float percentagePerfectFromCenter = 0.05f;
     //stupid name but can't short that man
@@ -119,7 +118,6 @@ public class GameManagerController : MonoBehaviour {
             percentageOfTravel = (endTime - Time.time) / timeToSlowFor;
             Time.timeScale = 1f * percentageOfTravel;
             yield return new WaitForEndOfFrame();
-            Debug.Log(Time.timeScale);
         }
 
         yield return new WaitForEndOfFrame();

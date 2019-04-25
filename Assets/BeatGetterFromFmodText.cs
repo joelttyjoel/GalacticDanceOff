@@ -56,6 +56,9 @@ public class BeatGetterFromFmodText : MonoBehaviour
     [NonSerialized]
     public string nameOfMapToRun;
 
+    public GameObject beatSpawnerTop;
+    public GameObject beatSpawnerBot;
+
     void Start()
     {
         //custom stuff
@@ -156,10 +159,11 @@ public class BeatGetterFromFmodText : MonoBehaviour
                 //start create x parts per beat
                 StartCoroutine(Create16Delar());
                 //ugly but shhhhhhh ok, spawn fret on each beat
-                BeatmapSpawner.instance.SpawnFret(timePerBeat, timelineInfo.timeOfBeat);
+                beatSpawnerTop.GetComponent<BeatmapSpawner>().SpawnFret(timePerBeat, timelineInfo.timeOfBeat);
+                beatSpawnerBot.GetComponent<BeatmapSpawner>().SpawnFret(timePerBeat, timelineInfo.timeOfBeat);
 
                 //also polling if can enter next beatmap, can only happen on beat
-                if(runNextBeatmap && currentLabelName != timelineInfo.lastMarker)
+                if (runNextBeatmap && currentLabelName != timelineInfo.lastMarker)
                 {
                     //if can enter, set things back, run beatmap
                     currentLabelName = timelineInfo.lastMarker;

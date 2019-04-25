@@ -11,6 +11,10 @@ public class FretController : MonoBehaviour {
     public float distanceSpawnDestroyer;
     [HideInInspector]
     public float timePerBeat;
+
+    //new shit for going along board instead of just along axis
+    [HideInInspector]
+    public Vector3 vectorStartToGoal;
     
     //nd fade
     private float fadeDistance = 0.5f;
@@ -42,7 +46,6 @@ public class FretController : MonoBehaviour {
         originalPos = transform.position;
         //set total final
         totalPercentageFinal = totalPercentageFinal + percentageAboveFinal;
-
         //start fade in 
         StartCoroutine(OnSpawnFade());
     }
@@ -53,7 +56,9 @@ public class FretController : MonoBehaviour {
         //depending on how far compared to full time, do the do, percentage of completed
         percentageOfTravel = timeSinceBirth / timeUntilGoal;
         Vector3 currentPos = transform.position;
-        transform.position = new Vector3(originalPos.x - (distanceSpawnDestroyer * percentageOfTravel), currentPos.y, currentPos.z);
+
+        //add vector * percentage (all way) to original position, boom
+        transform.position = originalPos + (vectorStartToGoal * percentageOfTravel);
 
         if (percentageOfTravel > totalPercentageFinal && !hasgoneTooFar)
         {

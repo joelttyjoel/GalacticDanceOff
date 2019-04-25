@@ -22,12 +22,17 @@ public class InputManager : MonoBehaviour {
 		buttonKeys ["Right"] = KeyCode.RightArrow;
 
 	}
+		
+
 
     //for creating singleton, love easy referencing
     public static InputManager instance = null;
 
     void Awake()
     {
+
+		//Cursor.visible = false;
+		//Cursor.lockState = CursorLockMode.Locked;
         if (instance == null)
             instance = this;
         //now replaces already existing gameManager instead

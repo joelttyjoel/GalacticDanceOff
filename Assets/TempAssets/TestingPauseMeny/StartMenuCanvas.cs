@@ -54,8 +54,11 @@ public class StartMenuCanvas : MonoBehaviour {
 			{
 				Debug.Log ("Opens Options");
 				OptionButton.transform.GetChild (0).gameObject.SetActive (true);
-				soloButton.interactable = false;
-				versusButton.interactable = false;
+				if (soloButton != null && versusButton != null) 
+				{
+					soloButton.interactable = false;
+					versusButton.interactable = false;
+				}
 
 				EventSystem.current.GetComponent<EventSystem> ().SetSelectedGameObject (
 					OptionButton.transform.GetChild (0).transform.GetChild (0).gameObject);
@@ -70,8 +73,11 @@ public class StartMenuCanvas : MonoBehaviour {
 		{
 			OptionButton.transform.GetChild (i).gameObject.SetActive (false);
 		}
-		soloButton.interactable = true;
-		versusButton.interactable = true;
+		if (soloButton != null && versusButton != null) 
+		{
+			soloButton.interactable = true;
+			versusButton.interactable = true;
+		}
 		EventSystem.current.GetComponent<EventSystem> ().SetSelectedGameObject (soloButton.gameObject);
 
 	}

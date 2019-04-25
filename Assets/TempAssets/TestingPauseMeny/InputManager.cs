@@ -31,6 +31,7 @@ public class InputManager : MonoBehaviour {
 		
 	}
 
+	//GetbuttonDown is like input.geykeydown
 	public bool GetButtonDown(string buttonName)
 	{
 		if (buttonKeys.ContainsKey (buttonName) == false) 
@@ -41,11 +42,13 @@ public class InputManager : MonoBehaviour {
 		return Input.GetKeyDown (buttonKeys [buttonName]);
 	}
 
+	//return array of all keycodes in dictionary
 	public string[] GetButtonNames()
 	{
 		return buttonKeys.Keys.ToArray ();
 	}
 
+	//returns the name of the keycodes inside dictionary
 	public string GetKeyNameForButton( string buttonName)
 	{
 		if (buttonKeys.ContainsKey (buttonName) == false) 
@@ -56,6 +59,7 @@ public class InputManager : MonoBehaviour {
 		return buttonKeys [buttonName].ToString ();
 	}
 
+	//Sets the name to corresponding keycode
 	public void SetButtonForKey ( string buttonName, KeyCode keyCode)
 	{
 		buttonKeys [buttonName] = keyCode;

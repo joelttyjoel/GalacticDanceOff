@@ -38,7 +38,7 @@ public class NoteChecker : MonoBehaviour {
 	
 	void FixedUpdate()
 	{
-		Debug.Log(Time.time);
+		
 	}
 	// Update is called once per frame
 	void LateUpdate ()

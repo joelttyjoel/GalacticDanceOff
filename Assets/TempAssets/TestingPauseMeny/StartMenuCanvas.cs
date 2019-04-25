@@ -8,16 +8,8 @@ public class StartMenuCanvas : MonoBehaviour {
 
 	public Button soloButton;
 	public Button versusButton;
+
 	public GameObject OptionButton;
-	public GameObject InputButtons;
-
-	public Button keyBindButton; //open keybindmenu
-	public Button volumeButton; //open volumemenu
-	public Button ExitButton; //exits
-
-	public Button keyBoardButton;
-
-	private Stack<GameObject> menuQueue = new Stack<GameObject>();
 
 
 	// Use this for initialization
@@ -28,18 +20,18 @@ public class StartMenuCanvas : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		//if input esc.
+		
 		if(Input.GetKeyDown(KeyCode.M))
 		{
+			Debug.Log ("fix");
 			OpenOptions();
 		}
-		if (Input.GetButtonDown ("Back Button")) 
+		if (Input.GetKeyDown(KeyCode.Z)) 
 		{
-			
 				CloseOptions ();
-				
-		
 		}
+
+
 	}
 
 	public void SoloMode() 
@@ -56,49 +48,38 @@ public class StartMenuCanvas : MonoBehaviour {
 		
 	public void OpenOptions ()
 	{
-		
-		if (!OptionButton.transform.GetChild (0).gameObject.activeInHierarchy) 
+		for (int i = OptionButton.transform.childCount-1; i >= 0; i--)
 		{
-			menuQueue.Push (OptionButton.transform.GetChild (0).gameObject);
-			Debug.Log ("Opens Options");
-			soloButton.interactable = false;
-			versusButton.interactable = false;
-			OptionButton.transform.GetChild (0).gameObject.SetActive (true);
+			if (!OptionButton.transform.GetChild (i).gameObject.activeInHierarchy) 
+			{
+				Debug.Log ("Opens Options");
+				OptionButton.transform.GetChild (0).gameObject.SetActive (true);
+				soloButton.interactable = false;
+				versusButton.interactable = false;
 
-			EventSystem.current.GetComponent<EventSystem> ().SetSelectedGameObject (
-				OptionButton.transform.GetChild (0).transform.GetChild (0).gameObject);
-
+				EventSystem.current.GetComponent<EventSystem> ().SetSelectedGameObject (
+					OptionButton.transform.GetChild (0).transform.GetChild (0).gameObject);
+			}
 		}
 	}
 
 	public void CloseOptions()
 	{
-		if (OptionButton.transform.GetChild(0).gameObject.activeInHierarchy) 
+		Debug.Log ("closes options");
+		for (int i = OptionButton.transform.childCount-1; i >= 0; i--) 
 		{
-			menuQueue.Clear ();
-			Debug.Log ("closes options");
-			soloButton.interactable = true;
-			versusButton.interactable = true;
-			OptionButton.transform.GetChild (0).gameObject.SetActive (false);
-			EventSystem.current.GetComponent<EventSystem> ().SetSelectedGameObject (soloButton.gameObject);
+			OptionButton.transform.GetChild (i).gameObject.SetActive (false);
 		}
-	}
-		
-	public void OpenKeyBind()
-	{
-		menuQueue.Push (InputButtons);
-		InputButtons.SetActive (true);
-		OptionButton.transform.GetChild(0).gameObject.SetActive (false);
-		EventSystem.current.SetSelectedGameObject (
-			InputButtons.transform.GetChild (0).gameObject);
-	}
+		soloButton.interactable = true;
+		versusButton.interactable = true;
+		EventSystem.current.GetComponent<EventSystem> ().SetSelectedGameObject (soloButton.gameObject);
 
-
+	}
 
 
 	public void ExitGame()
 	{
-		//exit game?
+		Debug.Log ("Quit");
 	}
 
 }

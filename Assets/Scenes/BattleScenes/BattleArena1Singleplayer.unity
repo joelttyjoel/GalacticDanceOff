@@ -261,7 +261,7 @@ MonoBehaviour:
   beatMapNamesInOrder:
   - Funk_sekvens_A
   - Funk_sekvens_B
-  startLevel: 0
+  startLevel: 1
   failLevel: 0
   egoMeterLeft: 0
   egoMeterRight: 0
@@ -1575,6 +1575,55 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1150108524}
   m_Mesh: {fileID: 4300014, guid: 5542115ed4b2197449f11c4a7371f239, type: 3}
+--- !u!1 &1152439858
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1152439860}
+  - component: {fileID: 1152439859}
+  m_Layer: 0
+  m_Name: SceneSwitcher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1152439859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1152439858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0c007606bbe78f41867ea31f18461ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  all_Scenes:
+  - {fileID: 102900000, guid: 0c35f21c95efd9743a5433ce5cead2ca, type: 3}
+  - {fileID: 102900000, guid: 7ae5eec26ccaac645b73e0f7cd5c2233, type: 3}
+  all_Sequences_Sp:
+  - {fileID: 11400000, guid: 2c08dd6b58bb6bf4e84557c21313ecb5, type: 2}
+  all_Sequences_Mp: []
+  nameCurrentScene: 
+  nameCurrentSequence: 
+  isSp: 1
+--- !u!4 &1152439860
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1152439858}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.09459448, y: 0.23265624, z: -3.7586846}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1268981907
 GameObject:
   m_ObjectHideFlags: 0

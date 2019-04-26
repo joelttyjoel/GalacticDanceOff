@@ -47,7 +47,7 @@ public class PauseGameScript : MonoBehaviour {
 
 	void Update()
 	{
-		if (Input.GetKeyDown (KeyCode.Escape) || Input.GetButtonDown ("Start Button")) 
+		if (Input.GetKeyDown (KeyCode.Escape)) 
 		{
 			if (!OptionMenu.activeInHierarchy) 
 			{

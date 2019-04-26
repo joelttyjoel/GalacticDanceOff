@@ -21,6 +21,9 @@ public class MusicController : MonoBehaviour
         //now replaces already existing gameManager instead
         else if (instance != this)
             Destroy(instance.gameObject);
+
+        //GET INFO ABOUT MUSIC EVENT FOR THIS SCENE GRRRRRR
+        myEmitter.Event = SceneSwitchereController.instance.currentSequence.pathToFmodEvent;
     }
 
     void Start()

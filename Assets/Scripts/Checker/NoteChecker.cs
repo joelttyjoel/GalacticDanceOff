@@ -52,6 +52,10 @@ public class NoteChecker : MonoBehaviour {
 	// Update is called once per frame
 	void LateUpdate ()
     {
+		if (InputManager.instance.isInputsDisabled) 
+		{
+			return;
+		}
         //can click multiple buttons at once, grrrrr, are however checked in order which is suck, should be checked all at once
         if(InputManager.instance.GetButtonDown(inputSet[0].stringInputManager))
         {

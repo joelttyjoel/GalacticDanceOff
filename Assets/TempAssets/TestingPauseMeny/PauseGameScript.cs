@@ -9,6 +9,7 @@ public class PauseGameScript : MonoBehaviour {
 
 	private void PauseGame()
 	{
+		InputManager.instance.isInputsDisabled = true;
 		pauseable = false;
 		Time.timeScale = 0f;
 		MusicController.instance.PauseMusic ();
@@ -19,6 +20,7 @@ public class PauseGameScript : MonoBehaviour {
 	{
 		pauseable = true;
 		StartCoroutine (StartDelay(3f));
+		OptionMenu.SetActive (false);
 	}
 
 	IEnumerator StartDelay(float countdown)
@@ -36,8 +38,9 @@ public class PauseGameScript : MonoBehaviour {
 
 		if(pauseable)
 		{
-		MusicController.instance.ResumeMusic ();
-		Time.timeScale = 1f;
+			InputManager.instance.isInputsDisabled = false;
+			MusicController.instance.ResumeMusic ();
+			Time.timeScale = 1f;
 		}
 
 	}
@@ -49,6 +52,13 @@ public class PauseGameScript : MonoBehaviour {
 			if (!OptionMenu.activeInHierarchy) 
 			{
 				PauseGame ();
+			}
+		}
+		if (Input.GetKeyDown (KeyCode.Backspace) || Input.GetButtonDown ("Back Button")) 
+		{
+			if (OptionMenu.activeInHierarchy) 
+			{
+				ResumeGame ();
 			}
 		}
 	}

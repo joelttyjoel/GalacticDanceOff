@@ -5,7 +5,7 @@ using System.Linq;
 
 public class InputManager : MonoBehaviour {
 
-
+	public bool isInputsDisabled;
 	Dictionary <string, KeyCode> buttonKeys;
 
 	void OnEnable()
@@ -42,6 +42,7 @@ public class InputManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+		isInputsDisabled = false;
 	}
 	
 	// Update is called once per frame

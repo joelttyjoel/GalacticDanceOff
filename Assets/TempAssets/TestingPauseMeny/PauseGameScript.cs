@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class PauseGameScript : MonoBehaviour {
+    public List<Sprite> countdownSprite3;
 
 	public GameObject optionMenu;
 	public GameObject parentMenu;

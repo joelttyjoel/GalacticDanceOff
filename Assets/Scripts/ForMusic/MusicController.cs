@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using FMODUnity;
+using UnityEngine.UI;
 
 public class MusicController : MonoBehaviour
 {
@@ -36,6 +37,11 @@ public class MusicController : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void SetVolumeBySlider(Slider sliderIn)
+    {
+        myEmitter.EventInstance.setVolume(sliderIn.value);
     }
 
     public void PauseMusic()

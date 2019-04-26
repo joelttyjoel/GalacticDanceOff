@@ -5,7 +5,7 @@ using System.Linq;
 
 public class InputManager : MonoBehaviour {
 
-
+	public bool isInputsDisabled;
 	Dictionary <string, KeyCode> buttonKeys;
 
 	void OnEnable()
@@ -22,12 +22,17 @@ public class InputManager : MonoBehaviour {
 		buttonKeys ["Right"] = KeyCode.RightArrow;
 
 	}
+		
+
 
     //for creating singleton, love easy referencing
     public static InputManager instance = null;
 
     void Awake()
     {
+
+		//Cursor.visible = false;
+		//Cursor.lockState = CursorLockMode.Locked;
         if (instance == null)
             instance = this;
         //now replaces already existing gameManager instead
@@ -37,6 +42,7 @@ public class InputManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+		isInputsDisabled = false;
 	}
 	
 	// Update is called once per frame

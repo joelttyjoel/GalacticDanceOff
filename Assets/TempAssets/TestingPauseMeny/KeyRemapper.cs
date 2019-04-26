@@ -58,7 +58,7 @@ public class KeyRemapper : MonoBehaviour {
 						inputManager.SetButtonForKey (buttonToRebind, kc);
 						buttonToLabel [buttonToRebind].text = kc.ToString ();
 						buttonToRebind = null;
-						StartCoroutine (ActivateNavigationEvent (1f));
+						StartCoroutine (ActivateNavigationEvent (0.5f));
 						break;
 					}
 

@@ -446,7 +446,23 @@
         </relationship>
     </object>
     <object class="MixerBusFader" id="{75650cbb-e1a0-4216-9505-bbd0d78abb46}"/>
-    <object class="TremoloEffect" id="{3b5d142e-717f-4ad7-b04e-c9016f903e48}"/>
+    <object class="TremoloEffect" id="{3b5d142e-717f-4ad7-b04e-c9016f903e48}">
+        <property name="frequency">
+            <value>10</value>
+        </property>
+        <property name="shape">
+            <value>0.50000006</value>
+        </property>
+        <property name="skew">
+            <value>0.74000001</value>
+        </property>
+        <property name="square">
+            <value>0.825000048</value>
+        </property>
+        <property name="phase">
+            <value>0.320000023</value>
+        </property>
+    </object>
     <object class="DistortionEffect" id="{7621f25e-f1ef-4bb5-b2c8-2ea7bbc149c7}">
         <property name="level">
             <value>0.745000064</value>
@@ -462,10 +478,13 @@
     </object>
     <object class="AutomationPoint" id="{91592ddd-b07c-4706-8dcf-702ffd937bb3}">
         <property name="position">
-            <value>7.0726415094339625</value>
+            <value>7.0641509433962266</value>
         </property>
         <property name="value">
             <value>-6</value>
+        </property>
+        <property name="curveShape">
+            <value>0.34291783</value>
         </property>
     </object>
 </objects>

@@ -11,6 +11,7 @@ public class PauseGameScript : MonoBehaviour {
 	{
 		InputManager.instance.isInputsDisabled = true;
 		pauseable = false;
+		UnityEngine.EventSystems.EventSystem.current.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(OptionMenu.transform.GetChild (0).gameObject);
 		Time.timeScale = 0f;
 		MusicController.instance.PauseMusic ();
 		OptionMenu.SetActive (true);
@@ -53,6 +54,10 @@ public class PauseGameScript : MonoBehaviour {
 			{
 				PauseGame ();
 			}
+		}
+		if (Input.GetKeyDown (KeyCode.KeypadEnter)) 
+		{
+			Debug.Log (UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject);
 		}
 		if (Input.GetKeyDown (KeyCode.Backspace) || Input.GetButtonDown ("Back Button")) 
 		{

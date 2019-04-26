@@ -49,6 +49,10 @@ public class GameManagerController : MonoBehaviour {
         //now replaces already existing gameManager instead
         else if (instance != this)
             Destroy(instance.gameObject);
+
+        //GET INFO ABOUT SEQUENCE ETC
+        beatMapNamesInOrder = SceneSwitchereController.instance.currentSequence.beatMapNamesInOrder;
+        beatsSpawnToGoal_akaSpeed = SceneSwitchereController.instance.currentSequence.beatsSpawnToGoal_akaSpeed;
     }
 
     void Start () {
@@ -59,6 +63,9 @@ public class GameManagerController : MonoBehaviour {
         eventEmitter = musicManager.GetComponent<FMOD_StudioEventEmitter>();
         //Get thing that reads from Fmod
         theGetter = musicManager.GetComponent<BeatGetterFromFmodText>();
+
+        //SET SETTINGS FOR RUNNING BEATMAP, REEE
+
     }
 	
 	void Update () {

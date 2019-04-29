@@ -31,8 +31,9 @@ public class NoteChecker : MonoBehaviour {
         
     private float goodPercentageDistance;
     private float perfectPercentageDistance;
+    private float halfPerfectPercentageDistance;
 
-    private Queue<GameObject> noteQueue = new Queue<GameObject>();
+    private List<NoteController> noteQueueList = new List<NoteController>();
 
     [SerializeField]
     private GameObject spawnObject;
@@ -41,8 +42,9 @@ public class NoteChecker : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        goodPercentageDistance = GameManagerController.instance.percentageGoodFromCenter;
+        goodPercentageDistance = GameManagerController.instance.percentageGoodDistance;
         perfectPercentageDistance = GameManagerController.instance.percentagePerfectFromCenter;
+        halfPerfectPercentageDistance = perfectPercentageDistance / 2;
     }
 	
 	void FixedUpdate()
@@ -115,57 +117,116 @@ public class NoteChecker : MonoBehaviour {
 
     private void NoteKeyDown(int noteKey)
     {
-        if(noteQueue.Count == 0)
+        //no notes to hit
+        if(noteQueueList.Count == 0)
         {
-            QueEmptyHit();
+            NoteMiss();
             return;
         }
-
-        GameObject note = noteQueue.Peek();
-        NoteController noteCon = note.GetComponent<NoteController>();
-
-        //Checks if the right key for the note was pressed and the note is in the right area
-        if (noteCon.percentageOfTravel >= (1 - goodPercentageDistance)
-            && noteCon.percentageOfTravel <= (1 + goodPercentageDistance)
-			&& noteCon.noteType == noteKey)
+        
+        //if only one note to check
+        else if(noteQueueList.Count == 1)
         {
-            NoteGeneralHit(noteCon);
+            NoteController note1 = noteQueueList[0];
+            if(CheckNoteGeneralHit(note1))
+            {
+                //if perfect
+                if(CheckNotePerfect(note1))
+                {
+                    PerfectHit(note1);
+                }
+                //if regular
+                else
+                {
+                    NormalHit(note1);
+                }
+                noteQueueList.RemoveAt(0);
+                note1.HasBeenHit();
+            }
+            else
+            {
+                NoteMiss();
+            }
         }
-
-        //Otherwise the note was not hit
+        //if two notes or more
         else
         {
-            NoteMiss(noteCon);
+            Debug.Log(noteQueueList[0].gameObject.name);
+            Debug.Log(noteQueueList[1].gameObject.name);
         }
+
+   //     //gets first note info
+   //     GameObject note = noteQueue.Peek();
+   //     NoteController noteCon = note.GetComponent<NoteController>();
+
+   //     //Checks if the right key for the note was pressed and the note is in the right area
+   //     if (noteCon.percentageOfTravel >= (1 - goodPercentageDistance)
+   //         && noteCon.percentageOfTravel <= (1 + goodPercentageDistance)
+			//&& noteCon.noteType == noteKey)
+   //     {
+   //         NoteGeneralHit(noteCon);
+   //     }
+
+   //     //Otherwise the note was not hit
+   //     else
+   //     {
+   //         NoteMiss(noteCon);
+   //     }
     }
 
-    private void QueEmptyHit()
+    //true if hit, false if not hit
+    private bool CheckNoteGeneralHit(NoteController noteToCheck)
     {
-        Debug.Log("Que empty");
+        bool wasHit = false;
+
+        //check if was hit
+        //if above half of 1 -(perfect + all of good), closest line
+        //if below perfect distance from center + 1, farthest line
+        if (noteToCheck.percentageOfTravel > 1 - (goodPercentageDistance + halfPerfectPercentageDistance)
+            && noteToCheck.percentageOfTravel < 1 + halfPerfectPercentageDistance)
+        {
+            wasHit = true;
+        }
+
+        return wasHit;
+    }
+    //true if perfect, false if not
+    private bool CheckNotePerfect(NoteController noteToCheck)
+    {
+        bool wasPerfect = false;
+
+        //if withing 1 + half perfect and 1 - half perfect, good
+        if(noteToCheck.percentageOfTravel < 1 + halfPerfectPercentageDistance
+            && noteToCheck.percentageOfTravel > 1 - halfPerfectPercentageDistance)
+        {
+            wasPerfect = true;
+        }
+
+        return wasPerfect;
     }
 
     //The note was hit, now compare what type of hit
-    private void NoteGeneralHit(NoteController noteCon)
-    {
-        //defines what score hit it get
-        if (noteCon.percentageOfTravel >= (1 - perfectPercentageDistance)
-            && noteCon.percentageOfTravel <= (1 + perfectPercentageDistance))
-        {
-            PerfectHit(noteCon);
-        }
+    //private void NoteGeneralHit(NoteController noteCon)
+    //{
+    //    //defines what score hit it get
+    //    if (noteCon.percentageOfTravel >= (1 - perfectPercentageDistance)
+    //        && noteCon.percentageOfTravel <= (1 + perfectPercentageDistance))
+    //    {
+    //        PerfectHit(noteCon);
+    //    }
 
-        else
-        {
-            NormalHit(noteCon);
-        }
+    //    else
+    //    {
+    //        NormalHit(noteCon);
+    //    }
 
-        //Both types of hit has to deque and do hasbeenhit(), makes sence
-        DequeueNote();
-        noteCon.HasBeenHit();
-    }
+    //    //Both types of hit has to deque and do hasbeenhit(), makes sence
+    //    DequeueNote();
+    //    noteCon.HasBeenHit();
+    //}
 
     //The note was missed
-    private void NoteMiss(NoteController noteCon)
+    private void NoteMiss()
     {
         //DequeueNote();
         //noteCon.HasBeenHit();
@@ -192,7 +253,7 @@ public class NoteChecker : MonoBehaviour {
 
 
     //Gain points
-    private void GainPoints(bool perfect)
+    private void GainPoints(bool isPerfect)
     {
 
     }
@@ -204,35 +265,38 @@ public class NoteChecker : MonoBehaviour {
     }
 
 
-
-    public void EnqueueNote(GameObject note)
+    //takes gameobject and puts at front of list
+    public void EnqueueNote(NoteController note)
     {
-        noteQueue.Enqueue(note);
+        noteQueueList.Add(note);
     }
 
-
-    public GameObject DequeueNote()
+    //deques /removes top item in list
+    public void DequeueNote()
     {
-        if(noteQueue.Count > 0)
+        if(noteQueueList.Count > 0)
         {
-            return noteQueue.Dequeue();
+            //remove and return top item in list
+            //GameObject topItem = noteQueueList[0];
+            noteQueueList.RemoveAt(0);
+            //return topItem;
         }
 
-        else
-        {
-            return null;
-        }
+        //else
+        //{
+        //    return null;
+        //}
     }
 
 
+    //fix this mr robin
+    //private void OnDrawGizmos()
+    //{
+    //    float distanceFromSpawn = Mathf.Abs(transform.position.x - spawnObject.transform.position.x);
+    //    Gizmos.color = Color.green;
+    //    Gizmos.DrawWireCube(transform.position, new Vector3(2 * distanceFromSpawn * goodPercentageDistance, 1, 0.25f));
 
-    private void OnDrawGizmos()
-    {
-        float distanceFromSpawn = Mathf.Abs(transform.position.x - spawnObject.transform.position.x);
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(transform.position, new Vector3(2 * distanceFromSpawn * goodPercentageDistance, 1, 0.25f));
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(transform.position, new Vector3(2 * distanceFromSpawn * perfectPercentageDistance, 1, 0.25f));
-    }
+    //    Gizmos.color = Color.yellow;
+    //    Gizmos.DrawWireCube(transform.position, new Vector3(2 * distanceFromSpawn * perfectPercentageDistance, 1, 0.25f));
+    //}
 }

@@ -62,7 +62,7 @@ public class BeatmapSpawner : MonoBehaviour {
         currentNote.transform.SetParent(noteParent.transform);
 
         //push to list in note destroyer
-        noteCheck.EnqueueNote(currentNote);
+        noteCheck.EnqueueNote(controllerNote);
     }
 
     public void SpawnFret(float timePerBeat, float currentTickTime)

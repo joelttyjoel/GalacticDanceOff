@@ -33,7 +33,7 @@ public class GameManagerController : MonoBehaviour {
     //settings perfect, good
     public float percentagePerfectFromCenter = 0.05f;
     //stupid name but can't short that man
-    public float percentageGoodFromCenter = 0.1f;
+    public float percentageGoodDistance = 0.1f;
     //note fade distance after has gone too far
     public float fadeDistance = 0.5f;
     //fade from grey ish to white at start, hmm

@@ -31,18 +31,21 @@ public class NoteChecker : MonoBehaviour {
         
     private float goodPercentageDistance;
     private float perfectPercentageDistance;
+    private float halfPerfectPercentageDistance;
 
-    private Queue<GameObject> noteQueue = new Queue<GameObject>();
+    private List<NoteController> noteQueueList = new List<NoteController>();
 
     [SerializeField]
     private GameObject spawnObject;
     //private float distanceFromSpawn;
 
+    private bool note1WasHit;
 	// Use this for initialization
 	void Start ()
     {
-        goodPercentageDistance = GameManagerController.instance.percentageGoodFromCenter;
+        goodPercentageDistance = GameManagerController.instance.percentageGoodDistance;
         perfectPercentageDistance = GameManagerController.instance.percentagePerfectFromCenter;
+        halfPerfectPercentageDistance = perfectPercentageDistance / 2;
     }
 	
 	void FixedUpdate()
@@ -115,58 +118,139 @@ public class NoteChecker : MonoBehaviour {
 
     private void NoteKeyDown(int noteKey)
     {
-        if(noteQueue.Count == 0)
+        //no notes to hit
+        if (noteQueueList.Count == 0)
         {
-            QueEmptyHit();
+            NoteMiss();
             return;
         }
-
-        GameObject note = noteQueue.Peek();
-        NoteController noteCon = note.GetComponent<NoteController>();
-
-        //Checks if the right key for the note was pressed and the note is in the right area
-        if (noteCon.percentageOfTravel >= (1 - goodPercentageDistance)
-            && noteCon.percentageOfTravel <= (1 + goodPercentageDistance)
-			&& noteCon.noteType == noteKey)
+        
+        //if one or more notes always check first
+        else if (noteQueueList.Count >= 1)
         {
-            NoteGeneralHit(noteCon);
+            NoteController note1 = noteQueueList[0];
+            //check if correct note and if hit
+            if (note1.noteType == noteKey && CheckNoteGeneralHit(note1))
+            {
+                //if perfect
+                if (CheckNotePerfect(note1))
+                {
+                    PerfectHit(note1);
+                }
+                //if regular
+                else
+                {
+                    NormalHit(note1);
+                }
+                note1WasHit = true;
+                noteQueueList.RemoveAt(0);
+                note1.HasBeenHit();
+            }
+            else
+            {
+                note1WasHit = false;
+                NoteMiss();
+            }
+        }
+        //if two notes or more, do one more check on second note, only if first note was not hit
+        if(!note1WasHit && noteQueueList.Count >= 2)
+        {
+            //check second note too
+            NoteController note2 = noteQueueList[0];
+            //if correct key and is hit, then hit, if not, miss
+            if (note2.noteType == noteKey && CheckNoteGeneralHit(note2))
+            {
+                //if perfect
+                if (CheckNotePerfect(note2))
+                {
+                    PerfectHit(note2);
+                }
+                //if regular
+                else
+                {
+                    NormalHit(note2);
+                }
+                noteQueueList.RemoveAt(0);
+                note2.HasBeenHit();
+            }
+            else
+            {
+                NoteMiss();
+            }
         }
 
-        //Otherwise the note was not hit
-        else
-        {
-            NoteMiss(noteCon);
-        }
+   //     //gets first note info
+   //     GameObject note = noteQueue.Peek();
+   //     NoteController noteCon = note.GetComponent<NoteController>();
+
+   //     //Checks if the right key for the note was pressed and the note is in the right area
+   //     if (noteCon.percentageOfTravel >= (1 - goodPercentageDistance)
+   //         && noteCon.percentageOfTravel <= (1 + goodPercentageDistance)
+			//&& noteCon.noteType == noteKey)
+   //     {
+   //         NoteGeneralHit(noteCon);
+   //     }
+
+   //     //Otherwise the note was not hit
+   //     else
+   //     {
+   //         NoteMiss(noteCon);
+   //     }
     }
 
-    private void QueEmptyHit()
+    //true if hit, false if not hit
+    private bool CheckNoteGeneralHit(NoteController noteToCheck)
     {
-        Debug.Log("Que empty 'miss'");
-        AudioController.instance.PlayNoteSound(0f);
+        bool wasHit = false;
+
+        //check if was hit
+        //if above half of 1 -(perfect + all of good), closest line
+        //if below perfect distance from center + 1, farthest line
+        if (noteToCheck.percentageOfTravel > 1 - (goodPercentageDistance + halfPerfectPercentageDistance)
+            && noteToCheck.percentageOfTravel < 1 + halfPerfectPercentageDistance)
+        {
+            wasHit = true;
+        }
+
+        return wasHit;
+    }
+    //true if perfect, false if not
+    private bool CheckNotePerfect(NoteController noteToCheck)
+    {
+        bool wasPerfect = false;
+
+        //if withing 1 + half perfect and 1 - half perfect, good
+        if(noteToCheck.percentageOfTravel < 1 + halfPerfectPercentageDistance
+            && noteToCheck.percentageOfTravel > 1 - halfPerfectPercentageDistance)
+        {
+            wasPerfect = true;
+        }
+
+        return wasPerfect;
     }
 
     //The note was hit, now compare what type of hit
-    private void NoteGeneralHit(NoteController noteCon)
-    {
-        //defines what score hit it get
-        if (noteCon.percentageOfTravel >= (1 - perfectPercentageDistance)
-            && noteCon.percentageOfTravel <= (1 + perfectPercentageDistance))
-        {
-            PerfectHit(noteCon);
-        }
+    //private void NoteGeneralHit(NoteController noteCon)
+    //{
+    //    //defines what score hit it get
+    //    if (noteCon.percentageOfTravel >= (1 - perfectPercentageDistance)
+    //        && noteCon.percentageOfTravel <= (1 + perfectPercentageDistance))
+    //    {
+    //        PerfectHit(noteCon);
+    //    }
 
-        else
-        {
-            NormalHit(noteCon);
-        }
+    //    else
+    //    {
+    //        NormalHit(noteCon);
+    //    }
 
-        //Both types of hit has to deque and do hasbeenhit(), makes sence
-        DequeueNote();
-        noteCon.HasBeenHit();
-    }
+    //    //Both types of hit has to deque and do hasbeenhit(), makes sence
+    //    DequeueNote();
+    //    noteCon.HasBeenHit();
+    //}
 
     //The note was missed
-    private void NoteMiss(NoteController noteCon)
+    private void NoteMiss()
     {
         //DequeueNote();
         //noteCon.HasBeenHit();
@@ -196,7 +280,7 @@ public class NoteChecker : MonoBehaviour {
 
 
     //Gain points
-    private void GainPoints(bool perfect)
+    private void GainPoints(bool isPerfect)
     {
 
     }
@@ -208,35 +292,38 @@ public class NoteChecker : MonoBehaviour {
     }
 
 
-
-    public void EnqueueNote(GameObject note)
+    //takes gameobject and puts at front of list
+    public void EnqueueNote(NoteController note)
     {
-        noteQueue.Enqueue(note);
+        noteQueueList.Add(note);
     }
 
-
-    public GameObject DequeueNote()
+    //deques /removes top item in list
+    public void DequeueNote()
     {
-        if(noteQueue.Count > 0)
+        if(noteQueueList.Count > 0)
         {
-            return noteQueue.Dequeue();
+            //remove and return top item in list
+            //GameObject topItem = noteQueueList[0];
+            noteQueueList.RemoveAt(0);
+            //return topItem;
         }
 
-        else
-        {
-            return null;
-        }
+        //else
+        //{
+        //    return null;
+        //}
     }
 
 
+    //fix this mr robin
+    //private void OnDrawGizmos()
+    //{
+    //    float distanceFromSpawn = Mathf.Abs(transform.position.x - spawnObject.transform.position.x);
+    //    Gizmos.color = Color.green;
+    //    Gizmos.DrawWireCube(transform.position, new Vector3(2 * distanceFromSpawn * goodPercentageDistance, 1, 0.25f));
 
-    private void OnDrawGizmos()
-    {
-        float distanceFromSpawn = Mathf.Abs(transform.position.x - spawnObject.transform.position.x);
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(transform.position, new Vector3(2 * distanceFromSpawn * goodPercentageDistance, 1, 0.25f));
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(transform.position, new Vector3(2 * distanceFromSpawn * perfectPercentageDistance, 1, 0.25f));
-    }
+    //    Gizmos.color = Color.yellow;
+    //    Gizmos.DrawWireCube(transform.position, new Vector3(2 * distanceFromSpawn * perfectPercentageDistance, 1, 0.25f));
+    //}
 }

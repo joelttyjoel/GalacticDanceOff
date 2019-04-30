@@ -43,7 +43,7 @@ public class NoteController : MonoBehaviour {
         //set things from GameManager
         beatsUntilGoal = GameManagerController.instance.beatsSpawnToGoal_akaSpeed;
         //distance after good when item should be dequed and fade away
-        percentageAboveFinal = GameManagerController.instance.percentageGoodFromCenter;
+        percentageAboveFinal = GameManagerController.instance.percentagePerfectFromCenter / 2;
         //fade distance
         fadeDistance = GameManagerController.instance.fadeDistance;
         //start fade distance

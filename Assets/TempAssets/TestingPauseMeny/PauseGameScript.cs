@@ -28,10 +28,11 @@ public class PauseGameScript : MonoBehaviour {
 	public void ResumeGame()
 	{
 		pauseable = true;
-		StartCoroutine (StartDelay(3f));
+		StartCoroutine (CountDown());
 		optionMenu.SetActive (false);
 	}
 
+	/*
 	IEnumerator StartDelay(float countdown)
 	{
 		float pauseTime = countdown + Time.realtimeSinceStartup;
@@ -40,19 +41,48 @@ public class PauseGameScript : MonoBehaviour {
 			Debug.Log ("Resuming in " + Time.realtimeSinceStartup);
 			if (!pauseable) 
 			{
-				break;
+				StopCoroutine(StartDelay());
 			}
 			yield return 0;
 		}
-
 		if(pauseable)
 		{
 			InputManager.instance.isInputsDisabled = false;
 			MusicController.instance.ResumeMusic ();
 			Time.timeScale = 1f;
 		}
+	}*/
+
+	IEnumerator CountDown()
+	{
+		Debug.Log ("3");
+		yield return WaitToResumeGame ();
+		Debug.Log ("2");
+		yield return WaitToResumeGame ();
+		Debug.Log ("1");
+		yield return WaitToResumeGame ();
+		Debug.Log ("0");
+
+
+		InputManager.instance.isInputsDisabled = false;
+		MusicController.instance.ResumeMusic ();
+		Time.timeScale = 1f;
 
 	}
+
+	IEnumerator WaitToResumeGame()
+	{
+		float start = Time.realtimeSinceStartup;
+		while (Time.realtimeSinceStartup < start + 1f) 
+		{
+			if (!pauseable) 
+			{
+				StopAllCoroutines ();
+			}
+			yield return 0;
+		}
+	}
+
 
 	void Update()
 	{

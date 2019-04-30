@@ -41,9 +41,14 @@ public class GameManagerController : MonoBehaviour {
 
 	//Edits EGOMeter
 	[Header("EGO Bars")]
-	public int maxHealth;
-	public int playerHealth;
-	public int AIHealth;
+	public int maxHealth = 100;
+	[HideInInspector]
+    public int playerHealth;
+	[HideInInspector]
+    public int aiHealth;
+
+    public int noteDamagePlayer = 5;
+    public int noteDamageAI = 5;
 
 
 
@@ -52,6 +57,9 @@ public class GameManagerController : MonoBehaviour {
 
     void Awake()
     {
+        playerHealth = maxHealth;
+        aiHealth = maxHealth;
+
         if (instance == null)
             instance = this;
         //now replaces already existing gameManager instead
@@ -73,7 +81,6 @@ public class GameManagerController : MonoBehaviour {
         theGetter = musicManager.GetComponent<BeatGetterFromFmodText>();
 
         //SET SETTINGS FOR RUNNING BEATMAP, REEE
-
     }
 	
 	void Update () {
@@ -97,11 +104,14 @@ public class GameManagerController : MonoBehaviour {
         }
         if(failLevel)
         {
-            failBeatmap();
+            FailBeatmap();
         }
-	}
 
-    private void failBeatmap()
+        playerHealth = Mathf.Clamp(playerHealth, 0, maxHealth);
+        aiHealth = Mathf.Clamp(aiHealth, 0, maxHealth);
+    }
+
+    private void FailBeatmap()
     {
         //reset stuff for restart
         currentBeatMap = 0;
@@ -113,10 +123,10 @@ public class GameManagerController : MonoBehaviour {
         failLevel = false;
 
         //set stuff for beatmap slowdown and removal
-        StartCoroutine(failNoteAnimation());
+        StartCoroutine(FailNoteAnimation());
     }
 
-    private IEnumerator failNoteAnimation()
+    private IEnumerator FailNoteAnimation()
     {
         //slow down until stop
         float timeToSlowFor = beatsToSlowDownFor * BeatmapReader.instance.thingsPerBeat * BeatmapReader.instance.timePer16del;
@@ -184,5 +194,26 @@ public class GameManagerController : MonoBehaviour {
         theGetter.runNextBeatmap = true;
         theGetter.nameOfMapToRun = beatMapNamesInOrder[currentBeatMap];
         //beatMapReader.StartRunningBeatmap(beatMapNamesInOrder[currentBeatMap]);
+    }
+
+
+    public void PlayerMissedNote()
+    {
+        playerHealth -= noteDamagePlayer;
+
+        if(playerHealth == 0)
+        {
+            FailBeatmap();
+        }
+    }
+
+    public void AIMissedNote()
+    {
+        aiHealth -= noteDamageAI;
+
+        if (aiHealth == 0)
+        {
+            //AI has beeen beaten
+        }
     }
 }

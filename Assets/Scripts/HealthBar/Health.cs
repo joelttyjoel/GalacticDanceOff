@@ -14,9 +14,9 @@ public class Health : MonoBehaviour
 		if (gameObject.CompareTag ("Player 1")) {
 			currentHealth = GameManagerController.instance.playerHealth;
 		}
-		if (gameObject.CompareTag ("Player 2")) 
+		else if (gameObject.CompareTag ("Player 2")) 
 		{
-			currentHealth = GameManagerController.instance.AIHealth;
+			currentHealth = GameManagerController.instance.aiHealth;
 		}
 		maxHealth = GameManagerController.instance.maxHealth;
 	}
@@ -28,7 +28,7 @@ public class Health : MonoBehaviour
 		}
 		if (gameObject.CompareTag ("Player 2")) 
 		{
-			currentHealth = GameManagerController.instance.AIHealth;
+			currentHealth = GameManagerController.instance.aiHealth;
 		}
 		currentHealth = Mathf.Clamp (currentHealth, 0, maxHealth);
 		handleBar (currentHealth);

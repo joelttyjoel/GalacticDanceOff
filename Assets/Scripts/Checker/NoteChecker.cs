@@ -252,6 +252,7 @@ public class NoteChecker : MonoBehaviour {
     //The note was missed
     private void NoteMiss()
     {
+        GameManagerController.instance.PlayerMissedNote();
         //DequeueNote();
         //noteCon.HasBeenHit();
         //Effects or other things

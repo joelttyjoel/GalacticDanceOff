@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine.Serialization;
+using UnityEngine;
 
 namespace UnityEngine.EventSystems
 {
@@ -27,6 +28,12 @@ namespace UnityEngine.EventSystems
 		public InputMode inputMode
 		{
 			get { return InputMode.Mouse; }
+		}
+
+		private void Start(){
+			Cursor.lockState = CursorLockMode.Locked;
+			Cursor.lockState = CursorLockMode.Confined;
+			Cursor.visible = false;
 		}
 
 		[SerializeField]
@@ -176,7 +183,7 @@ namespace UnityEngine.EventSystems
 					SendSubmitEventToSelectedObject();
 			}
 
-			ProcessMouseEvent();
+			//ProcessMouseEvent();
 		}
 
 		/// <summary>
@@ -259,7 +266,7 @@ namespace UnityEngine.EventSystems
 			m_LastMoveVector = movement;
 			return axisEventData.used;
 		}
-
+		/*
 		protected void ProcessMouseEvent()
 		{
 			ProcessMouseEvent(0);
@@ -290,7 +297,7 @@ namespace UnityEngine.EventSystems
 				ExecuteEvents.ExecuteHierarchy(scrollHandler, leftButtonData.buttonData, ExecuteEvents.scrollHandler);
 			}
 		}
-
+*/
 		protected bool SendUpdateEventToSelectedObject()
 		{
 			if (eventSystem.currentSelectedGameObject == null)
@@ -300,7 +307,7 @@ namespace UnityEngine.EventSystems
 			ExecuteEvents.Execute(eventSystem.currentSelectedGameObject, data, ExecuteEvents.updateSelectedHandler);
 			return data.used;
 		}
-
+		/*
 		/// <summary>
 		/// Process the current mouse press.
 		/// </summary>
@@ -403,5 +410,6 @@ namespace UnityEngine.EventSystems
 				}
 			}
 		}
+		*/
 	}
 }

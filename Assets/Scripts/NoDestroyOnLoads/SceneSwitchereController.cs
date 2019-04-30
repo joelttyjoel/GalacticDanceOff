@@ -29,6 +29,7 @@ public class SceneSwitchereController : MonoBehaviour {
             Destroy(instance.gameObject);
 
         DontDestroyOnLoad(this.gameObject);
+
     }
 
     public void LoadSceneByName(string nameOfScene, string nameOfSequence)

@@ -39,6 +39,14 @@ public class GameManagerController : MonoBehaviour {
     //fade from grey ish to white at start, hmm
     public float startFadeDistance = 1.0f;
 
+	//Edits EGOMeter
+	[Header("EGO Bars")]
+	public int maxHealth;
+	public int playerHealth;
+	public int AIHealth;
+
+
+
     //make singleton
     public static GameManagerController instance = null;
 
@@ -154,6 +162,20 @@ public class GameManagerController : MonoBehaviour {
         //    Debug.Log(noteParent.trans)
         //}
     }
+		
+	public IEnumerator BetweenBeatMap()
+	{
+		
+		yield return new WaitForSeconds (3f);
+		Debug.Log ("Scoring");
+
+		yield return new WaitForSeconds (3f);
+		Debug.Log ("Animation");
+		yield return new WaitForSeconds (3f);
+		Debug.Log ("return to beatMap");
+
+	}
+
 
     private void runBeatmap()
     {

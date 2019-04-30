@@ -4,14 +4,33 @@ using UnityEngine;
 
 public class Health : MonoBehaviour 
 {
-	public float currentHealth;
-	public float maxHealth;
+	private float currentHealth;
+	private float maxHealth;
 	public float dmg;
-	public float speed;
+
+
+	void Start()
+	{
+		if (gameObject.CompareTag ("Player 1")) {
+			currentHealth = GameManagerController.instance.playerHealth;
+		}
+		if (gameObject.CompareTag ("Player 2")) 
+		{
+			currentHealth = GameManagerController.instance.AIHealth;
+		}
+		maxHealth = GameManagerController.instance.maxHealth;
+	}
 
 	void Update()
 	{
-
+		if (gameObject.CompareTag ("Player 1")) {
+			currentHealth = GameManagerController.instance.playerHealth;
+		}
+		if (gameObject.CompareTag ("Player 2")) 
+		{
+			currentHealth = GameManagerController.instance.AIHealth;
+		}
+		currentHealth = Mathf.Clamp (currentHealth, 0, maxHealth);
 		handleBar (currentHealth);
 
 		if (Input.GetKeyDown (KeyCode.P)) {
@@ -28,12 +47,18 @@ public class Health : MonoBehaviour
 	//makes EGOBar always move towards its current EGO
 	private void handleBar(float currentHealth)
 	{
-		if (transform.localScale.y != this.currentHealth / 100f) 
+		if (transform.localScale.y != currentHealth / maxHealth) 
 		{
 			Vector3 targetVect = new Vector3 (transform.localScale.x, 
-				this.currentHealth/100f, transform.localScale.z);
+				Mathf.Clamp(currentHealth / maxHealth, 0, maxHealth/maxHealth), transform.localScale.z);
+	
 			transform.localScale = Vector3.Lerp (transform.localScale, 
-				targetVect, Time.deltaTime* 3f);
+					targetVect, Time.deltaTime* 3f);
+			if (transform.localScale.y <= 0.01f) 
+			{
+				targetVect.y = 0;
+				transform.localScale = targetVect;
+			}
 		}
 	}
 

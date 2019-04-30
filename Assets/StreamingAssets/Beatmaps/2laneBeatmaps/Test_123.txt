@@ -1,0 +1,111 @@
+## = kommentar, inget på en rad med 3 ### läses
+## -- XXX -- innebär läsbart kommando
+## behåll exakt format på kommandon, ex --bpm120-- INTE --bpm 120 --
+## stop = signals end of beatmap
+## start = signals start of beatmap
+## bpmxxx = sets bpm of beatmap
+## tax/x = sets timesignature
+## beatmaps delas up i sektioner med 4 1/16 delar per beat (där en beat är 1/4) långa i detta fall (ev byt)
+## vid x/4 takt, använd 4 things per beat för att ge 16delar
+## vid x/8 takt, använd 2 things per beat för att ge 16delar
+## lägg till det värde som matchar det input som behövst
+##
+##
+## PC: SINGLEPLAYER;	
+##			1 = w, 2 = A, 3 = S, 4 = D, 5 = Upp, 6 = Vänster, 7 = Ned, 8 = höger. 
+##
+## PC: MULTI-PLAYER 1;	
+##			1 = W, 2 = A, 3 = S, 4 = D, 5 = B, 6 = V, 7 = N, 8 = M. ??? (TESTAR ORDNINGEN)
+##
+## PC: MULTI-PLAYER 2;	
+##			1 = Upp, 2 = Vänster, 3 = Ned, 4 = Höger, 5 = I, 6 = U, 7 = O, 8 = P.
+##
+## XBOX;	
+##			1 = D.Pad. Upp, 2 = D.Pad. Vänster, 3 = D.Pad. Ned, 4 = D.Pad. Höger, 5 = Y, 6 = X, 7 = A, 8 = B.
+##
+## PLAYSTATION; 	
+##			1 = D.Pad. Upp, 2 = D.Pad. Vänster, 3 = D.Pad. Ned, 4 = D.Pad. Höger, 5 = Triangel, 6 = Fyrkant , 7 = X, 8 = Cirkel.
+--bpm90--
+--ta4/4--
+--start--
+## beat 1, takt 1
+1/4 - 15
+2/4 - 26
+3/4 - 37
+4/4 - 48
+## beat 2
+1/4 - 15
+2/4 - 26
+3/4 - 37
+4/4 - 48
+## beat 3
+1/4 - 15
+2/4 - 26
+3/4 - 37
+4/4 - 48
+## beat 4
+1/4 - 15
+2/4 - 26
+3/4 - 37
+4/4 - 48
+## beat 5, takt 2
+1/4 - 15
+2/4 - 26
+3/4 - 37
+4/4 - 48
+## beat 2
+1/4 - 15
+2/4 - 26
+3/4 - 37
+4/4 - 48
+## beat 3
+1/4 - 15
+2/4 - 26
+3/4 - 37
+4/4 - 48
+## beat 4
+1/4 - 15
+2/4 - 26
+3/4 - 37
+4/4 - 48
+## beat 1, takt 3
+1/4 - 15
+2/4 - 26
+3/4 - 37
+4/4 - 48
+## beat 2
+1/4 - 15
+2/4 - 26
+3/4 - 37
+4/4 - 48
+## beat 3
+1/4 - 15
+2/4 - 26
+3/4 - 37
+4/4 - 48
+## beat 4
+1/4 - 15
+2/4 - 26
+3/4 - 37
+4/4 - 48
+## beat 5, takt 4
+1/4 - 15
+2/4 - 26
+3/4 - 37
+4/4 - 48
+## beat 2
+1/4 - 15
+2/4 - 26
+3/4 - 37
+4/4 - 48
+## beat 3
+1/4 - 15
+2/4 - 26
+3/4 - 37
+4/4 - 48
+## beat 4
+1/4 - 15
+2/4 - 26
+3/4 - 37
+4/4 - 48
+--stop--

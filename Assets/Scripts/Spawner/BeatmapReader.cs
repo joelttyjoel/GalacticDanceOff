@@ -71,8 +71,7 @@ public class BeatmapReader : MonoBehaviour {
         //actually start courutine that places notes
         StartCoroutine(RunBeatmap());
     }
-
-	private bool once = true; //only for testing
+    
     IEnumerator RunBeatmap()
     {
         //set things here again for safety
@@ -87,8 +86,6 @@ public class BeatmapReader : MonoBehaviour {
         //read through beatmap, if note send info to spawner, if end, go out of
         while (beatMapIsRunning)
         {
-			if(once)
-			goto atStop; //for Testing purposes
 
             //wait at start of thing, starts as soon as metronome changes from what was at start
             yield return new WaitUntil(() => hasHadCooldown != metronome);
@@ -139,8 +136,6 @@ public class BeatmapReader : MonoBehaviour {
 
 		// -----------
 		//call gamemanager function
-		StartCoroutine(GameManagerController.instance.BetweenBeatMap());
-		once = false;
 		// -----------
 
         

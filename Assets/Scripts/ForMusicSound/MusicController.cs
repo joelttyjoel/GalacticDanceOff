@@ -58,7 +58,7 @@ public class MusicController : MonoBehaviour
 
     public void EnterLevelByInt(int levelNumber)
     {
-        myEmitter.SetParameter("StartLvl" + levelNumber.ToString(), 1f);
+        myEmitter.SetParameter("StartLvl", levelNumber);
         Debug.Log("StartLvl" + levelNumber.ToString());
     }
 
@@ -71,12 +71,7 @@ public class MusicController : MonoBehaviour
         Debug.Log("Restarting");
         //set to restart, does slowdown goes to begining
         myEmitter.SetParameter("Restart", 1f);
-        //set all other start values to 0
-        for (int i = 0; i < numberOfLevels; i++)
-        {
-            //get values 0, and 1 if count = 2
-            myEmitter.SetParameter("StartLvl" + (i).ToString(), 0f);
-        }
+        myEmitter.SetParameter("StartLvl", 0f);
         //now set restart back to 0 so it doesen't fuck up rest of shit
         yield return new WaitForSeconds(0.1f);
         myEmitter.SetParameter("Restart", 0f);

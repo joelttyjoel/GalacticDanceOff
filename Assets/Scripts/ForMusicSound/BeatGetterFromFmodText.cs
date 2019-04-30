@@ -31,7 +31,7 @@ public class BeatGetterFromFmodText : MonoBehaviour
     // Variables that are modified in the callback need to be part of a seperate class.
     // This class needs to be 'blittable' otherwise it can't be pinned in memory.
     [StructLayout(LayoutKind.Sequential)]
-    class TimelineInfo
+    public class TimelineInfo
     {
         //label info for knowing when started
         public FMOD.StringWrapper lastMarker = new FMOD.StringWrapper();
@@ -41,8 +41,8 @@ public class BeatGetterFromFmodText : MonoBehaviour
         public bool metronome1 = false;
     }
 
-    TimelineInfo timelineInfo;
-    GCHandle timelineHandle;
+    public TimelineInfo timelineInfo;
+    public GCHandle timelineHandle;
 
     FMOD.Studio.EVENT_CALLBACK beatCallback;
     FMOD.Studio.EventInstance musicInstance;
@@ -163,13 +163,15 @@ public class BeatGetterFromFmodText : MonoBehaviour
                 beatSpawnerBot.GetComponent<BeatmapSpawner>().SpawnFret(timePerBeat, timelineInfo.timeOfBeat);
 
                 //also polling if can enter next beatmap, can only happen on beat
+                //if marker has changed during this turn, will change, yummy solutions
                 if (runNextBeatmap && currentLabelName != timelineInfo.lastMarker)
                 {
-                    //if can enter, set things back, run beatmap
-                    currentLabelName = timelineInfo.lastMarker;
                     runNextBeatmap = false;
                     BeatmapReader.instance.StartRunningBeatmap(nameOfMapToRun);
                 }
+
+                //update marker value thing
+                currentLabelName = timelineInfo.lastMarker;
             }
         }
     }

@@ -141,7 +141,8 @@ public class NoteChecker : MonoBehaviour {
 
     private void QueEmptyHit()
     {
-        Debug.Log("Que empty");
+        Debug.Log("Que empty 'miss'");
+        AudioController.instance.PlayNoteSound(0f);
     }
 
     //The note was hit, now compare what type of hit
@@ -172,6 +173,7 @@ public class NoteChecker : MonoBehaviour {
         //Effects or other things
         LosePoints();
         Debug.Log("Miss");
+        AudioController.instance.PlayNoteSound(0f);
     }
 
     //The note was hit and not perfectly timed
@@ -180,6 +182,7 @@ public class NoteChecker : MonoBehaviour {
         //Effects or other things
         GainPoints(false);
         Debug.Log("Hit");
+        AudioController.instance.PlayNoteSound(1f);
     }
 
     //Perfect timed hit
@@ -188,6 +191,7 @@ public class NoteChecker : MonoBehaviour {
         //Effects or other things
         GainPoints(true);
         Debug.Log("Perfect");
+        AudioController.instance.PlayNoteSound(2f);
     }
 
 

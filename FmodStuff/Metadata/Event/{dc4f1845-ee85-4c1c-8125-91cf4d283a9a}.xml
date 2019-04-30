@@ -137,6 +137,7 @@ Cues används för att starta låten. </value>
             <destination>{0cb7041f-67e4-4655-864c-ead2dd46086f}</destination>
             <destination>{cd31b779-870c-4a5a-b1fe-c8767158c8cf}</destination>
             <destination>{3699d5fd-2383-4d11-85a8-e8967baadfa7}</destination>
+            <destination>{6969e67a-306b-49d6-8d67-f63282aa1892}</destination>
         </relationship>
     </object>
     <object class="ParameterProxy" id="{5269f2b5-a924-46fa-b14a-f1d18bc95acd}">
@@ -373,10 +374,10 @@ Cues används för att starta låten. </value>
     </object>
     <object class="TransitionRegion" id="{c963982e-8a77-4621-943b-191ae63db2e6}">
         <property name="position">
-            <value>5.333333333333333</value>
+            <value>2.6666666666666665</value>
         </property>
         <property name="length">
-            <value>93.333333333333513</value>
+            <value>96.000000000000185</value>
         </property>
         <relationship name="triggerConditions">
             <destination>{3f6c2519-8bfc-4d1d-ae80-359cb868258c}</destination>
@@ -413,7 +414,7 @@ Cues används för att starta låten. </value>
             <value>2.6666666666666665</value>
         </property>
         <property name="name">
-            <value>StartLvl0</value>
+            <value>StartLvl1</value>
         </property>
         <relationship name="timeline">
             <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
@@ -450,7 +451,7 @@ Cues används för att starta låten. </value>
             <value>50.666666666666686</value>
         </property>
         <property name="name">
-            <value>StartLvl1</value>
+            <value>StartLvl2</value>
         </property>
         <relationship name="timeline">
             <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
@@ -508,6 +509,20 @@ Cues används för att starta låten. </value>
         </relationship>
         <relationship name="markerTrack">
             <destination>{f4f5d363-eabf-42f1-a456-b901d4e173c4}</destination>
+        </relationship>
+    </object>
+    <object class="NamedMarker" id="{6969e67a-306b-49d6-8d67-f63282aa1892}">
+        <property name="position">
+            <value>48</value>
+        </property>
+        <property name="name">
+            <value>EndSequence</value>
+        </property>
+        <relationship name="timeline">
+            <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
+        </relationship>
+        <relationship name="markerTrack">
+            <destination>{017b67f0-da26-4e4c-8b6a-82ff4824c241}</destination>
         </relationship>
     </object>
     <object class="MixerBusEffectChain" id="{96d57944-b58e-4e54-b5d6-b664d5c82a87}">

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManagerController : MonoBehaviour {
     [Header("Selected beatmap set?? Dunno how")]
-    public int currentBeatMap = 0;
+    public int currentBeatMap = 1;
     //difficulty thing? Hm is needed or not, who know
     //Array to store all beatmaps for this level
     [SerializeField]
@@ -18,10 +18,8 @@ public class GameManagerController : MonoBehaviour {
     //music controller thing
     private FMOD_StudioEventEmitter eventEmitter;
 
-    [Header("Scores: ")]
-    //Scores
-    public int egoMeterLeft = 0;
-    public int egoMeterRight = 0;
+    [Header("Settings Sequencing")]
+    public float timeBeforeFirstRun = 5f;
 
     [Header("General Settings")]
     //Variables for other objects
@@ -46,6 +44,9 @@ public class GameManagerController : MonoBehaviour {
 	public int AIHealth;
 
 
+    //make sequence courutine
+    private Coroutine sequencer;
+    private bool betweenIsDone = false;
 
     //make singleton
     public static GameManagerController instance = null;
@@ -72,51 +73,54 @@ public class GameManagerController : MonoBehaviour {
         //Get thing that reads from Fmod
         theGetter = musicManager.GetComponent<BeatGetterFromFmodText>();
 
-        //SET SETTINGS FOR RUNNING BEATMAP, REEE
-
+        //start doing automatic sequence thing
+        currentBeatMap = 1;
+        sequencer = StartCoroutine(SequenceStartRunEtc());
     }
 	
 	void Update () {
-        if(startLevel)
-        {
-            startLevel = false;
-            //if less than 2, aka 0 and 1 then do play current beatmap
-            if (currentBeatMap < 2)
-            {
-                //run current map
-                runBeatmap();
-                MusicController.instance.EnterLevelByInt(currentBeatMap);
-                //increment to next
-                currentBeatMap++;
-            }
-            //if 2 or above, set back to 0
-            else
-            {
-                currentBeatMap = 0;
-            }
-        }
+        //if(startLevel)
+        //{
+        //    startLevel = false;
+        //    //if less than 2, aka 0 and 1 then do play current beatmap
+        //    if (currentBeatMap < SceneSwitchereController.instance.currentSequence.beatMapNamesInOrder.Length)
+        //    {
+        //        //run current map
+        //        runBeatmap();
+        //        MusicController.instance.EnterLevelByInt(currentBeatMap);
+        //        //increment to next
+        //        currentBeatMap++;
+        //    }
+        //    //if 2 or above, set back to 0
+        //    else
+        //    {
+        //        currentBeatMap = 0;
+        //    }
+        //}
         if(failLevel)
         {
+            failLevel = false;
             failBeatmap();
         }
 	}
 
     private void failBeatmap()
     {
-        //reset stuff for restart
-        currentBeatMap = 0;
         //getter settings
         theGetter.runNextBeatmap = false;
         theGetter.currentLabelName = "Start";
         //stuff
         MusicController.instance.RestartScene();
-        failLevel = false;
+
+        //do stuff for next run, reset sequencer etc
+        currentBeatMap = 1;
+        StopCoroutine(sequencer);
 
         //set stuff for beatmap slowdown and removal
-        StartCoroutine(failNoteAnimation());
+        StartCoroutine(failBeatmapAnimation());
     }
 
-    private IEnumerator failNoteAnimation()
+    private IEnumerator failBeatmapAnimation()
     {
         //slow down until stop
         float timeToSlowFor = beatsToSlowDownFor * BeatmapReader.instance.thingsPerBeat * BeatmapReader.instance.timePer16del;
@@ -153,6 +157,9 @@ public class GameManagerController : MonoBehaviour {
         }
         Time.timeScale = 1f;
 
+        //ONCE COMPLETE, RESTART SEQUENCE
+        sequencer = StartCoroutine(SequenceStartRunEtc());
+
         //Debug.Log(percentageOfTravel);
         //while (noteParent.transform.childCount > 0)
         //{
@@ -165,24 +172,75 @@ public class GameManagerController : MonoBehaviour {
 		
 	public IEnumerator BetweenBeatMap()
 	{
-		
+        Debug.Log("Between sequences");
 		yield return new WaitForSeconds (3f);
 		Debug.Log ("Scoring");
-
 		yield return new WaitForSeconds (3f);
 		Debug.Log ("Animation");
 		yield return new WaitForSeconds (3f);
 		Debug.Log ("return to beatMap");
+        betweenIsDone = true;
+    }
 
-	}
+    public IEnumerator FinishedSequence()
+    {
+        Debug.Log("Sequence finished");
+        yield return new WaitForSeconds(3f);
+        Debug.Log("Do something");
+        yield return new WaitForSeconds(3f);
+        Debug.Log("Done");
+        //when done, just reload scene again, boom
+        SceneSwitchereController.instance.LoadSceneByName(SceneSwitchereController.instance.nameCurrentScene, SceneSwitchereController.instance.nameCurrentSequence);
+    }
+
+    public IEnumerator SequenceStartRunEtc()
+    {
+        //time until start first level
+        yield return new WaitForSeconds(timeBeforeFirstRun);
+        //loop through all levels until reached final
+        while(currentBeatMap - 1 < SceneSwitchereController.instance.currentSequence.beatMapNamesInOrder.Length)
+        {
+            Debug.Log("Start current beatmap");
+            //start map, start for check that next has been reached
+            //run current map
+            runBeatmap();
+            //starts at 1 in fmod, not 0
+            MusicController.instance.EnterLevelByInt(currentBeatMap);
+            //increment to next
+            currentBeatMap++;
+            //wait for reach end of sequence
+            //read tag from fmod thing, if = sequence, then sequence has passed
+            //first check if isn't equal, for second time looping, will be active until moved on, once moved on, 
+            //wait for end sequence again
+            Debug.Log(theGetter.currentLabelName);
+            yield return new WaitUntil(() => theGetter.currentLabelName != "EndSequence");
+            Debug.Log(theGetter.currentLabelName);
+            //only do this waiting part if not on last turn, if on last, move out of this and wait for finish instead
+            if((currentBeatMap - 1) < SceneSwitchereController.instance.currentSequence.beatMapNamesInOrder.Length)
+            {
+                yield return new WaitUntil(() => theGetter.currentLabelName == "EndSequence");
+                Debug.Log(theGetter.currentLabelName);
+                //Start doing between beatmaps
+                StartCoroutine(BetweenBeatMap());
+                //wait for between beatmaps to be complete
+                yield return new WaitUntil(() => betweenIsDone == true);
+                betweenIsDone = false;
+            }
+        }
+        //has played last beatmap
+        Debug.Log("Final wait");
+        yield return new WaitUntil(() => theGetter.currentLabelName == "Finish");
+        StartCoroutine(FinishedSequence());
+        //after reached finish, stop the thing
+    }
 
 
     private void runBeatmap()
     {
-        Debug.Log("Run beatmap: " + currentBeatMap);
+        Debug.Log("Run beatmap: " + (currentBeatMap - 1));
         //ugly but shhhhh, if pretty make thse functions in musiccontrollre instead but shhh
         theGetter.runNextBeatmap = true;
-        theGetter.nameOfMapToRun = beatMapNamesInOrder[currentBeatMap];
+        theGetter.nameOfMapToRun = beatMapNamesInOrder[currentBeatMap - 1];
         //beatMapReader.StartRunningBeatmap(beatMapNamesInOrder[currentBeatMap]);
     }
 }

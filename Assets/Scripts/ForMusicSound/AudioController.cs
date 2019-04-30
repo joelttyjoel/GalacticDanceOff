@@ -9,6 +9,10 @@ public class AudioController : MonoBehaviour {
     public string buttonPressEventPath;
     private EventInstance buttonPress;
 
+    [FMODUnity.EventRef]
+    public string hpSoundsEventPath;
+    private EventInstance hpSounds;
+
     public static AudioController instance = null;
 
     void Awake()
@@ -24,11 +28,18 @@ public class AudioController : MonoBehaviour {
     void Start ()
     {
         buttonPress = FMODUnity.RuntimeManager.CreateInstance(buttonPressEventPath);
-	}
+        hpSounds = FMODUnity.RuntimeManager.CreateInstance(hpSoundsEventPath);
+    }
 
     public void PlayNoteSound(float selectSound)
     {
         buttonPress.setParameterValue("Tightness" , selectSound);
         buttonPress.start();
+    }
+
+    public void PlayHpSound(float selectSound)
+    {
+        hpSounds.setParameterValue("EgoMeter", selectSound);
+        hpSounds.start();
     }
 }

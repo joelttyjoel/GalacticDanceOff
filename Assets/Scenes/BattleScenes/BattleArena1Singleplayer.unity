@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -399,12 +399,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e2add257c867a4fb254b0a969fd79e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentBeatMap: 0
+  currentBeatMap: 1
   beatMapNamesInOrder: []
   startLevel: 1
   failLevel: 0
-  egoMeterLeft: 0
-  egoMeterRight: 0
+  timeBeforeFirstRun: 3
   beatsSpawnToGoal_akaSpeed: 4
   beatsToSlowDownFor: 7
   beatsToSpeedUpFor: 0.3
@@ -535,7 +534,7 @@ Prefab:
     - target: {fileID: 224396365304112498, guid: 0f28a40dd9e79db47a0249a078f5fefb,
         type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 224396365304112498, guid: 0f28a40dd9e79db47a0249a078f5fefb,
         type: 2}
@@ -1298,7 +1297,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &649758430
 GameObject:
@@ -2515,7 +2514,7 @@ RectTransform:
   - {fileID: 499294621}
   - {fileID: 1775071326}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2928,6 +2927,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1268981908}
+  - component: {fileID: 1268981909}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -2946,8 +2946,21 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1268981909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1268981907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c316340a4a96524b9f86dbffefc2ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonPressEventPath: event:/Sound/SFX/Gameplay/SFX_Gameplay_ButtonPress
+  hpSoundsEventPath: event:/Sound/SFX/Gameplay/SFX_Gameplay_EgoMeter
 --- !u!1 &1460803113
 GameObject:
   m_ObjectHideFlags: 0
@@ -4331,7 +4344,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2125068836
 MonoBehaviour:
@@ -4344,7 +4357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: event:/Funk/FunkSong1
+  Event: event:/Music/Funk/FunkSong1
   PlayEvent: 1
   StopEvent: 2
   CollisionTag: 

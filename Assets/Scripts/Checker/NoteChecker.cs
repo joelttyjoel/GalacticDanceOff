@@ -257,7 +257,7 @@ public class NoteChecker : MonoBehaviour {
         //Effects or other things
         LosePoints();
         Debug.Log("Miss");
-        AudioController.instance.PlayNoteSound(0f);
+        AudioController.instance.PlayHpSound(0f);
     }
 
     //The note was hit and not perfectly timed

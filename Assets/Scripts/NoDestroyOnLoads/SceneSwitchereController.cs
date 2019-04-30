@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class SceneSwitchereController : MonoBehaviour {
     //List of all scenes
@@ -35,7 +35,7 @@ public class SceneSwitchereController : MonoBehaviour {
     public void LoadSceneByName(string nameOfScene, string nameOfSequence)
     {
         //load scene no matter what
-        EditorSceneManager.LoadSceneAsync(nameOfScene);
+        SceneManager.LoadSceneAsync(nameOfScene);
         nameCurrentScene = nameOfScene;
         //Set current sequence
         nameCurrentSequence = nameOfSequence;

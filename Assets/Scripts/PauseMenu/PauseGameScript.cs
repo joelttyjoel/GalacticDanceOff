@@ -2,9 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using FMODUnity;
+using FMOD.Studio;
 
 public class PauseGameScript : MonoBehaviour {
-    public List<Sprite> countdownSprite3;
+	public List<Sprite> countdownSprite3;
+
+	//[FMODUnity.EventRef]
+	//public string PauseEventEventPath;
+	//private EventInstance Pause;
+
+	void Start ()
+	{
+		//Pause = FMODUnity.RuntimeManager.CreateInstance (PauseEventEventPath);
+	}
 
 	public GameObject optionMenu;
 	public GameObject parentMenu;
@@ -24,6 +35,8 @@ public class PauseGameScript : MonoBehaviour {
 			optionMenu.transform.GetChild(0).gameObject);
 
 	}
+
+
 
 	public void ResumeGame()
 	{
@@ -56,12 +69,23 @@ public class PauseGameScript : MonoBehaviour {
 	IEnumerator CountDown()
 	{
 		Debug.Log ("3");
+
+		//Pause.setParameterValue("PauseCountdown", 3f);
+		//Pause.start();
+
 		yield return WaitToResumeGame ();
 		Debug.Log ("2");
+		//Pause.setParameterValue("PauseCountdown", 2f);
+		//Pause.start();
+
 		yield return WaitToResumeGame ();
 		Debug.Log ("1");
+		//Pause.setParameterValue("PauseCountdown", 1f);
+	//	Pause.start();
 		yield return WaitToResumeGame ();
 		Debug.Log ("0");
+	//	Pause.setParameterValue("PauseCountdown", 0f);
+	//	Pause.start();
 
 
 		InputManager.instance.isInputsDisabled = false;
@@ -109,7 +133,7 @@ public class PauseGameScript : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Backspace) || Input.GetButtonDown ("Back Button")) 
 		{
 			if (optionMenu.activeInHierarchy) 
-			//{
+				//{
 				ResumeGame ();
 			//}
 		}

@@ -8,8 +8,9 @@ public class StartMenuCanvas : MonoBehaviour {
 
 	public Button soloButton;
 	public Button versusButton;
-
+	public Button openOption;
 	public GameObject OptionButton;
+
 
 
 	// Use this for initialization
@@ -58,6 +59,7 @@ public class StartMenuCanvas : MonoBehaviour {
 				{
 					soloButton.interactable = false;
 					versusButton.interactable = false;
+					openOption.interactable = false;
 				}
 
 				EventSystem.current.GetComponent<EventSystem> ().SetSelectedGameObject (
@@ -77,6 +79,7 @@ public class StartMenuCanvas : MonoBehaviour {
 		{
 			soloButton.interactable = true;
 			versusButton.interactable = true;
+			openOption.interactable = true;
 		}
 		EventSystem.current.GetComponent<EventSystem> ().SetSelectedGameObject (soloButton.gameObject);
 
@@ -85,7 +88,7 @@ public class StartMenuCanvas : MonoBehaviour {
 
 	public void ExitGame()
 	{
-		Debug.Log ("Quit");
+		Application.Quit();
 	}
 
 }

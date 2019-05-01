@@ -68,17 +68,18 @@ public class PauseGameScript : MonoBehaviour {
 
 	IEnumerator CountDown()
 	{
+		yield return WaitToResumeGame (0.25f);
 		Debug.Log ("3");
         AudioController.instance.PlayPauseSound(3f);
 
-        yield return WaitToResumeGame ();
+        yield return WaitToResumeGame (1f);
 		Debug.Log ("2");
         AudioController.instance.PlayPauseSound(2f);
 
-		yield return WaitToResumeGame ();
+		yield return WaitToResumeGame (1f);
 		Debug.Log ("1");
         AudioController.instance.PlayPauseSound(1f);
-        yield return WaitToResumeGame ();
+        yield return WaitToResumeGame (1f);
 		Debug.Log ("0");
         AudioController.instance.PlayPauseSound(0f);
 
@@ -89,10 +90,10 @@ public class PauseGameScript : MonoBehaviour {
 
 	}
 
-	IEnumerator WaitToResumeGame()
+	IEnumerator WaitToResumeGame(float timer)
 	{
 		float start = Time.realtimeSinceStartup;
-		while (Time.realtimeSinceStartup < start + 1f) 
+		while (Time.realtimeSinceStartup < start + timer) 
 		{
 			if (!pauseable) 
 			{

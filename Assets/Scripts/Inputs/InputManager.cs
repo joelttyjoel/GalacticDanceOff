@@ -42,12 +42,12 @@ public class InputManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		isInputsDisabled = false;
+		//isInputsDisabled = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        //Debug.Log(isInputsDisabled);
 	}
 
 	//GetbuttonDown is like input.geykeydown

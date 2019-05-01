@@ -20,9 +20,14 @@ MonoBehaviour:
   - {fileID: 114037143742547546}
   - {fileID: 114309427470416472}
   - {fileID: 114613715671712406}
+  - {fileID: 114065755187089450}
+  - {fileID: 114542023768644486}
+  - {fileID: 114848329309680232}
+  - {fileID: 114771972306433824}
+  - {fileID: 114914987483316720}
   MasterBankRef: {fileID: 114442563555817382}
   StringsBankRef: {fileID: 114778907155608306}
-  stringsBankWriteTime: 636922347065330205
+  stringsBankWriteTime: 636923188096551827
   cacheVersion: 2
 --- !u!114 &114003396158249694
 MonoBehaviour:
@@ -88,7 +93,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 114097434442880688}
+  - {fileID: 114503654325478988}
   MinDistance: 0
   MaxDistance: 0
   Length: 9000
@@ -156,8 +161,8 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114051398260747034}
-  - {fileID: 114662747616161130}
+  - {fileID: 114060470591188708}
+  - {fileID: 114234452189104484}
   MinDistance: 0
   MaxDistance: 0
   Length: 98666
@@ -221,6 +226,44 @@ MonoBehaviour:
   Min: 0
   Max: 3
   Default: 0
+--- !u!114 &114060470591188708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: StartLvl
+  Min: 0
+  Max: 3
+  Default: 0
+--- !u!114 &114065755187089450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Sound/SFX/SFX_Pause
+  guid: 02c1f962067c4641a724e6c33bb44137
+  Banks:
+  - {fileID: 114442563555817382}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 114307501396697826}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &114090016121541830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,6 +537,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114234452189104484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Restart
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114243723443453058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -618,6 +676,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114307501396697826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: PauseCountdown
+  Min: 0
+  Max: 4
+  Default: 0
 --- !u!114 &114309427470416472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -637,11 +710,11 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114926817799452644}
-  - {fileID: 114551978502103238}
+  - {fileID: 114342779469260072}
+  - {fileID: 114469799271285214}
   MinDistance: 0
   MaxDistance: 0
-  Length: 65142
+  Length: 66857
 --- !u!114 &114311673111492274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -721,7 +794,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114005537863467186}
+  - {fileID: 114656906606197222}
   MinDistance: 0
   MaxDistance: 0
   Length: 4875
@@ -737,6 +810,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: StartLvl0
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114342779469260072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Restart
   Min: 0
   Max: 1
   Default: 0
@@ -878,6 +966,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114410070910931502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MenuSelect
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114411529775435588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -935,6 +1038,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: StartLvl0
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114421263654750558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Restart
   Min: 0
   Max: 1
   Default: 0
@@ -1010,11 +1128,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: C:\Users\joelt\Documents\GalacticDanceOff\FmodStuff\Build\Desktop\Master Bank.bank
-  lastModified: 636922347065298529
+  lastModified: 636923188096420911
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 2512704
+    Value: 4943104
   Exists: 1
 --- !u!114 &114454933446007740
 MonoBehaviour:
@@ -1060,6 +1178,21 @@ MonoBehaviour:
   Name: EgoMeter
   Min: 0
   Max: 1
+  Default: 0
+--- !u!114 &114469799271285214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: StartLvl
+  Min: 0
+  Max: 3
   Default: 0
 --- !u!114 &114476492497120682
 MonoBehaviour:
@@ -1135,6 +1268,21 @@ MonoBehaviour:
   Name: StartLvl1
   Min: 0
   Max: 1
+  Default: 0
+--- !u!114 &114503654325478988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Tightness
+  Min: 0
+  Max: 2
   Default: 0
 --- !u!114 &114505979069713428
 MonoBehaviour:
@@ -1241,6 +1389,29 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114542023768644486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Sound/SFX/UI/MainMenu/SFX_UI_MainMenu
+  guid: 2be04ea14e48854fb81d170892efa99f
+  Banks:
+  - {fileID: 114442563555817382}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 114410070910931502}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 13500
 --- !u!114 &114550389922977274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1253,6 +1424,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: StartLvl1
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114551003131018244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Restart
   Min: 0
   Max: 1
   Default: 0
@@ -1410,7 +1596,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 114642162413412932}
+  - {fileID: 114925844480349376}
   MinDistance: 0
   MaxDistance: 0
   Length: 11000
@@ -1445,6 +1631,21 @@ MonoBehaviour:
   Max: 1
   Default: 0
 --- !u!114 &114647174266679450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: CrowdLoop
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114656906606197222
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -1669,6 +1870,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114744273962259598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: StartLvl
+  Min: 0
+  Max: 3
+  Default: 0
 --- !u!114 &114745129123441116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1729,6 +1945,28 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114771972306433824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Intro/Intro
+  guid: db820e00d7e09b44826b73b273f57086
+  Banks:
+  - {fileID: 114442563555817382}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 72000
 --- !u!114 &114772289865203444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1756,11 +1994,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: FmodStuff\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636922347065330205
+  lastModified: 636923188096551827
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 982
+    Value: 1210
   Exists: 1
 --- !u!114 &114822062543574004
 MonoBehaviour:
@@ -1807,6 +2045,30 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114848329309680232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Test
+  guid: 3ab186e32e106d4a8f654b4dd4cc2cd6
+  Banks:
+  - {fileID: 114442563555817382}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 114865329080754546}
+  - {fileID: 114421263654750558}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 22032
 --- !u!114 &114851616160404214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1836,6 +2098,21 @@ MonoBehaviour:
   Name: CrowdLoop
   Min: 0
   Max: 1
+  Default: 0
+--- !u!114 &114865329080754546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: StartLvl
+  Min: 0
+  Max: 3
   Default: 0
 --- !u!114 &114873881692302242
 MonoBehaviour:
@@ -1927,6 +2204,30 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114914987483316720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Rock/Rock02
+  guid: ea8b6b6abc391a40bbded1e71b792700
+  Banks:
+  - {fileID: 114442563555817382}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 114551003131018244}
+  - {fileID: 114744273962259598}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 104935
 --- !u!114 &114919303129807064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1969,6 +2270,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: StartLvl1
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114925844480349376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: EgoMeter
   Min: 0
   Max: 1
   Default: 0

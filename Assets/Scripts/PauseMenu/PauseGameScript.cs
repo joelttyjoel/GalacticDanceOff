@@ -69,26 +69,21 @@ public class PauseGameScript : MonoBehaviour {
 	IEnumerator CountDown()
 	{
 		Debug.Log ("3");
+        AudioController.instance.PlayPauseSound(3f);
 
-		//Pause.setParameterValue("PauseCountdown", 3f);
-		//Pause.start();
-
-		yield return WaitToResumeGame ();
+        yield return WaitToResumeGame ();
 		Debug.Log ("2");
-		//Pause.setParameterValue("PauseCountdown", 2f);
-		//Pause.start();
+        AudioController.instance.PlayPauseSound(2f);
 
 		yield return WaitToResumeGame ();
 		Debug.Log ("1");
-		//Pause.setParameterValue("PauseCountdown", 1f);
-	//	Pause.start();
-		yield return WaitToResumeGame ();
+        AudioController.instance.PlayPauseSound(1f);
+        yield return WaitToResumeGame ();
 		Debug.Log ("0");
-	//	Pause.setParameterValue("PauseCountdown", 0f);
-	//	Pause.start();
+        AudioController.instance.PlayPauseSound(0f);
 
 
-		InputManager.instance.isInputsDisabled = false;
+        InputManager.instance.isInputsDisabled = false;
 		MusicController.instance.ResumeMusic ();
 		Time.timeScale = 1f;
 

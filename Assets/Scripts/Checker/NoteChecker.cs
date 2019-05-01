@@ -266,7 +266,7 @@ public class NoteChecker : MonoBehaviour {
         //Effects or other things
         GainPoints(false);
         Debug.Log("Hit");
-        AudioController.instance.PlayNoteSound(1f);
+        //AudioController.instance.PlayNoteSound(1f);
     }
 
     //Perfect timed hit
@@ -275,7 +275,7 @@ public class NoteChecker : MonoBehaviour {
         //Effects or other things
         GainPoints(true);
         Debug.Log("Perfect");
-        AudioController.instance.PlayNoteSound(2f);
+        //AudioController.instance.PlayNoteSound(2f);
     }
 
 

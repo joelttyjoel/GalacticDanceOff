@@ -68,7 +68,7 @@ public class MusicController : MonoBehaviour
     }
     private IEnumerator DoRestartScene()
     {
-        Debug.Log("Restarting");
+        Debug.Log("Restarting Music");
         //set to restart, does slowdown goes to begining
         myEmitter.SetParameter("Restart", 1f);
         myEmitter.SetParameter("StartLvl", 0f);

@@ -6,7 +6,6 @@ public class Health : MonoBehaviour
 {
 	private float currentHealth;
 	private float maxHealth;
-	public float dmg;
 
 
 	void Start()
@@ -30,18 +29,8 @@ public class Health : MonoBehaviour
 		{
 			currentHealth = GameManagerController.instance.AIHealth;
 		}
-		currentHealth = Mathf.Clamp (currentHealth, 0, maxHealth);
+
 		handleBar (currentHealth);
-
-		if (Input.GetKeyDown (KeyCode.P)) {
-			currentHealth += dmg;
-
-		}
-		if (Input.GetKeyDown (KeyCode.O)) 
-		{
-			currentHealth -= dmg;
-
-		}
 	}
 
 	//makes EGOBar always move towards its current EGO

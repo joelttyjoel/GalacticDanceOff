@@ -37,15 +37,16 @@ public class GameManagerController : MonoBehaviour {
     //fade from grey ish to white at start, hmm
     public float startFadeDistance = 1.0f;
 
-	//Edits EGOMeter
-	[Header("EGO Bars")]
+    //Edits EGOMeter
+    [Header("EGO Bars")]
+    public int damagePerMiss;
 	public int maxHealth;
 	public int playerHealth;
 	public int AIHealth;
 
 
     //make sequence courutine
-    private Coroutine sequencer;
+    private IEnumerator sequencer;
     private bool betweenIsDone = false;
 
     //make singleton
@@ -75,7 +76,8 @@ public class GameManagerController : MonoBehaviour {
 
         //start doing automatic sequence thing
         currentBeatMap = 1;
-        sequencer = StartCoroutine(SequenceStartRunEtc());
+        sequencer = SequenceStartRunEtc();
+        StartCoroutine(sequencer);
     }
 	
 	void Update () {
@@ -97,12 +99,39 @@ public class GameManagerController : MonoBehaviour {
         //        currentBeatMap = 0;
         //    }
         //}
-        if(failLevel)
-        {
-            failLevel = false;
-            failBeatmap();
-        }
+        //if(failLevel)
+        //{
+        //    failLevel = false;
+        //    failBeatmap();
+        //}
 	}
+
+    public void takeDamage(bool isLeftP)
+    {
+        if (isLeftP)
+        {
+            AudioController.instance.PlayHpSound(0f);
+            playerHealth -= damagePerMiss;
+        }
+        else
+        {
+            AIHealth -= damagePerMiss;
+        }
+
+        //if health <= 0, set to 0, also lose game
+        if(playerHealth <= 0)
+        {
+            playerHealth = 0;
+            failBeatmap();
+            //dissable inputs
+            InputManager.instance.isInputsDisabled = true;
+        }
+        if (AIHealth <= 0)
+        {
+            AIHealth = 0;
+            //lose game
+        }
+    }
 
     private void failBeatmap()
     {
@@ -112,9 +141,13 @@ public class GameManagerController : MonoBehaviour {
         //stuff
         MusicController.instance.RestartScene();
 
+        InputManager.instance.isInputsDisabled = true;
+
         //do stuff for next run, reset sequencer etc
         currentBeatMap = 1;
+        //Stop sequencer
         StopCoroutine(sequencer);
+        Debug.Log("Restart sequence");
 
         //set stuff for beatmap slowdown and removal
         StartCoroutine(failBeatmapAnimation());
@@ -158,7 +191,7 @@ public class GameManagerController : MonoBehaviour {
         Time.timeScale = 1f;
 
         //ONCE COMPLETE, RESTART SEQUENCE
-        sequencer = StartCoroutine(SequenceStartRunEtc());
+        StartCoroutine(sequencer);
 
         //Debug.Log(percentageOfTravel);
         //while (noteParent.transform.childCount > 0)
@@ -172,6 +205,7 @@ public class GameManagerController : MonoBehaviour {
 		
 	public IEnumerator BetweenBeatMap()
 	{
+        InputManager.instance.isInputsDisabled = true;
         Debug.Log("Between sequences");
 		yield return new WaitForSeconds (3f);
 		Debug.Log ("Scoring");
@@ -180,10 +214,14 @@ public class GameManagerController : MonoBehaviour {
 		yield return new WaitForSeconds (3f);
 		Debug.Log ("return to beatMap");
         betweenIsDone = true;
+        //re enable inputs
+        InputManager.instance.isInputsDisabled = false;
     }
 
     public IEnumerator FinishedSequence()
     {
+        //disable inputs again
+        InputManager.instance.isInputsDisabled = true;
         Debug.Log("Sequence finished");
         yield return new WaitForSeconds(3f);
         Debug.Log("Do something");
@@ -195,12 +233,22 @@ public class GameManagerController : MonoBehaviour {
 
     public IEnumerator SequenceStartRunEtc()
     {
+        InputManager.instance.isInputsDisabled = true;
+        Debug.Log("1 " + InputManager.instance.isInputsDisabled);
         //time until start first level
         yield return new WaitForSeconds(timeBeforeFirstRun);
+        //set health to full on start
+        playerHealth = 100;
+        AIHealth = 100;
+
         //loop through all levels until reached final
-        while(currentBeatMap - 1 < SceneSwitchereController.instance.currentSequence.beatMapNamesInOrder.Length)
+        while (currentBeatMap - 1 < SceneSwitchereController.instance.currentSequence.beatMapNamesInOrder.Length)
         {
             Debug.Log("Start current beatmap");
+            //enable inputs
+            Debug.Log("2 " +InputManager.instance.isInputsDisabled);
+            InputManager.instance.isInputsDisabled = false;
+            Debug.Log("3 " + InputManager.instance.isInputsDisabled);
             //start map, start for check that next has been reached
             //run current map
             runBeatmap();

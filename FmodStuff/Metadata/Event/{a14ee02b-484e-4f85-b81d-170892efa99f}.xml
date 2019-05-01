@@ -5,7 +5,7 @@
             <value>SFX_UI_MainMenu</value>
         </property>
         <property name="outputFormat">
-            <value>2</value>
+            <value>1</value>
         </property>
         <relationship name="folder">
             <destination>{1a59cb3a-4984-415d-b660-bbc57bdd135e}</destination>
@@ -261,7 +261,6 @@
     <object class="MixerBusEffectChain" id="{76ce0bdb-b2f6-4866-b873-9e583a27bbe0}">
         <relationship name="effects">
             <destination>{f7b08550-418a-46a2-9bfe-447700f1b732}</destination>
-            <destination>{a8f30369-b52c-4185-a8cb-dee84cd3bf78}</destination>
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{fc0a7540-9c1c-49bc-8e1c-65ff6ca61d25}"/>
@@ -303,7 +302,6 @@
         </relationship>
     </object>
     <object class="MixerBusFader" id="{f7b08550-418a-46a2-9bfe-447700f1b732}"/>
-    <object class="SpatialiserEffect" id="{a8f30369-b52c-4185-a8cb-dee84cd3bf78}"/>
     <object class="AutomationPoint" id="{cf2a1549-d4e4-4a0a-a2fe-209d5f1dbf26}">
         <property name="position">
             <value>11</value>

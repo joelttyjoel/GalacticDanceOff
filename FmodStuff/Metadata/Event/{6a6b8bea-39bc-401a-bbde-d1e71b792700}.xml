@@ -187,9 +187,6 @@
         <relationship name="automators">
             <destination>{205af166-6b79-40ae-a970-1c00407c0ae6}</destination>
         </relationship>
-        <relationship name="modulators">
-            <destination>{5cb8864b-18af-4606-bbbb-93dc8099f88f}</destination>
-        </relationship>
         <relationship name="audioFile">
             <destination>{b9c9b5f3-7b04-49f4-8564-41dbc084cc6e}</destination>
         </relationship>
@@ -586,17 +583,6 @@
         <relationship name="automationCurves">
             <destination>{0c064105-87b3-4948-aa05-a1c0c6b46365}</destination>
         </relationship>
-    </object>
-    <object class="ADSRModulator" id="{5cb8864b-18af-4606-bbbb-93dc8099f88f}">
-        <property name="nameOfPropertyBeingModulated">
-            <value>volume</value>
-        </property>
-        <property name="initialValue">
-            <value>-80</value>
-        </property>
-        <property name="releaseTime">
-            <value>6249.99951</value>
-        </property>
     </object>
     <object class="Automator" id="{6f300475-f26e-4b9a-b84f-cd0762743734}">
         <property name="nameOfPropertyBeingAutomated">

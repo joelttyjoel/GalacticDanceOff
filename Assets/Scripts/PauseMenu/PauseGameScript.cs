@@ -7,7 +7,6 @@ using FMODUnity;
 using FMOD.Studio;
 
 public class PauseGameScript : MonoBehaviour {
-	public List<Sprite> countdownSprite3;
 	Text countDown;
 
 	//[FMODUnity.EventRef]
@@ -124,5 +123,10 @@ public class PauseGameScript : MonoBehaviour {
 			//}
 		}
 	}
+
+    public void ReturnToMainMenu()
+    {
+        Time.timeScale = 1f;
+    }
 
 }

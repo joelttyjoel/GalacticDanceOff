@@ -73,7 +73,7 @@ public class MusicController : MonoBehaviour
         myEmitter.SetParameter("Restart", 1f);
         myEmitter.SetParameter("StartLvl", 0f);
         //now set restart back to 0 so it doesen't fuck up rest of shit
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(2.0f);
         myEmitter.SetParameter("Restart", 0f);
         //do slow down time at same rate as thing
     }

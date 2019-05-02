@@ -25,7 +25,11 @@ public class PauseGameScript : MonoBehaviour {
 	private bool pauseable = true;
 	private void PauseGame()
 	{
-		this.transform.GetChild (0).gameObject.SetActive (false);
+        //start sound to play in pause menu thing
+        AudioController.instance.SetParamPauseSound(4f);
+        AudioController.instance.PlayPauseSound();
+
+        this.transform.GetChild (0).gameObject.SetActive (false);
 		InputManager.instance.isInputsDisabled = true;
 		pauseable = false;
 		Time.timeScale = 0f;
@@ -54,19 +58,19 @@ public class PauseGameScript : MonoBehaviour {
 		this.transform.GetChild (0).gameObject.SetActive (true);
 		//yield return WaitToResumeGame (0.25f);
 
-        AudioController.instance.PlayPauseSound(3f);
+        AudioController.instance.SetParamPauseSound(3f);
 		countDown.text = "3";
 
         yield return WaitToResumeGame (1f);
-        AudioController.instance.PlayPauseSound(2f);
+        AudioController.instance.SetParamPauseSound(2f);
 		countDown.text = "2";
 
 		yield return WaitToResumeGame (1f);
-        AudioController.instance.PlayPauseSound(1f);
+        AudioController.instance.SetParamPauseSound(1f);
 		countDown.text = "1";
 
         yield return WaitToResumeGame (1f);
-        AudioController.instance.PlayPauseSound(0f);
+        AudioController.instance.SetParamPauseSound(0f);
 		countDown.text = "0";
 
         InputManager.instance.isInputsDisabled = false;

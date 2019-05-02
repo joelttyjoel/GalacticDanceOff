@@ -9,17 +9,17 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1022691432109178}
+  m_RootGameObject: {fileID: 1079668262885718}
   m_IsPrefabParent: 1
---- !u!1 &1022691432109178
+--- !u!1 &1079668262885718
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4258028154150176}
-  - component: {fileID: 114446401957631438}
+  - component: {fileID: 4394048856349598}
+  - component: {fileID: 114128369496412188}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -27,12 +27,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4258028154150176
+--- !u!4 &4394048856349598
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1022691432109178}
+  m_GameObject: {fileID: 1079668262885718}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -7.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,12 +40,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114446401957631438
+--- !u!114 &114128369496412188
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1022691432109178}
+  m_GameObject: {fileID: 1079668262885718}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c316340a4a96524b9f86dbffefc2ac8, type: 3}
@@ -53,3 +53,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonPressEventPath: event:/Sound/SFX/Gameplay/SFX_Gameplay_ButtonPress
   hpSoundsEventPath: event:/Sound/SFX/Gameplay/SFX_Gameplay_EgoMeter
+  pauseSoundsEventPath: event:/Sound/SFX/SFX_Pause
+  mainMenuEventPath: event:/Sound/SFX/UI/MainMenu/SFX_UI_MainMenu
+  audioIsEnabled: 1

@@ -18,6 +18,10 @@ public class AudioController : MonoBehaviour {
     public string pauseSoundsEventPath;
     private EventInstance pauseSounds;
 
+    [FMODUnity.EventRef]
+    public string mainMenuEventPath;
+    private EventInstance mainMenuSounds;
+
     public bool audioIsEnabled = true;
 
     public static AudioController instance = null;
@@ -29,6 +33,8 @@ public class AudioController : MonoBehaviour {
         //now replaces already existing gameManager instead
         else if (instance != this)
             Destroy(instance.gameObject);
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Use this for initialization
@@ -37,6 +43,7 @@ public class AudioController : MonoBehaviour {
         buttonPress = FMODUnity.RuntimeManager.CreateInstance(buttonPressEventPath);
         hpSounds = FMODUnity.RuntimeManager.CreateInstance(hpSoundsEventPath);
         pauseSounds = FMODUnity.RuntimeManager.CreateInstance(pauseSoundsEventPath);
+        mainMenuSounds = FMODUnity.RuntimeManager.CreateInstance(mainMenuEventPath);
     }
 
     public void PlayNoteSound(float selectSound)
@@ -53,11 +60,22 @@ public class AudioController : MonoBehaviour {
         hpSounds.start();
     }
 
-    public void PlayPauseSound(float selectSound)
+    public void SetParamPauseSound(float selectSound)
     {
         if (!audioIsEnabled) return;
         pauseSounds.setParameterValue("PauseCountdown", selectSound);
+    }
+    public void PlayPauseSound()
+    {
+        if (!audioIsEnabled) return;
         pauseSounds.start();
+    }
+
+    public void PlayMainMenueSound(float selectSound)
+    {
+        if (!audioIsEnabled) return;
+        mainMenuSounds.setParameterValue("MenuSelect", selectSound);
+        mainMenuSounds.start();
     }
 
     public void SetVolumeBySlider(Slider sliderIn)
@@ -65,5 +83,6 @@ public class AudioController : MonoBehaviour {
         buttonPress.setVolume(sliderIn.value);
         hpSounds.setVolume(sliderIn.value);
         pauseSounds.setVolume(sliderIn.value);
+        mainMenuSounds.setVolume(sliderIn.value);
     }
 }

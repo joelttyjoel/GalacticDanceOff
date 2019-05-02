@@ -24,14 +24,17 @@ public class ChangeSpriteIfInteracted : MonoBehaviour {
 		{
 			if (image.sprite != changeSprite2) 
 			{
-				image.sprite = changeSprite2;
+                image.sprite = changeSprite2;
 				this.transform.localScale = originalScale * resize;
 			}
 		} else 
 		{
 			if (image.sprite != changeSprite1) 
 			{
-				image.sprite = changeSprite1;
+                Debug.Log("Switch sound PART 2");
+                AudioController.instance.PlayMainMenueSound(0f);
+
+                image.sprite = changeSprite1;
 				this.transform.localScale = originalScale;
 			}
 		}

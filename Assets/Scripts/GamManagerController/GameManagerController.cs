@@ -44,6 +44,9 @@ public class GameManagerController : MonoBehaviour {
 	public int playerHealth;
 	public int AIHealth;
 
+    [HideInInspector]
+    public bool isRestarting = false;
+
 
     //make sequence courutine
     private IEnumerator sequencer;
@@ -135,6 +138,7 @@ public class GameManagerController : MonoBehaviour {
 
     private void failBeatmap()
     {
+        isRestarting = true;
         //getter settings
         theGetter.runNextBeatmap = false;
         theGetter.currentLabelName = "Start";
@@ -192,6 +196,11 @@ public class GameManagerController : MonoBehaviour {
 
         //ONCE COMPLETE, RESTART SEQUENCE
         StartCoroutine(sequencer);
+
+        //set hp back to 100 for both players
+        playerHealth = 100;
+        AIHealth = 100;
+        isRestarting = false;
 
         //Debug.Log(percentageOfTravel);
         //while (noteParent.transform.childCount > 0)

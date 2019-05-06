@@ -121,16 +121,19 @@ public class NoteChecker : MonoBehaviour {
         //no notes to hit
         if (noteQueueList.Count == 0)
         {
+            //dont take hit on miss sound if nothing is in area yes
             NoteMiss();
             return;
         }
-        
-        //if one or more notes always check first
-        else if (noteQueueList.Count >= 1)
+
+        //there is atleast one note to hit
+        NoteController note1 = noteQueueList[0];
+        //check if is even in area
+        if (CheckNoteGeneralHit(note1))
         {
-            NoteController note1 = noteQueueList[0];
-            //check if correct note and if hit
-            if (note1.noteType == noteKey && CheckNoteGeneralHit(note1))
+            //first note is in area
+            //check if correct note, if so hit, if not miss
+            if (note1.noteType == noteKey)
             {
                 //if perfect
                 if (CheckNotePerfect(note1))
@@ -142,7 +145,6 @@ public class NoteChecker : MonoBehaviour {
                 {
                     NormalHit(note1);
                 }
-                note1WasHit = true;
                 noteQueueList.RemoveAt(0);
                 note1.HasBeenHit();
             }
@@ -150,52 +152,84 @@ public class NoteChecker : MonoBehaviour {
             {
                 note1WasHit = false;
                 NoteMiss();
-            }
-        }
-        //if two notes or more, do one more check on second note, only if first note was not hit
-        if(!note1WasHit && noteQueueList.Count >= 2)
-        {
-            //check second note too
-            NoteController note2 = noteQueueList[0];
-            //if correct key and is hit, then hit, if not, miss
-            if (note2.noteType == noteKey && CheckNoteGeneralHit(note2))
-            {
-                //if perfect
-                if (CheckNotePerfect(note2))
-                {
-                    PerfectHit(note2);
-                }
-                //if regular
-                else
-                {
-                    NormalHit(note2);
-                }
+                //remove note
                 noteQueueList.RemoveAt(0);
-                note2.HasBeenHit();
-            }
-            else
-            {
-                NoteMiss();
+                note1.HasBeenHit();
             }
         }
+        
 
-   //     //gets first note info
-   //     GameObject note = noteQueue.Peek();
-   //     NoteController noteCon = note.GetComponent<NoteController>();
+        ////if one or more notes always check first
+        //else if (noteQueueList.Count >= 1)
+        //{
+        //    NoteController note1 = noteQueueList[0];
+        //    //check if correct note and if hit
+        //    if (note1.noteType == noteKey && CheckNoteGeneralHit(note1))
+        //    {
+        //        //if perfect
+        //        if (CheckNotePerfect(note1))
+        //        {
+        //            PerfectHit(note1);
+        //        }
+        //        //if regular
+        //        else
+        //        {
+        //            NormalHit(note1);
+        //        }
+        //        note1WasHit = true;
+        //        noteQueueList.RemoveAt(0);
+        //        note1.HasBeenHit();
+        //    }
+        //    else
+        //    {
+        //        note1WasHit = false;
+        //        NoteMiss();
+        //    }
+        //}
+        ////if two notes or more, do one more check on second note, only if first note was not hit
+        //if(!note1WasHit && noteQueueList.Count >= 2)
+        //{
+        //    //check second note too
+        //    NoteController note2 = noteQueueList[0];
+        //    //if correct key and is hit, then hit, if not, miss
+        //    if (note2.noteType == noteKey && CheckNoteGeneralHit(note2))
+        //    {
+        //        //if perfect
+        //        if (CheckNotePerfect(note2))
+        //        {
+        //            PerfectHit(note2);
+        //        }
+        //        //if regular
+        //        else
+        //        {
+        //            NormalHit(note2);
+        //        }
+        //        noteQueueList.RemoveAt(0);
+        //        note2.HasBeenHit();
+        //    }
+        //    else
+        //    {
+        //        NoteMiss();
+        //    }
+        //}
 
-   //     //Checks if the right key for the note was pressed and the note is in the right area
-   //     if (noteCon.percentageOfTravel >= (1 - goodPercentageDistance)
-   //         && noteCon.percentageOfTravel <= (1 + goodPercentageDistance)
-			//&& noteCon.noteType == noteKey)
-   //     {
-   //         NoteGeneralHit(noteCon);
-   //     }
+        //     //gets first note info
+        //     GameObject note = noteQueue.Peek();
+        //     NoteController noteCon = note.GetComponent<NoteController>();
 
-   //     //Otherwise the note was not hit
-   //     else
-   //     {
-   //         NoteMiss(noteCon);
-   //     }
+        //     //Checks if the right key for the note was pressed and the note is in the right area
+        //     if (noteCon.percentageOfTravel >= (1 - goodPercentageDistance)
+        //         && noteCon.percentageOfTravel <= (1 + goodPercentageDistance)
+        //&& noteCon.noteType == noteKey)
+        //     {
+        //         NoteGeneralHit(noteCon);
+        //     }
+
+        //     //Otherwise the note was not hit
+        //     else
+        //     {
+        //         NoteMiss(noteCon);
+        //     }
     }
 
     //true if hit, false if not hit
@@ -257,7 +291,9 @@ public class NoteChecker : MonoBehaviour {
         //Effects or other things
         LosePoints();
         Debug.Log("Miss");
+        //play note miss sound
         AudioController.instance.PlayNoteSound(0f);
+        //take damage on miss
         GameManagerController.instance.takeDamage(true);
     }
 

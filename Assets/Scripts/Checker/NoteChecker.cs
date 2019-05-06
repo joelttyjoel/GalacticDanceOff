@@ -318,13 +318,18 @@ public class NoteChecker : MonoBehaviour {
 
 
     //fix this mr robin
-    //private void OnDrawGizmos()
-    //{
-    //    float distanceFromSpawn = Mathf.Abs(transform.position.x - spawnObject.transform.position.x);
-    //    Gizmos.color = Color.green;
-    //    Gizmos.DrawWireCube(transform.position, new Vector3(2 * distanceFromSpawn * goodPercentageDistance, 1, 0.25f));
+    private void OnDrawGizmos()
+    {
+        float distanceFromSpawn = Vector2.Distance(new Vector2(transform.position.y, transform.position.z), new Vector2(spawnObject.transform.position.y, spawnObject.transform.position.z));//Mathf.Abs(transform.position.x - spawnObject.transform.position.x);
 
-    //    Gizmos.color = Color.yellow;
-    //    Gizmos.DrawWireCube(transform.position, new Vector3(2 * distanceFromSpawn * perfectPercentageDistance, 1, 0.25f));
-    //}
+        Vector3 baseOffset = new Vector3(0, (goodPercentageDistance * distanceFromSpawn / 2) + halfPerfectPercentageDistance * distanceFromSpawn, 0);
+        Gizmos.color = Color.green;
+        //Gizmos.DrawWireCube(transform.position, new Vector3(1 /*2 * distanceFromSpawn * goodPercentageDistance*/, 1, 0.25f));
+        Gizmos.DrawWireCube(transform.position + baseOffset, new Vector3(1, goodPercentageDistance * distanceFromSpawn, 0.5f));
+
+
+        Gizmos.color = Color.yellow;
+        //Gizmos.DrawWireCube(transform.position, new Vector3(1 /*2 * distanceFromSpawn * perfectPercentageDistance*/, 0.5f, 0.25f));
+        Gizmos.DrawWireCube(transform.position, new Vector3(1.5f, 2 * halfPerfectPercentageDistance * distanceFromSpawn, 0.5f));
+    }
 }

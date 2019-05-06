@@ -10,9 +10,9 @@ public class GameManagerController : MonoBehaviour {
     [SerializeField]
     public string[] beatMapNamesInOrder;
 
-    [Header("Temp settings")]
-    public bool startLevel = false;
-    public bool failLevel = false;
+    //[Header("Temp settings")]
+    //public bool startLevel = false;
+    //public bool failLevel = false;
     
     private BeatGetterFromFmodText theGetter;
     //music controller thing

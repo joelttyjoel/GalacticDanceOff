@@ -5,86 +5,28 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class StartMenuCanvas : MonoBehaviour {
+	private int height;
+	private int width;
 
-	public Button soloButton;
-	public Button versusButton;
-	public Button openOption;
-	public GameObject OptionButton;
-
-
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () 
+	public void SetHeight(int Height)
 	{
-		
-		if(Input.GetButtonDown("Start Button"))
-		{
-			if(soloButton.IsInteractable())
-			OpenOptions();
-		}
-		if (Input.GetButtonDown("Back Button")) 
-		{
-			CloseOptions ();
-		}
-
-
+		height = Height;
 	}
 
-	public void SoloMode() 
+	public void SetWidth(int Width)
 	{
-		Debug.Log ("Play");
-
+		width = Width;
 	}
 
-	//resumes the game
-	public void VersusMode()
+	public void SetFullscreen(bool Fullscreen)
 	{
-		Debug.Log ("Multiplay");
+		Screen.SetResolution (height, width, Fullscreen);
 	}
-		
-	public void OpenOptions ()
+
+	public void Fullscreen()
 	{
-		for (int i = OptionButton.transform.childCount-1; i >= 0; i--)
-		{
-			if (!OptionButton.transform.GetChild (i).gameObject.activeInHierarchy) 
-			{
-				Debug.Log ("Opens Options");
-				OptionButton.transform.GetChild (0).gameObject.SetActive (true);
-				if (soloButton != null && versusButton != null) 
-				{
-					soloButton.interactable = false;
-					versusButton.interactable = false;
-					openOption.interactable = false;
-				}
-
-				EventSystem.current.GetComponent<EventSystem> ().SetSelectedGameObject (
-					OptionButton.transform.GetChild (0).transform.GetChild (0).gameObject);
-			}
-		}
+		Screen.fullScreen = !Screen.fullScreen;
 	}
-
-	public void CloseOptions()
-	{
-		Debug.Log ("closes options");
-		for (int i = OptionButton.transform.childCount-1; i >= 0; i--) 
-		{
-			OptionButton.transform.GetChild (i).gameObject.SetActive (false);
-		}
-		if (soloButton != null && versusButton != null) 
-		{
-			soloButton.interactable = true;
-			versusButton.interactable = true;
-			openOption.interactable = true;
-		}
-		EventSystem.current.GetComponent<EventSystem> ().SetSelectedGameObject (soloButton.gameObject);
-
-	}
-
 
 	public void ExitGame()
 	{

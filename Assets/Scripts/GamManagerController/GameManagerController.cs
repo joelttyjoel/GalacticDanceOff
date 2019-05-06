@@ -49,7 +49,7 @@ public class GameManagerController : MonoBehaviour {
 
 
     //make sequence courutine
-    private IEnumerator sequencer;
+    //private Coroutine sequencer;
     private bool betweenIsDone = false;
 
     //make singleton
@@ -79,8 +79,7 @@ public class GameManagerController : MonoBehaviour {
 
         //start doing automatic sequence thing
         currentBeatMap = 1;
-        sequencer = SequenceStartRunEtc();
-        StartCoroutine(sequencer);
+        StartCoroutine("SequenceStartRunEtc");
     }
 	
 	void Update () {
@@ -150,8 +149,8 @@ public class GameManagerController : MonoBehaviour {
         //do stuff for next run, reset sequencer etc
         currentBeatMap = 1;
         //Stop sequencer
-        StopCoroutine(sequencer);
-        Debug.Log("Restart sequence");
+        StopCoroutine("SequenceStartRunEtc");
+        Debug.Log("Stop sequence");
 
         //set stuff for beatmap slowdown and removal
         StartCoroutine(failBeatmapAnimation());
@@ -194,13 +193,15 @@ public class GameManagerController : MonoBehaviour {
         }
         Time.timeScale = 1f;
 
-        //ONCE COMPLETE, RESTART SEQUENCE
-        StartCoroutine(sequencer);
-
         //set hp back to 100 for both players
         playerHealth = 100;
         AIHealth = 100;
+
+        //wait for some time to make sure resetting has occured
+        yield return new WaitForSeconds(3.5f);
         isRestarting = false;
+        Debug.Log("Start sequence");
+        StartCoroutine("SequenceStartRunEtc");
 
         //Debug.Log(percentageOfTravel);
         //while (noteParent.transform.childCount > 0)
@@ -242,8 +243,8 @@ public class GameManagerController : MonoBehaviour {
 
     public IEnumerator SequenceStartRunEtc()
     {
+        //set start settings sequence
         InputManager.instance.isInputsDisabled = true;
-        Debug.Log("1 " + InputManager.instance.isInputsDisabled);
         //time until start first level
         yield return new WaitForSeconds(timeBeforeFirstRun);
         //set health to full on start
@@ -253,11 +254,8 @@ public class GameManagerController : MonoBehaviour {
         //loop through all levels until reached final
         while (currentBeatMap - 1 < SceneSwitchereController.instance.currentSequence.beatMapNamesInOrder.Length)
         {
-            Debug.Log("Start current beatmap");
             //enable inputs
-            Debug.Log("2 " +InputManager.instance.isInputsDisabled);
             InputManager.instance.isInputsDisabled = false;
-            Debug.Log("3 " + InputManager.instance.isInputsDisabled);
             //start map, start for check that next has been reached
             //run current map
             runBeatmap();
@@ -271,12 +269,11 @@ public class GameManagerController : MonoBehaviour {
             //wait for end sequence again
             Debug.Log(theGetter.currentLabelName);
             yield return new WaitUntil(() => theGetter.currentLabelName != "EndSequence");
-            Debug.Log(theGetter.currentLabelName);
             //only do this waiting part if not on last turn, if on last, move out of this and wait for finish instead
             if((currentBeatMap - 1) < SceneSwitchereController.instance.currentSequence.beatMapNamesInOrder.Length)
             {
+                Debug.Log(" 2: " + theGetter.currentLabelName);
                 yield return new WaitUntil(() => theGetter.currentLabelName == "EndSequence");
-                Debug.Log(theGetter.currentLabelName);
                 //Start doing between beatmaps
                 StartCoroutine(BetweenBeatMap());
                 //wait for between beatmaps to be complete
@@ -285,7 +282,6 @@ public class GameManagerController : MonoBehaviour {
             }
         }
         //has played last beatmap
-        Debug.Log("Final wait");
         yield return new WaitUntil(() => theGetter.currentLabelName == "Finish");
         StartCoroutine(FinishedSequence());
         //after reached finish, stop the thing

@@ -80,8 +80,13 @@ public class NoteController : MonoBehaviour {
 
     private void GoneTooFar()
     {
-        //take damage to left player, player
-        if (!GameManagerController.instance.isRestarting) GameManagerController.instance.takeDamage(true);
+        //take damage to left player, player, if isn't restarting
+        if (!GameManagerController.instance.isRestarting)
+        {
+            GameManagerController.instance.takeDamage(true);
+        }
+        //play note miss sound
+        AudioController.instance.PlayNoteSound(0f);
         //will deque
         noteChecker.GetComponent<NoteChecker>().DequeueNote();
         //do fadeout once too far

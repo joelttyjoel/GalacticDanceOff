@@ -135,6 +135,8 @@ public class NoteChecker : MonoBehaviour {
             //check if correct note, if so hit, if not miss
             if (note1.noteType == noteKey)
             {
+                //is hit
+                GetComponent<ParticleSystem>().Play();
                 //if perfect
                 if (CheckNotePerfect(note1))
                 {

@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Linq;
 
 public class InputManager : MonoBehaviour {
 
 	public bool isInputsDisabled;
 	Dictionary <string, KeyCode> buttonKeys;
+	public Dictionary <string, KeyCode> xboxButton;
+	public Dictionary <string, KeyCode> PS4Button;
+
+
 
 	void OnEnable()
 	{
@@ -21,6 +26,19 @@ public class InputManager : MonoBehaviour {
 		buttonKeys ["Down"] = KeyCode.DownArrow;
 		buttonKeys ["Right"] = KeyCode.RightArrow;
 
+		xboxButton = new Dictionary<string, KeyCode> ();
+
+		xboxButton ["A"] = KeyCode.JoystickButton0;
+		xboxButton ["B"] = KeyCode.JoystickButton1;
+		xboxButton ["X"] = KeyCode.JoystickButton2;
+		xboxButton ["Y"] = KeyCode.JoystickButton3;
+
+		PS4Button = new Dictionary<string, KeyCode> ();
+
+		PS4Button ["Square"] = KeyCode.JoystickButton0;
+		PS4Button ["Cross"] = KeyCode.JoystickButton1;
+		PS4Button ["Circe"] = KeyCode.JoystickButton2;
+		PS4Button ["Triangle"] = KeyCode.JoystickButton3;
 	}
 		
 
@@ -50,6 +68,26 @@ public class InputManager : MonoBehaviour {
         //Debug.Log(isInputsDisabled);
 	}
 
+	public void KeyBoard()
+	{
+		SceneSwitchereController.instance.KeyBoard ();
+	}
+
+	public void XBOX()
+	{
+		SceneSwitchereController.instance.XBOX ();
+	}
+
+	public void PS4()
+	{
+		SceneSwitchereController.instance.PS4 ();
+	}
+
+	public float GetAxis(string axis)
+	{
+		return Input.GetAxis (axis);
+	}
+
 	//GetbuttonDown is like input.geykeydown
 	public bool GetButtonDown(string buttonName)
 	{
@@ -58,6 +96,12 @@ public class InputManager : MonoBehaviour {
 			Debug.LogError ("Getbuttondown -- no button named: " + buttonName);
 			return false;
 		}
+		if (SceneSwitchereController.instance.xBox)
+			return Input.GetKeyDown (xboxButton [buttonName]);
+
+		if (SceneSwitchereController.instance.Ps4)
+			return Input.GetKeyDown (PS4Button [buttonName]);
+
 		return Input.GetKeyDown (buttonKeys [buttonName]);
 	}
 

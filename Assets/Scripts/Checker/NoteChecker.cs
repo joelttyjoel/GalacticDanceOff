@@ -121,7 +121,7 @@ public class NoteChecker : MonoBehaviour {
         //no notes to hit
         if (noteQueueList.Count == 0)
         {
-            //dont take hit on miss sound if nothing is in area yes
+            //miss on spam when empty
             NoteMiss();
             return;
         }
@@ -135,6 +135,8 @@ public class NoteChecker : MonoBehaviour {
             //check if correct note, if so hit, if not miss
             if (note1.noteType == noteKey)
             {
+                //is hit
+                GetComponent<ParticleSystem>().Play();
                 //if perfect
                 if (CheckNotePerfect(note1))
                 {
@@ -151,11 +153,17 @@ public class NoteChecker : MonoBehaviour {
             else
             {
                 note1WasHit = false;
+                //note miss
                 NoteMiss();
                 //remove note
                 noteQueueList.RemoveAt(0);
                 note1.HasBeenHit();
             }
+        }
+        //first not wasn't in area, just outside area, if so, miss
+        else
+        {
+            NoteMiss();
         }
         
 

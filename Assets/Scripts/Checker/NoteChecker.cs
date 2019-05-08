@@ -4,20 +4,7 @@ using UnityEngine;
 
 public class NoteChecker : MonoBehaviour {
 
-    //We have the point system within another script???
-    //Gain an increasing amount of points to a max?
-    //basePoints * currentMultiplier;
-    //currentMultiplier increase to a max
-    //Multiplier reset if last note was a hit and you miss or the last note was a miss and you hit
-    //You gain/lose more points the more notes you hit/miss in a row, reset when you don't
-    /*
-    [SerializeField]
-    private int pointGainedPerNote = 20;
-    [SerializeField]
-    private int pointGainedPerPerfectNote = 100;    //Multiplier instead?
-    [SerializeField]
-    private int pointLostPerMissedNote = 20;
-    */
+	public bool isLeftBoard;
     //for inputing what strings to check for in input manager
     [System.Serializable]
     public class InputStringsAndTheirValues
@@ -43,6 +30,43 @@ public class NoteChecker : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+		if (isLeftBoard) 
+		{
+			if (SceneSwitchereController.instance.keyBoard)
+			{
+				inputSet [0].stringInputManager = "W";
+				inputSet [1].stringInputManager = "A";
+				inputSet [2].stringInputManager = "S";
+				inputSet [3].stringInputManager = "D";
+			}
+			//keypad xbox
+
+
+			//keypad ps4
+		}
+		if (!isLeftBoard) 
+		{
+			if (SceneSwitchereController.instance.keyBoard) 
+			{
+				inputSet [0].stringInputManager = "Up";
+				inputSet [1].stringInputManager = "Left";
+				inputSet [2].stringInputManager = "Down";
+				inputSet [3].stringInputManager = "Right";
+			}
+			if (SceneSwitchereController.instance.xBox) {
+				inputSet [0].stringInputManager = "Y";
+				inputSet [1].stringInputManager = "X";
+				inputSet [2].stringInputManager = "A";
+				inputSet [3].stringInputManager = "B";
+			}
+			if (SceneSwitchereController.instance.Ps4) {
+				inputSet [0].stringInputManager = "Triangle";
+				inputSet [1].stringInputManager = "Square";
+				inputSet [2].stringInputManager = "Cross";
+				inputSet [3].stringInputManager = "Circle";
+			}
+		}
+
         goodPercentageDistance = GameManagerController.instance.percentageGoodDistance;
         perfectPercentageDistance = GameManagerController.instance.percentagePerfectFromCenter;
         halfPerfectPercentageDistance = perfectPercentageDistance / 2;
@@ -59,41 +83,50 @@ public class NoteChecker : MonoBehaviour {
 		{
 			return;
 		}
-        //can click multiple buttons at once, grrrrr, are however checked in order which is suck, should be checked all at once
-        if(InputManager.instance.GetButtonDown(inputSet[0].stringInputManager))
-        {
-            NoteKeyDown(inputSet[0].valueOfNoteCheck);
-        }
-        if (InputManager.instance.GetButtonDown(inputSet[1].stringInputManager))
-        {
-            NoteKeyDown(inputSet[1].valueOfNoteCheck);
-        }
-        if (InputManager.instance.GetButtonDown(inputSet[2].stringInputManager))
-        {
-            NoteKeyDown(inputSet[2].valueOfNoteCheck);
-        }
-        if (InputManager.instance.GetButtonDown(inputSet[3].stringInputManager))
-        {
-            NoteKeyDown(inputSet[3].valueOfNoteCheck);
-        }
 
-        //if (Input.GetButtonDown ("Button A")) 
-        //{
-        //	NoteKeyDown(0);
-        //}
-        //else if(Input.GetButtonDown ("Button B")) 
-        //{
-        //	NoteKeyDown(1);
-        //}
-        //else if (Input.GetButtonDown ("Button X")) 
-        //{
-        //	NoteKeyDown(2);
-        //}
-        //else if (Input.GetButtonDown ("Button Y")) 
-        //{
-        //	NoteKeyDown(3);
-        //}
+		if (isLeftBoard && (SceneSwitchereController.instance.Ps4 || SceneSwitchereController.instance.xBox) )
+		{
+			if (InputManager.instance.GetAxis ("XboxVertical") > 0 ||
+				InputManager.instance.GetAxis("PS4Vertical") > 0) 
+			{
+				NoteKeyDown(inputSet[0].valueOfNoteCheck);
+			}
 
+			if (InputManager.instance.GetAxis ("XboxHorizontal") < 0 ||
+				InputManager.instance.GetAxis("PS4Horizontal") < 0) 
+			{
+				NoteKeyDown(inputSet[1].valueOfNoteCheck);
+			}
+				
+			if (InputManager.instance.GetAxis ("XboxVertical") < 0 ||
+				InputManager.instance.GetAxis("PS4Vertical") < 0) 
+			{
+				NoteKeyDown(inputSet[2].valueOfNoteCheck);
+			}
+
+			if (InputManager.instance.GetAxis ("XboxHorizontal") > 0 ||
+				InputManager.instance.GetAxis("PS4Horizontal") > 0) 
+			{
+				NoteKeyDown(inputSet[3].valueOfNoteCheck);
+			}
+		}
+
+		if (!isLeftBoard || SceneSwitchereController.instance.keyBoard) {
+			//can click multiple buttons at once, grrrrr, are however checked in order which is suck, should be checked all at once
+			if (InputManager.instance.GetButtonDown (inputSet [0].stringInputManager)) {
+				NoteKeyDown (inputSet [0].valueOfNoteCheck);
+			}
+			if (InputManager.instance.GetButtonDown (inputSet [1].stringInputManager)) {
+				NoteKeyDown (inputSet [1].valueOfNoteCheck);
+			}
+			if (InputManager.instance.GetButtonDown (inputSet [2].stringInputManager)) {
+				NoteKeyDown (inputSet [2].valueOfNoteCheck);
+			}
+			if (InputManager.instance.GetButtonDown (inputSet [3].stringInputManager)) {
+				NoteKeyDown (inputSet [3].valueOfNoteCheck);
+			}
+
+		}
 
         //if (Input.GetAxisRaw ("Vertical") > 0) 
         //{
@@ -271,25 +304,6 @@ public class NoteChecker : MonoBehaviour {
         return wasPerfect;
     }
 
-    //The note was hit, now compare what type of hit
-    //private void NoteGeneralHit(NoteController noteCon)
-    //{
-    //    //defines what score hit it get
-    //    if (noteCon.percentageOfTravel >= (1 - perfectPercentageDistance)
-    //        && noteCon.percentageOfTravel <= (1 + perfectPercentageDistance))
-    //    {
-    //        PerfectHit(noteCon);
-    //    }
-
-    //    else
-    //    {
-    //        NormalHit(noteCon);
-    //    }
-
-    //    //Both types of hit has to deque and do hasbeenhit(), makes sence
-    //    DequeueNote();
-    //    noteCon.HasBeenHit();
-    //}
 
     //The note was missed
     private void NoteMiss()
@@ -353,11 +367,6 @@ public class NoteChecker : MonoBehaviour {
             noteQueueList.RemoveAt(0);
             //return topItem;
         }
-
-        //else
-        //{
-        //    return null;
-        //}
     }
 
 

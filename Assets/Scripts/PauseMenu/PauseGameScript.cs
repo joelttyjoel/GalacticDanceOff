@@ -99,7 +99,7 @@ public class PauseGameScript : MonoBehaviour {
 
 	void Update()
 	{
-		if (Input.GetKeyDown (KeyCode.Escape)) 
+		if (Input.GetButtonDown("Start Button")) 
 		{
 			int count = 0;
 			for (int i = parentMenu.transform.childCount-2; i >= 1; i--) 
@@ -119,12 +119,12 @@ public class PauseGameScript : MonoBehaviour {
 		{
 			Debug.Log (EventSystem.current.currentSelectedGameObject);
 		}
-		if (Input.GetKeyDown (KeyCode.Backspace) || Input.GetButtonDown ("Back Button")) 
+		if (Input.GetButtonDown ("Back Button")) 
 		{
 			if (optionMenu.activeInHierarchy) 
-				//{
+			{
 				ResumeGame ();
-			//}
+			}
 		}
 	}
 

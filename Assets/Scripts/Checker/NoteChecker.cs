@@ -5,6 +5,8 @@ using UnityEngine;
 public class NoteChecker : MonoBehaviour {
 
 	public bool isLeftBoard;
+	private bool oneFrameAxis = false;
+	private string horizontalController, verticalController;
     //for inputing what strings to check for in input manager
     [System.Serializable]
     public class InputStringsAndTheirValues
@@ -39,9 +41,19 @@ public class NoteChecker : MonoBehaviour {
 				inputSet [2].stringInputManager = "S";
 				inputSet [3].stringInputManager = "D";
 			}
+
+			if (SceneSwitchereController.instance.xBox) 
+			{
+				horizontalController = "XboxHorizontal";
+				verticalController = "XboxVertical";
+			}
 			//keypad xbox
 
-
+			if (SceneSwitchereController.instance.Ps4) 
+			{
+				horizontalController = "PS4Horizontal";
+				verticalController = "PS4Vertical";
+			}
 			//keypad ps4
 		}
 		if (!isLeftBoard) 
@@ -53,13 +65,15 @@ public class NoteChecker : MonoBehaviour {
 				inputSet [2].stringInputManager = "Down";
 				inputSet [3].stringInputManager = "Right";
 			}
-			if (SceneSwitchereController.instance.xBox) {
+			if (SceneSwitchereController.instance.xBox) 
+			{
 				inputSet [0].stringInputManager = "Y";
 				inputSet [1].stringInputManager = "X";
 				inputSet [2].stringInputManager = "A";
 				inputSet [3].stringInputManager = "B";
 			}
-			if (SceneSwitchereController.instance.Ps4) {
+			if (SceneSwitchereController.instance.Ps4) 
+			{
 				inputSet [0].stringInputManager = "Triangle";
 				inputSet [1].stringInputManager = "Square";
 				inputSet [2].stringInputManager = "Cross";
@@ -78,74 +92,78 @@ public class NoteChecker : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void LateUpdate ()
-    {
-		if (InputManager.instance.isInputsDisabled) 
-		{
+	{
+		if (InputManager.instance.isInputsDisabled) {
 			return;
 		}
 
-		if (isLeftBoard && (SceneSwitchereController.instance.Ps4 || SceneSwitchereController.instance.xBox) )
+		if (isLeftBoard && (SceneSwitchereController.instance.Ps4 || SceneSwitchereController.instance.xBox)) 
 		{
-			if (InputManager.instance.GetAxis ("XboxVertical") > 0 ||
-				InputManager.instance.GetAxis("PS4Vertical") > 0) 
+			if (InputManager.instance.GetAxis (verticalController) > 0) 
 			{
-				NoteKeyDown(inputSet[0].valueOfNoteCheck);
+				if (!oneFrameAxis) {
+					
+					NoteKeyDown (inputSet [0].valueOfNoteCheck);
+					oneFrameAxis = true;
+				}
 			}
 
-			if (InputManager.instance.GetAxis ("XboxHorizontal") < 0 ||
-				InputManager.instance.GetAxis("PS4Horizontal") < 0) 
+			if (InputManager.instance.GetAxis (horizontalController) < 0) 
 			{
-				NoteKeyDown(inputSet[1].valueOfNoteCheck);
+				if (!oneFrameAxis) {
+					NoteKeyDown (inputSet [1].valueOfNoteCheck);
+					oneFrameAxis = true;
+				}
 			}
 				
-			if (InputManager.instance.GetAxis ("XboxVertical") < 0 ||
-				InputManager.instance.GetAxis("PS4Vertical") < 0) 
+			if (InputManager.instance.GetAxis (verticalController) < 0) 
 			{
-				NoteKeyDown(inputSet[2].valueOfNoteCheck);
+				if (!oneFrameAxis) {
+					NoteKeyDown (inputSet [2].valueOfNoteCheck);
+					oneFrameAxis = true;
+				}
 			}
 
-			if (InputManager.instance.GetAxis ("XboxHorizontal") > 0 ||
-				InputManager.instance.GetAxis("PS4Horizontal") > 0) 
+			if (InputManager.instance.GetAxis (horizontalController) > 0) 
 			{
-				NoteKeyDown(inputSet[3].valueOfNoteCheck);
+				if (!oneFrameAxis) {
+					NoteKeyDown (inputSet [3].valueOfNoteCheck);
+					oneFrameAxis = true;
+				}
 			}
+
+			oneFrameAxis = false;
+			if (InputManager.instance.GetAxis (verticalController) != 0 
+				||	InputManager.instance.GetAxis (horizontalController) != 0) 
+			{
+				oneFrameAxis = true;
+			}
+			return;
 		}
 
-		if (!isLeftBoard || SceneSwitchereController.instance.keyBoard) {
-			//can click multiple buttons at once, grrrrr, are however checked in order which is suck, should be checked all at once
-			if (InputManager.instance.GetButtonDown (inputSet [0].stringInputManager)) {
+
+		if(!isLeftBoard || SceneSwitchereController.instance.keyBoard)
+		{
+			if (InputManager.instance.GetButtonDown (inputSet [0].stringInputManager)) 
+			{
 				NoteKeyDown (inputSet [0].valueOfNoteCheck);
+				Debug.Log ("1");
 			}
-			if (InputManager.instance.GetButtonDown (inputSet [1].stringInputManager)) {
+			if (InputManager.instance.GetButtonDown (inputSet [1].stringInputManager)) 
+			{
 				NoteKeyDown (inputSet [1].valueOfNoteCheck);
+				Debug.Log ("2");
 			}
-			if (InputManager.instance.GetButtonDown (inputSet [2].stringInputManager)) {
+			if (InputManager.instance.GetButtonDown (inputSet [2].stringInputManager))
+			{
 				NoteKeyDown (inputSet [2].valueOfNoteCheck);
+				Debug.Log ("3");
 			}
 			if (InputManager.instance.GetButtonDown (inputSet [3].stringInputManager)) {
 				NoteKeyDown (inputSet [3].valueOfNoteCheck);
+				Debug.Log ("4");
 			}
-
 		}
-
-        //if (Input.GetAxisRaw ("Vertical") > 0) 
-        //{
-        //	NoteKeyDown (4);
-        //}
-        //else if (Input.GetAxisRaw ("Horizontal") > 0) 
-        //{
-        //	NoteKeyDown (7);
-        //}
-
-        //if (Input.GetAxisRaw ("Vertical") < 0) 
-        //{
-        //	NoteKeyDown (6);
-        //}
-        //else if (Input.GetAxisRaw ("Horizontal") < 0) 
-        //{
-        //	NoteKeyDown (5);
-        //}
-
     }
 
 

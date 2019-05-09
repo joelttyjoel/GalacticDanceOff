@@ -8,8 +8,8 @@ public class InputManager : MonoBehaviour {
 
 	public bool isInputsDisabled;
 	Dictionary <string, KeyCode> buttonKeys;
-	public Dictionary <string, KeyCode> xboxButton;
-	public Dictionary <string, KeyCode> PS4Button;
+	Dictionary <string, KeyCode> xboxButton;
+	Dictionary <string, KeyCode> PS4Button;
 
 
 
@@ -26,19 +26,20 @@ public class InputManager : MonoBehaviour {
 		buttonKeys ["Down"] = KeyCode.DownArrow;
 		buttonKeys ["Right"] = KeyCode.RightArrow;
 
+
 		xboxButton = new Dictionary<string, KeyCode> ();
 
-		xboxButton ["A"] = KeyCode.JoystickButton0;
-		xboxButton ["B"] = KeyCode.JoystickButton1;
-		xboxButton ["X"] = KeyCode.JoystickButton2;
-		xboxButton ["Y"] = KeyCode.JoystickButton3;
+		xboxButton ["A"] = KeyCode.Joystick1Button0;
+		xboxButton ["B"] = KeyCode.Joystick1Button1;
+		xboxButton ["X"] = KeyCode.Joystick1Button2;
+		xboxButton ["Y"] = KeyCode.Joystick1Button3;
 
 		PS4Button = new Dictionary<string, KeyCode> ();
 
-		PS4Button ["Square"] = KeyCode.JoystickButton0;
-		PS4Button ["Cross"] = KeyCode.JoystickButton1;
-		PS4Button ["Circe"] = KeyCode.JoystickButton2;
-		PS4Button ["Triangle"] = KeyCode.JoystickButton3;
+		PS4Button ["Square"] = KeyCode.Joystick1Button0;
+		PS4Button ["Cross"] = KeyCode.Joystick1Button1;
+		PS4Button ["Circle"] = KeyCode.Joystick1Button2;
+		PS4Button ["Triangle"] = KeyCode.Joystick1Button3;
 	}
 		
 
@@ -85,24 +86,44 @@ public class InputManager : MonoBehaviour {
 
 	public float GetAxis(string axis)
 	{
-		return Input.GetAxis (axis);
+		return Input.GetAxisRaw (axis);
 	}
+
 
 	//GetbuttonDown is like input.geykeydown
 	public bool GetButtonDown(string buttonName)
 	{
-		if (buttonKeys.ContainsKey (buttonName) == false) 
+		if (SceneSwitchereController.instance.xBox) 
 		{
-			Debug.LogError ("Getbuttondown -- no button named: " + buttonName);
-			return false;
-		}
-		if (SceneSwitchereController.instance.xBox)
+			if (xboxButton.ContainsKey (buttonName) == false)
+			{
+				Debug.LogError ("Getbuttondown -- no button named: " + buttonName);
+				return false;
+			}
+
 			return Input.GetKeyDown (xboxButton [buttonName]);
 
-		if (SceneSwitchereController.instance.Ps4)
+		}
+		else if (SceneSwitchereController.instance.Ps4)
+		{
+			if (PS4Button.ContainsKey (buttonName) == false)
+			{
+				Debug.LogError ("Getbuttondown -- no button named: " + buttonName);
+				//return false;
+			} 
+
 			return Input.GetKeyDown (PS4Button [buttonName]);
 
-		return Input.GetKeyDown (buttonKeys [buttonName]);
+		} 
+		else 
+		{
+			if (buttonKeys.ContainsKey (buttonName) == false)
+			{
+				Debug.LogError ("Getbuttondown -- no button named: " + buttonName);
+				//return false;
+			}
+			return Input.GetKeyDown (buttonKeys [buttonName]);
+		}
 	}
 
 	//return array of all keycodes in dictionary

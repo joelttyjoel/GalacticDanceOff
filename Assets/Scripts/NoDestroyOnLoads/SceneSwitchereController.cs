@@ -16,7 +16,7 @@ public class SceneSwitchereController : MonoBehaviour {
     public Info_Sequence currentSequence;
     //Single or multiplayer
     public bool isSp = true;
-	public bool keyBoard, xBox, Ps4, controller;
+	public bool keyBoard, xBox, Ps4;
 
 
     public static SceneSwitchereController instance = null;
@@ -72,7 +72,7 @@ public class SceneSwitchereController : MonoBehaviour {
 		keyBoard = true;
 		xBox = false;
 		Ps4 = false;
-		controller = false;
+
 	}
 
 	public void XBOX()
@@ -80,7 +80,7 @@ public class SceneSwitchereController : MonoBehaviour {
 		keyBoard = false;
 		xBox = true;
 		Ps4 = false;
-		controller = true;
+
 	}
 
 	public void PS4()
@@ -88,7 +88,7 @@ public class SceneSwitchereController : MonoBehaviour {
 		keyBoard = false;
 		xBox = false;
 		Ps4 = true;
-		controller = true;
+
 	}
 
     //set Sp or Mp

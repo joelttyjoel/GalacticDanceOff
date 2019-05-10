@@ -40,9 +40,18 @@ public class GameManagerController : MonoBehaviour {
     //Edits EGOMeter
     [Header("EGO Bars")]
     public int damagePerMiss;
+    public int healingPerPoint10Sec;
 	public int maxHealth;
 	public int playerHealth;
 	public int AIHealth;
+
+    [Header("Scores")]
+    public GameObject playerScoreObject;
+    public GameObject aiScoreObject;
+    public int scoreForNormalHit = 50;
+    public int scoreForPerfectHit = 100;
+    public int playerScore;
+    public int AIScore;
 
     [HideInInspector]
     public bool isRestarting = false;
@@ -80,6 +89,13 @@ public class GameManagerController : MonoBehaviour {
         //start doing automatic sequence thing
         currentBeatMap = 1;
         StartCoroutine("SequenceStartRunEtc");
+
+        //score
+        playerScore = 0;
+        AIScore = 0;
+
+        //start healing each 10th
+        StartCoroutine(healEachPoint10());
     }
 	
 	void Update () {
@@ -106,8 +122,8 @@ public class GameManagerController : MonoBehaviour {
         //    failLevel = false;
         //    failBeatmap();
         //}
-	}
-
+    }
+    //health
     public void takeDamage(bool isLeftP)
     {
         if (isLeftP)
@@ -133,6 +149,77 @@ public class GameManagerController : MonoBehaviour {
             AIHealth = 0;
             //lose game
         }
+    }
+
+    public void healDamage(bool isLeftP)
+    {
+        if (isLeftP)
+        {
+            playerHealth += healingPerPoint10Sec;
+        }
+        //else
+        //{
+        //    AIHealth -= damagePerMiss;
+        //}
+
+        //if health <= 0, set to 0, also lose game
+        if (playerHealth >= maxHealth)
+        {
+            playerHealth = maxHealth;
+        }
+        //if (AIHealth >= maxHealth)
+        //{
+        //    AIHealth = maxHealth;
+        //}
+    }
+
+    private IEnumerator healEachPoint10()
+    {
+        while(true)
+        {
+            healDamage(true);
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+    //score
+    public void addScore(bool isLeftP, bool isPerfect)
+    {
+        if(isLeftP)
+        {
+            if (isPerfect) playerScore += scoreForPerfectHit;
+            else playerScore += scoreForNormalHit;
+            //now set hp thing
+            string scoreString = GetScoreString(playerScore);
+            playerScoreObject.GetComponent<TextMesh>().text = scoreString;
+        }
+
+        else
+        {
+            if (isPerfect) AIScore += scoreForPerfectHit;
+            else AIScore += scoreForNormalHit;
+            //now set hp thing
+            string scoreString = GetScoreString(AIScore);
+            aiScoreObject.GetComponent<TextMesh>().text = scoreString;
+        }
+    }
+
+    private string GetScoreString(int inputScore)
+    {
+        string outputString = "";
+        int totalNumLength = 5;
+        int inputLength = inputScore.ToString().Length;
+
+        outputString += "Score: ";
+
+        //add more shits at end
+        for(int i = 0; i < totalNumLength - inputLength; i++)
+        {
+            outputString += " ";
+        }
+
+        outputString += inputScore.ToString();
+
+        return outputString;
     }
 
     private void failBeatmap()
@@ -193,9 +280,9 @@ public class GameManagerController : MonoBehaviour {
         }
         Time.timeScale = 1f;
 
-        //set hp back to 100 for both players
-        playerHealth = 100;
-        AIHealth = 100;
+        //set hp back to max for both players
+        playerHealth = maxHealth;
+        AIHealth = maxHealth;
 
         //wait for some time to make sure resetting has occured
         yield return new WaitForSeconds(3.5f);
@@ -248,8 +335,8 @@ public class GameManagerController : MonoBehaviour {
         //time until start first level
         yield return new WaitForSeconds(timeBeforeFirstRun);
         //set health to full on start
-        playerHealth = 100;
-        AIHealth = 100;
+        playerHealth = maxHealth;
+        AIHealth = maxHealth;
 
         //loop through all levels until reached final
         while (currentBeatMap - 1 < SceneSwitchereController.instance.currentSequence.beatMapNamesInOrder.Length)

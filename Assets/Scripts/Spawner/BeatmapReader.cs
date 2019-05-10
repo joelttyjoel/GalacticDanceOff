@@ -99,6 +99,8 @@ public class BeatmapReader : MonoBehaviour {
             if (currentValueTop > 0 && currentValueTop < 9)
             {
                 beatSpawnerTopScript.SpawnNote(currentValueTop, totalWaitTime, currentTickTime);
+                //AI score
+                //AiController.instance.NoteForAi();
             }
             //NOTHING
             else if (currentValueTop == 0)

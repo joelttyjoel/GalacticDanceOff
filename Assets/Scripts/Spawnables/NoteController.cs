@@ -84,9 +84,10 @@ public class NoteController : MonoBehaviour {
         if (!GameManagerController.instance.isRestarting)
         {
             GameManagerController.instance.takeDamage(true);
+
+            //note miss sounds
+            AudioController.instance.PlayNoteSound(0f);
         }
-        //play note miss sound
-        AudioController.instance.PlayNoteSound(0f);
         //will deque
         noteChecker.GetComponent<NoteChecker>().DequeueNote();
         //do fadeout once too far

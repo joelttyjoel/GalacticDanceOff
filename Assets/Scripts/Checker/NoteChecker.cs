@@ -187,6 +187,7 @@ public class NoteChecker : MonoBehaviour {
             if (note1.noteType == noteKey)
             {
                 //is hit
+                GetComponent<ParticleSystem>().Stop();
                 GetComponent<ParticleSystem>().Play();
                 //if perfect
                 if (CheckNotePerfect(note1))
@@ -343,6 +344,7 @@ public class NoteChecker : MonoBehaviour {
         //Effects or other things
         GainPoints(false);
         Debug.Log("Hit");
+        GameManagerController.instance.addScore(true, false);
         //AudioController.instance.PlayNoteSound(1f);
     }
 
@@ -352,6 +354,7 @@ public class NoteChecker : MonoBehaviour {
         //Effects or other things
         GainPoints(true);
         Debug.Log("Perfect");
+        GameManagerController.instance.addScore(true, true);
         //AudioController.instance.PlayNoteSound(2f);
     }
 

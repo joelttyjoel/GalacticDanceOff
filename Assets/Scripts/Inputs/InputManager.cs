@@ -36,10 +36,10 @@ public class InputManager : MonoBehaviour {
 
 		PS4Button = new Dictionary<string, KeyCode> ();
 
-		PS4Button ["Square"] = KeyCode.Joystick1Button0;
-		PS4Button ["Cross"] = KeyCode.Joystick1Button1;
-		PS4Button ["Circle"] = KeyCode.Joystick1Button2;
-		PS4Button ["Triangle"] = KeyCode.Joystick1Button3;
+		PS4Button ["Square"] = KeyCode.JoystickButton0;
+		PS4Button ["Cross"] = KeyCode.JoystickButton1;
+		PS4Button ["Circle"] = KeyCode.JoystickButton2;
+		PS4Button ["Triangle"] = KeyCode.JoystickButton3;
 	}
 		
 

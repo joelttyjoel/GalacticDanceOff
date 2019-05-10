@@ -8,6 +8,8 @@ using FMOD.Studio;
 
 public class PauseGameScript : MonoBehaviour {
 	Text countDown;
+	string startButton;
+	string backButton;
 
 	//[FMODUnity.EventRef]
 	//public string PauseEventEventPath;
@@ -16,6 +18,8 @@ public class PauseGameScript : MonoBehaviour {
 	void Start ()
 	{
 		countDown = this.transform.GetChild (0).GetChild (0).GetComponent<Text> ();
+		startButton = "Start Button";
+		backButton = "Back Button";
 	}
 
 	[Header("Menus")]
@@ -96,10 +100,26 @@ public class PauseGameScript : MonoBehaviour {
 		}
 	}
 
+	void OnEnable()
+	{
+		if (SceneSwitchereController.instance.Ps4) 
+		{
+			startButton = "PS4 Start Button";
+			backButton = "PS4 Back Button";
+		} 
+		else if(SceneSwitchereController.instance.xBox)
+		{
+			startButton = "Start Button";
+			backButton = "Back Button";
+		}
+	}
+
 
 	void Update()
 	{
-		if (Input.GetButtonDown("Start Button")) 
+		
+
+		if (Input.GetButtonDown(startButton)) 
 		{
 			int count = 0;
 			for (int i = parentMenu.transform.childCount-2; i >= 1; i--) 
@@ -119,7 +139,7 @@ public class PauseGameScript : MonoBehaviour {
 		{
 			Debug.Log (EventSystem.current.currentSelectedGameObject);
 		}
-		if (Input.GetButtonDown ("Back Button")) 
+		if (Input.GetButtonDown (backButton)) 
 		{
 			if (optionMenu.activeInHierarchy) 
 			{

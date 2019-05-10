@@ -13,7 +13,7 @@ public class ChangeSpriteIfInteracted : MonoBehaviour {
 	private float resize;
 	// Use this for initialization
 	void Start () {
-		resize = 1.5f;
+		resize = 1.3f;
 		image = GetComponent<Image> ();
 		originalScale = this.transform.localScale;
 	}
@@ -32,7 +32,6 @@ public class ChangeSpriteIfInteracted : MonoBehaviour {
 			if (image.sprite != changeSprite1) 
 			{
                 Debug.Log("Switch sound PART 2");
-                AudioController.instance.PlayMainMenueSound(0f);
 
                 image.sprite = changeSprite1;
 				this.transform.localScale = originalScale;

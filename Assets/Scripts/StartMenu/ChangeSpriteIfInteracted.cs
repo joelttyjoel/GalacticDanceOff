@@ -13,7 +13,7 @@ public class ChangeSpriteIfInteracted : MonoBehaviour {
 	private float resize;
 	// Use this for initialization
 	void Start () {
-		resize = 1.1f;
+		resize = 1.3f;
 		image = GetComponent<Image> ();
 		originalScale = this.transform.localScale;
 	}

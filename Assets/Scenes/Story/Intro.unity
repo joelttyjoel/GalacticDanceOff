@@ -122,38 +122,25 @@ GameObject:
   m_Component:
   - component: {fileID: 69623366}
   - component: {fileID: 69623365}
-  - component: {fileID: 69623364}
-  - component: {fileID: 69623363}
   - component: {fileID: 69623380}
   - component: {fileID: 69623379}
   - component: {fileID: 69623378}
   - component: {fileID: 69623377}
   - component: {fileID: 69623376}
-  - component: {fileID: 69623375}
   - component: {fileID: 69623374}
   - component: {fileID: 69623373}
-  - component: {fileID: 69623372}
   - component: {fileID: 69623371}
   - component: {fileID: 69623370}
-  - component: {fileID: 69623369}
   - component: {fileID: 69623368}
   - component: {fileID: 69623367}
   - component: {fileID: 69623383}
   - component: {fileID: 69623382}
-  - component: {fileID: 69623381}
-  - component: {fileID: 69623362}
   - component: {fileID: 69623361}
-  - component: {fileID: 69623360}
-  - component: {fileID: 69623384}
   - component: {fileID: 69623391}
   - component: {fileID: 69623390}
   - component: {fileID: 69623389}
-  - component: {fileID: 69623388}
-  - component: {fileID: 69623387}
   - component: {fileID: 69623386}
   - component: {fileID: 69623385}
-  - component: {fileID: 69623392}
-  - component: {fileID: 69623393}
   - component: {fileID: 69623396}
   - component: {fileID: 69623395}
   - component: {fileID: 69623394}
@@ -164,6 +151,7 @@ GameObject:
   - component: {fileID: 69623399}
   - component: {fileID: 69623402}
   - component: {fileID: 69623403}
+  - component: {fileID: 69623360}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -179,18 +167,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 69623359}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Script: {fileID: 11500000, guid: d2f6487d21a03404cb21b245f0242e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 24
-  indentLevel: 0
-  targetFlowchart: {fileID: 0}
-  targetBlock: {fileID: 69623383}
-  startLabel:
-    stringRef: {fileID: 0}
-    stringVal: 
-  startIndex: 0
-  callMode: 0
+  parentBlock: {fileID: 69623383}
+  waitForFrames: 1
 --- !u!114 &69623361
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -211,72 +192,6 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 0
---- !u!114 &69623362
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 69623359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 22
-  indentLevel: 0
-  storyText: forcing them to live without their liberating music.
-  description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 0
-  waitForClick: 0
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
---- !u!114 &69623363
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 11462346, guid: 5e7fbc8d4eb714b279eeeef2262c1e1a,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 69623359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2f6487d21a03404cb21b245f0242e79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentBlock: {fileID: 69623364}
-  waitForFrames: 1
---- !u!114 &69623364
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 11433304, guid: 5e7fbc8d4eb714b279eeeef2262c1e1a,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 69623359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: 67
-    y: 70
-    width: 120
-    height: 40
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  itemId: 0
-  blockName: Start
-  description: 
-  eventHandler: {fileID: 69623363}
-  commandList:
-  - {fileID: 69623360}
 --- !u!114 &69623365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,32 +289,6 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 0
---- !u!114 &69623369
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 69623359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 16
-  indentLevel: 0
-  storyText: where the winner was the champion and new leader of the galaxy.
-  description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 0
-  waitForClick: 0
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
 --- !u!114 &69623370
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -413,8 +302,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 15
   indentLevel: 0
-  storyText: 'And so, it was decided that every four years an epic dance off was going
-    to take place '
+  storyText: And so, it was decided that every four years an epic dance off was going
+    to take place, where the winner was the champion and new leader of the galaxy.
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -447,32 +336,6 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 0
---- !u!114 &69623372
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 69623359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 13
-  indentLevel: 0
-  storyText: But, they needed a new leader, and no idea on how to choose one.
-  description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 0
-  waitForClick: 0
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
 --- !u!114 &69623373
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -486,8 +349,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 12
   indentLevel: 0
-  storyText: ' The Zurgaas ran away and the victorius species swore to always stay
-    united.'
+  storyText: "The Zurgaas ran away and the victorious species swore to always stay
+    united. But, they needed a new leader, and no idea on how to choose one. \r"
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -520,33 +383,6 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 0
---- !u!114 &69623375
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 69623359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 10
-  indentLevel: 0
-  storyText: and started a war for the galaxy's freedom along with the five other
-    species.
-  description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 0
-  waitForClick: 0
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
 --- !u!114 &69623376
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -560,8 +396,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 9
   indentLevel: 0
-  storyText: The mighty Zurgaas ruled for a long time, until the brave Sivys' finally
-    rebelled
+  storyText: "The mighty Zurgaas ruled for a long time, until the brave Sivys\u2019
+    finally rebelled and started a war for the galaxy\u2019s freedom along with the
+    five other species.\r"
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -599,8 +436,6 @@ MonoBehaviour:
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 69623376}
-  - {fileID: 69623393}
-  - {fileID: 69623375}
   - {fileID: 69623390}
   - {fileID: 69623374}
 --- !u!114 &69623378
@@ -655,8 +490,6 @@ MonoBehaviour:
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 69623370}
-  - {fileID: 69623387}
-  - {fileID: 69623369}
   - {fileID: 69623386}
   - {fileID: 69623368}
 --- !u!114 &69623380
@@ -685,36 +518,7 @@ MonoBehaviour:
   commandList:
   - {fileID: 69623373}
   - {fileID: 69623389}
-  - {fileID: 69623372}
-  - {fileID: 69623388}
   - {fileID: 69623371}
---- !u!114 &69623381
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 69623359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 21
-  indentLevel: 0
-  storyText: the only non-dancing species of the galaxy built a ruthless Empire to
-    oppress their dancing neighbord
-  description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 0
-  waitForClick: 0
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
 --- !u!114 &69623382
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -728,7 +532,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 20
   indentLevel: 0
-  storyText: In a faraway universe
+  storyText: "In a faraway universe, the only non-dancing species of the galaxy built
+    a ruthless Empire to oppress their dancing neighbors, forcing them to live without
+    their liberating music.\r"
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -754,8 +560,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 137
-    y: 137
+    x: 54.647034
+    y: 71.11766
     width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -763,32 +569,11 @@ MonoBehaviour:
   itemId: 19
   blockName: Scen 1
   description: 
-  eventHandler: {fileID: 0}
+  eventHandler: {fileID: 69623360}
   commandList:
   - {fileID: 69623382}
-  - {fileID: 69623392}
-  - {fileID: 69623381}
-  - {fileID: 69623384}
-  - {fileID: 69623362}
   - {fileID: 69623391}
   - {fileID: 69623361}
---- !u!114 &69623384
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 69623359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 25
-  indentLevel: 0
-  _duration:
-    floatRef: {fileID: 0}
-    floatVal: 3
-  durationOLD: 0
 --- !u!114 &69623385
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -823,40 +608,6 @@ MonoBehaviour:
     floatRef: {fileID: 0}
     floatVal: 2
   durationOLD: 0
---- !u!114 &69623387
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 69623359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 30
-  indentLevel: 0
-  _duration:
-    floatRef: {fileID: 0}
-    floatVal: 2
-  durationOLD: 0
---- !u!114 &69623388
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 69623359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 29
-  indentLevel: 0
-  _duration:
-    floatRef: {fileID: 0}
-    floatVal: 3
-  durationOLD: 0
 --- !u!114 &69623389
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -872,7 +623,7 @@ MonoBehaviour:
   indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
-    floatVal: 3
+    floatVal: 2
   durationOLD: 0
 --- !u!114 &69623390
 MonoBehaviour:
@@ -889,7 +640,7 @@ MonoBehaviour:
   indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
-    floatVal: 3
+    floatVal: 2
   durationOLD: 0
 --- !u!114 &69623391
 MonoBehaviour:
@@ -906,41 +657,7 @@ MonoBehaviour:
   indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
-    floatVal: 2
-  durationOLD: 0
---- !u!114 &69623392
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 69623359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 33
-  indentLevel: 0
-  _duration:
-    floatRef: {fileID: 0}
-    floatVal: 1
-  durationOLD: 0
---- !u!114 &69623393
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 69623359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 34
-  indentLevel: 0
-  _duration:
-    floatRef: {fileID: 0}
-    floatVal: 2
+    floatVal: 2.5
   durationOLD: 0
 --- !u!114 &69623394
 MonoBehaviour:
@@ -998,8 +715,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 300.17633
-    y: 147.82355
+    x: 560.1766
+    y: 193.70581
     width: 134.7059
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}

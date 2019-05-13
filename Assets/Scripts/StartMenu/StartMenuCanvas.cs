@@ -39,18 +39,18 @@ public class StartMenuCanvas : MonoBehaviour {
 	{
 		if (Input.GetButtonDown ("Button B")) 
 		{
-			if (bButton1.gameObject.activeInHierarchy) 
+			if (bButton1.gameObject.activeInHierarchy && bButton1.IsInteractable()) 
 			{
 				bButton1.onClick.Invoke ();
-			} else if ((bButton2.gameObject.activeInHierarchy)) 
+			} else if ((bButton2.gameObject.activeInHierarchy) && bButton2.IsInteractable()) 
 			{
 				bButton2.onClick.Invoke ();
 			}
-			else if ((bButton3.gameObject.activeInHierarchy)) 
+			else if ((bButton3.gameObject.activeInHierarchy) && bButton3.IsInteractable()) 
 			{
 				bButton3.onClick.Invoke ();
 			}
-			else if ((bButton4.gameObject.activeInHierarchy)) 
+			else if ((bButton4.gameObject.activeInHierarchy) && bButton4.IsInteractable()) 
 			{
 				bButton4.onClick.Invoke ();
 			}

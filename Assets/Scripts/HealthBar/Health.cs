@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour 
 {
 	private float currentHealth;
 	private float maxHealth;
 
+	public Image healthBar;
 
 	void Start()
 	{
@@ -30,8 +32,19 @@ public class Health : MonoBehaviour
 			currentHealth = GameManagerController.instance.AIHealth;
 		}
 
-		handleBar (currentHealth);
+		//handleBar (currentHealth);
+		FillBar(currentHealth);
 	}
+
+
+	private void FillBar(float currentHealth)
+	{
+		if (healthBar.fillAmount != currentHealth / maxHealth) 
+		{
+			healthBar.fillAmount = Mathf.Lerp (healthBar.fillAmount, currentHealth/maxHealth, Time.deltaTime*3f);
+		}
+	}
+
 
 	//makes EGOBar always move towards its current EGO
 	private void handleBar(float currentHealth)
@@ -50,5 +63,4 @@ public class Health : MonoBehaviour
 			}
 		}
 	}
-
 }

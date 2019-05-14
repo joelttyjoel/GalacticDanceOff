@@ -78,11 +78,11 @@ public class AudioController : MonoBehaviour {
         mainMenuSounds.start();
     }
 
-    public void SetVolumeBySlider(Slider sliderIn)
+	public void SetVolumeBySlider(Image sliderIn)
     {
-        buttonPress.setVolume(sliderIn.value);
-        hpSounds.setVolume(sliderIn.value);
-        pauseSounds.setVolume(sliderIn.value);
-        mainMenuSounds.setVolume(sliderIn.value);
+		buttonPress.setVolume(sliderIn.fillAmount);
+		hpSounds.setVolume(sliderIn.fillAmount);
+		pauseSounds.setVolume(sliderIn.fillAmount);
+		mainMenuSounds.setVolume(sliderIn.fillAmount);
     }
 }

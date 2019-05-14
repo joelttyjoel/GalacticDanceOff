@@ -7,9 +7,15 @@ using FMODUnity;
 using FMOD.Studio;
 
 public class PauseGameScript : MonoBehaviour {
-	Text countDown;
-	string startButton;
-	string backButton;
+	private Text countDown;
+	private string startButton;
+	private string backButton;
+
+	[Header("Menus")]
+	public GameObject optionMenu;
+	public GameObject parentMenu;
+
+	public Button[] buttons;
 
 	//[FMODUnity.EventRef]
 	//public string PauseEventEventPath;
@@ -22,9 +28,7 @@ public class PauseGameScript : MonoBehaviour {
 		backButton = "Back Button";
 	}
 
-	[Header("Menus")]
-	public GameObject optionMenu;
-	public GameObject parentMenu;
+
 
 	private bool pauseable = true;
 	private void PauseGame()
@@ -135,10 +139,7 @@ public class PauseGameScript : MonoBehaviour {
 				PauseGame ();
 			}
 		}
-		if (Input.GetKeyDown (KeyCode.KeypadEnter)) 
-		{
-			Debug.Log (EventSystem.current.currentSelectedGameObject);
-		}
+
 		if (Input.GetButtonDown (backButton)) 
 		{
 			if (optionMenu.activeInHierarchy) 
@@ -146,6 +147,20 @@ public class PauseGameScript : MonoBehaviour {
 				ResumeGame ();
 			}
 		}
+
+
+		if (Input.GetButtonDown ("Button B")) 
+		{
+			for (int i = 0; i < buttons.Length; i++) 
+			{
+				if (buttons [i].gameObject.activeInHierarchy && buttons [i].IsInteractable ()) 
+				{
+					buttons [i].onClick.Invoke ();
+				}
+			}
+		}
+
+
 	}
 
     public void ReturnToMainMenu()

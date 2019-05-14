@@ -8,7 +8,7 @@ public class StartMenuCanvas : MonoBehaviour {
 	private int height;
 	private int width;
 
-	public Button bButton1, bButton2, bButton3, bButton4;
+	public Button[] buttons;
 
 	public void SetHeight(int Height)
 	{
@@ -39,20 +39,12 @@ public class StartMenuCanvas : MonoBehaviour {
 	{
 		if (Input.GetButtonDown ("Button B")) 
 		{
-			if (bButton1.gameObject.activeInHierarchy) 
+			for (int i = 0; i < buttons.Length; i++) 
 			{
-				bButton1.onClick.Invoke ();
-			} else if ((bButton2.gameObject.activeInHierarchy)) 
-			{
-				bButton2.onClick.Invoke ();
-			}
-			else if ((bButton3.gameObject.activeInHierarchy)) 
-			{
-				bButton3.onClick.Invoke ();
-			}
-			else if ((bButton4.gameObject.activeInHierarchy)) 
-			{
-				bButton4.onClick.Invoke ();
+				if (buttons [i].gameObject.activeInHierarchy && buttons [i].IsInteractable ()) 
+				{
+					buttons [i].onClick.Invoke ();
+				}
 			}
 		}
 	}

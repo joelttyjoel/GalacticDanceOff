@@ -37,8 +37,8 @@ public class AudioRemapper : MonoBehaviour {
         audioController.PlayMainMenueSound(selectSound);
     }
 
-    public void SetVolumeBySlider(Slider sliderIn)
+	public void SetVolumeBySlider(Image sliderIn)
     {
-        audioController.SetVolumeBySlider(sliderIn);
+		audioController.SetVolumeBySlider(sliderIn);
     }
 }

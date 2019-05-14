@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour 
 {
 	private float currentHealth;
 	private float maxHealth;
 
+	public Image healthBar;
 
 	void Start()
 	{
@@ -23,32 +25,24 @@ public class Health : MonoBehaviour
 	void Update()
 	{
 		if (gameObject.CompareTag ("Player 1")) {
-			currentHealth = GameManagerController.instance.playerHealth;
+			currentHealth = Mathf.Clamp(GameManagerController.instance.playerHealth, 0f, GameManagerController.instance.maxHealth);
 		}
 		if (gameObject.CompareTag ("Player 2")) 
 		{
-			currentHealth = GameManagerController.instance.AIHealth;
+			currentHealth = Mathf.Clamp (GameManagerController.instance.playerHealth, 0f, GameManagerController.instance.maxHealth);
 		}
 
-		handleBar (currentHealth);
+		//handleBar (currentHealth);
+		FillBar(currentHealth);
 	}
 
-	//makes EGOBar always move towards its current EGO
-	private void handleBar(float currentHealth)
+
+	private void FillBar(float currentHealth)
 	{
-		if (transform.localScale.y != currentHealth / maxHealth) 
+		if (healthBar.fillAmount != currentHealth / maxHealth) 
 		{
-			Vector3 targetVect = new Vector3 (transform.localScale.x, 
-				Mathf.Clamp(currentHealth / maxHealth, 0, maxHealth/maxHealth), transform.localScale.z);
-	
-			transform.localScale = Vector3.Lerp (transform.localScale, 
-					targetVect, Time.deltaTime* 3f);
-			if (transform.localScale.y <= 0.01f) 
-			{
-				targetVect.y = 0;
-				transform.localScale = targetVect;
-			}
+			healthBar.fillAmount = Mathf.Lerp (healthBar.fillAmount, currentHealth/maxHealth, Time.deltaTime*3f);
+
 		}
 	}
-
 }

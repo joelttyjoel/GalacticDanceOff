@@ -156,6 +156,7 @@ Cues används för att starta låten. </value>
             <destination>{ea960094-c574-482c-8a13-5d6f0cc1b4af}</destination>
             <destination>{c40440b7-16c8-4fe3-b52b-eed9435a6802}</destination>
             <destination>{91af7aea-90c7-4d11-9b08-3a40f1759794}</destination>
+            <destination>{90374280-4538-4fed-972f-07c2dd036ed8}</destination>
         </relationship>
     </object>
     <object class="ParameterProxy" id="{5269f2b5-a924-46fa-b14a-f1d18bc95acd}">
@@ -505,7 +506,7 @@ Cues används för att starta låten. </value>
     </object>
     <object class="NamedMarker" id="{3699d5fd-2383-4d11-85a8-e8967baadfa7}">
         <property name="position">
-            <value>162.66666666666666</value>
+            <value>157.33333333333331</value>
         </property>
         <property name="name">
             <value>Finish</value>
@@ -589,6 +590,20 @@ Cues används för att starta låten. </value>
         </relationship>
         <relationship name="markerTrack">
             <destination>{c40bb085-1d42-4cff-9016-e2520cff12a6}</destination>
+        </relationship>
+    </object>
+    <object class="NamedMarker" id="{90374280-4538-4fed-972f-07c2dd036ed8}">
+        <property name="position">
+            <value>50.604453484705139</value>
+        </property>
+        <property name="name">
+            <value>End Sequnce</value>
+        </property>
+        <relationship name="timeline">
+            <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
+        </relationship>
+        <relationship name="markerTrack">
+            <destination>{aabb69bc-595c-49b1-a0e7-c54346c74cba}</destination>
         </relationship>
     </object>
     <object class="MixerBusEffectChain" id="{96d57944-b58e-4e54-b5d6-b664d5c82a87}">

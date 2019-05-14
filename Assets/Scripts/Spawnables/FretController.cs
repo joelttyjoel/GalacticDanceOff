@@ -39,7 +39,7 @@ public class FretController : MonoBehaviour {
         //fade distance
         fadeDistance = GameManagerController.instance.fadeDistance;
         //start fade distance
-        startFadeDistance = GameManagerController.instance.startFadeDistance;
+        startFadeDistance = GameManagerController.instance.startFadeDistance * SceneSwitchereController.instance.currentSequence.speedMultiplier;
         //set time until goal
         timeUntilGoal = beatsUntilGoal * timePerBeat;
         //set original position, moves from there X wise

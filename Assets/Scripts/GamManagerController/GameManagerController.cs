@@ -21,6 +21,18 @@ public class GameManagerController : MonoBehaviour {
     [Header("Settings Sequencing")]
     public float timeBeforeFirstRun = 5f;
 
+    [Header("Animation settings")]
+    [SerializeField]
+    public List<int> listOfFramesPerAnimationPurple;
+    [SerializeField]
+    public List<int> listOfFramesPerAnimationYellow;
+    [SerializeField]
+    public List<int> listOfFramesPerAnimationBirb;
+    public GameObject leftCharacter;
+    public GameObject rightCharacter;
+    private Animator leftAnimator;
+    private Animator rightAnimator;
+
     [Header("General Settings")]
     //Variables for other objects
     public float beatsSpawnToGoal = 2f;
@@ -81,6 +93,12 @@ public class GameManagerController : MonoBehaviour {
     }
 
     void Start () {
+        //for animation, 0 to 5
+        leftAnimator = leftCharacter.GetComponent<Animator>();
+        rightAnimator = rightCharacter.GetComponent<Animator>();
+        //set watching
+        leftAnimator.SetInteger("SelectState", 1);
+        rightAnimator.SetInteger("SelectState", 1);
         //get musicmanager
         GameObject musicManager = GameObject.Find("MusicManager");
         Debug.Assert(musicManager != null);
@@ -133,10 +151,20 @@ public class GameManagerController : MonoBehaviour {
         {
             AudioController.instance.PlayHpSound(0f);
             playerHealth -= damagePerMiss;
+            //set feel ouch
+            leftAnimator.SetInteger("SelectState", 1);
+            leftAnimator.SetInteger("SelectState", 4);
+            StopCoroutine("returnToIdleLeft");
+            StartCoroutine("returnToIdleLeft");
         }
         else
         {
             AIHealth -= damagePerMiss;
+            rightAnimator.SetInteger("SelectState", 1);
+            rightAnimator.SetInteger("SelectState", 4);
+            //set animation for thing
+            StopCoroutine("returnToIdleRight");
+            StartCoroutine("returnToIdleRight");
         }
 
         //if health <= 0, set to 0, also lose game
@@ -152,6 +180,17 @@ public class GameManagerController : MonoBehaviour {
             AIHealth = 0;
             //lose game
         }
+    }
+
+    private IEnumerator returnToIdleLeft()
+    {
+        yield return new WaitForSeconds(0.90f);
+        leftAnimator.SetInteger("SelectState", 1);
+    }
+    private IEnumerator returnToIdleRight()
+    {
+        yield return new WaitForSeconds(0.90f);
+        leftAnimator.SetInteger("SelectState", 1);
     }
 
     public void healDamage(bool isLeftP)
@@ -343,12 +382,30 @@ public class GameManagerController : MonoBehaviour {
 	{
         InputManager.instance.isInputsDisabled = true;
         Debug.Log("Between sequences");
-		yield return new WaitForSeconds (3f);
+        //set animations
+        leftAnimator.SetInteger("SelectState", 0);
+        rightAnimator.SetInteger("SelectState", 0);
+        yield return new WaitForSeconds (3f);
 		Debug.Log ("Scoring");
 		yield return new WaitForSeconds (3f);
 		Debug.Log ("Animation");
-		yield return new WaitForSeconds (3f);
-		Debug.Log ("return to beatMap");
+        if (playerScore > AIScore)
+        {
+            //set animations
+            leftAnimator.SetInteger("SelectState", 3);
+            rightAnimator.SetInteger("SelectState", 5);
+        }
+        else
+        {
+            //set animations
+            leftAnimator.SetInteger("SelectState", 5);
+            rightAnimator.SetInteger("SelectState", 3);
+        }
+        yield return new WaitForSeconds (3f);
+        //set animations
+        leftAnimator.SetInteger("SelectState", 1);
+        rightAnimator.SetInteger("SelectState", 1);
+        Debug.Log ("return to beatMap");
         betweenIsDone = true;
         //re enable inputs
         InputManager.instance.isInputsDisabled = false;
@@ -359,6 +416,18 @@ public class GameManagerController : MonoBehaviour {
         //disable inputs again
         InputManager.instance.isInputsDisabled = true;
         Debug.Log("Sequence finished");
+        if(playerScore > AIScore)
+        {
+            //set animations
+            leftAnimator.SetInteger("SelectState", 3);
+            rightAnimator.SetInteger("SelectState", 5);
+        }
+        else
+        {
+            //set animations
+            leftAnimator.SetInteger("SelectState", 5);
+            rightAnimator.SetInteger("SelectState", 3);
+        }
         yield return new WaitForSeconds(3f);
         Debug.Log("Do something");
         yield return new WaitForSeconds(3f);
@@ -412,7 +481,6 @@ public class GameManagerController : MonoBehaviour {
         StartCoroutine(FinishedSequence());
         //after reached finish, stop the thing
     }
-
 
     private void runBeatmap()
     {

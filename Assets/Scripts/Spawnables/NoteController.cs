@@ -50,9 +50,9 @@ public class NoteController : MonoBehaviour {
         //fade distance
         fadeDistance = GameManagerController.instance.fadeDistance;
         //start fade distance
-        startFadeDistance = GameManagerController.instance.startFadeDistance;
+        startFadeDistance = GameManagerController.instance.startFadeDistance * SceneSwitchereController.instance.currentSequence.speedMultiplier;
         //choose sprite dending on input method
-        if(SceneSwitchereController.instance.keyBoard)
+        if (SceneSwitchereController.instance.keyBoard)
             GetComponent<SpriteRenderer>().sprite = spritesWASD[noteType];
         if (SceneSwitchereController.instance.xBox)
             GetComponent<SpriteRenderer>().sprite = spritesXBOX[noteType];

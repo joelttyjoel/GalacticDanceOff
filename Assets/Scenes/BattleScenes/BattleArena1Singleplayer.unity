@@ -610,6 +610,16 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 1.58
       objectReference: {fileID: 0}
+    - target: {fileID: 102754342145633690, guid: aa218333417d2a848b07998795736b14,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Score: 00000'
+      objectReference: {fileID: 0}
+    - target: {fileID: 102921777772442762, guid: aa218333417d2a848b07998795736b14,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Score: 00000'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aa218333417d2a848b07998795736b14, type: 2}
   m_IsPrefabParent: 0
@@ -1534,6 +1544,11 @@ Prefab:
       propertyPath: aiScoreObject
       value: 
       objectReference: {fileID: 238424040}
+    - target: {fileID: 114662122493810526, guid: 5935db54ba4059b4c80af43b834aca08,
+        type: 2}
+      propertyPath: timeToDoFor
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5935db54ba4059b4c80af43b834aca08, type: 2}
   m_IsPrefabParent: 0
@@ -3317,7 +3332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8e8d8144adb9f4ab5bce9621838e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chanceToHitAll: 0.5
+  chanceToHitAll: 1
 --- !u!4 &1342988170
 Transform:
   m_ObjectHideFlags: 0

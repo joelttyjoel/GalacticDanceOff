@@ -35,13 +35,10 @@ public class NoteController : MonoBehaviour {
     public float percentageOfTravel = 0f;
     private float timeUntilGoal;
     private Vector3 originalPos;
-    private float beatsUntilGoal = 1f;
     private bool hasgoneTooFar = false;
 
     void Start()
     {
-        //set things from GameManager
-        beatsUntilGoal = GameManagerController.instance.beatsSpawnToGoal_akaSpeed;
         //distance after good when item should be dequed and fade away
         percentageAboveFinal = GameManagerController.instance.percentagePerfectFromCenter / 2;
         //fade distance
@@ -51,7 +48,7 @@ public class NoteController : MonoBehaviour {
         //choose sprite dending on input method
         GetComponent<SpriteRenderer>().sprite = sprites1[noteType];
         //set time until goal
-        timeUntilGoal = beatsUntilGoal * timePerBeat;
+        timeUntilGoal = GameManagerController.instance.beatsSpawnToGoal_akaSpeed * timePerBeat;
         //set original position, moves from there X wise
         originalPos = transform.position;
         //set total final

@@ -29,6 +29,10 @@ public class NoteChecker : MonoBehaviour {
     //private float distanceFromSpawn;
 
     private bool note1WasHit;
+
+
+    private float timeUpdateFixed = 0.0f;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -86,14 +90,17 @@ public class NoteChecker : MonoBehaviour {
         halfPerfectPercentageDistance = perfectPercentageDistance / 2;
     }
 	
-	void FixedUpdate()
+	void Update()
 	{
-
+        timeUpdateFixed = 0;
 	}
+
 	// Update is called once per frame
-	void LateUpdate ()
+	void FixedUpdate ()
 	{
-		if (InputManager.instance.isInputsDisabled) {
+        timeUpdateFixed += Time.fixedDeltaTime;
+
+        if (InputManager.instance.isInputsDisabled) {
 			return;
 		}
 
@@ -300,8 +307,8 @@ public class NoteChecker : MonoBehaviour {
         //check if was hit
         //if above half of 1 -(perfect + all of good), closest line
         //if below perfect distance from center + 1, farthest line
-        if (noteToCheck.percentageOfTravel > 1 - (goodPercentageDistance + halfPerfectPercentageDistance)
-            && noteToCheck.percentageOfTravel < 1 + halfPerfectPercentageDistance)
+        if (noteToCheck.percentageOfTravel + FixedDistancePercentage(noteToCheck) > 1 - (goodPercentageDistance + halfPerfectPercentageDistance)
+            && noteToCheck.percentageOfTravel + FixedDistancePercentage(noteToCheck) < 1 + halfPerfectPercentageDistance)
         {
             wasHit = true;
         }
@@ -314,13 +321,24 @@ public class NoteChecker : MonoBehaviour {
         bool wasPerfect = false;
 
         //if withing 1 + half perfect and 1 - half perfect, good
-        if(noteToCheck.percentageOfTravel < 1 + halfPerfectPercentageDistance
-            && noteToCheck.percentageOfTravel > 1 - halfPerfectPercentageDistance)
+        if(noteToCheck.percentageOfTravel + FixedDistancePercentage(noteToCheck) < 1 + halfPerfectPercentageDistance
+            && noteToCheck.percentageOfTravel + FixedDistancePercentage(noteToCheck) > 1 - halfPerfectPercentageDistance)
         {
             wasPerfect = true;
         }
 
         return wasPerfect;
+    }
+
+
+    private float FixedDistancePercentage(NoteController noteToCheck)
+    {
+        if (timeUpdateFixed > 0)
+        {
+            return (timeUpdateFixed / noteToCheck.GetTimeUntilGoal());
+        }
+
+        return 0;
     }
 
 

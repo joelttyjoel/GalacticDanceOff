@@ -26,6 +26,16 @@ public class PauseGameScript : MonoBehaviour {
 		countDown = this.transform.GetChild (0).GetChild (0).GetComponent<Text> ();
 		startButton = "Start Button";
 		backButton = "Back Button";
+		if (SceneSwitchereController.instance.Ps4) 
+		{
+			startButton = "PS4 Start Button";
+			backButton = "PS4 Back Button";
+		} 
+		else if(SceneSwitchereController.instance.xBox)
+		{
+			startButton = "Start Button";
+			backButton = "Back Button";
+		}
 	}
 
 
@@ -104,20 +114,6 @@ public class PauseGameScript : MonoBehaviour {
 		}
 	}
 
-	void OnEnable()
-	{
-		if (SceneSwitchereController.instance.Ps4) 
-		{
-			startButton = "PS4 Start Button";
-			backButton = "PS4 Back Button";
-		} 
-		else if(SceneSwitchereController.instance.xBox)
-		{
-			startButton = "Start Button";
-			backButton = "Back Button";
-		}
-	}
-
 
 	void Update()
 	{
@@ -149,7 +145,7 @@ public class PauseGameScript : MonoBehaviour {
 		}
 
 
-		if (Input.GetButtonDown ("Button B")) 
+		if (Input.GetButtonDown (backButton)) 
 		{
 			for (int i = 0; i < buttons.Length; i++) 
 			{

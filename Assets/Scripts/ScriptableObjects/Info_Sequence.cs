@@ -7,7 +7,9 @@ public class Info_Sequence : ScriptableObject
     [SerializeField]
     public string[] beatMapNamesInOrder;
     [SerializeField]
-    public float beatsSpawnToGoal_akaSpeed = 2f;
+    public float beatsSpawnToGoal = 4f;
+    [SerializeField]
+    public float speedMultiplier = 1f;
 
     //For MusicController
     [SerializeField]

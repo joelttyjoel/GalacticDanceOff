@@ -147,21 +147,21 @@ public class NoteChecker : MonoBehaviour {
 			if (InputManager.instance.GetButtonDown (inputSet [0].stringInputManager)) 
 			{
 				NoteKeyDown (inputSet [0].valueOfNoteCheck);
-				Debug.Log ("1");
+				//Debug.Log ("1");
 			}
 			if (InputManager.instance.GetButtonDown (inputSet [1].stringInputManager)) 
 			{
 				NoteKeyDown (inputSet [1].valueOfNoteCheck);
-				Debug.Log ("2");
+				//Debug.Log ("2");
 			}
 			if (InputManager.instance.GetButtonDown (inputSet [2].stringInputManager))
 			{
 				NoteKeyDown (inputSet [2].valueOfNoteCheck);
-				Debug.Log ("3");
+				//Debug.Log ("3");
 			}
 			if (InputManager.instance.GetButtonDown (inputSet [3].stringInputManager)) {
 				NoteKeyDown (inputSet [3].valueOfNoteCheck);
-				Debug.Log ("4");
+				//Debug.Log ("4");
 			}
 		}
     }

@@ -608,9 +608,28 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4737481448269740, guid: aa218333417d2a848b07998795736b14, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.58
+      value: 1.54374
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 102754342145633690, guid: aa218333417d2a848b07998795736b14,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Score: 00000'
+      objectReference: {fileID: 0}
+    - target: {fileID: 102921777772442762, guid: aa218333417d2a848b07998795736b14,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Score: 00000'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4737481448269740, guid: aa218333417d2a848b07998795736b14, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.1500001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4831222113034512, guid: aa218333417d2a848b07998795736b14, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.5437398
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114358989850618290, guid: aa218333417d2a848b07998795736b14, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: aa218333417d2a848b07998795736b14, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &238424040 stripped
@@ -623,6 +642,40 @@ GameObject:
   m_PrefabParentObject: {fileID: 1086096425780198, guid: aa218333417d2a848b07998795736b14,
     type: 2}
   m_PrefabInternal: {fileID: 238424039}
+--- !u!95 &238424043
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 238424040}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fc020dc316f46a1419fcced546348541, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &238424048
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 238424041}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2a6359588a8b01c419030cc25ce48226, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &253633746
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,6 +1587,11 @@ Prefab:
       propertyPath: aiScoreObject
       value: 
       objectReference: {fileID: 238424040}
+    - target: {fileID: 114662122493810526, guid: 5935db54ba4059b4c80af43b834aca08,
+        type: 2}
+      propertyPath: timeToDoFor
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5935db54ba4059b4c80af43b834aca08, type: 2}
   m_IsPrefabParent: 0
@@ -2141,7 +2199,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.667}
+  m_AnchoredPosition: {x: 0, y: 1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &701672779
@@ -3317,7 +3375,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8e8d8144adb9f4ab5bce9621838e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chanceToHitAll: 0.5
+  chanceToHitAll: 1
+  chanceForPerfect: 1
 --- !u!4 &1342988170
 Transform:
   m_ObjectHideFlags: 0
@@ -3446,7 +3505,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beatSpawnerTop: {fileID: 1797628008}
   beatSpawnerBot: {fileID: 701672777}
-  thingsPerBeat: 4
+  sixteenthsPerBeat: 4
+  beatsUntilGoal: 1
   currentTickTime: 0
   currentLineNumber: 0
   easyToReadBeatsTop: 
@@ -3575,7 +3635,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.667}
+  m_AnchoredPosition: {x: 0, y: 1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &1797628011

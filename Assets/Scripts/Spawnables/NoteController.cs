@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class NoteController : MonoBehaviour {
     [SerializeField]
-    [Header("Sprites for input1")]
-    List<Sprite> sprites1;
+    [Header("Sprites for WASD")]
+    List<Sprite> spritesWASD;
+    [SerializeField]
+    [Header("Sprites for XBOX")]
+    List<Sprite> spritesXBOX;
+    [SerializeField]
+    [Header("Sprites for PS")]
+    List<Sprite> spritesPS;
 
     [HideInInspector]
     public int noteType;
@@ -35,13 +41,10 @@ public class NoteController : MonoBehaviour {
     public float percentageOfTravel = 0f;
     private float timeUntilGoal;
     private Vector3 originalPos;
-    private float beatsUntilGoal = 1f;
     private bool hasgoneTooFar = false;
 
     void Start()
     {
-        //set things from GameManager
-        beatsUntilGoal = GameManagerController.instance.beatsSpawnToGoal_akaSpeed;
         //distance after good when item should be dequed and fade away
         percentageAboveFinal = GameManagerController.instance.percentagePerfectFromCenter / 2;
         //fade distance
@@ -49,9 +52,14 @@ public class NoteController : MonoBehaviour {
         //start fade distance
         startFadeDistance = GameManagerController.instance.startFadeDistance;
         //choose sprite dending on input method
-        GetComponent<SpriteRenderer>().sprite = sprites1[noteType];
+        if(SceneSwitchereController.instance.keyBoard)
+            GetComponent<SpriteRenderer>().sprite = spritesWASD[noteType];
+        if (SceneSwitchereController.instance.xBox)
+            GetComponent<SpriteRenderer>().sprite = spritesXBOX[noteType];
+        if (SceneSwitchereController.instance.Ps4)
+            GetComponent<SpriteRenderer>().sprite = spritesPS[noteType];
         //set time until goal
-        timeUntilGoal = beatsUntilGoal * timePerBeat;
+        timeUntilGoal = GameManagerController.instance.beatsSpawnToGoal * timePerBeat;
         //set original position, moves from there X wise
         originalPos = transform.position;
         //set total final

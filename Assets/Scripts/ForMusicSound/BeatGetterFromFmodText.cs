@@ -59,6 +59,18 @@ public class BeatGetterFromFmodText : MonoBehaviour
     public GameObject beatSpawnerTop;
     public GameObject beatSpawnerBot;
 
+    //make singleton
+    public static BeatGetterFromFmodText instance = null;
+
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        //now replaces already existing gameManager instead
+        else if (instance != this)
+            Destroy(instance.gameObject);
+    }
+
     void Start()
     {
         //custom stuff
@@ -124,7 +136,7 @@ public class BeatGetterFromFmodText : MonoBehaviour
                         timelineInfo.timeOfBeat = Time.time;
                         //set time per 16del this
                         //currently hardcoded how many thingsPerBeat there is, not sure how to fix
-                        BeatmapReader.instance.timePer16del = ((60 / parameter.tempo) / BeatmapReader.instance.thingsPerBeat);
+                        BeatmapReader.instance.timePer16del = ((60 / parameter.tempo) / BeatmapReader.instance.sixteenthsPerBeat);
                         //tik big metronome, per beat, tick after settings
                         timelineInfo.metronome1= !timelineInfo.metronome1;
                     }
@@ -145,7 +157,7 @@ public class BeatGetterFromFmodText : MonoBehaviour
     {
         float waitTimePerPoll = BeatmapReader.instance.timePer16del / 16;
         bool thisMetronome = timelineInfo.metronome1;
-        float timePerBeat = BeatmapReader.instance.timePer16del * BeatmapReader.instance.thingsPerBeat;
+        float timePerBeat = BeatmapReader.instance.timePer16del * BeatmapReader.instance.sixteenthsPerBeat;
 
         //just sit and poll this badboi fast as fuk boi
         while (true)
@@ -178,7 +190,7 @@ public class BeatGetterFromFmodText : MonoBehaviour
     //hits beat just as started, then 3 following with time between equal to time between 16 delar, after last wait, then hopefully started again
     private IEnumerator Create16Delar()
     {
-        for(int i = 0; i < BeatmapReader.instance.thingsPerBeat; i++)
+        for(int i = 0; i < BeatmapReader.instance.sixteenthsPerBeat; i++)
         {
             //add exact time to thing each time, starting at every beat
             current16delTime = timelineInfo.timeOfBeat + (BeatmapReader.instance.timePer16del * i);

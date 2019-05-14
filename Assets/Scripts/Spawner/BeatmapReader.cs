@@ -13,7 +13,8 @@ public class BeatmapReader : MonoBehaviour {
     public GameObject beatSpawnerBot;
     private BeatmapSpawner beatSpawnerTopScript;
     private BeatmapSpawner beatSpawnerBotScript;
-    public float thingsPerBeat = 4;
+    public float sixteenthsPerBeat = 4;
+    public float beatsUntilGoal = 1f;
     public float currentTickTime = 0f;
 
     //1-8 = notes, 0 = nothing, 9 = stop
@@ -46,7 +47,7 @@ public class BeatmapReader : MonoBehaviour {
             Destroy(instance.gameObject);
 
         //set shit, dunno
-        thingsPerBeat = 4f;
+        sixteenthsPerBeat = 4f;
         timePer16del = 0.1666f;
     }
 
@@ -54,6 +55,7 @@ public class BeatmapReader : MonoBehaviour {
     {
         beatSpawnerTopScript = beatSpawnerTop.GetComponent<BeatmapSpawner>();
         beatSpawnerBotScript = beatSpawnerBot.GetComponent<BeatmapSpawner>();
+        beatsUntilGoal = GameManagerController.instance.beatsSpawnToGoal;
     }
 
     public void StartRunningBeatmap(string beatMapName)
@@ -80,7 +82,7 @@ public class BeatmapReader : MonoBehaviour {
         hasHadCooldown = metronome;
         
         //fix that boi too yes
-        float totalWaitTime = timePer16del * thingsPerBeat;
+        float timePerBeat = timePer16del * sixteenthsPerBeat;
 
         int currentNoteIndex = 0;
         //read through beatmap, if note send info to spawner, if end, go out of
@@ -98,9 +100,9 @@ public class BeatmapReader : MonoBehaviour {
             //NOTES
             if (currentValueTop > 0 && currentValueTop < 9)
             {
-                beatSpawnerTopScript.SpawnNote(currentValueTop, totalWaitTime, currentTickTime);
-                //AI score
-                //AiController.instance.NoteForAi();
+                beatSpawnerTopScript.SpawnNote(currentValueTop, timePerBeat, currentTickTime);
+                //AI score on when spawn note top
+                AiController.instance.NoteForAi(timePerBeat * beatsUntilGoal);
             }
             //NOTHING
             else if (currentValueTop == 0)
@@ -116,7 +118,9 @@ public class BeatmapReader : MonoBehaviour {
             //BOT-------------------------
             if (currentValueBot > 0 && currentValueBot < 9)
             {
-                beatSpawnerBotScript.SpawnNote(currentValueBot, totalWaitTime, currentTickTime);
+                beatSpawnerBotScript.SpawnNote(currentValueBot, timePerBeat, currentTickTime);
+                //AI score on when spawn note bot
+                AiController.instance.NoteForAi(timePerBeat * beatsUntilGoal);
             }
             //NOTHING
             else if (currentValueBot == 0)

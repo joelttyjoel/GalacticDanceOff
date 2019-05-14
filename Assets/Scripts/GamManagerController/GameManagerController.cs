@@ -23,7 +23,8 @@ public class GameManagerController : MonoBehaviour {
 
     [Header("General Settings")]
     //Variables for other objects
-    public float beatsSpawnToGoal_akaSpeed = 2f;
+    public float beatsSpawnToGoal = 2f;
+    public float speedMultiplier = 1f;
 
     [Header("Note settings")]
     public float beatsToSlowDownFor = 4f;
@@ -48,6 +49,7 @@ public class GameManagerController : MonoBehaviour {
     [Header("Scores")]
     public GameObject playerScoreObject;
     public GameObject aiScoreObject;
+    public float timeToDoFor = 3f;
     public int scoreForNormalHit = 50;
     public int scoreForPerfectHit = 100;
     public int playerScore;
@@ -74,7 +76,8 @@ public class GameManagerController : MonoBehaviour {
 
         //GET INFO ABOUT SEQUENCE ETC
         beatMapNamesInOrder = SceneSwitchereController.instance.currentSequence.beatMapNamesInOrder;
-        beatsSpawnToGoal_akaSpeed = SceneSwitchereController.instance.currentSequence.beatsSpawnToGoal_akaSpeed;
+        beatsSpawnToGoal = SceneSwitchereController.instance.currentSequence.beatsSpawnToGoal;
+        speedMultiplier = SceneSwitchereController.instance.currentSequence.speedMultiplier;
     }
 
     void Start () {
@@ -189,8 +192,7 @@ public class GameManagerController : MonoBehaviour {
             if (isPerfect) playerScore += scoreForPerfectHit;
             else playerScore += scoreForNormalHit;
             //now set hp thing
-            string scoreString = GetScoreString(playerScore);
-            playerScoreObject.GetComponent<TextMesh>().text = scoreString;
+            SetScore(playerScore, playerScoreObject);
         }
 
         else
@@ -198,9 +200,14 @@ public class GameManagerController : MonoBehaviour {
             if (isPerfect) AIScore += scoreForPerfectHit;
             else AIScore += scoreForNormalHit;
             //now set hp thing
-            string scoreString = GetScoreString(AIScore);
-            aiScoreObject.GetComponent<TextMesh>().text = scoreString;
+            SetScore(AIScore, aiScoreObject);
         }
+    }
+
+    private void SetScore(int score, GameObject scoreObject)
+    {
+        string scoreString = GetScoreString(score);
+        scoreObject.GetComponent<TextMesh>().text = scoreString;
     }
 
     private string GetScoreString(int inputScore)
@@ -233,6 +240,12 @@ public class GameManagerController : MonoBehaviour {
 
         InputManager.instance.isInputsDisabled = true;
 
+        //reset values, with animation
+        StartCoroutine(FailBeatmapScoreFall(playerScore, playerScoreObject));
+        StartCoroutine(FailBeatmapScoreFall(AIScore, aiScoreObject));
+        playerScore = 0;
+        AIScore = 0;
+
         //do stuff for next run, reset sequencer etc
         currentBeatMap = 1;
         //Stop sequencer
@@ -243,10 +256,36 @@ public class GameManagerController : MonoBehaviour {
         StartCoroutine(failBeatmapAnimation());
     }
 
+    private IEnumerator FailBeatmapScoreFall(int startScore, GameObject scoreObject)
+    {
+        float timeUntilDone = timeToDoFor;
+
+        int currentScore = startScore;
+        float percentageOfTimeLeft = 1f;
+
+        while(timeUntilDone >= 0f)
+        {
+            yield return new WaitForEndOfFrame();
+            timeUntilDone -= Time.deltaTime;
+
+            //does every frame for 5 seconds
+            //get percentage of time done
+            percentageOfTimeLeft = timeUntilDone / timeToDoFor;
+
+            //set currentScore as int
+            currentScore = (int)((float)startScore * percentageOfTimeLeft);
+
+            //now set score
+            SetScore(currentScore, scoreObject);
+        }
+        currentScore = 0;
+        SetScore(currentScore, scoreObject);
+    }
+
     private IEnumerator failBeatmapAnimation()
     {
         //slow down until stop
-        float timeToSlowFor = beatsToSlowDownFor * BeatmapReader.instance.thingsPerBeat * BeatmapReader.instance.timePer16del;
+        float timeToSlowFor = beatsToSlowDownFor * BeatmapReader.instance.sixteenthsPerBeat * BeatmapReader.instance.timePer16del;
 
         //float startTime = Time.time;
         float endTime = Time.time + timeToSlowFor;
@@ -267,7 +306,7 @@ public class GameManagerController : MonoBehaviour {
         BeatmapReader.instance.StopRunningBeatmap();
 
         //speed up instead, see if looks good
-        float timeToSpeedFor = beatsToSpeedUpFor * BeatmapReader.instance.thingsPerBeat * BeatmapReader.instance.timePer16del;
+        float timeToSpeedFor = beatsToSpeedUpFor * BeatmapReader.instance.sixteenthsPerBeat * BeatmapReader.instance.timePer16del;
         float endTime2 = Time.time + timeToSpeedFor;
         float percentageOfTravel2 = 1f;
         //continues looping until reached end

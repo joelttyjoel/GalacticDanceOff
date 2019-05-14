@@ -5,6 +5,8 @@ using UnityEngine;
 public class AiController : MonoBehaviour {
 
     public float chanceToHitAll = 0.5f;
+    public float chanceForPerfect = 1f;
+       
 
     public static AiController instance = null;
 
@@ -17,18 +19,20 @@ public class AiController : MonoBehaviour {
             Destroy(instance.gameObject);
     }
 
-    public void NoteForAi()
+    public void NoteForAi(float timeUntilGoal)
     {
-        StartCoroutine(NoteTest());
+        StartCoroutine(NoteTest(timeUntilGoal));
     }
 
-    private IEnumerator NoteTest()
+    private IEnumerator NoteTest(float timeUntilGoal)
     {
-        yield return new WaitForSeconds(0.5f);
-        Debug.Log("Score AI");
-        if (Random.Range(0, 1) > chanceToHitAll)
+        //wait for time it takes for note to reach end before doing calculations
+        yield return new WaitForSeconds(timeUntilGoal);
+
+        //only add score if isn't restarting
+        if (Random.Range(0f, 1f) < chanceToHitAll && !GameManagerController.instance.isRestarting)
         {
-            if (Random.Range(0, 1) > 0.8f)
+            if (Random.Range(0f, 1f) < chanceForPerfect)
             {
                 GameManagerController.instance.addScore(false, true);
             }

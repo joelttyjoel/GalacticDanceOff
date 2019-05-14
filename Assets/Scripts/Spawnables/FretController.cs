@@ -33,7 +33,7 @@ public class FretController : MonoBehaviour {
     void Start()
     {
         //set things from GameManager
-        beatsUntilGoal = GameManagerController.instance.beatsSpawnToGoal_akaSpeed;
+        beatsUntilGoal = GameManagerController.instance.beatsSpawnToGoal;
         //distance after good when item should be dequed and fade away
         percentageAboveFinal = GameManagerController.instance.percentagePerfectFromCenter / 2;
         //fade distance

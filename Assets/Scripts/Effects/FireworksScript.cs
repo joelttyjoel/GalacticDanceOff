@@ -11,11 +11,14 @@ public class FireworksScript : MonoBehaviour {
     private float lifetime = 3f;
     private float currentLifeTime = 0;
 
+    private Rigidbody rigid;
 	// Use this for initialization
-	void Start ()
+
+
+    void Start()
     {
-        Rigidbody rigBod = transform.GetComponent<Rigidbody>();
-        rigBod.velocity.Set(0 , startSpeed, 0);
+        rigid = transform.GetComponent<Rigidbody>();
+        rigid.velocity = new Vector3(0, startSpeed, 0);
     }
 	
 	// Update is called once per frame

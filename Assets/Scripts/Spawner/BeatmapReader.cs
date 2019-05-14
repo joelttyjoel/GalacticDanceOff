@@ -55,7 +55,7 @@ public class BeatmapReader : MonoBehaviour {
     {
         beatSpawnerTopScript = beatSpawnerTop.GetComponent<BeatmapSpawner>();
         beatSpawnerBotScript = beatSpawnerBot.GetComponent<BeatmapSpawner>();
-        beatsUntilGoal = GameManagerController.instance.beatsSpawnToGoal_akaSpeed;
+        beatsUntilGoal = GameManagerController.instance.beatsSpawnToGoal;
     }
 
     public void StartRunningBeatmap(string beatMapName)
@@ -101,7 +101,7 @@ public class BeatmapReader : MonoBehaviour {
             if (currentValueTop > 0 && currentValueTop < 9)
             {
                 beatSpawnerTopScript.SpawnNote(currentValueTop, timePerBeat, currentTickTime);
-                //AI score on when spawn note
+                //AI score on when spawn note top
                 AiController.instance.NoteForAi(timePerBeat * beatsUntilGoal);
             }
             //NOTHING
@@ -119,6 +119,8 @@ public class BeatmapReader : MonoBehaviour {
             if (currentValueBot > 0 && currentValueBot < 9)
             {
                 beatSpawnerBotScript.SpawnNote(currentValueBot, timePerBeat, currentTickTime);
+                //AI score on when spawn note bot
+                AiController.instance.NoteForAi(timePerBeat * beatsUntilGoal);
             }
             //NOTHING
             else if (currentValueBot == 0)

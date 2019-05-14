@@ -23,7 +23,8 @@ public class GameManagerController : MonoBehaviour {
 
     [Header("General Settings")]
     //Variables for other objects
-    public float beatsSpawnToGoal_akaSpeed = 2f;
+    public float beatsSpawnToGoal = 2f;
+    public float speedMultiplier = 1f;
 
     [Header("Note settings")]
     public float beatsToSlowDownFor = 4f;
@@ -75,7 +76,8 @@ public class GameManagerController : MonoBehaviour {
 
         //GET INFO ABOUT SEQUENCE ETC
         beatMapNamesInOrder = SceneSwitchereController.instance.currentSequence.beatMapNamesInOrder;
-        beatsSpawnToGoal_akaSpeed = SceneSwitchereController.instance.currentSequence.beatsSpawnToGoal_akaSpeed;
+        beatsSpawnToGoal = SceneSwitchereController.instance.currentSequence.beatsSpawnToGoal;
+        speedMultiplier = SceneSwitchereController.instance.currentSequence.speedMultiplier;
     }
 
     void Start () {
@@ -195,7 +197,6 @@ public class GameManagerController : MonoBehaviour {
 
         else
         {
-            Debug.Log("Add Score AI");
             if (isPerfect) AIScore += scoreForPerfectHit;
             else AIScore += scoreForNormalHit;
             //now set hp thing

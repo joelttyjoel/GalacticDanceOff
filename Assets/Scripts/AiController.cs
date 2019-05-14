@@ -29,7 +29,8 @@ public class AiController : MonoBehaviour {
         //wait for time it takes for note to reach end before doing calculations
         yield return new WaitForSeconds(timeUntilGoal);
 
-        if (Random.Range(0f, 1f) < chanceToHitAll)
+        //only add score if isn't restarting
+        if (Random.Range(0f, 1f) < chanceToHitAll && !GameManagerController.instance.isRestarting)
         {
             if (Random.Range(0f, 1f) < chanceForPerfect)
             {

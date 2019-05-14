@@ -59,6 +59,18 @@ public class BeatGetterFromFmodText : MonoBehaviour
     public GameObject beatSpawnerTop;
     public GameObject beatSpawnerBot;
 
+    //make singleton
+    public static BeatGetterFromFmodText instance = null;
+
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        //now replaces already existing gameManager instead
+        else if (instance != this)
+            Destroy(instance.gameObject);
+    }
+
     void Start()
     {
         //custom stuff

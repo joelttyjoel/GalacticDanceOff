@@ -64,6 +64,10 @@ Cues används för att starta låten. </value>
         </relationship>
     </object>
     <object class="MasterTrack" id="{cfd6b15c-8259-4e55-8cd1-68b62ec9efab}">
+        <relationship name="modules">
+            <destination>{bb98cb65-6c72-47c4-8ea3-ba57b97f158a}</destination>
+            <destination>{6721f17c-4533-4414-a192-366977a50afa}</destination>
+        </relationship>
         <relationship name="mixerGroup">
             <destination>{ccc58e99-c64e-4cb1-b40b-ee860535f98a}</destination>
         </relationship>
@@ -87,8 +91,13 @@ Cues används för att starta låten. </value>
     <object class="MarkerTrack" id="{c40bb085-1d42-4cff-9016-e2520cff12a6}"/>
     <object class="MarkerTrack" id="{53c3a07a-ab1c-4277-9999-b5b872c86c81}"/>
     <object class="GroupTrack" id="{c3454ec1-7215-44d5-98da-0717411ab0a2}">
+        <relationship name="automationTracks">
+            <destination>{c092453e-cab9-478c-9fc8-b92231b30268}</destination>
+        </relationship>
         <relationship name="modules">
             <destination>{221f4a0b-a5ad-44c5-a773-82de8b08ec6a}</destination>
+            <destination>{07caefdc-164f-44a5-b26d-d2dc776fb3a1}</destination>
+            <destination>{cf9ae6c8-924d-41a1-b6b4-f9319547f137}</destination>
         </relationship>
         <relationship name="mixerGroup">
             <destination>{1b79d87f-5911-4d94-a1bb-2f3a60565f21}</destination>
@@ -98,6 +107,10 @@ Cues används för att starta låten. </value>
         <relationship name="automationTracks">
             <destination>{3786e40c-c7d7-47de-9387-7abe9bfad377}</destination>
         </relationship>
+        <relationship name="modules">
+            <destination>{d4f8aefe-a9d7-4246-99f1-9263f908ca50}</destination>
+            <destination>{0de339f2-ee9d-481e-b3bd-a3fa186f85d0}</destination>
+        </relationship>
         <relationship name="mixerGroup">
             <destination>{b10d1a68-b6aa-41f0-8391-f4d43d7d12ca}</destination>
         </relationship>
@@ -106,6 +119,10 @@ Cues används för att starta låten. </value>
         <relationship name="automationTracks">
             <destination>{de2dc6de-2b8a-4c0d-9604-588bb0b52988}</destination>
         </relationship>
+        <relationship name="modules">
+            <destination>{bafd846b-dc96-4b4a-96b5-1d5087730261}</destination>
+            <destination>{521ede99-0a32-4879-a77b-f8b46a0e511c}</destination>
+        </relationship>
         <relationship name="mixerGroup">
             <destination>{8323bbae-9d45-459d-abb4-04d56a802487}</destination>
         </relationship>
@@ -113,6 +130,10 @@ Cues används för att starta låten. </value>
     <object class="GroupTrack" id="{d5fd380d-1d16-4003-bb6e-c66f3552e8f3}">
         <relationship name="automationTracks">
             <destination>{ee00cb6d-18db-42f9-967e-135f688d1429}</destination>
+        </relationship>
+        <relationship name="modules">
+            <destination>{4b40ba79-c122-456c-b209-101d56ce7c3b}</destination>
+            <destination>{d56758b7-136c-4167-89a7-92cebeca9618}</destination>
         </relationship>
         <relationship name="mixerGroup">
             <destination>{31708127-f81f-458c-89ea-5fd6037c95eb}</destination>
@@ -139,7 +160,6 @@ Cues används för att starta låten. </value>
             <destination>{c40440b7-16c8-4fe3-b52b-eed9435a6802}</destination>
             <destination>{90374280-4538-4fed-972f-07c2dd036ed8}</destination>
             <destination>{0a3af279-2152-4c1a-bd49-bca5f5d611cd}</destination>
-            <destination>{510945e9-2991-4a34-916f-1fd19e7cc3f7}</destination>
             <destination>{f034e162-4a15-49e6-8e95-2ab3cab7cbef}</destination>
             <destination>{9db736f5-8021-4378-933e-7743e8284e9e}</destination>
             <destination>{968ca53e-f9a3-4598-af49-cab3236e3a4d}</destination>
@@ -185,19 +205,53 @@ Cues används för att starta låten. </value>
             <destination>{40b0aa79-4273-4786-a488-87680cb550f5}</destination>
         </relationship>
     </object>
+    <object class="TransitionSourceSound" id="{bb98cb65-6c72-47c4-8ea3-ba57b97f158a}">
+        <property name="length">
+            <value>0</value>
+        </property>
+    </object>
+    <object class="TransitionDestinationSound" id="{6721f17c-4533-4414-a192-366977a50afa}">
+        <property name="start">
+            <value>2.6666666666666665</value>
+        </property>
+        <property name="length">
+            <value>0</value>
+        </property>
+    </object>
     <object class="MixerBusEffectChain" id="{cb294f78-fad2-49f6-be17-6aa82e756192}">
         <relationship name="effects">
             <destination>{67152721-ca7b-43d9-8cc6-48e10a534dc3}</destination>
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{533d8571-d206-4e50-b72e-dd1d0fbea8c1}"/>
+    <object class="AutomationTrack" id="{c092453e-cab9-478c-9fc8-b92231b30268}">
+        <relationship name="automator">
+            <destination>{a2f61e0d-d924-4ba3-9f8b-c060a941e696}</destination>
+        </relationship>
+    </object>
     <object class="SingleSound" id="{221f4a0b-a5ad-44c5-a773-82de8b08ec6a}">
         <property name="length">
             <value>304</value>
         </property>
+        <relationship name="automators">
+            <destination>{a2f61e0d-d924-4ba3-9f8b-c060a941e696}</destination>
+        </relationship>
         <relationship name="audioFile">
             <destination>{93392a75-a3b5-4867-b42f-4afead0d803c}</destination>
         </relationship>
+    </object>
+    <object class="TransitionSourceSound" id="{07caefdc-164f-44a5-b26d-d2dc776fb3a1}">
+        <property name="length">
+            <value>2.6666666666666665</value>
+        </property>
+    </object>
+    <object class="TransitionDestinationSound" id="{cf9ae6c8-924d-41a1-b6b4-f9319547f137}">
+        <property name="start">
+            <value>2.6666666666666665</value>
+        </property>
+        <property name="length">
+            <value>0</value>
+        </property>
     </object>
     <object class="EventMixerGroup" id="{1b79d87f-5911-4d94-a1bb-2f3a60565f21}">
         <property name="name">
@@ -217,6 +271,19 @@ Cues används för att starta låten. </value>
         <relationship name="automator">
             <destination>{1b4e5c6e-bbfd-445a-8c85-b58e9c8ac659}</destination>
         </relationship>
+    </object>
+    <object class="TransitionSourceSound" id="{d4f8aefe-a9d7-4246-99f1-9263f908ca50}">
+        <property name="length">
+            <value>0</value>
+        </property>
+    </object>
+    <object class="TransitionDestinationSound" id="{0de339f2-ee9d-481e-b3bd-a3fa186f85d0}">
+        <property name="start">
+            <value>2.6666666666666665</value>
+        </property>
+        <property name="length">
+            <value>0</value>
+        </property>
     </object>
     <object class="EventMixerGroup" id="{b10d1a68-b6aa-41f0-8391-f4d43d7d12ca}">
         <property name="name">
@@ -240,6 +307,19 @@ Cues används för att starta låten. </value>
             <destination>{3615c320-1e0b-4ed6-9f93-a4a8ab7d2dc4}</destination>
         </relationship>
     </object>
+    <object class="TransitionSourceSound" id="{bafd846b-dc96-4b4a-96b5-1d5087730261}">
+        <property name="length">
+            <value>0</value>
+        </property>
+    </object>
+    <object class="TransitionDestinationSound" id="{521ede99-0a32-4879-a77b-f8b46a0e511c}">
+        <property name="start">
+            <value>2.6666666666666665</value>
+        </property>
+        <property name="length">
+            <value>0</value>
+        </property>
+    </object>
     <object class="EventMixerGroup" id="{8323bbae-9d45-459d-abb4-04d56a802487}">
         <property name="name">
             <value>Guitar stem</value>
@@ -261,6 +341,19 @@ Cues används för att starta låten. </value>
         <relationship name="automator">
             <destination>{6dc5dfd3-467e-496a-b955-37c85e30664c}</destination>
         </relationship>
+    </object>
+    <object class="TransitionSourceSound" id="{4b40ba79-c122-456c-b209-101d56ce7c3b}">
+        <property name="length">
+            <value>0</value>
+        </property>
+    </object>
+    <object class="TransitionDestinationSound" id="{d56758b7-136c-4167-89a7-92cebeca9618}">
+        <property name="start">
+            <value>2.6666666666666665</value>
+        </property>
+        <property name="length">
+            <value>0</value>
+        </property>
     </object>
     <object class="EventMixerGroup" id="{31708127-f81f-458c-89ea-5fd6037c95eb}">
         <property name="name">
@@ -330,6 +423,9 @@ Cues används för att starta låten. </value>
         </property>
         <relationship name="triggerConditions">
             <destination>{3f6c2519-8bfc-4d1d-ae80-359cb868258c}</destination>
+        </relationship>
+        <relationship name="transitionTimeline">
+            <destination>{dde8bcb8-ae91-4359-85a1-f987a047b874}</destination>
         </relationship>
         <relationship name="destination">
             <destination>{8565b75b-4a47-4858-90e0-37110cc8bf6f}</destination>
@@ -536,20 +632,6 @@ Cues används för att starta låten. </value>
             <destination>{f4f5d363-eabf-42f1-a456-b901d4e173c4}</destination>
         </relationship>
     </object>
-    <object class="LoopRegion" id="{510945e9-2991-4a34-916f-1fd19e7cc3f7}">
-        <property name="position">
-            <value>256.66666666666663</value>
-        </property>
-        <property name="length">
-            <value>2.6666666666666665</value>
-        </property>
-        <relationship name="timeline">
-            <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
-        </relationship>
-        <relationship name="markerTrack">
-            <destination>{2e2ca341-2841-428c-bfc8-83f2401d05dd}</destination>
-        </relationship>
-    </object>
     <object class="LoopRegion" id="{f034e162-4a15-49e6-8e95-2ab3cab7cbef}">
         <property name="position">
             <value>255.91597350993376</value>
@@ -752,6 +834,14 @@ Cues används för att starta låten. </value>
     </object>
     <object class="MixerBusPanner" id="{5ab2cee5-8033-48a2-9b9b-7e36011c6aa7}"/>
     <object class="MixerBusFader" id="{67152721-ca7b-43d9-8cc6-48e10a534dc3}"/>
+    <object class="Automator" id="{a2f61e0d-d924-4ba3-9f8b-c060a941e696}">
+        <property name="nameOfPropertyBeingAutomated">
+            <value>pitch</value>
+        </property>
+        <relationship name="automationCurves">
+            <destination>{20592278-8cee-421a-8802-d00a3367d8be}</destination>
+        </relationship>
+    </object>
     <object class="MixerBusEffectChain" id="{9c23b009-0b8c-45d1-924b-f48db1b0d47f}">
         <relationship name="effects">
             <destination>{6e562b22-a2fd-4eca-bf4f-a127caf0d9d3}</destination>
@@ -809,6 +899,23 @@ Cues används för att starta låten. </value>
         </property>
         <relationship name="parameter">
             <destination>{de0b50e5-5a7d-4f83-b64f-db755269a560}</destination>
+        </relationship>
+    </object>
+    <object class="TransitionTimeline" id="{dde8bcb8-ae91-4359-85a1-f987a047b874}">
+        <property name="length">
+            <value>2.6666666666666665</value>
+        </property>
+        <relationship name="modules">
+            <destination>{07caefdc-164f-44a5-b26d-d2dc776fb3a1}</destination>
+            <destination>{cf9ae6c8-924d-41a1-b6b4-f9319547f137}</destination>
+            <destination>{d4f8aefe-a9d7-4246-99f1-9263f908ca50}</destination>
+            <destination>{0de339f2-ee9d-481e-b3bd-a3fa186f85d0}</destination>
+            <destination>{bafd846b-dc96-4b4a-96b5-1d5087730261}</destination>
+            <destination>{521ede99-0a32-4879-a77b-f8b46a0e511c}</destination>
+            <destination>{4b40ba79-c122-456c-b209-101d56ce7c3b}</destination>
+            <destination>{d56758b7-136c-4167-89a7-92cebeca9618}</destination>
+            <destination>{bb98cb65-6c72-47c4-8ea3-ba57b97f158a}</destination>
+            <destination>{6721f17c-4533-4414-a192-366977a50afa}</destination>
         </relationship>
     </object>
     <object class="ParameterCondition" id="{46e83ced-b340-4e08-9605-567bac9854c8}">
@@ -878,6 +985,15 @@ Cues används för att starta låten. </value>
         </relationship>
     </object>
     <object class="MixerBusFader" id="{3c27c99d-a17d-48e4-8742-95acc1787dc7}"/>
+    <object class="AutomationCurve" id="{20592278-8cee-421a-8802-d00a3367d8be}">
+        <relationship name="parameter">
+            <destination>{dde8bcb8-ae91-4359-85a1-f987a047b874}</destination>
+        </relationship>
+        <relationship name="automationPoints">
+            <destination>{09c894c8-f00d-499c-b7d2-099a015e4824}</destination>
+            <destination>{b9f1054c-b10c-448e-b0c8-2abf137e63b6}</destination>
+        </relationship>
+    </object>
     <object class="MixerBusFader" id="{6e562b22-a2fd-4eca-bf4f-a127caf0d9d3}"/>
     <object class="AutomationCurve" id="{36415019-323b-4615-9b5f-47a424cd789b}">
         <relationship name="parameter">
@@ -911,6 +1027,22 @@ Cues används för att starta låten. </value>
         </relationship>
     </object>
     <object class="MixerBusFader" id="{917268dc-eab1-46a9-a034-75b9a82b2d7f}"/>
+    <object class="AutomationPoint" id="{09c894c8-f00d-499c-b7d2-099a015e4824}">
+        <property name="position">
+            <value>0.092715231788086022</value>
+        </property>
+        <property name="value">
+            <value>0</value>
+        </property>
+    </object>
+    <object class="AutomationPoint" id="{b9f1054c-b10c-448e-b0c8-2abf137e63b6}">
+        <property name="position">
+            <value>2.6666666666666665</value>
+        </property>
+        <property name="value">
+            <value>-24</value>
+        </property>
+    </object>
     <object class="AutomationPoint" id="{1a11c9a8-94a2-4d16-aa1d-4acd23a3f179}">
         <property name="position">
             <value>0</value>

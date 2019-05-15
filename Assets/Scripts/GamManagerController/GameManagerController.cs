@@ -152,17 +152,22 @@ public class GameManagerController : MonoBehaviour {
             AudioController.instance.PlayHpSound(0f);
             playerHealth -= damagePerMiss;
             //set feel ouch
-            leftAnimator.SetInteger("SelectState", 1);
-            leftAnimator.SetInteger("SelectState", 4);
+            int currentState = leftAnimator.GetInteger("SelectState");
+            //set to one or the other
+            if(currentState == 4) leftAnimator.SetInteger("SelectState", 6);
+            else leftAnimator.SetInteger("SelectState", 4);
+            //start new timer to reset back to idle
             StopCoroutine("returnToIdleLeft");
             StartCoroutine("returnToIdleLeft");
         }
         else
         {
             AIHealth -= damagePerMiss;
-            rightAnimator.SetInteger("SelectState", 1);
-            rightAnimator.SetInteger("SelectState", 4);
-            //set animation for thing
+            int currentState = rightAnimator.GetInteger("SelectState");
+            //set to one or the other
+            if (currentState == 4) rightAnimator.SetInteger("SelectState", 6);
+            else rightAnimator.SetInteger("SelectState", 4);
+            //start new timer to reset back to idle
             StopCoroutine("returnToIdleRight");
             StartCoroutine("returnToIdleRight");
         }
@@ -184,12 +189,13 @@ public class GameManagerController : MonoBehaviour {
 
     private IEnumerator returnToIdleLeft()
     {
-        yield return new WaitForSeconds(0.90f);
+        yield return new WaitForSeconds(0.60f);
+        Debug.Log("Return to idle");
         leftAnimator.SetInteger("SelectState", 1);
     }
     private IEnumerator returnToIdleRight()
     {
-        yield return new WaitForSeconds(0.90f);
+        yield return new WaitForSeconds(0.60f);
         leftAnimator.SetInteger("SelectState", 1);
     }
 

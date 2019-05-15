@@ -10,10 +10,10 @@ public class ChangeSpriteIfInteracted : MonoBehaviour {
 	public Sprite changeSprite1;
 	public Sprite changeSprite2;
 	private Vector3 originalScale;
-	private float resize;
+	public float resize;
 	// Use this for initialization
 	void Start () {
-		resize = 1.3f;
+		//resize = 1.3f;
 		image = GetComponent<Image> ();
 		originalScale = this.transform.localScale;
 	}
@@ -27,15 +27,16 @@ public class ChangeSpriteIfInteracted : MonoBehaviour {
                 image.sprite = changeSprite2;
 				this.transform.localScale = originalScale * resize;
 			}
-		} else 
-		{
-			if (image.sprite != changeSprite1) 
-			{
-                Debug.Log("Switch sound PART 2");
-
-                image.sprite = changeSprite1;
-				this.transform.localScale = originalScale;
-			}
 		}
+		else if (image.sprite != changeSprite1 ) 
+		{
+			Debug.Log("Switch sound PART 2");
+
+			image.sprite = changeSprite1;
+			this.transform.localScale = originalScale;
+		}
+
+
+
 	}
 }

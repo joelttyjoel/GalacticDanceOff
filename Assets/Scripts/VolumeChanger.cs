@@ -6,12 +6,19 @@ public class VolumeChanger : MonoBehaviour {
 
 	public Image volumeSlider;
 	public Button[] buttons;
+	public GameObject[] arrows;
+
+
+
 	private bool pressed = true;
 	private bool oneFrameAxis;
 	private float lerpVolume;
+	private Vector3 arrowSize;
 	// Use this for initialization
 	void Start () {
 		lerpVolume = volumeSlider.fillAmount;
+		arrowSize = arrows [0].transform.localScale;
+
 	}
 		
 	// Update is called once per frame
@@ -30,9 +37,11 @@ public class VolumeChanger : MonoBehaviour {
 				float value;
 				if (Input.GetAxisRaw ("Horizontal") > 0) {
 					value = 0.1f;	
+					arrows [1].GetComponent<Animator> ().Play ("ResizeAnimation");
 				} else 
 				{
 					value = -0.1f;
+					arrows [0].GetComponent<Animator> ().Play ("ResizeAnimation");
 				}
 				lerpVolume = volumeSlider.fillAmount + value;
 
@@ -61,6 +70,13 @@ public class VolumeChanger : MonoBehaviour {
 		{
 			oneFrameAxis = true;
 		}
+		if(Input.GetAxisRaw ("Horizontal") == 0)
+		{
+			for (int i = 0; i < arrows.Length; i++) 
+			{
+				arrows [i].GetComponent<Animator> ().Play ("DownSizeAnimation");
+			}	
+		}
 
 		if (Input.GetButtonDown ("Button B") || Input.GetButtonDown("BackKeyboard")) 
 		{
@@ -69,6 +85,10 @@ public class VolumeChanger : MonoBehaviour {
 				buttons [i].interactable = true;
 			}
 			buttons [0].Select ();
+			for (int i = 0; i < arrows.Length; i++) 
+			{
+				arrows [i].gameObject.SetActive (false);
+			}
 			this.gameObject.SetActive (false);
 		}
 	}

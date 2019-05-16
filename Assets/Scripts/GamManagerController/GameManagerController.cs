@@ -396,17 +396,17 @@ public class GameManagerController : MonoBehaviour {
         if (playerScore > AIScore)
         {
             //set animations
-            leftAnimator.SetInteger("SelectState", 3);
+            leftAnimator.SetInteger("SelectState", 2);
             rightAnimator.SetInteger("SelectState", 5);
         }
         else
         {
             //set animations
             leftAnimator.SetInteger("SelectState", 5);
-            rightAnimator.SetInteger("SelectState", 3);
+            rightAnimator.SetInteger("SelectState", 2);
         }
 
-        yield return new WaitForSeconds (3f);
+        yield return new WaitForSeconds (3.5f);
         //set animations back to dancing once done, thanks
         leftAnimator.SetInteger("SelectState", 1);
         rightAnimator.SetInteger("SelectState", 1);

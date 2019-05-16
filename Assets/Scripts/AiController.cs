@@ -41,6 +41,11 @@ public class AiController : MonoBehaviour {
                 GameManagerController.instance.addScore(false, false);
             }
         }
+        //if miss and isn't restarting
+        else if(!GameManagerController.instance.isRestarting)
+        {
+            GameManagerController.instance.takeDamage(false);
+        }
     }
 
     // Use this for initialization

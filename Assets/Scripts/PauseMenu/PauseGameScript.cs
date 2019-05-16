@@ -14,6 +14,8 @@ public class PauseGameScript : MonoBehaviour {
 	[Header("Menus")]
 	public GameObject optionMenu;
 	public GameObject parentMenu;
+	public GameObject menuBoard;
+
 
 	public Button[] buttons;
 
@@ -48,10 +50,12 @@ public class PauseGameScript : MonoBehaviour {
         AudioController.instance.PlayPauseSound();
 
         this.transform.GetChild (0).gameObject.SetActive (false);
+
 		InputManager.instance.isInputsDisabled = true;
 		pauseable = false;
 		Time.timeScale = 0f;
 		MusicController.instance.PauseMusic ();
+		menuBoard.SetActive (true);
 		optionMenu.SetActive (true);
 
 
@@ -69,6 +73,7 @@ public class PauseGameScript : MonoBehaviour {
 		pauseable = true;
 		StartCoroutine (CountDown());
 		optionMenu.SetActive (false);
+		menuBoard.SetActive (false);
 	}
 		
 	IEnumerator CountDown()
@@ -121,18 +126,9 @@ public class PauseGameScript : MonoBehaviour {
 
 		if (Input.GetButtonDown(startButton)) 
 		{
-			int count = 0;
-			for (int i = parentMenu.transform.childCount-2; i >= 1; i--) 
+			if (!menuBoard.activeInHierarchy) 
 			{
-				if (!parentMenu.transform.GetChild (i).transform.gameObject.activeInHierarchy) 
-				{
-					count += 1;
-				}	
-			}
-			if (count >= parentMenu.transform.childCount-2) 
-			{
-				count = 0;
-				PauseGame ();
+				PauseGame();
 			}
 		}
 

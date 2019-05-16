@@ -37,6 +37,7 @@ public class GameManagerController : MonoBehaviour {
     //Variables for other objects
     public float beatsSpawnToGoal = 2f;
     public float speedMultiplier = 1f;
+    public float timeShowOnHitFor = 1f;
 
     [Header("Note settings")]
     public float beatsToSlowDownFor = 4f;
@@ -56,7 +57,6 @@ public class GameManagerController : MonoBehaviour {
     public int healingPerPoint10Sec;
 	public int maxHealth;
 	public int playerHealth;
-	public int AIHealth;
 
     [Header("Scores")]
     public GameObject playerScoreObject;
@@ -73,7 +73,7 @@ public class GameManagerController : MonoBehaviour {
 
     //make sequence courutine
     //private Coroutine sequencer;
-    private bool betweenIsDone = false;
+    private bool betweenIsDone = true;
 
     //make singleton
     public static GameManagerController instance = null;
@@ -107,6 +107,8 @@ public class GameManagerController : MonoBehaviour {
         //Get thing that reads from Fmod
         theGetter = musicManager.GetComponent<BeatGetterFromFmodText>();
 
+        //set between
+        betweenIsDone = true;
         //start doing automatic sequence thing
         currentBeatMap = 1;
         StartCoroutine("SequenceStartRunEtc");
@@ -162,7 +164,6 @@ public class GameManagerController : MonoBehaviour {
         }
         else
         {
-            AIHealth -= damagePerMiss;
             int currentState = rightAnimator.GetInteger("SelectState");
             //set to one or the other
             if (currentState == 4) rightAnimator.SetInteger("SelectState", 6);
@@ -180,23 +181,19 @@ public class GameManagerController : MonoBehaviour {
             //dissable inputs
             InputManager.instance.isInputsDisabled = true;
         }
-        if (AIHealth <= 0)
-        {
-            AIHealth = 0;
-            //lose game
-        }
     }
 
     private IEnumerator returnToIdleLeft()
     {
         yield return new WaitForSeconds(0.60f);
-        Debug.Log("Return to idle");
-        leftAnimator.SetInteger("SelectState", 1);
+        if(betweenIsDone)leftAnimator.SetInteger("SelectState", 1);
+        else leftAnimator.SetInteger("SelectState", 0);
     }
     private IEnumerator returnToIdleRight()
     {
         yield return new WaitForSeconds(0.60f);
-        leftAnimator.SetInteger("SelectState", 1);
+        if(betweenIsDone) rightAnimator.SetInteger("SelectState", 1);
+        else rightAnimator.SetInteger("SelectState", 0);
     }
 
     public void healDamage(bool isLeftP)
@@ -366,7 +363,6 @@ public class GameManagerController : MonoBehaviour {
 
         //set hp back to max for both players
         playerHealth = maxHealth;
-        AIHealth = maxHealth;
 
         //wait for some time to make sure resetting has occured
         yield return new WaitForSeconds(3.5f);
@@ -391,24 +387,27 @@ public class GameManagerController : MonoBehaviour {
         //set animations
         leftAnimator.SetInteger("SelectState", 0);
         rightAnimator.SetInteger("SelectState", 0);
+
         yield return new WaitForSeconds (3f);
 		Debug.Log ("Scoring");
-		yield return new WaitForSeconds (3f);
+
+        yield return new WaitForSeconds (3f);
 		Debug.Log ("Animation");
         if (playerScore > AIScore)
         {
             //set animations
-            leftAnimator.SetInteger("SelectState", 3);
+            leftAnimator.SetInteger("SelectState", 2);
             rightAnimator.SetInteger("SelectState", 5);
         }
         else
         {
             //set animations
             leftAnimator.SetInteger("SelectState", 5);
-            rightAnimator.SetInteger("SelectState", 3);
+            rightAnimator.SetInteger("SelectState", 2);
         }
-        yield return new WaitForSeconds (3f);
-        //set animations
+
+        yield return new WaitForSeconds (3.5f);
+        //set animations back to dancing once done, thanks
         leftAnimator.SetInteger("SelectState", 1);
         rightAnimator.SetInteger("SelectState", 1);
         Debug.Log ("return to beatMap");
@@ -450,7 +449,6 @@ public class GameManagerController : MonoBehaviour {
         yield return new WaitForSeconds(timeBeforeFirstRun);
         //set health to full on start
         playerHealth = maxHealth;
-        AIHealth = maxHealth;
 
         //loop through all levels until reached final
         while (currentBeatMap - 1 < SceneSwitchereController.instance.currentSequence.beatMapNamesInOrder.Length)
@@ -469,17 +467,18 @@ public class GameManagerController : MonoBehaviour {
             //first check if isn't equal, for second time looping, will be active until moved on, once moved on, 
             //wait for end sequence again
             Debug.Log(theGetter.currentLabelName);
-            yield return new WaitUntil(() => theGetter.currentLabelName != "EndSequence");
+            yield return new WaitUntil(() => theGetter.currentLabelName != "End Sequnce");
             //only do this waiting part if not on last turn, if on last, move out of this and wait for finish instead
             if((currentBeatMap - 1) < SceneSwitchereController.instance.currentSequence.beatMapNamesInOrder.Length)
             {
-                Debug.Log(" 2: " + theGetter.currentLabelName);
-                yield return new WaitUntil(() => theGetter.currentLabelName == "EndSequence");
+                Debug.Log("Has passed into next, curreent labl is: " + theGetter.currentLabelName);
+                //missspelled string but meh
+                yield return new WaitUntil(() => theGetter.currentLabelName == "End Sequnce");
                 //Start doing between beatmaps
                 StartCoroutine(BetweenBeatMap());
                 //wait for between beatmaps to be complete
-                yield return new WaitUntil(() => betweenIsDone == true);
                 betweenIsDone = false;
+                yield return new WaitUntil(() => betweenIsDone == true);
             }
         }
         //has played last beatmap

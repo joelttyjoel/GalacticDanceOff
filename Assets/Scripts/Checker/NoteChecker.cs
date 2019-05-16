@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class NoteChecker : MonoBehaviour {
 
+    [SerializeField]
+    public List<GameObject> goodPerfMiss;
+    private List<SpriteRenderer> goodPerfMissSprites = new List<SpriteRenderer>();
+    private float timeToShowFor = 0.3f;
+
 	public bool isLeftBoard;
 	private bool oneFrameAxis = false;
 	private string horizontalController, verticalController;
@@ -32,7 +37,13 @@ public class NoteChecker : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-		if (isLeftBoard) 
+        //read in images for hit
+        goodPerfMissSprites.Add(goodPerfMiss[0].GetComponent<SpriteRenderer>());
+        goodPerfMissSprites.Add(goodPerfMiss[1].GetComponent<SpriteRenderer>());
+        goodPerfMissSprites.Add(goodPerfMiss[2].GetComponent<SpriteRenderer>());
+        timeToShowFor = GameManagerController.instance.timeShowOnHitFor;
+        
+        if (isLeftBoard) 
 		{
 			if (SceneSwitchereController.instance.keyBoard)
 			{
@@ -330,20 +341,20 @@ public class NoteChecker : MonoBehaviour {
         //DequeueNote();
         //noteCon.HasBeenHit();
         //Effects or other things
-        LosePoints();
         Debug.Log("Miss");
         //play note miss sound
         AudioController.instance.PlayNoteSound(0f);
         //take damage on miss
         GameManagerController.instance.takeDamage(true);
+        StartCoroutine(FadeOnHitImage(goodPerfMissSprites[2]));
     }
 
     //The note was hit and not perfectly timed
     private void NormalHit(NoteController noteCon)
     {
         //Effects or other things
-        GainPoints(false);
         Debug.Log("Hit");
+        StartCoroutine(FadeOnHitImage(goodPerfMissSprites[0]));
         GameManagerController.instance.addScore(true, false);
         //AudioController.instance.PlayNoteSound(1f);
     }
@@ -352,25 +363,45 @@ public class NoteChecker : MonoBehaviour {
     private void PerfectHit(NoteController noteCon)
     {
         //Effects or other things
-        GainPoints(true);
         Debug.Log("Perfect");
+        StartCoroutine(FadeOnHitImage(goodPerfMissSprites[1]));
         GameManagerController.instance.addScore(true, true);
         //AudioController.instance.PlayNoteSound(2f);
     }
 
-
-    //Gain points
-    private void GainPoints(bool isPerfect)
+    private IEnumerator FadeOnHitImage(SpriteRenderer spriteToDo)
     {
-
+        float timePerStep = timeToShowFor / 3;
+        float elapsedTime = 0f;
+        float currentOpacity = 0f;
+        //fade in
+        while (elapsedTime < timePerStep)
+        {
+            //part of whole
+            currentOpacity = elapsedTime / timePerStep;
+            elapsedTime += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+            //set the do
+            spriteToDo.color = new Vector4(1, 1, 1, currentOpacity);
+        }
+        //stay
+        //set the do
+        spriteToDo.color = new Vector4(1, 1, 1, currentOpacity);
+        yield return new WaitForSeconds(timePerStep);
+        elapsedTime += timePerStep;
+        //fade out
+        while (elapsedTime < timeToShowFor)
+        {
+            //0.66>1 < 1, 0.0>0.33, 0.33
+            currentOpacity = 1 - ((elapsedTime - (2 * timePerStep)) / timePerStep);
+            elapsedTime += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+            //set the do
+            spriteToDo.color = new Vector4(1, 1, 1, currentOpacity);
+        }
+        //make hidey again
+        spriteToDo.color = new Vector4(1, 1, 1, 0);
     }
-
-    //Lose Points
-    private void LosePoints()
-    {
-
-    }
-
 
     //takes gameobject and puts at front of list
     public void EnqueueNote(NoteController note)
@@ -389,7 +420,6 @@ public class NoteChecker : MonoBehaviour {
             //return topItem;
         }
     }
-
 
     //fix this mr robin
     private void OnDrawGizmos()

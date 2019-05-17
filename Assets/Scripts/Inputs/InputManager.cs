@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.EventSystems;
 
 public class InputManager : MonoBehaviour {
 
@@ -10,7 +11,6 @@ public class InputManager : MonoBehaviour {
 	Dictionary <string, KeyCode> buttonKeys;
 	Dictionary <string, KeyCode> xboxButton;
 	Dictionary <string, KeyCode> PS4Button;
-
 
 
 	void OnEnable()
@@ -62,6 +62,7 @@ public class InputManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
 		//isInputsDisabled = false;
+		//inputSystem.currentInputModule.
 	}
 	
 	// Update is called once per frame

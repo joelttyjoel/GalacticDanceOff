@@ -6,9 +6,13 @@ using UnityEngine.EventSystems;
 
 public class UISelectHandler : MonoBehaviour, ISelectHandler {
 
+	private Vector3 targetRotation;
+	public Animator stageAnimator;
+
 	// Use this for initialization
 	void Start () {
-		
+		targetRotation = this.transform.localScale;
+		stageAnimator = GetComponent<Animator> ();
 	}
 
 	public void OnSelect(BaseEventData eventData)
@@ -22,7 +26,9 @@ public class UISelectHandler : MonoBehaviour, ISelectHandler {
 		{
 			Debug.Log (EventSystem.current.currentSelectedGameObject);
 		}
-
-		//
+		if (Input.GetKeyDown (KeyCode.LeftArrow)) 
+		{
+			
+		}
 	}
 }

@@ -7,7 +7,8 @@ using FMODUnity;
 using FMOD.Studio;
 
 public class PauseGameScript : MonoBehaviour {
-	private Text countDown;
+
+	Image image;
 	private string startButton;
 	private string backButton;
 
@@ -16,16 +17,16 @@ public class PauseGameScript : MonoBehaviour {
 	public GameObject parentMenu;
 	public GameObject menuBoard;
 
-
+	public GameObject childObject;
 	public Button[] buttons;
-
+	public Sprite countdown3, countdown2, countdown1, countdown0;
 	//[FMODUnity.EventRef]
 	//public string PauseEventEventPath;
 	//private EventInstance Pause;
 
 	void Start ()
 	{
-		countDown = this.transform.GetChild (0).GetChild (0).GetComponent<Text> ();
+		image = childObject.GetComponent<Image> ();
 		startButton = "Start Button";
 		backButton = "Back Button";
 		if (SceneSwitchereController.instance.Ps4) 
@@ -38,6 +39,7 @@ public class PauseGameScript : MonoBehaviour {
 			startButton = "Start Button";
 			backButton = "Back Button";
 		}
+
 	}
 
 
@@ -82,19 +84,19 @@ public class PauseGameScript : MonoBehaviour {
 		//yield return WaitToResumeGame (0.25f);
 
         AudioController.instance.SetParamPauseSound(3f);
-		countDown.text = "3";
+		image.sprite = countdown3;
 
         yield return WaitToResumeGame (1f);
         AudioController.instance.SetParamPauseSound(2f);
-		countDown.text = "2";
+		image.sprite = countdown2;
 
 		yield return WaitToResumeGame (1f);
         AudioController.instance.SetParamPauseSound(1f);
-		countDown.text = "1";
+		image.sprite = countdown1;
 
         yield return WaitToResumeGame (1f);
         AudioController.instance.SetParamPauseSound(0f);
-		countDown.text = "0";
+		image.sprite = countdown0;
 
         InputManager.instance.isInputsDisabled = false;
 		MusicController.instance.ResumeMusic ();
@@ -124,7 +126,7 @@ public class PauseGameScript : MonoBehaviour {
 	{
 		
 
-		if (Input.GetButtonDown(startButton)) 
+		if (Input.GetButtonDown(startButton) || Input.GetKeyDown(KeyCode.JoystickButton9)) 
 		{
 			if (!menuBoard.activeInHierarchy) 
 			{
@@ -132,7 +134,7 @@ public class PauseGameScript : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetButtonDown (backButton)) 
+		if (Input.GetButtonDown (backButton) || Input.GetKeyDown(KeyCode.JoystickButton8)) 
 		{
 			if (optionMenu.activeInHierarchy) 
 			{

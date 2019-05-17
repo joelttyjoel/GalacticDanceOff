@@ -22,6 +22,10 @@ public class AudioController : MonoBehaviour {
     public string mainMenuEventPath;
     private EventInstance mainMenuSounds;
 
+    [FMODUnity.EventRef]
+    public string scoreEventPath;
+    private EventInstance scoreSounds;
+
     public bool audioIsEnabled = true;
 
     public static AudioController instance = null;
@@ -44,6 +48,7 @@ public class AudioController : MonoBehaviour {
         hpSounds = FMODUnity.RuntimeManager.CreateInstance(hpSoundsEventPath);
         pauseSounds = FMODUnity.RuntimeManager.CreateInstance(pauseSoundsEventPath);
         mainMenuSounds = FMODUnity.RuntimeManager.CreateInstance(mainMenuEventPath);
+        scoreSounds = FMODUnity.RuntimeManager.CreateInstance(scoreEventPath);
     }
 
     public void PlayNoteSound(float selectSound)
@@ -76,6 +81,15 @@ public class AudioController : MonoBehaviour {
         if (!audioIsEnabled) return;
         mainMenuSounds.setParameterValue("MenuSelect", selectSound);
         mainMenuSounds.start();
+    }
+
+    public void PlayScoreSound()
+    {
+        
+        if (!audioIsEnabled) return;
+        //scoreSounds.setParameterValue("MenuSelect", selectSound);
+        Debug.Log("Play score sound did I");
+        scoreSounds.start();
     }
 
 	public void SetVolumeBySlider(Image sliderIn)

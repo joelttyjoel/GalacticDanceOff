@@ -5,7 +5,7 @@
             <value>SFX_Gameplay_Score</value>
         </property>
         <property name="outputFormat">
-            <value>2</value>
+            <value>1</value>
         </property>
         <relationship name="folder">
             <destination>{99af6e8f-7df8-4d18-89ce-b1d849609267}</destination>
@@ -116,7 +116,6 @@
     <object class="MixerBusEffectChain" id="{bd0b0d79-ae7a-4402-806f-6b8f36eaa2e3}">
         <relationship name="effects">
             <destination>{2fa994fb-c2e5-4c87-b7a4-f92b29527bb3}</destination>
-            <destination>{ecf0cb3c-2d63-4efc-bfcb-64034c48c1cd}</destination>
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{d1d0233b-8cda-4201-90ae-5e23e9bcad98}"/>
@@ -136,7 +135,6 @@
     </object>
     <object class="MixerBusPanner" id="{09a9103c-3110-43b2-ac32-f4904ced6ac2}"/>
     <object class="MixerBusFader" id="{2fa994fb-c2e5-4c87-b7a4-f92b29527bb3}"/>
-    <object class="SpatialiserEffect" id="{ecf0cb3c-2d63-4efc-bfcb-64034c48c1cd}"/>
     <object class="AutomationPoint" id="{3ab65fe0-2e81-4293-b494-3fb89eacc674}">
         <property name="position">
             <value>1.5</value>

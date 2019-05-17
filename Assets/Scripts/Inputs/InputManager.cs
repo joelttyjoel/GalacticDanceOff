@@ -92,36 +92,56 @@ public class InputManager : MonoBehaviour {
     {
         if (SceneSwitchereController.instance.xBox)
         {
+            List<string> xboxKeysReset = new List<string>();
             foreach (string key in xboxBool.Keys)
             {
                 if (Input.GetKey(xboxButton[key]) == false)
                 {
-                    xboxBool[key] = false;
+                    xboxKeysReset.Add(key);
+                    //xboxBool[key] = false;
                 }
+            }
+
+            for (int i = 0; i < xboxKeysReset.Count(); i++)
+            {
+                ps4Bool[xboxKeysReset[i]] = false;
             }
         }
 
 
         else if (SceneSwitchereController.instance.Ps4)
         {
+            List<string> ps4KeysReset = new List<string>();
             foreach (string key in ps4Bool.Keys)
             {
                 if (Input.GetKey(PS4Button[key]) == false)
                 {
-                    ps4Bool[key] = false;
+                    ps4KeysReset.Add(key);
+                    //ps4Bool[key] = false;
                 }
+            }
+
+            for (int i = 0; i < ps4KeysReset.Count(); i++)
+            {
+                ps4Bool[ps4KeysReset[i]] = false;
             }
         }
 
         else
         {
+            List<string> keyboardKeysReset = new List<string>();
             foreach (string key in keyboardBool.Keys)
             {
-                Debug.Log(key);
                 if (Input.GetKey(buttonKeys[key]) == false)
                 {
-                    keyboardBool[key] = false;
+                    keyboardKeysReset.Add(key);
+                    //keyboardBool[key] = false;
                 }
+            }
+
+            for (int i = 0; i < keyboardKeysReset.Count(); i++)
+            {
+                keyboardBool[keyboardKeysReset[i]] = false;
             }
         }
 

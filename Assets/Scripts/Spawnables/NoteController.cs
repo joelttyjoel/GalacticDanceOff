@@ -145,4 +145,10 @@ public class NoteController : MonoBehaviour {
             }
         }
     }
+
+
+    public float GetTimeUntilGoal()
+    {
+        return timeUntilGoal;
+    }
 }

@@ -12,11 +12,14 @@ public class InputManager : MonoBehaviour {
 	Dictionary <string, KeyCode> xboxButton;
 	Dictionary <string, KeyCode> PS4Button;
 
+    //Bool that says if these buttons were pressed last fixedupdate
+    Dictionary <string, bool>    keyboardBool;
+    Dictionary <string, bool>    xboxBool;
+    Dictionary <string, bool>    ps4Bool;
 
-	void OnEnable()
+    void OnEnable()
 	{
-		buttonKeys = new Dictionary<string, KeyCode> ();	
-
+		buttonKeys = new Dictionary<string, KeyCode> ();
 		buttonKeys ["W"] = KeyCode.W;
 		buttonKeys ["A"] = KeyCode.A;
 		buttonKeys ["S"] = KeyCode.S;
@@ -26,21 +29,42 @@ public class InputManager : MonoBehaviour {
 		buttonKeys ["Down"] = KeyCode.DownArrow;
 		buttonKeys ["Right"] = KeyCode.RightArrow;
 
+        keyboardBool = new Dictionary<string, bool>();
+        keyboardBool["W"] = false;
+        keyboardBool["A"] = false;
+        keyboardBool["S"] = false;
+        keyboardBool["D"] = false;
+        keyboardBool["Up"] = false;
+        keyboardBool["Left"] = false;
+        keyboardBool["Down"] = false;
+        keyboardBool["Right"] = false;
 
-		xboxButton = new Dictionary<string, KeyCode> ();
 
+        xboxButton = new Dictionary<string, KeyCode> ();
 		xboxButton ["A"] = KeyCode.Joystick1Button0;
 		xboxButton ["B"] = KeyCode.Joystick1Button1;
 		xboxButton ["X"] = KeyCode.Joystick1Button2;
 		xboxButton ["Y"] = KeyCode.Joystick1Button3;
 
-		PS4Button = new Dictionary<string, KeyCode> ();
+        xboxBool = new Dictionary<string, bool>();
+        xboxBool["A"] = false;
+        xboxBool["B"] = false;
+        xboxBool["X"] = false;
+        xboxBool["Y"] = false;
 
+
+        PS4Button = new Dictionary<string, KeyCode> ();
 		PS4Button ["Square"] = KeyCode.JoystickButton0;
 		PS4Button ["Cross"] = KeyCode.JoystickButton1;
 		PS4Button ["Circle"] = KeyCode.JoystickButton2;
 		PS4Button ["Triangle"] = KeyCode.JoystickButton3;
-	}
+
+        ps4Bool = new Dictionary<string, bool>();
+        ps4Bool["Square"] = false;
+        ps4Bool["Cross"] = false;
+        ps4Bool["Circle"] = false;
+        ps4Bool["Triangle"] = false;
+    }
 		
 
 
@@ -66,9 +90,65 @@ public class InputManager : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate ()
+    {
+        if (SceneSwitchereController.instance.xBox)
+        {
+            List<string> xboxKeysReset = new List<string>();
+            foreach (string key in xboxBool.Keys)
+            {
+                if (Input.GetKey(xboxButton[key]) == false)
+                {
+                    xboxKeysReset.Add(key);
+                    //xboxBool[key] = false;
+                }
+            }
+
+            for (int i = 0; i < xboxKeysReset.Count(); i++)
+            {
+                ps4Bool[xboxKeysReset[i]] = false;
+            }
+        }
+
+
+        else if (SceneSwitchereController.instance.Ps4)
+        {
+            List<string> ps4KeysReset = new List<string>();
+            foreach (string key in ps4Bool.Keys)
+            {
+                if (Input.GetKey(PS4Button[key]) == false)
+                {
+                    ps4KeysReset.Add(key);
+                    //ps4Bool[key] = false;
+                }
+            }
+
+            for (int i = 0; i < ps4KeysReset.Count(); i++)
+            {
+                ps4Bool[ps4KeysReset[i]] = false;
+            }
+        }
+
+        else
+        {
+            List<string> keyboardKeysReset = new List<string>();
+            foreach (string key in keyboardBool.Keys)
+            {
+                if (Input.GetKey(buttonKeys[key]) == false)
+                {
+                    keyboardKeysReset.Add(key);
+                    //keyboardBool[key] = false;
+                }
+            }
+
+            for (int i = 0; i < keyboardKeysReset.Count(); i++)
+            {
+                keyboardBool[keyboardKeysReset[i]] = false;
+            }
+        }
+
         //Debug.Log(isInputsDisabled);
-	}
+    }
 
 	public void KeyBoard()
 	{
@@ -102,20 +182,40 @@ public class InputManager : MonoBehaviour {
 				return false;
 			}
 
-			return Input.GetKeyDown (xboxButton [buttonName]);
+			if (Input.GetKey (xboxButton[buttonName]))
+            {
+                if (!xboxBool[buttonName])
+                {
+                    xboxBool[buttonName] = true;
 
-		}
+                    return true;
+                }
+            }
+
+            return false;
+
+        }
 		else if (SceneSwitchereController.instance.Ps4)
 		{
 			if (PS4Button.ContainsKey (buttonName) == false)
 			{
 				Debug.LogError ("Getbuttondown -- no button named: " + buttonName);
 				//return false;
-			} 
+			}
 
-			return Input.GetKeyDown (PS4Button [buttonName]);
+            if (Input.GetKey(PS4Button[buttonName]))
+            {
+                if (!ps4Bool[buttonName])
+                {
+                    ps4Bool[buttonName] = true;
 
-		} 
+                    return true;
+                }
+            }
+
+            return false;
+
+        } 
 		else 
 		{
 			if (buttonKeys.ContainsKey (buttonName) == false)
@@ -123,8 +223,20 @@ public class InputManager : MonoBehaviour {
 				Debug.LogError ("Getbuttondown -- no button named: " + buttonName);
 				//return false;
 			}
-			return Input.GetKeyDown (buttonKeys [buttonName]);
-		}
+
+
+            if (Input.GetKey(buttonKeys[buttonName]))
+            {
+                if (!keyboardBool[buttonName])
+                {
+                    keyboardBool[buttonName] = true;
+
+                    return true;
+                }
+            }
+
+            return false;
+        }
 	}
 
 	//return array of all keycodes in dictionary

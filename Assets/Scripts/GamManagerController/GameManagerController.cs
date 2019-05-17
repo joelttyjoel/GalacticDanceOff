@@ -3,22 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManagerController : MonoBehaviour {
-    [Header("Selected beatmap set?? Dunno how")]
+    [Header("Selected beatmap set settings")]
     public int currentBeatMap = 1;
     //difficulty thing? Hm is needed or not, who know
     //Array to store all beatmaps for this level
     [SerializeField]
     public string[] beatMapNamesInOrder;
-
-    //[Header("Temp settings")]
-    //public bool startLevel = false;
-    //public bool failLevel = false;
     
     private BeatGetterFromFmodText theGetter;
     //music controller thing
     private FMOD_StudioEventEmitter eventEmitter;
 
     [Header("Settings Sequencing")]
+    public GameObject fungusFlowChartObject;
+    [System.NonSerialized]
+    public Fungus.Flowchart fungusFlowChart;
     public float timeBeforeFirstRun = 5f;
 
     [Header("Animation settings")]
@@ -93,6 +92,8 @@ public class GameManagerController : MonoBehaviour {
     }
 
     void Start () {
+        //get flowchar
+        fungusFlowChart = fungusFlowChartObject.GetComponent<Fungus.Flowchart>();
         //for animation, 0 to 5
         leftAnimator = leftCharacter.GetComponent<Animator>();
         rightAnimator = rightCharacter.GetComponent<Animator>();
@@ -153,6 +154,9 @@ public class GameManagerController : MonoBehaviour {
         {
             AudioController.instance.PlayHpSound(0f);
             playerHealth -= damagePerMiss;
+            //shake camera
+            //SCREENSHAKE MMM BIG
+            fungusFlowChart.ExecuteBlock("ShakeCameraSoft");
             //set feel ouch
             int currentState = leftAnimator.GetInteger("SelectState");
             //set to one or the other
@@ -222,7 +226,7 @@ public class GameManagerController : MonoBehaviour {
     {
         while(true)
         {
-            healDamage(true);
+            if(!isRestarting) healDamage(true);
             yield return new WaitForSeconds(0.1f);
         }
     }
@@ -282,7 +286,16 @@ public class GameManagerController : MonoBehaviour {
 
         InputManager.instance.isInputsDisabled = true;
 
+        //say text if early lose
+        if(currentBeatMap <= 2) fungusFlowChart.ExecuteBlock("CommentaryForEarlyLost");
+
+        //SCREENSHAKE MMM BIG
+        fungusFlowChart.ExecuteBlock("ShakeCameraRough");
+
         //reset values, with animation
+        //PLAY NOTE FALL SOUDN, only if either has score
+        if(playerScore > 50 && AIScore > 50) AudioController.instance.PlayScoreSound();
+        //then show nimations
         StartCoroutine(FailBeatmapScoreFall(playerScore, playerScoreObject));
         StartCoroutine(FailBeatmapScoreFall(AIScore, aiScoreObject));
         playerScore = 0;
@@ -359,6 +372,7 @@ public class GameManagerController : MonoBehaviour {
             Time.timeScale = (1f - percentageOfTravel2);
             yield return new WaitForEndOfFrame();
         }
+        
         Time.timeScale = 1f;
 
         //set hp back to max for both players
@@ -380,6 +394,7 @@ public class GameManagerController : MonoBehaviour {
         //}
     }
 		
+    //between beatmaps, between sequences
 	public IEnumerator BetweenBeatMap()
 	{
         InputManager.instance.isInputsDisabled = true;
@@ -388,7 +403,11 @@ public class GameManagerController : MonoBehaviour {
         leftAnimator.SetInteger("SelectState", 0);
         rightAnimator.SetInteger("SelectState", 0);
 
-        yield return new WaitForSeconds (3f);
+        yield return new WaitForSeconds(1f);
+        if(playerScore > AIScore) fungusFlowChart.ExecuteBlock("CommentaryBetweenDoingGood");
+        else fungusFlowChart.ExecuteBlock("CommentaryBetweenDoingBad");
+
+        yield return new WaitForSeconds (2f);
 		Debug.Log ("Scoring");
 
         yield return new WaitForSeconds (3f);
@@ -416,6 +435,7 @@ public class GameManagerController : MonoBehaviour {
         InputManager.instance.isInputsDisabled = false;
     }
 
+    //on won
     public IEnumerator FinishedSequence()
     {
         //disable inputs again

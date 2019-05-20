@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.EventSystems;
+
 
 public class InputManager : MonoBehaviour {
 
@@ -15,6 +17,15 @@ public class InputManager : MonoBehaviour {
     Dictionary <string, bool>    keyboardBool;
     Dictionary <string, bool>    xboxBool;
     Dictionary <string, bool>    ps4Bool;
+
+
+    public EventSystem eventSys;
+
+    [HideInInspector]
+    public int Xbox_One_Controller = 0;
+    [HideInInspector]
+    public int PS4_Controller = 0;
+
 
     void OnEnable()
 	{
@@ -89,6 +100,45 @@ public class InputManager : MonoBehaviour {
     void Start () {
 		//isInputsDisabled = false;
 	}
+
+    void Update()
+    {
+        //eventSys.GetComponent<MyInputModule>().horizontalAxis = "Q";
+        string[] names = Input.GetJoystickNames();
+        for (int x = 0; x < names.Length; x++)
+        {
+            print(names[x].Length);
+            if (names[x].Length == 19)
+            {
+                print("PS4 CONTROLLER IS CONNECTED");
+                PS4_Controller = 1;
+                Xbox_One_Controller = 0;
+            }
+            if (names[x].Length == 33)
+            {
+                print("XBOX ONE CONTROLLER IS CONNECTED");
+                //set a controller bool to true
+                PS4_Controller = 0;
+                Xbox_One_Controller = 1;
+
+            }
+        }
+
+
+        if (Xbox_One_Controller == 1)
+        {
+            eventSys.GetComponent<MyInputModule>().horizontalAxis = "XHorizontal";
+            eventSys.GetComponent<MyInputModule>().verticalAxis = "XVertical";
+            eventSys.GetComponent<MyInputModule>().submitButton = "Button A";
+        }
+
+        else if (PS4_Controller == 1)
+        {
+            eventSys.GetComponent<MyInputModule>().horizontalAxis = "PHorizontal";
+            eventSys.GetComponent<MyInputModule>().verticalAxis = "PVertical";
+            eventSys.GetComponent<MyInputModule>().submitButton = "Button B";
+        }
+    }
 
 
 	// Update is called once per frame

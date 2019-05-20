@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1339,6 +1339,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInputsDisabled: 0
+  eventSys: {fileID: 613168873}
+  Xbox_One_Controller: 0
+  PS4_Controller: 0
 --- !u!1 &555834578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1555,8 +1558,8 @@ MonoBehaviour:
     m_Mode: 4
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 424989874}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 1864150262}
+    m_SelectOnLeft: {fileID: 1864150262}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}

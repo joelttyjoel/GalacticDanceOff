@@ -37,16 +37,54 @@ public class StartMenuCanvas : MonoBehaviour {
 
 	void Update()
 	{
-		if (Input.GetButtonDown ("Button B")) 
-		{
-			for (int i = 0; i < buttons.Length; i++) 
-			{
-				if (buttons [i].gameObject.activeInHierarchy && buttons [i].IsInteractable ()) 
-				{
-					buttons [i].onClick.Invoke ();
-				}
-			}
-		}
-	}
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                if (buttons[i].gameObject.activeInHierarchy && buttons[i].IsInteractable())
+                {
+                    buttons[i].onClick.Invoke();
+                }
+            }
+        }
+
+
+        if (InputManager.instance.PS4_Controller > 0)
+        {
+            if (Input.GetKeyDown(KeyCode.JoystickButton2))
+            {
+                for (int i = 0; i < buttons.Length; i++)
+                {
+                    if (buttons[i].gameObject.activeInHierarchy && buttons[i].IsInteractable())
+                    {
+                        buttons[i].onClick.Invoke();
+                    }
+                }
+            }
+        }
+        else {
+            if (InputManager.instance.Xbox_One_Controller > 0)
+            {
+                if (Input.GetButtonDown("Button B"))
+                {
+                    for (int i = 0; i < buttons.Length; i++)
+                    {
+                        if (buttons[i].gameObject.activeInHierarchy && buttons[i].IsInteractable())
+                        {
+                            buttons[i].onClick.Invoke();
+                        }
+                    }
+                }
+            }
+        }
+       
+        
+    }
 
 }

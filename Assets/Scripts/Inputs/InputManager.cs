@@ -18,6 +18,7 @@ public class InputManager : MonoBehaviour {
 
     void OnEnable()
 	{
+        //Keyboard
 		buttonKeys = new Dictionary<string, KeyCode> ();
 		buttonKeys ["W"] = KeyCode.W;
 		buttonKeys ["A"] = KeyCode.A;
@@ -39,11 +40,12 @@ public class InputManager : MonoBehaviour {
         keyboardBool["Right"] = false;
 
 
+        //Xbox
         xboxButton = new Dictionary<string, KeyCode> ();
-		xboxButton ["A"] = KeyCode.Joystick1Button0;
-		xboxButton ["B"] = KeyCode.Joystick1Button1;
-		xboxButton ["X"] = KeyCode.Joystick1Button2;
-		xboxButton ["Y"] = KeyCode.Joystick1Button3;
+		xboxButton ["A"] = KeyCode.JoystickButton0;
+		xboxButton ["B"] = KeyCode.JoystickButton1;
+		xboxButton ["X"] = KeyCode.JoystickButton2;
+		xboxButton ["Y"] = KeyCode.JoystickButton3;
 
         xboxBool = new Dictionary<string, bool>();
         xboxBool["A"] = false;
@@ -52,6 +54,7 @@ public class InputManager : MonoBehaviour {
         xboxBool["Y"] = false;
 
 
+        //PS4
         PS4Button = new Dictionary<string, KeyCode> ();
 		PS4Button ["Square"] = KeyCode.JoystickButton0;
 		PS4Button ["Cross"] = KeyCode.JoystickButton1;
@@ -86,7 +89,8 @@ public class InputManager : MonoBehaviour {
     void Start () {
 		//isInputsDisabled = false;
 	}
-	
+
+
 	// Update is called once per frame
 	void FixedUpdate ()
     {
@@ -104,7 +108,7 @@ public class InputManager : MonoBehaviour {
 
             for (int i = 0; i < xboxKeysReset.Count(); i++)
             {
-                ps4Bool[xboxKeysReset[i]] = false;
+                xboxBool[xboxKeysReset[i]] = false;
             }
         }
 

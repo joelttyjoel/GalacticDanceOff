@@ -37,10 +37,7 @@ public class StartMenuCanvas : MonoBehaviour {
 
 	void Update()
 	{
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
-        }
+        
 
 
         if (Input.GetKeyDown(KeyCode.Escape))

@@ -21,8 +21,13 @@ public class ClickRemapper : MonoBehaviour {
     {
         sceneSwitcher.GotoScene_SetSequence(sequenceName);
     }
-    public void SetSpOrMp_TrueIsSp(bool isSpin)
+    public void SetOwnCharacter(int selected)
     {
-        sceneSwitcher.SetSpOrMp_TrueIsSp(isSpin);
+        SceneSwitchereController.instance.selectedCharacter = selected;
     }
+    public void SetOponentCharacter(int selected)
+    {
+        SceneSwitchereController.instance.selectedOponent = selected;
+    }
+
 }

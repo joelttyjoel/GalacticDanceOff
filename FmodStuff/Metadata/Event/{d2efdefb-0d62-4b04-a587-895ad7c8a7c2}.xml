@@ -192,6 +192,12 @@
         <property name="length">
             <value>96</value>
         </property>
+        <relationship name="triggerConditions">
+            <destination>{82767a8a-68a2-4dc7-b0c2-26427a555ee2}</destination>
+        </relationship>
+        <relationship name="modulators">
+            <destination>{9f93f953-12ee-44b5-b7ed-6ce96ed59cf0}</destination>
+        </relationship>
         <relationship name="sounds">
             <destination>{fde52f63-b90b-4490-a887-079fa586fcf0}</destination>
             <destination>{bc4bd390-ccad-494d-acf4-f2abae0f0489}</destination>
@@ -383,6 +389,28 @@
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{678d103b-0596-4f66-9d38-2ad79e4c1c00}"/>
+    <object class="ParameterCondition" id="{82767a8a-68a2-4dc7-b0c2-26427a555ee2}">
+        <property name="minimum">
+            <value>0</value>
+        </property>
+        <property name="maximum">
+            <value>0.99000000953674316</value>
+        </property>
+        <relationship name="parameter">
+            <destination>{0c8100e9-5df4-4f85-88cf-2656c88725f8}</destination>
+        </relationship>
+    </object>
+    <object class="ADSRModulator" id="{9f93f953-12ee-44b5-b7ed-6ce96ed59cf0}">
+        <property name="nameOfPropertyBeingModulated">
+            <value>volume</value>
+        </property>
+        <property name="initialValue">
+            <value>-80</value>
+        </property>
+        <property name="attackShape">
+            <value>-1.00000048</value>
+        </property>
+    </object>
     <object class="SingleSound" id="{fde52f63-b90b-4490-a887-079fa586fcf0}">
         <relationship name="audioFile">
             <destination>{97de8d02-77c0-4b62-8513-0362c12e6bdf}</destination>

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class SceneSwitchereController : MonoBehaviour {
     public GameObject blackScreen;
+    public bool dissableAllInputs = false;
     //List of all scenes
     public List<Object> all_Scenes;
     //List of all sequencs for battle scene
@@ -134,17 +135,33 @@ public class SceneSwitchereController : MonoBehaviour {
 
     public IEnumerator DoFadeBlack()
     {
+        //dissalble inpts
+        dissableAllInputs = true;
         Image sr = blackScreen.GetComponent<Image>();
         //MAKE BLACK
-        float opacity = 1.0f;
-        sr.color = new Color(0, 0, 0, opacity);
+        float startTime2 = 0f;
+        while (startTime2 <= 1)
+        {
+            sr.color = new Color(0, 0, 0, startTime2);
+            startTime2 += Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+        //opacity = 1.0f;
+        sr.color = new Color(0, 0, 0, 1);
+   
         //SWITCH SCENE BETWEEN
-        yield return new WaitForSeconds(1.0f);
         LoadSceneByName(nameVar, sequenceVar);
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
         //FADE BACK IN
-        float opacity2 = 0.0f;
-        sr.color = new Color(0, 0, 0, opacity2);
-        yield return new WaitForEndOfFrame();
+        float startTime1 = 1f;
+        while (startTime1 >= 0)
+        {
+            sr.color = new Color(0, 0, 0, startTime1);
+            startTime1 -= Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+        sr.color = new Color(0, 0, 0, 0);
+        //reenable inputs
+        dissableAllInputs = false;
     }
 }

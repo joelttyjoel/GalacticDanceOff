@@ -15,6 +15,9 @@ public class GameManagerController : MonoBehaviour {
     private FMOD_StudioEventEmitter eventEmitter;
 
     [Header("Settings Sequencing")]
+    public GameObject spotlightLeft;
+    public GameObject spotlightRight;
+    public List<GameObject> fireworks;
     public GameObject fungusFlowChartObject;
     [System.NonSerialized]
     public Fungus.Flowchart fungusFlowChart;
@@ -410,22 +413,38 @@ public class GameManagerController : MonoBehaviour {
         yield return new WaitForSeconds (2f);
 		Debug.Log ("Scoring");
 
+        //start fireworks
+        foreach(GameObject a in fireworks)
+        {
+            a.GetComponent<ParticleSystem>().Play();
+        }
+
         yield return new WaitForSeconds (3f);
 		Debug.Log ("Animation");
         if (playerScore > AIScore)
         {
-            //set animations
+            //left win
+            spotlightLeft.SetActive(true);
             leftAnimator.SetInteger("SelectState", 2);
             rightAnimator.SetInteger("SelectState", 5);
         }
         else
         {
             //set animations
+            spotlightRight.SetActive(true);
             leftAnimator.SetInteger("SelectState", 5);
             rightAnimator.SetInteger("SelectState", 2);
         }
 
         yield return new WaitForSeconds (3.5f);
+        //stop fireworks
+        foreach (GameObject a in fireworks)
+        {
+            a.GetComponent<ParticleSystem>().Stop();
+        }
+        //set back spotlight
+        spotlightLeft.SetActive(false);
+        spotlightRight.SetActive(false);
         //set animations back to dancing once done, thanks
         leftAnimator.SetInteger("SelectState", 1);
         rightAnimator.SetInteger("SelectState", 1);

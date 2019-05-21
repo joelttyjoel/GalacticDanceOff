@@ -14,7 +14,7 @@ Restart startar om banan och skickar spelaren til lbörjan av loopen om den stå
 Cues används för att starta låten. </value>
         </property>
         <property name="outputFormat">
-            <value>0</value>
+            <value>1</value>
         </property>
         <relationship name="folder">
             <destination>{7b8007bb-71a0-4ae2-93fa-d20554edb0b0}</destination>
@@ -63,6 +63,9 @@ Cues används för att starta låten. </value>
         </relationship>
     </object>
     <object class="MasterTrack" id="{cfd6b15c-8259-4e55-8cd1-68b62ec9efab}">
+        <relationship name="automationTracks">
+            <destination>{9583985f-8795-4481-b876-ae8395d604fa}</destination>
+        </relationship>
         <relationship name="modules">
             <destination>{bb98cb65-6c72-47c4-8ea3-ba57b97f158a}</destination>
             <destination>{6721f17c-4533-4414-a192-366977a50afa}</destination>
@@ -90,9 +93,13 @@ Cues används för att starta låten. </value>
     <object class="MarkerTrack" id="{c40bb085-1d42-4cff-9016-e2520cff12a6}"/>
     <object class="MarkerTrack" id="{53c3a07a-ab1c-4277-9999-b5b872c86c81}"/>
     <object class="GroupTrack" id="{c3454ec1-7215-44d5-98da-0717411ab0a2}">
+        <relationship name="automationTracks">
+            <destination>{2f427d5a-1cd4-4c93-be1b-231c5380f461}</destination>
+        </relationship>
         <relationship name="modules">
             <destination>{07caefdc-164f-44a5-b26d-d2dc776fb3a1}</destination>
             <destination>{cf9ae6c8-924d-41a1-b6b4-f9319547f137}</destination>
+            <destination>{6187db1c-67c7-485e-b049-1856ba688d6f}</destination>
         </relationship>
         <relationship name="mixerGroup">
             <destination>{1b79d87f-5911-4d94-a1bb-2f3a60565f21}</destination>
@@ -101,10 +108,12 @@ Cues används för att starta låten. </value>
     <object class="GroupTrack" id="{2b794330-5658-4fce-993d-36c2805d69fd}">
         <relationship name="automationTracks">
             <destination>{3786e40c-c7d7-47de-9387-7abe9bfad377}</destination>
+            <destination>{10d5e507-dbf2-4828-94e1-7292aef0477f}</destination>
         </relationship>
         <relationship name="modules">
             <destination>{d4f8aefe-a9d7-4246-99f1-9263f908ca50}</destination>
             <destination>{0de339f2-ee9d-481e-b3bd-a3fa186f85d0}</destination>
+            <destination>{edb4b64c-5a96-4d11-9534-8856e6022fe6}</destination>
         </relationship>
         <relationship name="mixerGroup">
             <destination>{b10d1a68-b6aa-41f0-8391-f4d43d7d12ca}</destination>
@@ -113,10 +122,12 @@ Cues används för att starta låten. </value>
     <object class="GroupTrack" id="{1fca9bd4-6d29-46e8-985f-426068562073}">
         <relationship name="automationTracks">
             <destination>{de2dc6de-2b8a-4c0d-9604-588bb0b52988}</destination>
+            <destination>{b05789fe-9b8d-495a-af45-f193075f2ec9}</destination>
         </relationship>
         <relationship name="modules">
             <destination>{bafd846b-dc96-4b4a-96b5-1d5087730261}</destination>
             <destination>{521ede99-0a32-4879-a77b-f8b46a0e511c}</destination>
+            <destination>{75fd0e42-24e7-4714-91c6-f3b6b6eb9cd6}</destination>
         </relationship>
         <relationship name="mixerGroup">
             <destination>{8323bbae-9d45-459d-abb4-04d56a802487}</destination>
@@ -125,16 +136,24 @@ Cues används för att starta låten. </value>
     <object class="GroupTrack" id="{d5fd380d-1d16-4003-bb6e-c66f3552e8f3}">
         <relationship name="automationTracks">
             <destination>{ee00cb6d-18db-42f9-967e-135f688d1429}</destination>
+            <destination>{69aeebb8-c0f8-41f7-9267-f8391f854b9a}</destination>
         </relationship>
         <relationship name="modules">
             <destination>{4b40ba79-c122-456c-b209-101d56ce7c3b}</destination>
             <destination>{d56758b7-136c-4167-89a7-92cebeca9618}</destination>
+            <destination>{de3a81d7-6fec-4e68-99cd-983939a768bd}</destination>
         </relationship>
         <relationship name="mixerGroup">
             <destination>{31708127-f81f-458c-89ea-5fd6037c95eb}</destination>
         </relationship>
     </object>
     <object class="Timeline" id="{3ffb1943-65b8-4b5f-839e-0838fc731241}">
+        <relationship name="modules">
+            <destination>{6187db1c-67c7-485e-b049-1856ba688d6f}</destination>
+            <destination>{edb4b64c-5a96-4d11-9534-8856e6022fe6}</destination>
+            <destination>{75fd0e42-24e7-4714-91c6-f3b6b6eb9cd6}</destination>
+            <destination>{de3a81d7-6fec-4e68-99cd-983939a768bd}</destination>
+        </relationship>
         <relationship name="markers">
             <destination>{37a94092-f6f2-4dd7-ad43-8ea7a324259b}</destination>
             <destination>{9c928bbe-9117-4b18-a0a7-ff2278c9b9c4}</destination>
@@ -171,6 +190,9 @@ Cues används för att starta låten. </value>
         </relationship>
     </object>
     <object class="EventMixerMaster" id="{ccc58e99-c64e-4cb1-b40b-ee860535f98a}">
+        <relationship name="automators">
+            <destination>{c787fcd7-0ac7-4558-9726-bcad76011379}</destination>
+        </relationship>
         <relationship name="effectChain">
             <destination>{96d57944-b58e-4e54-b5d6-b664d5c82a87}</destination>
         </relationship>
@@ -179,6 +201,11 @@ Cues används för att starta låten. </value>
         </relationship>
         <relationship name="mixer">
             <destination>{40b0aa79-4273-4786-a488-87680cb550f5}</destination>
+        </relationship>
+    </object>
+    <object class="AutomationTrack" id="{9583985f-8795-4481-b876-ae8395d604fa}">
+        <relationship name="automator">
+            <destination>{c787fcd7-0ac7-4558-9726-bcad76011379}</destination>
         </relationship>
     </object>
     <object class="TransitionSourceSound" id="{bb98cb65-6c72-47c4-8ea3-ba57b97f158a}">
@@ -200,6 +227,11 @@ Cues används för att starta låten. </value>
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{533d8571-d206-4e50-b72e-dd1d0fbea8c1}"/>
+    <object class="AutomationTrack" id="{2f427d5a-1cd4-4c93-be1b-231c5380f461}">
+        <relationship name="automator">
+            <destination>{c3c54d63-73dc-40a9-a2e5-b211f0004191}</destination>
+        </relationship>
+    </object>
     <object class="TransitionSourceSound" id="{07caefdc-164f-44a5-b26d-d2dc776fb3a1}">
         <property name="length">
             <value>2.6666666666666665</value>
@@ -213,7 +245,21 @@ Cues används för att starta låten. </value>
             <value>0</value>
         </property>
     </object>
+    <object class="SingleSound" id="{6187db1c-67c7-485e-b049-1856ba688d6f}">
+        <property name="length">
+            <value>141.59999999999999</value>
+        </property>
+        <relationship name="automators">
+            <destination>{c3c54d63-73dc-40a9-a2e5-b211f0004191}</destination>
+        </relationship>
+        <relationship name="audioFile">
+            <destination>{93392a75-a3b5-4867-b42f-4afead0d803c}</destination>
+        </relationship>
+    </object>
     <object class="EventMixerGroup" id="{1b79d87f-5911-4d94-a1bb-2f3a60565f21}">
+        <property name="volume">
+            <value>5.5</value>
+        </property>
         <property name="name">
             <value>Main</value>
         </property>
@@ -232,6 +278,11 @@ Cues används för att starta låten. </value>
             <destination>{1b4e5c6e-bbfd-445a-8c85-b58e9c8ac659}</destination>
         </relationship>
     </object>
+    <object class="AutomationTrack" id="{10d5e507-dbf2-4828-94e1-7292aef0477f}">
+        <relationship name="automator">
+            <destination>{5a3537f9-8858-42ad-b952-72f6c0d6769a}</destination>
+        </relationship>
+    </object>
     <object class="TransitionSourceSound" id="{d4f8aefe-a9d7-4246-99f1-9263f908ca50}">
         <property name="length">
             <value>2.6666666666666665</value>
@@ -244,6 +295,17 @@ Cues används för att starta låten. </value>
         <property name="length">
             <value>0</value>
         </property>
+    </object>
+    <object class="SingleSound" id="{edb4b64c-5a96-4d11-9534-8856e6022fe6}">
+        <property name="length">
+            <value>141.59999999999999</value>
+        </property>
+        <relationship name="automators">
+            <destination>{5a3537f9-8858-42ad-b952-72f6c0d6769a}</destination>
+        </relationship>
+        <relationship name="audioFile">
+            <destination>{c99ff04c-990e-4bb1-ac13-577f2c0ef541}</destination>
+        </relationship>
     </object>
     <object class="EventMixerGroup" id="{b10d1a68-b6aa-41f0-8391-f4d43d7d12ca}">
         <property name="name">
@@ -267,6 +329,11 @@ Cues används för att starta låten. </value>
             <destination>{3615c320-1e0b-4ed6-9f93-a4a8ab7d2dc4}</destination>
         </relationship>
     </object>
+    <object class="AutomationTrack" id="{b05789fe-9b8d-495a-af45-f193075f2ec9}">
+        <relationship name="automator">
+            <destination>{f2db4954-6b8e-4a49-a43d-4d6322b5b5f4}</destination>
+        </relationship>
+    </object>
     <object class="TransitionSourceSound" id="{bafd846b-dc96-4b4a-96b5-1d5087730261}">
         <property name="length">
             <value>2.6666666666666665</value>
@@ -280,9 +347,20 @@ Cues används för att starta låten. </value>
             <value>0</value>
         </property>
     </object>
+    <object class="SingleSound" id="{75fd0e42-24e7-4714-91c6-f3b6b6eb9cd6}">
+        <property name="length">
+            <value>141.59999999999999</value>
+        </property>
+        <relationship name="automators">
+            <destination>{f2db4954-6b8e-4a49-a43d-4d6322b5b5f4}</destination>
+        </relationship>
+        <relationship name="audioFile">
+            <destination>{d9288bf3-d378-457d-9855-bbca9b0011ef}</destination>
+        </relationship>
+    </object>
     <object class="EventMixerGroup" id="{8323bbae-9d45-459d-abb4-04d56a802487}">
         <property name="name">
-            <value>Guitar stem</value>
+            <value>Blås stem</value>
         </property>
         <relationship name="automators">
             <destination>{3615c320-1e0b-4ed6-9f93-a4a8ab7d2dc4}</destination>
@@ -302,6 +380,11 @@ Cues används för att starta låten. </value>
             <destination>{6dc5dfd3-467e-496a-b955-37c85e30664c}</destination>
         </relationship>
     </object>
+    <object class="AutomationTrack" id="{69aeebb8-c0f8-41f7-9267-f8391f854b9a}">
+        <relationship name="automator">
+            <destination>{0a58e427-2a3c-41cf-b6e4-28bbe00ad085}</destination>
+        </relationship>
+    </object>
     <object class="TransitionSourceSound" id="{4b40ba79-c122-456c-b209-101d56ce7c3b}">
         <property name="length">
             <value>2.6666666666666665</value>
@@ -315,9 +398,20 @@ Cues används för att starta låten. </value>
             <value>0</value>
         </property>
     </object>
+    <object class="SingleSound" id="{de3a81d7-6fec-4e68-99cd-983939a768bd}">
+        <property name="length">
+            <value>141.59999999999999</value>
+        </property>
+        <relationship name="automators">
+            <destination>{0a58e427-2a3c-41cf-b6e4-28bbe00ad085}</destination>
+        </relationship>
+        <relationship name="audioFile">
+            <destination>{6e7f53e9-1660-4e66-b7d2-234b3db1eb6c}</destination>
+        </relationship>
+    </object>
     <object class="EventMixerGroup" id="{31708127-f81f-458c-89ea-5fd6037c95eb}">
         <property name="name">
-            <value>Keys stem</value>
+            <value>Lead stem</value>
         </property>
         <relationship name="automators">
             <destination>{6dc5dfd3-467e-496a-b955-37c85e30664c}</destination>
@@ -348,10 +442,10 @@ Cues används för att starta låten. </value>
     </object>
     <object class="LoopRegion" id="{9c928bbe-9117-4b18-a0a7-ff2278c9b9c4}">
         <property name="position">
-            <value>50.666666666666664</value>
+            <value>45.600000000000001</value>
         </property>
         <property name="length">
-            <value>5.3333333333333375</value>
+            <value>4.7999999999999989</value>
         </property>
         <relationship name="timeline">
             <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
@@ -376,10 +470,10 @@ Cues används för att starta låten. </value>
     </object>
     <object class="TransitionRegion" id="{c963982e-8a77-4621-943b-191ae63db2e6}">
         <property name="position">
-            <value>5.333333333333333</value>
+            <value>4.7999999999999998</value>
         </property>
         <property name="length">
-            <value>146.66666666666666</value>
+            <value>136.79999999999998</value>
         </property>
         <relationship name="triggerConditions">
             <destination>{3f6c2519-8bfc-4d1d-ae80-359cb868258c}</destination>
@@ -402,7 +496,7 @@ Cues används för att starta låten. </value>
             <value>0</value>
         </property>
         <property name="length">
-            <value>5.333333333333333</value>
+            <value>4.7999999999999998</value>
         </property>
         <relationship name="timeline">
             <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
@@ -413,7 +507,7 @@ Cues används för att starta låten. </value>
     </object>
     <object class="NamedMarker" id="{b8748403-87f3-4701-bd17-d8529d0f74ae}">
         <property name="position">
-            <value>5.333333333333333</value>
+            <value>4.7999999999999998</value>
         </property>
         <property name="name">
             <value>StartLvl1</value>
@@ -430,7 +524,7 @@ Cues används för att starta låten. </value>
             <value>0</value>
         </property>
         <property name="length">
-            <value>5.333333333333333</value>
+            <value>4.7999999999999998</value>
         </property>
         <property name="quantizationInterval">
             <value>2</value>
@@ -450,7 +544,7 @@ Cues används för att starta låten. </value>
     </object>
     <object class="NamedMarker" id="{1d2d3341-addb-45d3-8813-a823ff82d086}">
         <property name="position">
-            <value>56</value>
+            <value>50.399999999999999</value>
         </property>
         <property name="name">
             <value>StartLvl2</value>
@@ -464,10 +558,10 @@ Cues används för att starta låten. </value>
     </object>
     <object class="TransitionRegion" id="{0cb7041f-67e4-4655-864c-ead2dd46086f}">
         <property name="position">
-            <value>50.666666666666664</value>
+            <value>45.600000000000001</value>
         </property>
         <property name="length">
-            <value>5.3333333333333375</value>
+            <value>4.7999999999999989</value>
         </property>
         <property name="quantizationInterval">
             <value>2</value>
@@ -487,10 +581,10 @@ Cues används för att starta låten. </value>
     </object>
     <object class="LoopRegion" id="{cd31b779-870c-4a5a-b1fe-c8767158c8cf}">
         <property name="position">
-            <value>101.33333333333333</value>
+            <value>91.200000000000003</value>
         </property>
         <property name="length">
-            <value>5.3333333333333286</value>
+            <value>4.7999999999999972</value>
         </property>
         <relationship name="timeline">
             <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
@@ -501,7 +595,7 @@ Cues används för att starta låten. </value>
     </object>
     <object class="NamedMarker" id="{3699d5fd-2383-4d11-85a8-e8967baadfa7}">
         <property name="position">
-            <value>157.33333333333331</value>
+            <value>141.59999999999999</value>
         </property>
         <property name="name">
             <value>Finish</value>
@@ -515,7 +609,7 @@ Cues används för att starta låten. </value>
     </object>
     <object class="NamedMarker" id="{80874328-22e6-4c53-be4a-2b21303e1860}">
         <property name="position">
-            <value>106.66666666666666</value>
+            <value>96</value>
         </property>
         <property name="name">
             <value>Startlvl3</value>
@@ -529,10 +623,10 @@ Cues används för att starta låten. </value>
     </object>
     <object class="TransitionRegion" id="{ea960094-c574-482c-8a13-5d6f0cc1b4af}">
         <property name="position">
-            <value>101.33333333333333</value>
+            <value>91.200000000000003</value>
         </property>
         <property name="length">
-            <value>5.3333333333333233</value>
+            <value>4.7999999999999918</value>
         </property>
         <property name="quantizationInterval">
             <value>2</value>
@@ -552,7 +646,7 @@ Cues används för att starta låten. </value>
     </object>
     <object class="LoopRegion" id="{c40440b7-16c8-4fe3-b52b-eed9435a6802}">
         <property name="position">
-            <value>152</value>
+            <value>141.59999999999999</value>
         </property>
         <property name="length">
             <value>5.3333333333333233</value>
@@ -566,7 +660,7 @@ Cues används för att starta låten. </value>
     </object>
     <object class="NamedMarker" id="{90374280-4538-4fed-972f-07c2dd036ed8}">
         <property name="position">
-            <value>50.666666666666664</value>
+            <value>45.600000000000001</value>
         </property>
         <property name="name">
             <value>End Sequnce</value>
@@ -580,7 +674,7 @@ Cues används för att starta låten. </value>
     </object>
     <object class="NamedMarker" id="{20b8baa1-3f53-4549-956e-d2b4c5efffda}">
         <property name="position">
-            <value>101.33333333333333</value>
+            <value>91.200000000000003</value>
         </property>
         <property name="name">
             <value>End Sequnce</value>
@@ -594,7 +688,7 @@ Cues används för att starta låten. </value>
     </object>
     <object class="NamedMarker" id="{e81e5671-8288-4259-84c2-a33b0a42b03b}">
         <property name="position">
-            <value>152</value>
+            <value>136.79999999999998</value>
         </property>
         <property name="name">
             <value>End Sequnce</value>
@@ -606,6 +700,14 @@ Cues används för att starta låten. </value>
             <destination>{aabb69bc-595c-49b1-a0e7-c54346c74cba}</destination>
         </relationship>
     </object>
+    <object class="Automator" id="{c787fcd7-0ac7-4558-9726-bcad76011379}">
+        <property name="nameOfPropertyBeingAutomated">
+            <value>volume</value>
+        </property>
+        <relationship name="automationCurves">
+            <destination>{59c5fa7f-0ab2-4f02-853a-4119c9d315c6}</destination>
+        </relationship>
+    </object>
     <object class="MixerBusEffectChain" id="{96d57944-b58e-4e54-b5d6-b664d5c82a87}">
         <relationship name="effects">
             <destination>{3c27c99d-a17d-48e4-8742-95acc1787dc7}</destination>
@@ -613,16 +715,35 @@ Cues används för att starta låten. </value>
     </object>
     <object class="MixerBusPanner" id="{5ab2cee5-8033-48a2-9b9b-7e36011c6aa7}"/>
     <object class="MixerBusFader" id="{67152721-ca7b-43d9-8cc6-48e10a534dc3}"/>
+    <object class="Automator" id="{c3c54d63-73dc-40a9-a2e5-b211f0004191}">
+        <property name="nameOfPropertyBeingAutomated">
+            <value>pitch</value>
+        </property>
+        <relationship name="automationCurves">
+            <destination>{dc60e9ad-2c83-4acf-a399-8a61612985e9}</destination>
+        </relationship>
+    </object>
     <object class="MixerBusEffectChain" id="{9c23b009-0b8c-45d1-924b-f48db1b0d47f}">
         <relationship name="effects">
             <destination>{6e562b22-a2fd-4eca-bf4f-a127caf0d9d3}</destination>
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{0a04fa54-7bd3-4510-a231-bce81e939fd8}"/>
+    <object class="Automator" id="{5a3537f9-8858-42ad-b952-72f6c0d6769a}">
+        <property name="nameOfPropertyBeingAutomated">
+            <value>pitch</value>
+        </property>
+        <relationship name="automationCurves">
+            <destination>{2f9bf462-4a07-4076-8d48-8ce69299664f}</destination>
+        </relationship>
+    </object>
     <object class="Automator" id="{1b4e5c6e-bbfd-445a-8c85-b58e9c8ac659}">
         <property name="nameOfPropertyBeingAutomated">
             <value>volume</value>
         </property>
+        <relationship name="automationCurves">
+            <destination>{ff3ebad0-1499-4a19-aae7-a3724fd567b5}</destination>
+        </relationship>
     </object>
     <object class="MixerBusEffectChain" id="{f9173f46-5126-452a-8ed3-4591bd3d39f4}">
         <relationship name="effects">
@@ -630,6 +751,14 @@ Cues används för att starta låten. </value>
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{f288f1f7-c7db-4012-b174-375be8d779a3}"/>
+    <object class="Automator" id="{f2db4954-6b8e-4a49-a43d-4d6322b5b5f4}">
+        <property name="nameOfPropertyBeingAutomated">
+            <value>pitch</value>
+        </property>
+        <relationship name="automationCurves">
+            <destination>{3fb8a99e-c967-4dcb-b4af-79f8cbe6fd94}</destination>
+        </relationship>
+    </object>
     <object class="Automator" id="{3615c320-1e0b-4ed6-9f93-a4a8ab7d2dc4}">
         <property name="nameOfPropertyBeingAutomated">
             <value>volume</value>
@@ -644,6 +773,14 @@ Cues används för att starta låten. </value>
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{cf69cc8d-6b16-4219-a824-80e5dfa839b2}"/>
+    <object class="Automator" id="{0a58e427-2a3c-41cf-b6e4-28bbe00ad085}">
+        <property name="nameOfPropertyBeingAutomated">
+            <value>pitch</value>
+        </property>
+        <relationship name="automationCurves">
+            <destination>{94592fa7-c0f7-41c8-adb3-52eb93654359}</destination>
+        </relationship>
+    </object>
     <object class="Automator" id="{6dc5dfd3-467e-496a-b955-37c85e30664c}">
         <property name="nameOfPropertyBeingAutomated">
             <value>volume</value>
@@ -719,19 +856,76 @@ Cues används för att starta låten. </value>
             <destination>{aaf21166-e8ed-46a3-a054-e24c0cf294e8}</destination>
         </relationship>
     </object>
+    <object class="AutomationCurve" id="{59c5fa7f-0ab2-4f02-853a-4119c9d315c6}">
+        <relationship name="parameter">
+            <destination>{e349953a-93e1-4406-bdab-7ced15e8f026}</destination>
+        </relationship>
+        <relationship name="automationPoints">
+            <destination>{d8613d18-91fc-40db-ab7c-c7ad76741a7d}</destination>
+            <destination>{b09b5096-8952-4970-bf69-eee8a219234e}</destination>
+            <destination>{a9219e84-f307-466b-980a-a1f16083f79d}</destination>
+            <destination>{0a95a5ba-6fec-4794-9ba9-a9723111e566}</destination>
+            <destination>{ed71700f-4e83-4340-b9f7-71f156241d4b}</destination>
+        </relationship>
+    </object>
     <object class="MixerBusFader" id="{3c27c99d-a17d-48e4-8742-95acc1787dc7}"/>
+    <object class="AutomationCurve" id="{dc60e9ad-2c83-4acf-a399-8a61612985e9}">
+        <relationship name="parameter">
+            <destination>{dde8bcb8-ae91-4359-85a1-f987a047b874}</destination>
+        </relationship>
+        <relationship name="automationPoints">
+            <destination>{5c7f112c-db5e-41bf-88d8-8cf3e0dbdfae}</destination>
+            <destination>{7cd96abf-0082-4ccc-a458-ed2be852c8d4}</destination>
+        </relationship>
+    </object>
     <object class="MixerBusFader" id="{6e562b22-a2fd-4eca-bf4f-a127caf0d9d3}"/>
+    <object class="AutomationCurve" id="{2f9bf462-4a07-4076-8d48-8ce69299664f}">
+        <relationship name="parameter">
+            <destination>{dde8bcb8-ae91-4359-85a1-f987a047b874}</destination>
+        </relationship>
+        <relationship name="automationPoints">
+            <destination>{cb5fd0c5-ab49-485a-a06d-3d3684f1d7eb}</destination>
+            <destination>{aac3ac02-696b-4e43-8e6e-ec7c384fdbe0}</destination>
+        </relationship>
+    </object>
+    <object class="AutomationCurve" id="{ff3ebad0-1499-4a19-aae7-a3724fd567b5}">
+        <relationship name="parameter">
+            <destination>{e349953a-93e1-4406-bdab-7ced15e8f026}</destination>
+        </relationship>
+        <relationship name="automationPoints">
+            <destination>{da911ac4-a8b3-48f8-88fd-110437cffcf2}</destination>
+            <destination>{d3b3b27d-13c9-4418-9b92-d00c6f3ae320}</destination>
+        </relationship>
+    </object>
     <object class="MixerBusFader" id="{6e47c07a-6546-40ba-9631-6d1c6bca27b9}"/>
+    <object class="AutomationCurve" id="{3fb8a99e-c967-4dcb-b4af-79f8cbe6fd94}">
+        <relationship name="parameter">
+            <destination>{dde8bcb8-ae91-4359-85a1-f987a047b874}</destination>
+        </relationship>
+        <relationship name="automationPoints">
+            <destination>{e89b4039-57cd-4879-af84-5ca42b1febd7}</destination>
+            <destination>{1b70da23-cc98-469f-876e-10229d823aa4}</destination>
+        </relationship>
+    </object>
     <object class="AutomationCurve" id="{9b33c200-73ab-4f5b-a1b4-08174bf421a4}">
         <relationship name="parameter">
             <destination>{e349953a-93e1-4406-bdab-7ced15e8f026}</destination>
         </relationship>
         <relationship name="automationPoints">
             <destination>{f37a395c-7dd5-416a-b10f-9c98703f78d9}</destination>
-            <destination>{c8e45e31-503b-4526-b67b-37e8cfce60ac}</destination>
+            <destination>{cc1d4f9d-8bb4-4905-9602-fb826fea8d54}</destination>
         </relationship>
     </object>
     <object class="MixerBusFader" id="{52c94f32-574f-4954-a79f-878c81d1eba4}"/>
+    <object class="AutomationCurve" id="{94592fa7-c0f7-41c8-adb3-52eb93654359}">
+        <relationship name="parameter">
+            <destination>{dde8bcb8-ae91-4359-85a1-f987a047b874}</destination>
+        </relationship>
+        <relationship name="automationPoints">
+            <destination>{31462778-f929-4a51-aed7-68243483344a}</destination>
+            <destination>{90365904-9c5c-4d1e-bc63-9368ebe31a9b}</destination>
+        </relationship>
+    </object>
     <object class="AutomationCurve" id="{7d4d74b0-3ed8-4289-9416-fc4c8437d3f5}">
         <relationship name="parameter">
             <destination>{e349953a-93e1-4406-bdab-7ced15e8f026}</destination>
@@ -739,11 +933,114 @@ Cues används för att starta låten. </value>
         <relationship name="automationPoints">
             <destination>{4b79c134-557e-47b4-93ec-28db3deb134a}</destination>
             <destination>{9cacca88-a831-4ddd-9bcc-b5ec8b543909}</destination>
-            <destination>{05b6d39a-0530-47c0-8e64-a640b010825b}</destination>
             <destination>{f872eb1c-1bfa-433f-b06a-56b374492cda}</destination>
         </relationship>
     </object>
     <object class="MixerBusFader" id="{917268dc-eab1-46a9-a034-75b9a82b2d7f}"/>
+    <object class="AutomationPoint" id="{d8613d18-91fc-40db-ab7c-c7ad76741a7d}">
+        <property name="position">
+            <value>24.98770104068117</value>
+        </property>
+        <property name="value">
+            <value>1</value>
+        </property>
+    </object>
+    <object class="AutomationPoint" id="{b09b5096-8952-4970-bf69-eee8a219234e}">
+        <property name="position">
+            <value>20.001892147587508</value>
+        </property>
+        <property name="value">
+            <value>3.81469727e-06</value>
+        </property>
+    </object>
+    <object class="AutomationPoint" id="{a9219e84-f307-466b-980a-a1f16083f79d}">
+        <property name="position">
+            <value>50.09271523178807</value>
+        </property>
+        <property name="value">
+            <value>2</value>
+        </property>
+    </object>
+    <object class="AutomationPoint" id="{0a95a5ba-6fec-4794-9ba9-a9723111e566}">
+        <property name="position">
+            <value>74.963103122043506</value>
+        </property>
+        <property name="value">
+            <value>3</value>
+        </property>
+    </object>
+    <object class="AutomationPoint" id="{ed71700f-4e83-4340-b9f7-71f156241d4b}">
+        <property name="position">
+            <value>100</value>
+        </property>
+        <property name="value">
+            <value>4</value>
+        </property>
+    </object>
+    <object class="AutomationPoint" id="{5c7f112c-db5e-41bf-88d8-8cf3e0dbdfae}">
+        <property name="position">
+            <value>0</value>
+        </property>
+        <property name="value">
+            <value>0</value>
+        </property>
+    </object>
+    <object class="AutomationPoint" id="{7cd96abf-0082-4ccc-a458-ed2be852c8d4}">
+        <property name="position">
+            <value>2.6666666666666665</value>
+        </property>
+        <property name="value">
+            <value>-24</value>
+        </property>
+    </object>
+    <object class="AutomationPoint" id="{cb5fd0c5-ab49-485a-a06d-3d3684f1d7eb}">
+        <property name="position">
+            <value>0</value>
+        </property>
+        <property name="value">
+            <value>0</value>
+        </property>
+    </object>
+    <object class="AutomationPoint" id="{aac3ac02-696b-4e43-8e6e-ec7c384fdbe0}">
+        <property name="position">
+            <value>2.6666666666666665</value>
+        </property>
+        <property name="value">
+            <value>-24</value>
+        </property>
+    </object>
+    <object class="AutomationPoint" id="{da911ac4-a8b3-48f8-88fd-110437cffcf2}">
+        <property name="position">
+            <value>25.046357615894035</value>
+        </property>
+        <property name="value">
+            <value>0</value>
+        </property>
+    </object>
+    <object class="AutomationPoint" id="{d3b3b27d-13c9-4418-9b92-d00c6f3ae320}">
+        <property name="position">
+            <value>19.943235572374643</value>
+        </property>
+        <property name="value">
+            <value>-80</value>
+        </property>
+    </object>
+    <object class="AutomationPoint" id="{e89b4039-57cd-4879-af84-5ca42b1febd7}">
+        <property name="position">
+            <value>0</value>
+        </property>
+        <property name="value">
+            <value>0</value>
+        </property>
+    </object>
+    <object class="AutomationPoint" id="{1b70da23-cc98-469f-876e-10229d823aa4}">
+        <property name="position">
+            <value>2.6666666666666665</value>
+        </property>
+        <property name="value">
+            <value>-24</value>
+        </property>
+    </object>
     <object class="AutomationPoint" id="{f37a395c-7dd5-416a-b10f-9c98703f78d9}">
         <property name="position">
             <value>49.97540208136234</value>
@@ -752,12 +1049,28 @@ Cues används för att starta låten. </value>
             <value>3.81469727e-06</value>
         </property>
     </object>
-    <object class="AutomationPoint" id="{c8e45e31-503b-4526-b67b-37e8cfce60ac}">
+    <object class="AutomationPoint" id="{cc1d4f9d-8bb4-4905-9602-fb826fea8d54}">
         <property name="position">
-            <value>49.975381248029009</value>
+            <value>44.989593188268678</value>
         </property>
         <property name="value">
             <value>-80</value>
+        </property>
+    </object>
+    <object class="AutomationPoint" id="{31462778-f929-4a51-aed7-68243483344a}">
+        <property name="position">
+            <value>0</value>
+        </property>
+        <property name="value">
+            <value>0</value>
+        </property>
+    </object>
+    <object class="AutomationPoint" id="{90365904-9c5c-4d1e-bc63-9368ebe31a9b}">
+        <property name="position">
+            <value>2.6666666666666665</value>
+        </property>
+        <property name="value">
+            <value>-24</value>
         </property>
     </object>
     <object class="AutomationPoint" id="{4b79c134-557e-47b4-93ec-28db3deb134a}">
@@ -770,18 +1083,7 @@ Cues används för att starta låten. </value>
     </object>
     <object class="AutomationPoint" id="{9cacca88-a831-4ddd-9bcc-b5ec8b543909}">
         <property name="position">
-            <value>49.876927484960355</value>
-        </property>
-        <property name="value">
-            <value>-80</value>
-        </property>
-        <property name="curveShape">
-            <value>1</value>
-        </property>
-    </object>
-    <object class="AutomationPoint" id="{05b6d39a-0530-47c0-8e64-a640b010825b}">
-        <property name="position">
-            <value>74.993650553810895</value>
+            <value>70.113445933399333</value>
         </property>
         <property name="value">
             <value>-80</value>
@@ -792,7 +1094,7 @@ Cues används för att starta låten. </value>
             <value>74.993671387144232</value>
         </property>
         <property name="value">
-            <value>0</value>
+            <value>-11</value>
         </property>
     </object>
 </objects>

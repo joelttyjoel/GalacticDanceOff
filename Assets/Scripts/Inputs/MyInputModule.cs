@@ -146,7 +146,7 @@ namespace UnityEngine.EventSystems
 			if (!base.ShouldActivateModule())
 				return false;
 
-			var shouldActivate = m_ForceModuleActive;
+            var shouldActivate = m_ForceModuleActive;
 			Input.GetButtonDown(m_SubmitButton);
 			shouldActivate |= Input.GetButtonDown(m_CancelButton);
 			shouldActivate |= !Mathf.Approximately(Input.GetAxisRaw(m_HorizontalAxis), 0.0f);
@@ -201,7 +201,7 @@ namespace UnityEngine.EventSystems
 
 			var data = GetBaseEventData();
 
-			if (Input.GetButtonDown(m_SubmitButton))
+            if (Input.GetButtonDown(m_SubmitButton) && !SceneSwitchereController.instance.dissableAllInputs)
 				ExecuteEvents.Execute(eventSystem.currentSelectedGameObject, data, ExecuteEvents.submitHandler);
 
 

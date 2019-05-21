@@ -104,6 +104,8 @@ public class InputManager : MonoBehaviour {
 
     void Update()
     {
+        if (SceneSwitchereController.instance.dissableAllInputs) return;
+
         if (Input.GetKeyDown(KeyCode.Return))
         {
             EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
@@ -149,6 +151,8 @@ public class InputManager : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate ()
     {
+        if (SceneSwitchereController.instance.dissableAllInputs) return;
+
         if (SceneSwitchereController.instance.xBox)
         {
             List<string> xboxKeysReset = new List<string>();

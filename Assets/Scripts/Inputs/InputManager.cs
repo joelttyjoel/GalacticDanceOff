@@ -104,6 +104,10 @@ public class InputManager : MonoBehaviour {
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
+        }
         //eventSys.GetComponent<MyInputModule>().horizontalAxis = "Q";
         string[] names = Input.GetJoystickNames();
         for (int x = 0; x < names.Length; x++)

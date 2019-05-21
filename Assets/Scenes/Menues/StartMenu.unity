@@ -378,7 +378,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: BattleArena1Singleplayer
+          m_StringArgument: SongSelect
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1247862539}
@@ -389,19 +389,8 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Info_Funk_02
+          m_StringArgument: null
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1247862539}
-        m_MethodName: SetSpOrMp_TrueIsSp
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 879584074}
         m_MethodName: PlayMainMenueSound
@@ -1482,6 +1471,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInputsDisabled: 0
+  eventSys: {fileID: 0}
+  Xbox_One_Controller: 0
+  PS4_Controller: 0
 --- !u!1 &544514847
 GameObject:
   m_ObjectHideFlags: 0

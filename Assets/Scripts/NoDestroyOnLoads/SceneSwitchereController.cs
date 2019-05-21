@@ -2,22 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneSwitchereController : MonoBehaviour {
+    public GameObject blackScreen;
     //List of all scenes
     public List<Object> all_Scenes;
     //List of all sequencs for battle scene
     public List<Info_Sequence> all_Sequences_Sp;
-    public List<Info_Sequence> all_Sequences_Mp;
     //Namme current scene
     public string nameCurrentScene;
     //Name current sequence in battle
     public string nameCurrentSequence;
     public Info_Sequence currentSequence;
     //Single or multiplayer
-    public bool isSp = true;
 	public bool keyBoard, xBox, Ps4;
-
+    //settings for character, oponent, cleared stages etc.
+    public int numberClearedLevels = 0;
+    //purple = 0, stick = 1, birb = 2
+    public int selectedCharacter = 0;
+    public int selectedOponent = 0;
 
     public static SceneSwitchereController instance = null;
 
@@ -30,6 +34,15 @@ public class SceneSwitchereController : MonoBehaviour {
             Destroy(instance.gameObject);
 
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    void Start()
+    {
+        DontDestroyOnLoad(blackScreen.gameObject);
+    }
+
+    void Update()
+    {
 
     }
 
@@ -43,8 +56,7 @@ public class SceneSwitchereController : MonoBehaviour {
 
         //select correct sequence list to search
         List<Info_Sequence> listOfSeqToSearch;
-        if (isSp) listOfSeqToSearch = all_Sequences_Sp;
-        else listOfSeqToSearch = all_Sequences_Mp;
+        listOfSeqToSearch = all_Sequences_Sp;
         //search in list for correct name one
         foreach(Info_Sequence a in listOfSeqToSearch)
         {
@@ -58,14 +70,6 @@ public class SceneSwitchereController : MonoBehaviour {
 
         Debug.Log("Changing to Scene: " + nameOfScene + " and playing sequence: " + nameOfSequence);
     }
-    
-    void Start () {
-        
-	}
-	
-	void Update () {
-		
-	}
 
 	public void KeyBoard()
 	{
@@ -91,10 +95,14 @@ public class SceneSwitchereController : MonoBehaviour {
 
 	}
 
-    //set Sp or Mp
-    public void SetSpOrMp_TrueIsSp(bool isSpin)
+    public void SetOwnCharacter(int selected)
     {
-        isSp = isSpin;
+        selectedCharacter = selected;
+    }
+
+    public void SetOponentCharacter(int selected)
+    {
+        selectedOponent = selected;
     }
 
     //To enable on click, shhhhh is super effecient dont worry, is great
@@ -120,6 +128,23 @@ public class SceneSwitchereController : MonoBehaviour {
         yield return new WaitUntil(() => hasGotSequence == true);
         hasGotName = false;
         hasGotSequence = false;
+        //SWITCHES IN HERE
+        StartCoroutine(DoFadeBlack());
+    }
+
+    public IEnumerator DoFadeBlack()
+    {
+        Image sr = blackScreen.GetComponent<Image>();
+        //MAKE BLACK
+        float opacity = 1.0f;
+        sr.color = new Color(0, 0, 0, opacity);
+        //SWITCH SCENE BETWEEN
+        yield return new WaitForSeconds(1.0f);
         LoadSceneByName(nameVar, sequenceVar);
+        yield return new WaitForSeconds(1.0f);
+        //FADE BACK IN
+        float opacity2 = 0.0f;
+        sr.color = new Color(0, 0, 0, opacity2);
+        yield return new WaitForEndOfFrame();
     }
 }

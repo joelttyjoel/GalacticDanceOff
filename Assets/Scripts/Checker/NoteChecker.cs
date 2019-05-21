@@ -356,7 +356,7 @@ public class NoteChecker : MonoBehaviour {
         Debug.Log("Hit");
         StartCoroutine(FadeOnHitImage(goodPerfMissSprites[0]));
         GameManagerController.instance.addScore(true, false);
-        AudioController.instance.PlayNoteSound(1f);
+        //AudioController.instance.PlayNoteSound(1f);
     }
 
     //Perfect timed hit
@@ -366,7 +366,7 @@ public class NoteChecker : MonoBehaviour {
         Debug.Log("Perfect");
         StartCoroutine(FadeOnHitImage(goodPerfMissSprites[1]));
         GameManagerController.instance.addScore(true, true);
-        AudioController.instance.PlayNoteSound(2f);
+        //AudioController.instance.PlayNoteSound(2f);
     }
 
     private IEnumerator FadeOnHitImage(SpriteRenderer spriteToDo)

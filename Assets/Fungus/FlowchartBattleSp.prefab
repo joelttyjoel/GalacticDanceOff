@@ -198,8 +198,6 @@ GameObject:
   - component: {fileID: 114020362101275708}
   - component: {fileID: 114592229687875224}
   - component: {fileID: 114892324665100450}
-  - component: {fileID: 114235805447904906}
-  - component: {fileID: 114678174537665158}
   - component: {fileID: 114886348673071590}
   - component: {fileID: 114405515618395324}
   - component: {fileID: 114875425296597620}
@@ -212,6 +210,16 @@ GameObject:
   - component: {fileID: 114440023064064210}
   - component: {fileID: 114265804118212970}
   - component: {fileID: 114968170075242650}
+  - component: {fileID: 114932798738135498}
+  - component: {fileID: 114891919107457646}
+  - component: {fileID: 114061863575573556}
+  - component: {fileID: 114382774405046774}
+  - component: {fileID: 114513668095402630}
+  - component: {fileID: 114815820296986412}
+  - component: {fileID: 114478908979856724}
+  - component: {fileID: 114324028955759328}
+  - component: {fileID: 114891621322369456}
+  - component: {fileID: 114383601500775174}
   m_Layer: 0
   m_Name: FlowchartBattleSp
   m_TagString: Untagged
@@ -270,7 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 189
-  indentLevel: 1
+  indentLevel: 0
   storyText: Then here we go!
   description: 
   character: {fileID: 0}
@@ -410,7 +418,7 @@ MonoBehaviour:
     integerVal: 0
   maxValue:
     integerRef: {fileID: 0}
-    integerVal: 3
+    integerVal: 6
 --- !u!114 &114016069611545862
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -677,6 +685,33 @@ MonoBehaviour:
   - {fileID: 114581987187057862}
   - {fileID: 114368909560324398}
   - {fileID: 114098533659861128}
+--- !u!114 &114061863575573556
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1949712816537188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18c5e8d46183346b59f64b820e71f97f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 193
+  indentLevel: 0
+  compareOperator: 0
+  variable: {fileID: 114871950117907504}
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 5
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
 --- !u!114 &114062152032952028
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -902,7 +937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 65
   indentLevel: 1
-  storyText: "Let's see if Dimy/Oru/El\xFC\xFC can turn it back around!"
+  storyText: Let's see if they can turn it back around!
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -1087,7 +1122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 188
-  indentLevel: 1
+  indentLevel: 0
   storyText: The winner of both their dance battles will be crowned as the new champion!
     But now let's get started already, I'm sitting on pins and needles!
   description: 
@@ -1323,13 +1358,19 @@ MonoBehaviour:
   commandList:
   - {fileID: 114015858238237770}
   - {fileID: 114131410664254896}
-  - {fileID: 114351592576547260}
-  - {fileID: 114979671452080466}
   - {fileID: 114927358762019614}
+  - {fileID: 114979671452080466}
+  - {fileID: 114351592576547260}
   - {fileID: 114870295004959700}
   - {fileID: 114099893693249690}
   - {fileID: 114367627884023096}
   - {fileID: 114522827292820776}
+  - {fileID: 114891919107457646}
+  - {fileID: 114932798738135498}
+  - {fileID: 114061863575573556}
+  - {fileID: 114382774405046774}
+  - {fileID: 114513668095402630}
+  - {fileID: 114815820296986412}
   - {fileID: 114694768805537876}
   - {fileID: 114679560011761468}
 --- !u!114 &114226882767973754
@@ -1358,26 +1399,6 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
---- !u!114 &114235805447904906
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1949712816537188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6af5dac98b0624702b476c1eac319eab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 179
-  indentLevel: 0
-  variable: {fileID: 114871950117907504}
-  minValue:
-    integerRef: {fileID: 0}
-    integerVal: 0
-  maxValue:
-    integerRef: {fileID: 0}
-    integerVal: 0
 --- !u!114 &114239679947475710
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1614,11 +1635,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 186
-  indentLevel: 1
-  storyText: It's pretty simple. Each dance battle s divided into 6 parts, where the
-    contestant with the highest sore in the en wins. This year there's only going
-    to be 2 danve battles for each contestant instead of 6, since 4 of our contestants
-    called in sick this morning.
+  indentLevel: 0
+  storyText: It's pretty simple. There are 2 dance battles, each divided into 3 part,
+    where the contestant with the highest score wins.
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -1682,7 +1701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 186.89618, y: 15.36702}
+  scrollPos: {x: 186.89618, y: 15.367017}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 481
@@ -1693,8 +1712,10 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 114892324665100450}
+  selectedCommands:
+  - {fileID: 114886348673071590}
   variables:
   - {fileID: 114871950117907504}
   description: 
@@ -1786,6 +1807,31 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &114324028955759328
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1949712816537188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 473.10382
+    y: 189.63298
+    width: 142
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 198
+  blockName: CharacterSelect
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 114383601500775174}
 --- !u!114 &114326157489467646
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1983,7 +2029,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 61
   indentLevel: 1
-  storyText: "That round wasn't easy at all. Oru/Dimy/El\xFC\xFC fouht hard."
+  storyText: That round wasn't easy at all.
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -2143,6 +2189,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 131
   indentLevel: 0
+--- !u!114 &114382774405046774
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1949712816537188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 194
+  indentLevel: 1
+  storyText: The need to step it up if they want to win this!
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 0
+  waitForClick: 0
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &114383601500775174
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1949712816537188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 200
+  indentLevel: 0
+  storyText: Time to choose your dance contestant.
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
 --- !u!114 &114389695728228430
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2233,7 +2331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 182
-  indentLevel: 1
+  indentLevel: 0
   storyText: 'Can you believe it''s been 668 years since the empire fell?! '
   description: 
   character: {fileID: 0}
@@ -2404,7 +2502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 190
-  indentLevel: 1
+  indentLevel: 0
   storyText: It's time for the Galactic Dance Off!
   description: 
   character: {fileID: 0}
@@ -2592,6 +2690,31 @@ MonoBehaviour:
   stringData:
     stringRef: {fileID: 0}
     stringVal: 
+--- !u!114 &114478908979856724
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1949712816537188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 444.10382
+    y: 110.63298
+    width: 120
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 197
+  blockName: SongSelect
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 114891621322369456}
 --- !u!114 &114479165848738336
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2697,6 +2820,33 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &114513668095402630
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1949712816537188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18c5e8d46183346b59f64b820e71f97f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 195
+  indentLevel: 0
+  compareOperator: 0
+  variable: {fileID: 114871950117907504}
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 6
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
 --- !u!114 &114516292254305390
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3195,11 +3345,11 @@ MonoBehaviour:
   - {fileID: 114927903360342166}
   - {fileID: 114743528061409052}
   - {fileID: 114129890712016104}
-  - {fileID: 114077469610450214}
-  - {fileID: 114745501171708120}
-  - {fileID: 114992080290521628}
-  - {fileID: 114189142808752116}
   - {fileID: 114914375566620120}
+  - {fileID: 114745501171708120}
+  - {fileID: 114077469610450214}
+  - {fileID: 114189142808752116}
+  - {fileID: 114992080290521628}
   - {fileID: 114071011097185988}
   - {fileID: 114479581099950594}
 --- !u!114 &114592229687875224
@@ -3489,33 +3639,6 @@ MonoBehaviour:
   maxValue:
     integerRef: {fileID: 0}
     integerVal: 3
---- !u!114 &114678174537665158
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1949712816537188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70c5622b8a80845c980954170295f292, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 180
-  indentLevel: 0
-  compareOperator: 0
-  variable: {fileID: 114871950117907504}
-  booleanData:
-    booleanRef: {fileID: 0}
-    booleanVal: 0
-  integerData:
-    integerRef: {fileID: 0}
-    integerVal: 0
-  floatData:
-    floatRef: {fileID: 0}
-    floatVal: 0
-  stringData:
-    stringRef: {fileID: 0}
-    stringVal: 
 --- !u!114 &114679560011761468
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3686,10 +3809,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 185
-  indentLevel: 1
-  storyText: And we will be your hosts throughout the games. As always, tthe competition
-    is held in one of our galaxy's wonderful planets, and this year it's Zinayi's
-    turn. Now Jato, can you explain the rules for our newest viewers?
+  indentLevel: 0
+  storyText: And we will be your hosts throughout the games. This year our competiton
+    is held on our wonderful planet Zinayi. Now Jato, can you explain the rules for
+    our newest viewers?
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -4171,6 +4294,32 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &114815820296986412
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1949712816537188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 196
+  indentLevel: 1
+  storyText: Hope they can get back from that one!
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 0
+  waitForClick: 0
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
 --- !u!114 &114829336314191356
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -4183,7 +4332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 184
-  indentLevel: 1
+  indentLevel: 0
   storyText: Jato!
   description: 
   character: {fileID: 0}
@@ -4394,8 +4543,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 183
-  indentLevel: 1
-  storyText: And we're not geting any younger. I'm Altimis and with me I have..
+  indentLevel: 0
+  storyText: No and we're not geting any younger. I'm Altimis and with me I have..
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -4440,9 +4589,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 181
-  indentLevel: 1
-  storyText: "Welcome fellow B\xFCjgiina citizens to the 167th installment of the
-    biggest competition in the galaxy!"
+  indentLevel: 0
+  storyText: "Welcome fellow B\xFCjgiin citizens to the 167th installment of the biggest
+    competition in the galaxy!"
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -4455,6 +4604,59 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &114891621322369456
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1949712816537188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 199
+  indentLevel: 0
+  storyText: Now, let's pick a song to dance to.
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &114891919107457646
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1949712816537188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18c5e8d46183346b59f64b820e71f97f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 192
+  indentLevel: 0
+  compareOperator: 0
+  variable: {fileID: 114871950117907504}
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 4
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
 --- !u!114 &114892324665100450
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -4479,8 +4681,6 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 114265804118212970}
   commandList:
-  - {fileID: 114235805447904906}
-  - {fileID: 114678174537665158}
   - {fileID: 114886348673071590}
   - {fileID: 114405515618395324}
   - {fileID: 114875425296597620}
@@ -4609,7 +4809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 54
   indentLevel: 1
-  storyText: Oops!!
+  storyText: Oops, looks like they slipped up a bit!
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -4687,7 +4887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 63
   indentLevel: 1
-  storyText: "Dimy/Oru/El\xFC\xFC need to bring it now, next round here we go!"
+  storyText: Thay need to bring it now, next round here we go!
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -4727,6 +4927,32 @@ MonoBehaviour:
   stringData:
     stringRef: {fileID: 0}
     stringVal: 
+--- !u!114 &114932798738135498
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1949712816537188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 191
+  indentLevel: 1
+  storyText: Let's see how they answers to that one!
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 0
+  waitForClick: 0
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
 --- !u!114 &114933985231505346
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -5188,8 +5414,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 187
-  indentLevel: 1
-  storyText: Must be the galactic flu.
+  indentLevel: 0
+  storyText: This year we have 3 glorious dancers who are excited to show of their
+    moves.
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}

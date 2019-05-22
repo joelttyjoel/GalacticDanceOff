@@ -75,6 +75,9 @@ Cues används för att starta låten. </value>
         </relationship>
     </object>
     <object class="MixerInput" id="{a9adf81f-6a43-460f-8f96-557e0d10be5b}">
+        <relationship name="masters">
+            <destination>{751b2b94-1699-4a25-81b7-9697223be83f}</destination>
+        </relationship>
         <relationship name="effectChain">
             <destination>{cb294f78-fad2-49f6-be17-6aa82e756192}</destination>
         </relationship>

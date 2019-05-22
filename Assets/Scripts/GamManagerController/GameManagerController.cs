@@ -477,7 +477,7 @@ public class GameManagerController : MonoBehaviour {
         yield return new WaitForSeconds(3f);
         Debug.Log("Done");
         //when done, just reload scene again, boom
-        SceneSwitchereController.instance.LoadSceneByName(SceneSwitchereController.instance.nameCurrentScene, SceneSwitchereController.instance.nameCurrentSequence);
+        SceneSwitchereController.instance.LoadSceneByName("SongSelect", SceneSwitchereController.instance.nameCurrentSequence);
     }
 
     public IEnumerator SequenceStartRunEtc()

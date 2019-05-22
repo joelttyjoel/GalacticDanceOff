@@ -15,7 +15,7 @@ public class SkipIntroButton : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.Return)) 
+		if (Input.GetKeyDown (KeyCode.Return) && !SceneSwitchereController.instance.dissableAllInputs) 
 		{
 			skipButton.onClick.Invoke ();
 		}

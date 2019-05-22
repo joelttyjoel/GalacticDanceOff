@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -163,7 +163,7 @@ Prefab:
     - target: {fileID: 114221383502173190, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
         type: 2}
       propertyPath: selectedBlocks.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114221383502173190, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
         type: 2}
@@ -236,12 +236,12 @@ Prefab:
         type: 2}
       propertyPath: selectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 121330288}
+      objectReference: {fileID: 0}
     - target: {fileID: 114221383502173190, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
         type: 2}
       propertyPath: selectedCommands.Array.data[0]
       value: 
-      objectReference: {fileID: 121330298}
+      objectReference: {fileID: 0}
     - target: {fileID: 114092629178363292, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
         type: 2}
       propertyPath: targetComponentAssemblyName
@@ -407,7 +407,7 @@ Prefab:
     - target: {fileID: 114698073855128516, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
         type: 2}
       propertyPath: nodeRect.x
-      value: 47.375168
+      value: 46.204536
       objectReference: {fileID: 0}
     - target: {fileID: 114698073855128516, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
         type: 2}
@@ -418,12 +418,12 @@ Prefab:
         type: 2}
       propertyPath: selectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 121330288}
+      objectReference: {fileID: 0}
     - target: {fileID: 114221383502173190, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
         type: 2}
       propertyPath: selectedBlocks.Array.data[2]
       value: 
-      objectReference: {fileID: 121330283}
+      objectReference: {fileID: 0}
     - target: {fileID: 114536049417405350, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
         type: 2}
       propertyPath: commandList.Array.data[4]
@@ -488,7 +488,7 @@ Prefab:
         type: 2}
       propertyPath: selectedCommands.Array.data[1]
       value: 
-      objectReference: {fileID: 121330294}
+      objectReference: {fileID: 0}
     - target: {fileID: 114221383502173190, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
         type: 2}
       propertyPath: selectedCommands.Array.data[2]
@@ -588,16 +588,18 @@ Prefab:
         type: 2}
       propertyPath: commandList.Array.data[0]
       value: 
-      objectReference: {fileID: 121330289}
+      objectReference: {fileID: 0}
     - target: {fileID: 114698073855128516, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
         type: 2}
       propertyPath: commandList.Array.data[1]
       value: 
-      objectReference: {fileID: 121330294}
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114813778572563838, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b, type: 2}
     - {fileID: 114544610334029860, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b, type: 2}
     - {fileID: 114092629178363292, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b, type: 2}
+    - {fileID: 114499702499193782, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b, type: 2}
+    - {fileID: 114698073855128516, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b, type: 2}
   m_IsPrefabParent: 0
 --- !u!114 &121330281 stripped
@@ -611,218 +613,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1356462886909162, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
     type: 2}
   m_PrefabInternal: {fileID: 121330280}
---- !u!114 &121330283
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 121330282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: 53.42684
-    y: 343.77463
-    width: 145.99188
-    height: 40
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  itemId: 49
-  blockName: Skip intro ps
-  description: 
-  eventHandler: {fileID: 121330285}
-  commandList:
-  - {fileID: 121330287}
-  - {fileID: 121330284}
---- !u!114 &121330284
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 121330282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 101
-  indentLevel: 0
-  description: 
-  targetObject: {fileID: 1918156676}
-  targetComponentAssemblyName: SceneSwitchereController, Assembly-CSharp, Version=0.0.0.0,
-    Culture=neutral, PublicKeyToken=null
-  targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: SceneSwitchereController
-  targetMethod: GotoScene_SetSequence
-  targetMethodText: 'GotoScene_SetSequence (String): Void'
-  methodParameters:
-  - objValue:
-      typeAssemblyname: System.String, mscorlib, Version=2.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      typeFullname: System.String
-      intValue: 0
-      boolValue: 0
-      floatValue: 0
-      stringValue: null
-      colorValue: {r: 0, g: 0, b: 0, a: 0}
-      gameObjectValue: {fileID: 0}
-      materialValue: {fileID: 0}
-      objectValue: {fileID: 0}
-      spriteValue: {fileID: 0}
-      textureValue: {fileID: 0}
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-    variableKey: 
-  saveReturnValue: 0
-  returnValueVariableKey: 
-  returnValueType: System.Void
-  showInherited: 0
-  callMode: 0
---- !u!114 &121330285
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 121330282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 000864f8e9e1748a39807861d0e60e29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentBlock: {fileID: 121330283}
-  keyPressType: 0
-  keyCode: 339
---- !u!114 &121330286
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 121330282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 000864f8e9e1748a39807861d0e60e29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentBlock: {fileID: 121330288}
-  keyPressType: 0
-  keyCode: 13
---- !u!114 &121330287
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 121330282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 100
-  indentLevel: 0
-  description: 
-  targetObject: {fileID: 1918156676}
-  targetComponentAssemblyName: SceneSwitchereController, Assembly-CSharp, Version=0.0.0.0,
-    Culture=neutral, PublicKeyToken=null
-  targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: SceneSwitchereController
-  targetMethod: GotoScene_SetName
-  targetMethodText: 'GotoScene_SetName (String): Void'
-  methodParameters:
-  - objValue:
-      typeAssemblyname: System.String, mscorlib, Version=2.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      typeFullname: System.String
-      intValue: 0
-      boolValue: 0
-      floatValue: 0
-      stringValue: StartMenu
-      colorValue: {r: 0, g: 0, b: 0, a: 0}
-      gameObjectValue: {fileID: 0}
-      materialValue: {fileID: 0}
-      objectValue: {fileID: 0}
-      spriteValue: {fileID: 0}
-      textureValue: {fileID: 0}
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-    variableKey: 
-  saveReturnValue: 0
-  returnValueVariableKey: 
-  returnValueType: System.Void
-  showInherited: 0
-  callMode: 0
---- !u!114 &121330288
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 121330282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: 49.815697
-    y: 288.75494
-    width: 138.96808
-    height: 40
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  itemId: 50
-  blockName: Skip intro wasd
-  description: 
-  eventHandler: {fileID: 121330286}
-  commandList:
-  - {fileID: 121330298}
-  - {fileID: 121330296}
---- !u!114 &121330289
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 121330282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 96
-  indentLevel: 0
-  description: 
-  targetObject: {fileID: 1918156676}
-  targetComponentAssemblyName: SceneSwitchereController, Assembly-CSharp, Version=0.0.0.0,
-    Culture=neutral, PublicKeyToken=null
-  targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: SceneSwitchereController
-  targetMethod: GotoScene_SetName
-  targetMethodText: 'GotoScene_SetName (String): Void'
-  methodParameters:
-  - objValue:
-      typeAssemblyname: System.String, mscorlib, Version=2.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      typeFullname: System.String
-      intValue: 0
-      boolValue: 0
-      floatValue: 0
-      stringValue: StartMenu
-      colorValue: {r: 0, g: 0, b: 0, a: 0}
-      gameObjectValue: {fileID: 0}
-      materialValue: {fileID: 0}
-      objectValue: {fileID: 0}
-      spriteValue: {fileID: 0}
-      textureValue: {fileID: 0}
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-    variableKey: 
-  saveReturnValue: 0
-  returnValueVariableKey: 
-  returnValueType: System.Void
-  showInherited: 0
-  callMode: 0
 --- !u!114 &121330290 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114073277910246536, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
@@ -901,162 +691,24 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 121330280}
   m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
---- !u!114 &121330294
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 121330282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 97
-  indentLevel: 0
-  description: 
-  targetObject: {fileID: 1918156676}
-  targetComponentAssemblyName: SceneSwitchereController, Assembly-CSharp, Version=0.0.0.0,
-    Culture=neutral, PublicKeyToken=null
-  targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: SceneSwitchereController
-  targetMethod: GotoScene_SetSequence
-  targetMethodText: 'GotoScene_SetSequence (String): Void'
-  methodParameters:
-  - objValue:
-      typeAssemblyname: System.String, mscorlib, Version=2.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      typeFullname: System.String
-      intValue: 0
-      boolValue: 0
-      floatValue: 0
-      stringValue: null
-      colorValue: {r: 0, g: 0, b: 0, a: 0}
-      gameObjectValue: {fileID: 0}
-      materialValue: {fileID: 0}
-      objectValue: {fileID: 0}
-      spriteValue: {fileID: 0}
-      textureValue: {fileID: 0}
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-    variableKey: 
-  saveReturnValue: 0
-  returnValueVariableKey: 
-  returnValueType: System.Void
-  showInherited: 0
-  callMode: 0
 --- !u!114 &121330295 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114872436388599704, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
     type: 2}
   m_PrefabInternal: {fileID: 121330280}
   m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
---- !u!114 &121330296
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 121330282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 99
-  indentLevel: 0
-  description: 
-  targetObject: {fileID: 1918156676}
-  targetComponentAssemblyName: SceneSwitchereController, Assembly-CSharp, Version=0.0.0.0,
-    Culture=neutral, PublicKeyToken=null
-  targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: SceneSwitchereController
-  targetMethod: GotoScene_SetSequence
-  targetMethodText: 'GotoScene_SetSequence (String): Void'
-  methodParameters:
-  - objValue:
-      typeAssemblyname: System.String, mscorlib, Version=2.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      typeFullname: System.String
-      intValue: 0
-      boolValue: 0
-      floatValue: 0
-      stringValue: null
-      colorValue: {r: 0, g: 0, b: 0, a: 0}
-      gameObjectValue: {fileID: 0}
-      materialValue: {fileID: 0}
-      objectValue: {fileID: 0}
-      spriteValue: {fileID: 0}
-      textureValue: {fileID: 0}
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-    variableKey: 
-  saveReturnValue: 0
-  returnValueVariableKey: 
-  returnValueType: System.Void
-  showInherited: 0
-  callMode: 0
 --- !u!114 &121330297 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114146843926788860, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
     type: 2}
   m_PrefabInternal: {fileID: 121330280}
   m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
---- !u!114 &121330298
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 121330282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 98
-  indentLevel: 0
-  description: 
-  targetObject: {fileID: 1918156676}
-  targetComponentAssemblyName: SceneSwitchereController, Assembly-CSharp, Version=0.0.0.0,
-    Culture=neutral, PublicKeyToken=null
-  targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: SceneSwitchereController
-  targetMethod: GotoScene_SetName
-  targetMethodText: 'GotoScene_SetName (String): Void'
-  methodParameters:
-  - objValue:
-      typeAssemblyname: System.String, mscorlib, Version=2.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      typeFullname: System.String
-      intValue: 0
-      boolValue: 0
-      floatValue: 0
-      stringValue: StartMenu
-      colorValue: {r: 0, g: 0, b: 0, a: 0}
-      gameObjectValue: {fileID: 0}
-      materialValue: {fileID: 0}
-      objectValue: {fileID: 0}
-      spriteValue: {fileID: 0}
-      textureValue: {fileID: 0}
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-    variableKey: 
-  saveReturnValue: 0
-  returnValueVariableKey: 
-  returnValueType: System.Void
-  showInherited: 0
-  callMode: 0
 --- !u!114 &121330299 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114654500306332748, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
     type: 2}
   m_PrefabInternal: {fileID: 121330280}
   m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
---- !u!114 &121330300 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114698073855128516, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
-    type: 2}
-  m_PrefabInternal: {fileID: 121330280}
-  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
 --- !u!114 &121330301 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114646462907021922, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
@@ -1872,6 +1524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 440614563}
   - component: {fileID: 440614562}
+  - component: {fileID: 440614564}
   m_Layer: 0
   m_Name: SkipButton
   m_TagString: Untagged
@@ -1896,7 +1549,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1913,7 +1566,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
@@ -1953,8 +1606,20 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &440614564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 440614561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8b080bf8f4e4dd4982e71452232b906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skipButton: {fileID: 440614562}
 --- !u!1 &473578414
 GameObject:
   m_ObjectHideFlags: 0
@@ -2073,7 +1738,7 @@ Prefab:
     - target: {fileID: 224033742204872138, guid: 5d235fa9d1bc8ac42966c405a8a533ab,
         type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 224033742204872138, guid: 5d235fa9d1bc8ac42966c405a8a533ab,
         type: 2}
@@ -2522,7 +2187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1174682975}
   - component: {fileID: 1174682974}
-  - component: {fileID: 1174682973}
+  - component: {fileID: 1174682972}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2530,21 +2195,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1174682973
+--- !u!114 &1174682972
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1174682971}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1077351063, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Script: {fileID: 11500000, guid: cc9c91f2cf8327541b874459eb2b79f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: 
-  m_VerticalAxis: 
-  m_SubmitButton: 
-  m_CancelButton: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Button A
+  m_CancelButton: Button B
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
@@ -2768,7 +2433,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4766169368716296, guid: 8bc69143b0092d9488d07473e6d8ec57, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 114003117110281110, guid: 8bc69143b0092d9488d07473e6d8ec57,
         type: 2}
@@ -2934,7 +2599,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4680083438804510, guid: 8b7a19a02e6355246bf61d2223972e17, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114236250843252428, guid: 8b7a19a02e6355246bf61d2223972e17,
         type: 2}

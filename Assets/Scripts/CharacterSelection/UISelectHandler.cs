@@ -70,10 +70,10 @@ public class UISelectHandler : MonoBehaviour, ISelectHandler {
 			EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
 		}
 
-		/* if (Input.GetKeyDown (KeyCode.Return)) 
+		if (Input.GetKeyDown (KeyCode.Y)) 
 		{
 			Debug.Log (EventSystem.current.currentSelectedGameObject);
-		} */
+		}
 
 		if (Input.GetKeyDown (KeyCode.LeftArrow)) 
 		{

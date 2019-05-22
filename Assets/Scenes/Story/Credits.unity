@@ -1704,7 +1704,6 @@ GameObject:
   - component: {fileID: 595136145}
   - component: {fileID: 595136141}
   - component: {fileID: 595136146}
-  - component: {fileID: 595136147}
   - component: {fileID: 595136149}
   - component: {fileID: 595136148}
   - component: {fileID: 595136150}
@@ -1714,8 +1713,9 @@ GameObject:
   - component: {fileID: 595136151}
   - component: {fileID: 595136155}
   - component: {fileID: 595136152}
-  - component: {fileID: 595136157}
   - component: {fileID: 595136158}
+  - component: {fileID: 595136157}
+  - component: {fileID: 595136159}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -1748,7 +1748,7 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 595136121}
+  - {fileID: 595136125}
   selectedCommands: []
   variables: []
   description: A secret dialogue after/during the captions.
@@ -1961,8 +1961,8 @@ MonoBehaviour:
   - {fileID: 595136134}
   - {fileID: 595136126}
   - {fileID: 595136133}
-  - {fileID: 595136147}
   - {fileID: 595136157}
+  - {fileID: 595136159}
 --- !u!114 &595136126
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2420,32 +2420,6 @@ MonoBehaviour:
     vector3Val: {x: 0, y: 125, z: 0}
   space: 1
   offsetOLD: {x: 0, y: 0, z: 0}
---- !u!114 &595136147
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 595136116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 32
-  indentLevel: 0
-  storyText: have nice day
-  description: owo
-  character: {fileID: 0}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 0
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
 --- !u!114 &595136148
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2757,7 +2731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 53
+  itemId: 55
   indentLevel: 0
   description: 
   targetObject: {fileID: 1785128909}
@@ -2765,8 +2739,8 @@ MonoBehaviour:
     PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: ClickRemapper
-  targetMethod: LoadSceneByName
-  targetMethodText: 'LoadSceneByName (String, String): Void'
+  targetMethod: GotoScene_SetName
+  targetMethodText: 'GotoScene_SetName (String): Void'
   methodParameters:
   - objValue:
       typeAssemblyname: System.String, mscorlib, Version=2.0.0.0, Culture=neutral,
@@ -2785,6 +2759,48 @@ MonoBehaviour:
       vector2Value: {x: 0, y: 0}
       vector3Value: {x: 0, y: 0, z: 0}
     variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &595136158
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 595136116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea6e8f632db87477eb750446b28d73a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 54
+  indentLevel: 0
+  commenterName: 
+  commentText: 
+--- !u!114 &595136159
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 595136116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 56
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1785128909}
+  targetComponentAssemblyName: ClickRemapper, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: ClickRemapper
+  targetMethod: GotoScene_SetSequence
+  targetMethodText: 'GotoScene_SetSequence (String): Void'
+  methodParameters:
   - objValue:
       typeAssemblyname: System.String, mscorlib, Version=2.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -2807,21 +2823,6 @@ MonoBehaviour:
   returnValueType: System.Void
   showInherited: 0
   callMode: 0
---- !u!114 &595136158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 595136116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea6e8f632db87477eb750446b28d73a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 54
-  indentLevel: 0
-  commenterName: 
-  commentText: 
 --- !u!1 &613865954
 GameObject:
   m_ObjectHideFlags: 0
@@ -3653,7 +3654,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.77000046, y: -108}
+  m_AnchoredPosition: {x: -0.77000046, y: -108.34}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!102 &956981909
@@ -3663,11 +3664,8 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 956981907}
-  m_Text: '... - altimis
-
-    ... - Jato
-
-    ... - narrator'
+  m_Text: "Ben Titmuss - narrator\nSabina Gudomlund Lindberg - altimis\nPernilla J\xF6nsson
+    - Jato"
   m_OffsetZ: 0
   m_CharacterSize: 0.07
   m_LineSpacing: 1
@@ -5301,7 +5299,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1541220386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.27, y: -1.12, z: 3.1}
+  m_LocalPosition: {x: 0.27, y: -2, z: 3.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 549954596}

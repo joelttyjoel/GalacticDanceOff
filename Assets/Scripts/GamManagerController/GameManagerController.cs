@@ -30,8 +30,9 @@ public class GameManagerController : MonoBehaviour {
     public List<int> listOfFramesPerAnimationYellow;
     [SerializeField]
     public List<int> listOfFramesPerAnimationBirb;
-    public GameObject leftCharacter;
-    public GameObject rightCharacter;
+    public GameObject leftCharacterHolder;
+    public GameObject rightCharacterHolder;
+    public List<GameObject> allCharacterPrefabs012;
     private Animator leftAnimator;
     private Animator rightAnimator;
 
@@ -95,11 +96,16 @@ public class GameManagerController : MonoBehaviour {
     }
 
     void Start () {
+        //set characters to do the dancin oof oof
+        GameObject charLeft = Instantiate(allCharacterPrefabs012[SceneSwitchereController.instance.selectedCharacter], leftCharacterHolder.transform);
+        charLeft.transform.SetParent(leftCharacterHolder.transform);
+        GameObject charRight = Instantiate(allCharacterPrefabs012[SceneSwitchereController.instance.selectedOponent], rightCharacterHolder.transform);
+        charRight.transform.SetParent(rightCharacterHolder.transform);
         //get flowchar
         fungusFlowChart = fungusFlowChartObject.GetComponent<Fungus.Flowchart>();
         //for animation, 0 to 5
-        leftAnimator = leftCharacter.GetComponent<Animator>();
-        rightAnimator = rightCharacter.GetComponent<Animator>();
+        leftAnimator = leftCharacterHolder.transform.GetChild(0).GetComponent<Animator>();
+        rightAnimator = rightCharacterHolder.transform.GetChild(0).GetComponent<Animator>();
         //set watching
         leftAnimator.SetInteger("SelectState", 1);
         rightAnimator.SetInteger("SelectState", 1);
@@ -123,32 +129,6 @@ public class GameManagerController : MonoBehaviour {
 
         //start healing each 10th
         StartCoroutine(healEachPoint10());
-    }
-	
-	void Update () {
-        //if(startLevel)
-        //{
-        //    startLevel = false;
-        //    //if less than 2, aka 0 and 1 then do play current beatmap
-        //    if (currentBeatMap < SceneSwitchereController.instance.currentSequence.beatMapNamesInOrder.Length)
-        //    {
-        //        //run current map
-        //        runBeatmap();
-        //        MusicController.instance.EnterLevelByInt(currentBeatMap);
-        //        //increment to next
-        //        currentBeatMap++;
-        //    }
-        //    //if 2 or above, set back to 0
-        //    else
-        //    {
-        //        currentBeatMap = 0;
-        //    }
-        //}
-        //if(failLevel)
-        //{
-        //    failLevel = false;
-        //    failBeatmap();
-        //}
     }
     //health
     public void takeDamage(bool isLeftP)

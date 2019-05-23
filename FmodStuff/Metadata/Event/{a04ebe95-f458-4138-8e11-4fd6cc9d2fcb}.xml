@@ -113,6 +113,7 @@
             <destination>{62092ec4-dadd-4702-9a07-c9b7e002d5a3}</destination>
             <destination>{3c3ab1c1-ca63-4b13-b15e-a4d578aa9ca2}</destination>
             <destination>{268bfe24-e99a-4511-b95b-96a03b462dea}</destination>
+            <destination>{ed5a5e30-3398-46fc-b36c-67ffde733655}</destination>
         </relationship>
     </object>
     <object class="ParameterProxy" id="{eb7fd1b1-39d3-41ad-a9b3-143e723aad16}">
@@ -441,6 +442,20 @@
         </relationship>
         <relationship name="markerTrack">
             <destination>{5405aac7-1e11-44ed-acd4-82333416f015}</destination>
+        </relationship>
+    </object>
+    <object class="NamedMarker" id="{ed5a5e30-3398-46fc-b36c-67ffde733655}">
+        <property name="position">
+            <value>38</value>
+        </property>
+        <property name="name">
+            <value>End Sequnce</value>
+        </property>
+        <relationship name="timeline">
+            <destination>{e24ff49a-3c81-4958-b5a3-6d0cdfbd388e}</destination>
+        </relationship>
+        <relationship name="markerTrack">
+            <destination>{74625df0-ecf7-4a74-b3c1-4a8cb0869ef5}</destination>
         </relationship>
     </object>
     <object class="MixerBusEffectChain" id="{148a0b28-1514-4e1a-b01e-93fd6836afff}">

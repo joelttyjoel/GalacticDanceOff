@@ -47,6 +47,7 @@ public class PauseGameScript : MonoBehaviour {
 	private bool pauseable = true;
 	private void PauseGame()
 	{
+		
         //start sound to play in pause menu thing
         AudioController.instance.SetParamPauseSound(4f);
         AudioController.instance.PlayPauseSound();
@@ -78,7 +79,7 @@ public class PauseGameScript : MonoBehaviour {
 		menuBoard.SetActive (false);
 	}
 		
-	IEnumerator CountDown()
+	private IEnumerator CountDown()
 	{
 		this.transform.GetChild (0).gameObject.SetActive (true);
 		//yield return WaitToResumeGame (0.25f);
@@ -128,7 +129,7 @@ public class PauseGameScript : MonoBehaviour {
 
 		if (Input.GetButtonDown(startButton) || Input.GetKeyDown(KeyCode.JoystickButton9)) 
 		{
-			if (!menuBoard.activeInHierarchy) 
+			if (!menuBoard.activeInHierarchy && !SceneSwitchereController.instance.dissableAllInputs) 
 			{
 				PauseGame();
 			}

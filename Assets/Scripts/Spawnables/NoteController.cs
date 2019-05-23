@@ -66,7 +66,7 @@ public class NoteController : MonoBehaviour {
         totalPercentageFinal = totalPercentageFinal + percentageAboveFinal;
 
         //start fade in 
-        StartCoroutine(OnSpawnFade());
+        //StartCoroutine(OnSpawnFade());
     }
 
     void Update () {
@@ -123,28 +123,28 @@ public class NoteController : MonoBehaviour {
         }
     }
 
-    public IEnumerator OnSpawnFade()
-    {
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
-        float startColor = 0.5f;
-        //set start
-        sr.color = new Color(startColor, startColor, startColor, 1f);
-        while (true)
-        {
-            //wait for 1 frame
-            yield return new WaitForEndOfFrame();
-            //set color to this, wont be set above 1 due to chck at end
-            sr.color = new Color(startColor, startColor, startColor, 1f);
-            //fade depending on how far of distance is made
-            startColor = 0.5f + (percentageOfTravel / startFadeDistance);
-            //if startcolor >= 1f, set all to full white then end
-            if (startColor >= 1f)
-            {
-                sr.color = new Color(1f, 1f, 1f, 1f);
-                break;
-            }
-        }
-    }
+    //public IEnumerator OnSpawnFade()
+    //{
+    //    SpriteRenderer sr = GetComponent<SpriteRenderer>();
+    //    float startColor = 0.5f;
+    //    //set start
+    //    sr.color = new Color(startColor, startColor, startColor, 1f);
+    //    while (true)
+    //    {
+    //        //wait for 1 frame
+    //        yield return new WaitForEndOfFrame();
+    //        //set color to this, wont be set above 1 due to chck at end
+    //        sr.color = new Color(startColor, startColor, startColor, 1f);
+    //        //fade depending on how far of distance is made
+    //        startColor = 0.5f + (percentageOfTravel / startFadeDistance);
+    //        //if startcolor >= 1f, set all to full white then end
+    //        if (startColor >= 1f)
+    //        {
+    //            sr.color = new Color(1f, 1f, 1f, 1f);
+    //            break;
+    //        }
+    //    }
+    //}
 
 
     public float GetTimeUntilGoal()

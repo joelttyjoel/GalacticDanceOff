@@ -88,8 +88,8 @@ public class NoteController : MonoBehaviour {
 
     private void GoneTooFar()
     {
-        //take damage to left player, player, if isn't restarting
-        if (!GameManagerController.instance.isRestarting)
+        //take damage to left player, player. If is restarting, or all inputs aren't dissabled, if either isn't on, dont play
+        if (!GameManagerController.instance.isRestarting && !SceneSwitchereController.instance.dissableAllInputs)
         {
             GameManagerController.instance.takeDamage(true);
 

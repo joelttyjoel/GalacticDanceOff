@@ -106,7 +106,7 @@ public class InputManager : MonoBehaviour {
     {
         if (SceneSwitchereController.instance.dissableAllInputs) return;
 
-        if (Input.GetKeyDown(KeyCode.Return))
+		if (Input.GetKeyDown(KeyCode.Return) && EventSystem.current.currentSelectedGameObject.GetComponent<Button>().IsActive())
         {
             EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
         }

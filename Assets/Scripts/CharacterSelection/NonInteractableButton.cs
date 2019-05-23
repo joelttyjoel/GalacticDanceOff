@@ -14,18 +14,19 @@ public class NonInteractableButton : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		back = GetComponent<Button> ();
+		back = back.GetComponent<Button> ();
+		backTransform = back.GetComponent<Transform> ();
+		image = back.GetComponent<Image> ();
 	}
 	
 	// Update is called once per frame
-	/*void Update () {
-		if (Input.GetKeyDown (KeyCode.Escape)) // or Back later 
+	void Update () {
+		if (Input.GetKeyDown (KeyCode.Backspace)) // or Back later 
 		{
-			EventSystem.current.SetSelectedGameObject(back.gameObject);
 			image.sprite = backsprite;
 			backTransform.localScale *= 1.2f;
 			back.onClick.Invoke ();
 		}
 	}
-	*/
+
 }

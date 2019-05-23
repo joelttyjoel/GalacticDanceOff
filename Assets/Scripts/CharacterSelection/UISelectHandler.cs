@@ -30,7 +30,7 @@ public class UISelectHandler : MonoBehaviour, ISelectHandler {
 	{
 		targetRotation = this.transform.localScale;
 		stageAnimator = GetComponent<Animator> ();
-		Invoke ("DisableAnimator", 2.5f);
+		Invoke ("DisableAnimator", 2.4f);
 
 		targetDir = CharSelect [currentSelect] - transform.position;
 	}
@@ -55,6 +55,7 @@ public class UISelectHandler : MonoBehaviour, ISelectHandler {
 	private void DisableAnimator()
 	{
 		stageAnimator.enabled = false;
+		CharacterPage (currentSelect);
 	}
 
 	public void OnSelect(BaseEventData eventData)
@@ -67,6 +68,9 @@ public class UISelectHandler : MonoBehaviour, ISelectHandler {
 	{
 		if (Input.GetKeyDown(KeyCode.Return))
 		{
+			if (EventSystem.current.currentSelectedGameObject.GetComponent<Animator> ().isActiveAndEnabled) {
+				EventSystem.current.currentSelectedGameObject.GetComponent<Animator> ().SetTrigger ("Pressed");
+			}
 			EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
 		}
 

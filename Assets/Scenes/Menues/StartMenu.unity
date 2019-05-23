@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -440,6 +440,7 @@ GameObject:
   - component: {fileID: 225052242}
   - component: {fileID: 225052245}
   - component: {fileID: 225052247}
+  - component: {fileID: 225052246}
   m_Layer: 5
   m_Name: Volume
   m_TagString: Untagged
@@ -591,6 +592,18 @@ MonoBehaviour:
   changeSprite1: {fileID: 21300000, guid: ca70d7ceba3b4da468c1ddbec6c0eb9a, type: 3}
   changeSprite2: {fileID: 21300000, guid: ca70d7ceba3b4da468c1ddbec6c0eb9a, type: 3}
   resize: 0
+--- !u!114 &225052246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 225052240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f25e9e2bb51c67547bcb0143412b01bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisOnes: {fileID: 1590557335}
 --- !u!95 &225052247
 Animator:
   serializedVersion: 3
@@ -1362,6 +1375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a368a4da75073841863940ebd4752fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMusic: 0
   volumeSlider: {fileID: 929302265}
   buttons:
   - {fileID: 925911642}
@@ -2134,6 +2148,7 @@ GameObject:
   - component: {fileID: 925911642}
   - component: {fileID: 925911645}
   - component: {fileID: 925911644}
+  - component: {fileID: 925911647}
   m_Layer: 5
   m_Name: Sounds
   m_TagString: Untagged
@@ -2302,6 +2317,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 925911640}
+--- !u!114 &925911647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 925911640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f25e9e2bb51c67547bcb0143412b01bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisOnes: {fileID: 544514849}
 --- !u!1 &929302263
 GameObject:
   m_ObjectHideFlags: 0
@@ -3551,6 +3578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a368a4da75073841863940ebd4752fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMusic: 1
   volumeSlider: {fileID: 413090721}
   buttons:
   - {fileID: 225052242}

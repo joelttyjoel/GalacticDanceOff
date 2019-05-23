@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class VolumeChanger : MonoBehaviour {
-
+    public bool isMusic;
 	public Image volumeSlider;
 	public Button[] buttons;
 	public GameObject[] arrows;
@@ -16,10 +16,22 @@ public class VolumeChanger : MonoBehaviour {
 	private Vector3 arrowSize;
 	// Use this for initialization
 	void Start () {
-		lerpVolume = volumeSlider.fillAmount;
-		arrowSize = arrows [0].transform.localScale;
+        if (isMusic)
+            volumeSlider.fillAmount = SceneSwitchereController.instance.volumeMusic;
+        else
+            volumeSlider.fillAmount = SceneSwitchereController.instance.volumeSound;
 
+        lerpVolume = volumeSlider.fillAmount;
+		arrowSize = arrows [0].transform.localScale;
 	}
+
+    public void SetOnStart()
+    {
+        if (isMusic)
+            volumeSlider.fillAmount = SceneSwitchereController.instance.volumeMusic;
+        else
+            volumeSlider.fillAmount = SceneSwitchereController.instance.volumeSound;
+    }
 		
 	// Update is called once per frame
 	void Update () {
@@ -30,11 +42,30 @@ public class VolumeChanger : MonoBehaviour {
 				buttons [i].interactable = false;
 			}
 		}
-		if (Input.GetAxisRaw ("Horizontal") != 0) 
+
+        //set value on object
+        if (isMusic)
+            volumeSlider.fillAmount = SceneSwitchereController.instance.volumeMusic;
+        else
+            volumeSlider.fillAmount = SceneSwitchereController.instance.volumeSound;
+
+        float currentVolume;
+        if (isMusic)
+            currentVolume = SceneSwitchereController.instance.volumeMusic;
+        else
+            currentVolume = SceneSwitchereController.instance.volumeSound;
+
+        //update value
+        if (Input.GetAxisRaw ("Horizontal") != 0) 
 		{
 			if (!oneFrameAxis) 
 			{
-				float value;
+                if (isMusic)
+                    currentVolume = SceneSwitchereController.instance.volumeMusic;
+                else
+                    currentVolume = SceneSwitchereController.instance.volumeSound;
+
+                float value;
 				if (Input.GetAxisRaw ("Horizontal") > 0) {
 					value = 0.1f;	
 					arrows [1].GetComponent<Animator> ().Play ("ResizeAnimation");
@@ -43,14 +74,14 @@ public class VolumeChanger : MonoBehaviour {
 					value = -0.1f;
 					arrows [0].GetComponent<Animator> ().Play ("ResizeAnimation");
 				}
-				lerpVolume = volumeSlider.fillAmount + value;
+				lerpVolume = currentVolume + value;
 
 				for (int i = 10; i > 0; i--) 
 				{
-					if (volumeSlider.fillAmount < (float)i + 0.2f && volumeSlider.fillAmount > (float)i - 0.8f) 
+					if (currentVolume < (float)i + 0.2f && currentVolume > (float)i - 0.8f) 
 					{
-						volumeSlider.fillAmount = i / 10;
-						if (volumeSlider.fillAmount < 0.55f && volumeSlider.fillAmount > 0.45f) 
+                        currentVolume = i / 10;
+						if (currentVolume < 0.55f && currentVolume > 0.45f) 
 						{
 							lerpVolume = 0.49f;
 						}
@@ -60,9 +91,10 @@ public class VolumeChanger : MonoBehaviour {
 
 			}
 		}
-		if (volumeSlider.fillAmount != lerpVolume) 
+        //ok
+		if (currentVolume != lerpVolume) 
 		{
-			volumeSlider.fillAmount = lerpVolume;
+            currentVolume = lerpVolume;
 		}
 		oneFrameAxis = false;
 
@@ -91,5 +123,14 @@ public class VolumeChanger : MonoBehaviour {
 			}
 			this.gameObject.SetActive (false);
 		}
-	}
+        //clamp
+        if (currentVolume >= 1) currentVolume = 1;
+        if (currentVolume <= 0) currentVolume = 0;
+        //all is done for frame
+        if (isMusic)
+            SceneSwitchereController.instance.SetVolume(currentVolume, true);
+        else
+            SceneSwitchereController.instance.SetVolume(currentVolume, false);
+
+    }
 }

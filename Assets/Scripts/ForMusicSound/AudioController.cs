@@ -6,6 +6,12 @@ using FMOD.Studio;
 using UnityEngine.UI;
 
 public class AudioController : MonoBehaviour {
+    public string musicVolPath;
+    public string soundVolPath;
+
+    FMOD.Studio.VCA musicVca;
+    FMOD.Studio.VCA soundVca;
+
     [FMODUnity.EventRef]
     public string buttonPressEventPath;
     private EventInstance buttonPress;
@@ -49,6 +55,10 @@ public class AudioController : MonoBehaviour {
         pauseSounds = FMODUnity.RuntimeManager.CreateInstance(pauseSoundsEventPath);
         mainMenuSounds = FMODUnity.RuntimeManager.CreateInstance(mainMenuEventPath);
         scoreSounds = FMODUnity.RuntimeManager.CreateInstance(scoreEventPath);
+
+        //get vcas
+        musicVca = FMODUnity.RuntimeManager.GetVCA(musicVolPath);
+        soundVca = FMODUnity.RuntimeManager.GetVCA(soundVolPath);
     }
 
     public void PlayNoteSound(float selectSound)
@@ -92,11 +102,15 @@ public class AudioController : MonoBehaviour {
         scoreSounds.start();
     }
 
-	public void SetVolumeBySlider(Image sliderIn)
+	public void SetVolumeByFloat(float value, bool isMusic)
     {
-		buttonPress.setVolume(sliderIn.fillAmount);
-		hpSounds.setVolume(sliderIn.fillAmount);
-		pauseSounds.setVolume(sliderIn.fillAmount);
-		mainMenuSounds.setVolume(sliderIn.fillAmount);
+        if(isMusic)
+        {
+            musicVca.setVolume(value);
+        }
+        else
+        {
+            soundVca.setVolume(value);
+        }
     }
 }

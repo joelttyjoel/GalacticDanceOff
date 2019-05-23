@@ -23,6 +23,9 @@ public class SceneSwitchereController : MonoBehaviour {
     //purple = 0, stick = 1, birb = 2
     public int selectedCharacter = 0;
     public int selectedOponent = 0;
+    //volumes
+    public float volumeMusic = 1;
+    public float volumeSound = 1;
 
     public static SceneSwitchereController instance = null;
 
@@ -104,6 +107,21 @@ public class SceneSwitchereController : MonoBehaviour {
     public void SetOponentCharacter(int selected)
     {
         selectedOponent = selected;
+    }
+
+    public void SetVolume(float value, bool isMusic)
+    {
+        volumeMusic = value;
+        if (isMusic)
+        {
+            volumeMusic = value;
+            AudioController.instance.SetVolumeByFloat(volumeMusic, true);
+        }
+        else
+        {
+            volumeSound = value;
+            AudioController.instance.SetVolumeByFloat(volumeSound, false);
+        }
     }
 
     //To enable on click, shhhhh is super effecient dont worry, is great

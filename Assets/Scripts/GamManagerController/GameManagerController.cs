@@ -454,6 +454,18 @@ public class GameManagerController : MonoBehaviour {
         }
         yield return new WaitForSeconds(3f);
         Debug.Log("Do something");
+		if(playerScore > AIScore)
+		{
+			//set animations
+			leftAnimator.SetInteger("SelectState", 3);
+			rightAnimator.SetInteger("SelectState", 5);
+		}
+		else
+		{
+			//set animations
+			leftAnimator.SetInteger("SelectState", 5);
+			rightAnimator.SetInteger("SelectState", 3);
+		}
         yield return new WaitForSeconds(3f);
         Debug.Log("Done");
         //when done, just reload scene again, boom

@@ -21,7 +21,7 @@ public class NonInteractableButton : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.Backspace)) // or Back later 
+		if (Input.GetKeyDown (KeyCode.Backspace) && !SceneSwitchereController.instance.dissableAllInputs) // or Back later 
 		{
 			image.sprite = backsprite;
 			backTransform.localScale *= 1.2f;

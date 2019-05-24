@@ -41,6 +41,33 @@ public class BeatGetterFromFmodText : MonoBehaviour
         public bool metronome1 = false;
     }
 
+    //[StructLayout(LayoutKind.Sequential)]
+    //public class ForFunction
+    //{
+    //    //function to call
+    //    private void BeatHasHap()
+    //    {
+    //        //allow time per beat to change, not needed but oof
+    //        float timePerBeat = BeatmapReader.instance.timePer16del * BeatmapReader.instance.sixteenthsPerBeat;
+    //        //start create x parts per beat
+    //        StartCoroutine(Create16Delar());
+    //        //ugly but shhhhhhh ok, spawn fret on each beat
+    //        beatSpawnerTop.GetComponent<BeatmapSpawner>().SpawnFret(timePerBeat, timelineInfo.timeOfBeat);
+    //        beatSpawnerBot.GetComponent<BeatmapSpawner>().SpawnFret(timePerBeat, timelineInfo.timeOfBeat);
+
+    //        //also polling if can enter next beatmap, can only happen on beat
+    //        //if marker has changed during this turn, will change, yummy solutions
+    //        if (runNextBeatmap && currentLabelName != timelineInfo.lastMarker)
+    //        {
+    //            runNextBeatmap = false;
+    //            BeatmapReader.instance.StartRunningBeatmap(nameOfMapToRun);
+    //        }
+
+    //        //update marker value thing
+    //        currentLabelName = timelineInfo.lastMarker;
+    //    }
+    //}
+
     public TimelineInfo timelineInfo;
     public GCHandle timelineHandle;
 
@@ -95,7 +122,7 @@ public class BeatGetterFromFmodText : MonoBehaviour
         musicInstance.setCallback(beatCallback, FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT | FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
         //musicInstance.start();
         //finally start polling the fukker
-        StartCoroutine(WaitForChanges());
+        //StartCoroutine(WaitForChanges());
     }
 
     void OnDestroy()
@@ -112,7 +139,7 @@ public class BeatGetterFromFmodText : MonoBehaviour
     //}
 
     [AOT.MonoPInvokeCallback(typeof(FMOD.Studio.EVENT_CALLBACK))]
-    static FMOD.RESULT BeatEventCallback(FMOD.Studio.EVENT_CALLBACK_TYPE type, FMOD.Studio.EventInstance instance, IntPtr parameterPtr)
+    FMOD.RESULT BeatEventCallback(FMOD.Studio.EVENT_CALLBACK_TYPE type, FMOD.Studio.EventInstance instance, IntPtr parameterPtr)
     {
         // Retrieve the user data
         IntPtr timelineInfoPtr;
@@ -137,14 +164,21 @@ public class BeatGetterFromFmodText : MonoBehaviour
                         //set time per 16del this
                         //currently hardcoded how many thingsPerBeat there is, not sure how to fix
                         BeatmapReader.instance.timePer16del = ((60 / parameter.tempo) / BeatmapReader.instance.sixteenthsPerBeat);
+                        //new
+                        BeatHasHap();
+
+                        //old
                         //tik big metronome, per beat, tick after settings
-                        timelineInfo.metronome1= !timelineInfo.metronome1;
+                        //timelineInfo.metronome1= !timelineInfo.metronome1;
                     }
                     break;
                 case FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER:
                     {
                         var parameter = (FMOD.Studio.TIMELINE_MARKER_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(FMOD.Studio.TIMELINE_MARKER_PROPERTIES));
                         timelineInfo.lastMarker = parameter.name;
+
+                        //set start beaetmap here instead stupid, basicly if label changes, bruh
+                        CheckStartBeatmap();
                     }
                     break;
             }
@@ -152,42 +186,78 @@ public class BeatGetterFromFmodText : MonoBehaviour
         return FMOD.RESULT.OK;
     }
 
-    //this fukker is polling if metronome per beat has changed, if changed, start create 16delar
-    private IEnumerator WaitForChanges()
+    private void CheckStartBeatmap()
     {
-        float waitTimePerPoll = BeatmapReader.instance.timePer16del / 16;
-        bool thisMetronome = timelineInfo.metronome1;
-        float timePerBeat = BeatmapReader.instance.timePer16del * BeatmapReader.instance.sixteenthsPerBeat;
-
-        //just sit and poll this badboi fast as fuk boi
-        while (true)
+        if (runNextBeatmap && currentLabelName != timelineInfo.lastMarker)
         {
-            yield return new WaitForSeconds(waitTimePerPoll);
-            //metronome has changed do create 16delar, 
-            if (thisMetronome != timelineInfo.metronome1)
-            {
-                //set to current to tell if changed next time
-                thisMetronome = timelineInfo.metronome1;
-                //start create x parts per beat
-                StartCoroutine(Create16Delar());
-                //ugly but shhhhhhh ok, spawn fret on each beat
-                beatSpawnerTop.GetComponent<BeatmapSpawner>().SpawnFret(timePerBeat, timelineInfo.timeOfBeat);
-                beatSpawnerBot.GetComponent<BeatmapSpawner>().SpawnFret(timePerBeat, timelineInfo.timeOfBeat);
-
-                //also polling if can enter next beatmap, can only happen on beat
-                //if marker has changed during this turn, will change, yummy solutions
-                if (runNextBeatmap && currentLabelName != timelineInfo.lastMarker)
-                {
-                    runNextBeatmap = false;
-                    BeatmapReader.instance.StartRunningBeatmap(nameOfMapToRun);
-                }
-
-                //update marker value thing
-                currentLabelName = timelineInfo.lastMarker;
-            }
+            runNextBeatmap = false;
+            BeatmapReader.instance.StartRunningBeatmap(nameOfMapToRun);
         }
+        currentLabelName = timelineInfo.lastMarker;
     }
+
+    private void BeatHasHap()
+    {
+        Debug.Log("Beat");
+        //instantly start doing 16delar to decrease delayed notes
+        StartCoroutine(Create16Delar());
+        //allow time per beat to change, not needed but oof
+        float timePerBeat = BeatmapReader.instance.timePer16del * BeatmapReader.instance.sixteenthsPerBeat;
+        //ugly but shhhhhhh ok, spawn fret on each beat
+        beatSpawnerTop.GetComponent<BeatmapSpawner>().SpawnFret(timePerBeat, timelineInfo.timeOfBeat);
+        beatSpawnerBot.GetComponent<BeatmapSpawner>().SpawnFret(timePerBeat, timelineInfo.timeOfBeat);
+
+        //also polling if can enter next beatmap, can only happen on beat
+        //if marker has changed during this turn, will change, yummy solutions
+        //Debug.Log("Current: " + currentLabelName + " Last: " + timelineInfo.lastMarker);
+        //if (runNextBeatmap && currentLabelName != timelineInfo.lastMarker)
+        //{
+        //    Debug.Log("Run beatmap");
+        //    runNextBeatmap = false;
+        //    BeatmapReader.instance.StartRunningBeatmap(nameOfMapToRun);
+        //}
+
+        //update marker value thing
+        //currentLabelName = timelineInfo.lastMarker;
+    }
+
+    //this fukker is polling if metronome per beat has changed, if changed, start create 16delar
+    //private IEnumerator WaitForChanges()
+    //{
+    //    float waitTimePerPoll = BeatmapReader.instance.timePer16del / 16;
+    //    bool thisMetronome = timelineInfo.metronome1;
+    //    float timePerBeat = BeatmapReader.instance.timePer16del * BeatmapReader.instance.sixteenthsPerBeat;
+
+    //    //just sit and poll this badboi fast as fuk boi
+    //    while (true)
+    //    {
+    //        yield return new WaitForSeconds(waitTimePerPoll);
+    //        //metronome has changed do create 16delar, 
+    //        if (thisMetronome != timelineInfo.metronome1)
+    //        {
+    //            //set to current to tell if changed next time
+    //            thisMetronome = timelineInfo.metronome1;
+    //            //start create x parts per beat
+    //            StartCoroutine(Create16Delar());
+    //            //ugly but shhhhhhh ok, spawn fret on each beat
+    //            beatSpawnerTop.GetComponent<BeatmapSpawner>().SpawnFret(timePerBeat, timelineInfo.timeOfBeat);
+    //            beatSpawnerBot.GetComponent<BeatmapSpawner>().SpawnFret(timePerBeat, timelineInfo.timeOfBeat);
+
+    //            //also polling if can enter next beatmap, can only happen on beat
+    //            //if marker has changed during this turn, will change, yummy solutions
+    //            if (runNextBeatmap && currentLabelName != timelineInfo.lastMarker)
+    //            {
+    //                runNextBeatmap = false;
+    //                BeatmapReader.instance.StartRunningBeatmap(nameOfMapToRun);
+    //            }
+
+    //            //update marker value thing
+    //            currentLabelName = timelineInfo.lastMarker;
+    //        }
+    //    }
+    //}
     //hits beat just as started, then 3 following with time between equal to time between 16 delar, after last wait, then hopefully started again
+
     private IEnumerator Create16Delar()
     {
         for(int i = 0; i < BeatmapReader.instance.sixteenthsPerBeat; i++)

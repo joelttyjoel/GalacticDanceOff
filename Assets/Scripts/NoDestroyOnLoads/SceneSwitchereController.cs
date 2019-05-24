@@ -7,8 +7,6 @@ using UnityEngine.UI;
 public class SceneSwitchereController : MonoBehaviour {
     public GameObject blackScreen;
     public bool dissableAllInputs = false;
-    //List of all scenes
-    public List<Object> all_Scenes;
     //List of all sequencs for battle scene
     public List<Info_Sequence> all_Sequences_Sp;
     //Namme current scene
@@ -43,11 +41,6 @@ public class SceneSwitchereController : MonoBehaviour {
     void Start()
     {
         DontDestroyOnLoad(blackScreen.gameObject);
-    }
-
-    void Update()
-    {
-
     }
 
     public void LoadSceneByName(string nameOfScene, string nameOfSequence)
@@ -166,10 +159,12 @@ public class SceneSwitchereController : MonoBehaviour {
         }
         //opacity = 1.0f;
         sr.color = new Color(0, 0, 0, 1);
-   
-        //SWITCH SCENE BETWEEN
+
+        //SWITCH SCENE BETWEEN, stay black until next is loaded
+        string currentScene = SceneManager.GetActiveScene().name;
         LoadSceneByName(nameVar, sequenceVar);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitUntil(() => currentScene != SceneManager.GetActiveScene().name);
+
         //FADE BACK IN
         float startTime1 = 1f;
         while (startTime1 >= 0)

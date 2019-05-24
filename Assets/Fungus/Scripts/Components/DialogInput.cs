@@ -88,11 +88,11 @@ namespace Fungus
             {
                 //Input.GetButtonDown(currentStandaloneInputModule.submitButton) ||
                 //(cancelEnabled && Input.GetButton(currentStandaloneInputModule.cancelButton))
-                if (
-                (cancelEnabled && Input.GetButton(currentStandaloneInputModule.cancelButton)))
-                {
-                    SetNextLineFlag();
-                }
+                //if (
+                //(cancelEnabled && false)
+                //{
+                //    SetNextLineFlag();
+                //}
             }
 
             switch (clickMode)

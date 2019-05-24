@@ -199,6 +199,8 @@ namespace UnityEngine.EventSystems
 			if (eventSystem.currentSelectedGameObject == null)
 				return false;
 
+            if (SceneSwitchereController.instance.dissableAllInputs) return false;
+
 			var data = GetBaseEventData();
 
             if (Input.GetButtonDown(m_SubmitButton) && !SceneSwitchereController.instance.dissableAllInputs)

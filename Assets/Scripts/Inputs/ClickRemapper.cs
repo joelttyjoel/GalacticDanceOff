@@ -9,10 +9,10 @@ public class ClickRemapper : MonoBehaviour {
         sceneSwitcher = SceneSwitchereController.instance;
 	}
 	
-    public void LoadSceneByName(string nameScene, string nameSequence)
-    {
-        sceneSwitcher.LoadSceneByName(nameScene, nameSequence);
-    }
+    //public void LoadSceneByName(string nameScene, string nameSequence)
+    //{
+    //    sceneSwitcher.LoadSceneByName(nameScene, nameSequence);
+    //}
     public void GotoScene_SetName(string sceneName)
     {
         sceneSwitcher.GotoScene_SetName(sceneName);

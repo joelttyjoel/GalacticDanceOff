@@ -26,6 +26,10 @@ public class InputManager : MonoBehaviour {
     [HideInInspector]
     public int PS4_Controller = 0;
 
+    //controller
+    private int lastNumberOfControllers = 0;
+    List<string> actualControllers = new List<string>();
+
 
     void OnEnable()
 	{
@@ -96,57 +100,84 @@ public class InputManager : MonoBehaviour {
             Destroy(instance.gameObject);
     }
 
-    // Use this for initialization
-    void Start () {
-		//isInputsDisabled = false;
-		//inputSystem.currentInputModule.
-	}
+    private void Start()
+    {
+        StartCoroutine(SearchForController());
+    }
 
     void Update()
     {
         if (SceneSwitchereController.instance.dissableAllInputs) return;
 
-		if (Input.GetKeyDown(KeyCode.Return) && EventSystem.current.currentSelectedGameObject.GetComponent<Button>().IsActive())
+		if (Input.GetKeyDown(KeyCode.Return) && EventSystem.current.currentSelectedGameObject.GetComponent<Button>().IsActive() && !SceneSwitchereController.instance.dissableAllInputs)
         {
             EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
         }
-        //eventSys.GetComponent<MyInputModule>().horizontalAxis = "Q";
-        string[] names = Input.GetJoystickNames();
-        for (int x = 0; x < names.Length; x++)
-        {
-            //print(names[x].Length);
-            if (names[x].Length == 19)
-            {
-                print("PS4 CONTROLLER IS CONNECTED");
-                PS4_Controller = 1;
-                Xbox_One_Controller = 0;
-            }
-            if (names[x].Length == 33)
-            {
-                print("XBOX ONE CONTROLLER IS CONNECTED");
-                //set a controller bool to true
-                PS4_Controller = 0;
-                Xbox_One_Controller = 1;
-
-            }
-        }
-
-
-        if (Xbox_One_Controller == 1)
-        {
-            eventSys.GetComponent<MyInputModule>().horizontalAxis = "XHorizontal";
-            eventSys.GetComponent<MyInputModule>().verticalAxis = "XVertical";
-            eventSys.GetComponent<MyInputModule>().submitButton = "Button A";
-        }
-
-        else if (PS4_Controller == 1)
-        {
-            eventSys.GetComponent<MyInputModule>().horizontalAxis = "PHorizontal";
-            eventSys.GetComponent<MyInputModule>().verticalAxis = "PVertical";
-            eventSys.GetComponent<MyInputModule>().submitButton = "Button B";
-        }
+        
     }
 
+    private IEnumerator SearchForController()
+    {
+        while(true)
+        {
+            startPlace:
+            yield return new WaitForSeconds(2f);
+
+            actualControllers.Clear();
+            for (int i = 0; i < Input.GetJoystickNames().Length; i++)
+            {
+                if (Input.GetJoystickNames()[i].Length > 0) actualControllers.Add(Input.GetJoystickNames()[i]);
+            }
+
+
+            if (lastNumberOfControllers != actualControllers.Count())
+            {
+                Debug.Log("Joystick has changed " + actualControllers.Count() + " last: " + lastNumberOfControllers);
+                if (actualControllers.Count == 0)
+                {
+                    //set last
+                    lastNumberOfControllers = actualControllers.Count();
+                    goto startPlace;
+                }
+                //only does this once if changed
+                for (int x = 0; x < actualControllers.Count(); x++)
+                {
+                    //print(names[x].Length);
+                    if (actualControllers[x].Count() == 19)
+                    {
+                        print("PS4 CONTROLLER IS CONNECTED");
+                        PS4_Controller = 1;
+                        Xbox_One_Controller = 0;
+                    }
+                    if (actualControllers[x].Count() == 33)
+                    {
+                        print("XBOX ONE CONTROLLER IS CONNECTED");
+                        //set a controller bool to true
+                        PS4_Controller = 0;
+                        Xbox_One_Controller = 1;
+
+                    }
+                }
+                //only does this once too
+                if (Xbox_One_Controller == 1)
+                {
+                    eventSys.GetComponent<MyInputModule>().horizontalAxis = "XHorizontal";
+                    eventSys.GetComponent<MyInputModule>().verticalAxis = "XVertical";
+                    eventSys.GetComponent<MyInputModule>().submitButton = "Button A";
+                }
+
+                else if (PS4_Controller == 1)
+                {
+                    eventSys.GetComponent<MyInputModule>().horizontalAxis = "PHorizontal";
+                    eventSys.GetComponent<MyInputModule>().verticalAxis = "PVertical";
+                    eventSys.GetComponent<MyInputModule>().submitButton = "Button B";
+                }
+            }
+
+            //set last
+            lastNumberOfControllers = actualControllers.Count();
+        }
+    }
 
 	// Update is called once per frame
 	void FixedUpdate ()
@@ -237,12 +268,6 @@ public class InputManager : MonoBehaviour {
 	{
 		if (SceneSwitchereController.instance.xBox) 
 		{
-			if (xboxButton.ContainsKey (buttonName) == false)
-			{
-				Debug.LogError ("Getbuttondown -- no button named: " + buttonName);
-				return false;
-			}
-
 			if (Input.GetKey (xboxButton[buttonName]))
             {
                 if (!xboxBool[buttonName])
@@ -252,18 +277,9 @@ public class InputManager : MonoBehaviour {
                     return true;
                 }
             }
-
-            return false;
-
         }
 		else if (SceneSwitchereController.instance.Ps4)
 		{
-			if (PS4Button.ContainsKey (buttonName) == false)
-			{
-				Debug.LogError ("Getbuttondown -- no button named: " + buttonName);
-				//return false;
-			}
-
             if (Input.GetKey(PS4Button[buttonName]))
             {
                 if (!ps4Bool[buttonName])
@@ -273,19 +289,9 @@ public class InputManager : MonoBehaviour {
                     return true;
                 }
             }
-
-            return false;
-
         } 
 		else 
 		{
-			if (buttonKeys.ContainsKey (buttonName) == false)
-			{
-				Debug.LogError ("Getbuttondown -- no button named: " + buttonName);
-				//return false;
-			}
-
-
             if (Input.GetKey(buttonKeys[buttonName]))
             {
                 if (!keyboardBool[buttonName])
@@ -295,9 +301,9 @@ public class InputManager : MonoBehaviour {
                     return true;
                 }
             }
-
-            return false;
         }
+
+        return false;
 	}
 
 	//return array of all keycodes in dictionary
@@ -309,11 +315,6 @@ public class InputManager : MonoBehaviour {
 	//returns the name of the keycodes inside dictionary
 	public string GetKeyNameForButton( string buttonName)
 	{
-		if (buttonKeys.ContainsKey (buttonName) == false) 
-		{
-			Debug.Log ("GetKeynameForButton no button named" + buttonName);
-			return "N/A";
-		}
 		return buttonKeys [buttonName].ToString ();
 	}
 

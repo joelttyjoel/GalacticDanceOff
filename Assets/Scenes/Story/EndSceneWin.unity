@@ -253,6 +253,11 @@ GameObject:
   - component: {fileID: 595136130}
   - component: {fileID: 595136129}
   - component: {fileID: 595136128}
+  - component: {fileID: 595136125}
+  - component: {fileID: 595136123}
+  - component: {fileID: 595136131}
+  - component: {fileID: 595136133}
+  - component: {fileID: 595136119}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -284,8 +289,10 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 595136127}
+  selectedCommands:
+  - {fileID: 595136130}
   variables: []
   description: What happens after player win the hole thing!
   stepPause: 0
@@ -323,6 +330,33 @@ MonoBehaviour:
   commandList:
   - {fileID: 595136122}
   - {fileID: 595136129}
+  - {fileID: 595136133}
+--- !u!114 &595136119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 595136116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 68
+  indentLevel: 0
+  storyText: '                         '
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
 --- !u!114 &595136120
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -349,6 +383,7 @@ MonoBehaviour:
   commandList:
   - {fileID: 595136121}
   - {fileID: 595136128}
+  - {fileID: 595136131}
 --- !u!114 &595136121
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -364,17 +399,17 @@ MonoBehaviour:
   indentLevel: 0
   storyText: 'Dimy''s win made it possible for everyone around the galaxy to make
     their ideas a reality. It wasn''t long before the galaxy was filled with new and
-    amazin creations that had never been seen before. '
+    amazing creations that had never been seen before. '
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: eac781a33ff775e42b0500f983745bd1, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 0
   waitForClick: 0
-  stopVoiceover: 1
+  stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &595136122
@@ -390,21 +425,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 57
   indentLevel: 0
-  storyText: "El\xFC\xFC kept true to their promise of making more time for dancing,
+  storyText: "El\xFC\xFC kept their promise of making even more time for dancing,
     which brought even more joy to the entire galaxy. It even made aliens who hadn't
     thought of entering the next competition to get their groove on. "
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 908498cbabfa9f545b720e20d311ecb5, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 0
   waitForClick: 0
-  stopVoiceover: 1
+  stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &595136123
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 595136116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 65
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 2.5
+  durationOLD: 0
 --- !u!4 &595136124
 Transform:
   m_ObjectHideFlags: 0
@@ -418,6 +470,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &595136125
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 595136116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 64
+  indentLevel: 0
+  storyText: which couldn't have made them happier.
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 0
+  waitForClick: 0
+  stopVoiceover: 0
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
 --- !u!114 &595136126
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -432,18 +510,18 @@ MonoBehaviour:
   itemId: 56
   indentLevel: 0
   storyText: The galaxy become even more peaceful after Oru won, and the day meant
-    to celebrate the different species was so highly appreciated that Oru was giftet
-    with tons of soap, which couldn't have made them happier.
+    to celebrate the different species was so highly appreciated that Oru was gifted
+    with tons of soap,
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
+  voiceOverClip: {fileID: 8300000, guid: 1e4b1c957f9f91d438d1e719690ab5c3, type: 3}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 0
   waitForClick: 0
-  stopVoiceover: 1
+  stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &595136127
@@ -471,7 +549,10 @@ MonoBehaviour:
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 595136126}
+  - {fileID: 595136123}
+  - {fileID: 595136125}
   - {fileID: 595136130}
+  - {fileID: 595136119}
 --- !u!114 &595136128
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -521,8 +602,60 @@ MonoBehaviour:
   indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
-    floatVal: 3
+    floatVal: 1.5
   durationOLD: 0
+--- !u!114 &595136131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 595136116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 66
+  indentLevel: 0
+  storyText: '                         '
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &595136133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 595136116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 67
+  indentLevel: 0
+  storyText: '                         '
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
 --- !u!1001 &893822622
 Prefab:
   m_ObjectHideFlags: 0

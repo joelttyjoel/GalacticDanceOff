@@ -1,4 +1,4 @@
-﻿//--------------------------------------------------------------------
+//--------------------------------------------------------------------
 //
 // This is a Unity behaviour script that demonstrates how to use
 // timeline markers in your game code. 
@@ -198,7 +198,7 @@ public class BeatGetterFromFmodText : MonoBehaviour
 
     private void BeatHasHap()
     {
-        Debug.Log("Beat");
+        //Debug.Log("Beat");
         //instantly start doing 16delar to decrease delayed notes
         StartCoroutine(Create16Delar());
         //allow time per beat to change, not needed but oof

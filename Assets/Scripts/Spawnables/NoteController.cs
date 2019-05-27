@@ -43,6 +43,8 @@ public class NoteController : MonoBehaviour {
     private Vector3 originalPos;
     private bool hasgoneTooFar = false;
 
+    private float thingToAdd = 0.035f;
+
     void Start()
     {
         //distance after good when item should be dequed and fade away
@@ -65,6 +67,8 @@ public class NoteController : MonoBehaviour {
         //set total final
         totalPercentageFinal = totalPercentageFinal + percentageAboveFinal;
 
+        //Give head start
+        timeAtBirth -= (thingToAdd * timeUntilGoal);
         //start fade in 
         //StartCoroutine(OnSpawnFade());
     }

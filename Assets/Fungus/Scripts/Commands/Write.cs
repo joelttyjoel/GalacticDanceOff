@@ -99,7 +99,7 @@ namespace Fungus
 
             if (!waitUntilFinished)
             {
-                StartCoroutine(writer.Write(newText, clearText, false, true, false, null, null));
+                StartCoroutine(writer.Write(newText, clearText, false, true ,false, null, null));
                 Continue();
             }
             else

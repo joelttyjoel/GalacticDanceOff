@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SceneSwitchereController : MonoBehaviour {
+    //writing stuff
     public GameObject blackScreen;
     public bool dissableAllInputs = false;
     //List of all sequencs for battle scene
@@ -148,17 +149,37 @@ public class SceneSwitchereController : MonoBehaviour {
     {
         //dissalble inpts
         dissableAllInputs = true;
+        //check if changing to is menu or not
+        bool nextIsMenu = false;
+        if(nameVar == "StartMenu" || nameVar == "SongSelect" || nameVar == "CharacterSelectSingleplayer")
+        {
+            nextIsMenu = true;
+        }
+        bool currentIsMenu = false;
+        if (nameCurrentScene == "StartMenu" || nameCurrentScene == "SongSelect" || nameCurrentScene == "CharacterSelectSingleplayer")
+        {
+            currentIsMenu = true;
+        }
+        //get componentn
         Image sr = blackScreen.GetComponent<Image>();
         //MAKE BLACK
         float startTime2 = 0f;
         while (startTime2 <= 1)
         {
             sr.color = new Color(0, 0, 0, startTime2);
+            //if going out from menu into not menu, fade down
+            if(currentIsMenu && !nextIsMenu) MusicManagerScript.instance.SetVolumeMusic(1 - startTime2);
+            //if already in m enu going to menu, do nothing
             startTime2 += Time.deltaTime;
             yield return new WaitForSeconds(Time.deltaTime);
         }
         //opacity = 1.0f;
         sr.color = new Color(0, 0, 0, 1);
+        if (currentIsMenu && !nextIsMenu)
+        {
+            MusicManagerScript.instance.SetVolumeMusic(0f);
+            MusicManagerScript.instance.ResetSelected();
+        }
 
         //SWITCH SCENE BETWEEN, stay black until next is loaded
         string currentScene = SceneManager.GetActiveScene().name;
@@ -170,10 +191,16 @@ public class SceneSwitchereController : MonoBehaviour {
         while (startTime1 >= 0)
         {
             sr.color = new Color(0, 0, 0, startTime1);
+            //only tune volume up from 0 to 1 if going from not menu into a menu
+            if (!currentIsMenu && nextIsMenu) MusicManagerScript.instance.SetVolumeMusic(1 - startTime1);
             startTime1 -= Time.deltaTime;
             yield return new WaitForSeconds(Time.deltaTime);
         }
         sr.color = new Color(0, 0, 0, 0);
+        if (!currentIsMenu && nextIsMenu)
+        {
+            MusicManagerScript.instance.SetVolumeMusic(1f);
+        }
         //reenable inputs
         dissableAllInputs = false;
     }

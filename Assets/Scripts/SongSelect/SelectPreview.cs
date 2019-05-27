@@ -9,12 +9,10 @@ public class SelectPreview : MonoBehaviour, ISelectHandler
     [Header("Reference To event on music manager")]
     private StudioEventEmitter musicEventReference;
     public float valueOnSelected;
-
-    private StudioEventEmitter[] emitters;
+    
     public void Awake()
     {
-        emitters = MusicManagerScript.instance.GetComponents<StudioEventEmitter>();
-        musicEventReference = emitters[1];
+        musicEventReference = MusicManagerScript.instance.GetComponent<StudioEventEmitter>();
     }
 
     public void OnSelect(BaseEventData eventData)

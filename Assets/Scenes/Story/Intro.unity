@@ -236,12 +236,12 @@ Prefab:
         type: 2}
       propertyPath: selectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 121330318}
+      objectReference: {fileID: 121330287}
     - target: {fileID: 114221383502173190, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
         type: 2}
       propertyPath: selectedCommands.Array.data[0]
       value: 
-      objectReference: {fileID: 121330316}
+      objectReference: {fileID: 121330308}
     - target: {fileID: 114092629178363292, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
         type: 2}
       propertyPath: targetComponentAssemblyName
@@ -317,7 +317,7 @@ Prefab:
     - target: {fileID: 114347422210220644, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
         type: 2}
       propertyPath: _duration.floatVal
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114195292430053796, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
         type: 2}
@@ -327,12 +327,12 @@ Prefab:
     - target: {fileID: 114774120244995070, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
         type: 2}
       propertyPath: _duration.floatVal
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114807756054323034, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
         type: 2}
       propertyPath: _duration.floatVal
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114093598819070566, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
         type: 2}
@@ -382,7 +382,7 @@ Prefab:
     - target: {fileID: 114681294541577802, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
         type: 2}
       propertyPath: _duration.floatVal
-      value: 3.5
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 114536049417405350, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
         type: 2}
@@ -644,6 +644,12 @@ MonoBehaviour:
   stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &121330287 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114179758221224202, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
+    type: 2}
+  m_PrefabInternal: {fileID: 121330280}
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
 --- !u!114 &121330290 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114073277910246536, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
@@ -824,12 +830,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 121330280}
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
---- !u!114 &121330318 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114076354028903508, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
-    type: 2}
-  m_PrefabInternal: {fileID: 121330280}
-  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
 --- !u!114 &121330322
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1095,7 +1095,7 @@ MonoBehaviour:
   indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
-    floatVal: 2
+    floatVal: 1
   durationOLD: 0
 --- !u!114 &121330333
 MonoBehaviour:

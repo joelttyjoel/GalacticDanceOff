@@ -40,7 +40,7 @@ namespace Fungus
         [SerializeField] protected GameObject punchObject;
 
         [Tooltip("Writing characters per second")]
-        [SerializeField] protected float writingSpeed = 60;
+        [SerializeField] protected float writingSpeed = 60f;
 
         [Tooltip("Pause duration for punctuation characters")]
         [SerializeField] protected float punctuationPause = 0.25f;

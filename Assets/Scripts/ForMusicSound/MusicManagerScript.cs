@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
+using FMOD.Studio;
 
 public class MusicManagerScript : MonoBehaviour {
-    public StudioEventEmitter topEmitter;
     public StudioEventEmitter menuEmitter;
+
+    [FMODUnity.EventRef]
+    private EventInstance menuEvent;
 
     public static MusicManagerScript instance = null;
 
@@ -20,23 +23,19 @@ public class MusicManagerScript : MonoBehaviour {
         DontDestroyOnLoad(this.gameObject);
     }
 
-    public void FadeInMusic(bool isMenuMusic)
+    private void Start()
     {
-
+        menuEvent = menuEmitter.EventInstance;
+        menuEvent.setVolume(0f);
     }
 
-    public void FadeOutMusic(bool isMenuMusic)
+    public void ResetSelected()
     {
-
+        menuEmitter.SetParameter("Selected Song", 0);
     }
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void SetVolumeMusic(float volume)
+    {
+        menuEvent.setVolume(volume);
+    }
 }

@@ -9,7 +9,7 @@ public class UISelectHandler : MonoBehaviour, ISelectHandler {
 	private Vector3 targetRotation;
 	public Animator stageAnimator;
 	public GameObject[] CharInfoPage;
-
+	public GameObject[] Arrows;
 	private Vector3 targetDir;
 
 	Dictionary <int, Vector3> CharSelect;
@@ -30,9 +30,13 @@ public class UISelectHandler : MonoBehaviour, ISelectHandler {
 	{
 		targetRotation = this.transform.localScale;
 		stageAnimator = GetComponent<Animator> ();
+		CharacterPage (currentSelect);
 		Invoke ("DisableAnimator", 2.4f);
 
 		targetDir = CharSelect [currentSelect] - transform.position;
+
+
+		//StartCoroutine (fade());
 	}
 
 	private void CharacterPage(int character)
@@ -48,14 +52,11 @@ public class UISelectHandler : MonoBehaviour, ISelectHandler {
 				CharInfoPage [i].SetActive (false);
 			}
 		}
-
-
 	}
 		
 	private void DisableAnimator()
 	{
 		stageAnimator.enabled = false;
-		CharacterPage (currentSelect);
 	}
 
 	public void OnSelect(BaseEventData eventData)
@@ -63,16 +64,10 @@ public class UISelectHandler : MonoBehaviour, ISelectHandler {
 		Debug.Log ( this.gameObject.name + " was selected");
 	}
 
-    //private Animator lastAnimatorSelected;
+
     // Update is called once per frame
     void Update () 
 	{
-        //if (EventSystem.current.currentSelectedGameObject.GetComponent<Animator>().isActiveAndEnabled)
-        //{
-        //    lastAnimatorSelected = EventSystem.current.currentSelectedGameObject.GetComponent<Animator>();
-        //}
-
-
         if (Input.GetKeyDown(KeyCode.Return))
         {
             if (EventSystem.current.currentSelectedGameObject.GetComponent<Animator>().isActiveAndEnabled && !SceneSwitchereController.instance.dissableAllInputs)

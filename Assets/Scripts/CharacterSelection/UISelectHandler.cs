@@ -63,18 +63,25 @@ public class UISelectHandler : MonoBehaviour, ISelectHandler {
 		Debug.Log ( this.gameObject.name + " was selected");
 	}
 
-	// Update is called once per frame
-	void Update () 
+    //private Animator lastAnimatorSelected;
+    // Update is called once per frame
+    void Update () 
 	{
-		if (Input.GetKeyDown(KeyCode.Return))
-		{
-			if (EventSystem.current.currentSelectedGameObject.GetComponent<Animator> ().isActiveAndEnabled) {
-				EventSystem.current.currentSelectedGameObject.GetComponent<Animator> ().SetTrigger ("Pressed");
-			}
-			EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
-		}
+        //if (EventSystem.current.currentSelectedGameObject.GetComponent<Animator>().isActiveAndEnabled)
+        //{
+        //    lastAnimatorSelected = EventSystem.current.currentSelectedGameObject.GetComponent<Animator>();
+        //}
 
-		if (Input.GetKeyDown (KeyCode.Y)) 
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            if (EventSystem.current.currentSelectedGameObject.GetComponent<Animator>().isActiveAndEnabled && !SceneSwitchereController.instance.dissableAllInputs)
+            {
+                EventSystem.current.currentSelectedGameObject.GetComponent<Animator>().SetTrigger("Pressed");
+            }
+        }
+
+        if (Input.GetKeyDown (KeyCode.Y)) 
 		{
 			Debug.Log (EventSystem.current.currentSelectedGameObject);
 		}

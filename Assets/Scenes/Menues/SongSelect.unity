@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -552,7 +552,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e9cd9b9eef19d94283d9a4d3f06441d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicEventReference: {fileID: 1900183882}
   valueOnSelected: 1
 --- !u!1001 &445457008
 Prefab:
@@ -591,7 +590,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4498172426619188, guid: 88a1f1706d6a7214896d9beeb791dd42, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4498172426619188, guid: 88a1f1706d6a7214896d9beeb791dd42, type: 2}
       propertyPath: m_LocalScale.x
@@ -911,7 +910,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4840034022192246, guid: dbd62a313e66e9447be064d1a82f893f, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1121414526395566, guid: dbd62a313e66e9447be064d1a82f893f, type: 2}
       propertyPath: m_Name
@@ -964,7 +963,7 @@ Transform:
   - {fileID: 677300146}
   - {fileID: 1350265893}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &619112127
 MonoBehaviour:
@@ -1142,7 +1141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e9cd9b9eef19d94283d9a4d3f06441d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicEventReference: {fileID: 1900183882}
   valueOnSelected: 4
 --- !u!1 &677300145
 GameObject:
@@ -1380,7 +1378,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1035013373
 GameObject:
@@ -1978,7 +1976,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e9cd9b9eef19d94283d9a4d3f06441d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicEventReference: {fileID: 1900183882}
   valueOnSelected: 5
 --- !u!1 &1283347631
 GameObject:
@@ -2196,7 +2193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e9cd9b9eef19d94283d9a4d3f06441d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicEventReference: {fileID: 1900183882}
   valueOnSelected: 0
 --- !u!1 &1420564266
 GameObject:
@@ -2520,7 +2516,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e9cd9b9eef19d94283d9a4d3f06441d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicEventReference: {fileID: 1900183882}
   valueOnSelected: 2
 --- !u!1 &1587850782
 GameObject:
@@ -2667,7 +2662,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e9cd9b9eef19d94283d9a4d3f06441d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicEventReference: {fileID: 1900183882}
   valueOnSelected: 0
 --- !u!1 &1596394043
 GameObject:
@@ -2814,7 +2808,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e9cd9b9eef19d94283d9a4d3f06441d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicEventReference: {fileID: 1900183882}
   valueOnSelected: 6
 --- !u!1 &1622758595
 GameObject:
@@ -2855,7 +2848,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1794597127
 GameObject:
@@ -2963,7 +2956,7 @@ Transform:
   m_LocalScale: {x: 0.7611336, y: 0.7611336, z: 0.7611336}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1885248004
 GameObject:
@@ -3154,59 +3147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e9cd9b9eef19d94283d9a4d3f06441d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicEventReference: {fileID: 1900183882}
   valueOnSelected: 3
---- !u!1 &1900183881
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1900183883}
-  - component: {fileID: 1900183882}
-  m_Layer: 0
-  m_Name: MusicManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1900183882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1900183881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: event:/Music/Menu/MainMenu
-  PlayEvent: 11
-  StopEvent: 12
-  CollisionTag: 
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
---- !u!4 &1900183883
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1900183881}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2804208, y: 2.8844213, z: 3.7997093}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2086796774
 GameObject:
   m_ObjectHideFlags: 0
@@ -3348,7 +3289,7 @@ RectTransform:
   m_LocalScale: {x: 0.62, y: 0.62, z: 0.62}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

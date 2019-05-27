@@ -30,6 +30,8 @@ public class FretController : MonoBehaviour {
     private float beatsUntilGoal = 1f;
     private bool hasgoneTooFar = false;
 
+    private float thingToAdd = 0.035f;
+
     void Start()
     {
         //set things from GameManager
@@ -46,6 +48,10 @@ public class FretController : MonoBehaviour {
         originalPos = transform.position;
         //set total final
         totalPercentageFinal = totalPercentageFinal + percentageAboveFinal;
+
+        //Give head start
+        timeAtBirth -= (thingToAdd * timeUntilGoal);
+
         //start fade in 
         //StartCoroutine(OnSpawnFade());
     }

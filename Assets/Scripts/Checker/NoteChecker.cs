@@ -318,7 +318,7 @@ public class NoteChecker : MonoBehaviour {
         //if above half of 1 -(perfect + all of good), closest line
         //if below perfect distance from center + 1, farthest line
         if (noteToCheck.percentageOfTravel + FixedDistancePercentage(noteToCheck) > 1 - (goodPercentageDistance + halfPerfectPercentageDistance)
-            && noteToCheck.percentageOfTravel + FixedDistancePercentage(noteToCheck) < 1 + halfPerfectPercentageDistance)
+            && (noteToCheck.percentageOfTravel + FixedDistancePercentage(noteToCheck) < 1 + halfPerfectPercentageDistance))
         {
             wasHit = true;
         }

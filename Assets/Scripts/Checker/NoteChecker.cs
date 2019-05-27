@@ -358,7 +358,7 @@ public class NoteChecker : MonoBehaviour {
         //DequeueNote();
         //noteCon.HasBeenHit();
         //Effects or other things
-        Debug.Log("Miss");
+        //Debug.Log("Miss");
         //play note miss sound
         AudioController.instance.PlayNoteSound(0f);
         //take damage on miss
@@ -370,7 +370,7 @@ public class NoteChecker : MonoBehaviour {
     private void NormalHit(NoteController noteCon)
     {
         //Effects or other things
-        Debug.Log("Hit");
+        Debug.Log("Hit: " + (noteCon.percentageOfTravel + FixedDistancePercentage(noteCon)));
         StartCoroutine(FadeOnHitImage(goodPerfMissSprites[0]));
         GameManagerController.instance.addScore(true, false);
         //AudioController.instance.PlayNoteSound(1f);
@@ -380,7 +380,7 @@ public class NoteChecker : MonoBehaviour {
     private void PerfectHit(NoteController noteCon)
     {
         //Effects or other things
-        Debug.Log("Perfect");
+        Debug.Log("Perfect: " + (noteCon.percentageOfTravel + FixedDistancePercentage(noteCon)));
         StartCoroutine(FadeOnHitImage(goodPerfMissSprites[1]));
         GameManagerController.instance.addScore(true, true);
         //AudioController.instance.PlayNoteSound(2f);

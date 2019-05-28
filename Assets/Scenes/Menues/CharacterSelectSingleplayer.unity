@@ -962,6 +962,10 @@ Prefab:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100042, guid: 2760364a0479f854cacdd4666b7f66e0, type: 3}
+      propertyPath: m_Name
+      value: "El\xFC\xFC"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2760364a0479f854cacdd4666b7f66e0, type: 3}
   m_IsPrefabParent: 0
@@ -1239,6 +1243,7 @@ GameObject:
   - component: {fileID: 1747355418}
   - component: {fileID: 1747355419}
   - component: {fileID: 1747355420}
+  - component: {fileID: 1747355421}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1279,18 +1284,29 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1747355417}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc9c91f2cf8327541b874459eb2b79f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
+  m_HorizontalAxis: null
   m_VerticalAxis: Vertical
   m_SubmitButton: Button A
   m_CancelButton: Back Button
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 1
   m_ForceModuleActive: 0
+--- !u!114 &1747355421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1747355417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af07df2ad858fa547b862882e8722415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1758001217 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100032, guid: 34bc8248e911cfb44893d6ce17772c77, type: 3}
@@ -1428,6 +1444,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: c9beeb8dd44d976478d2fe9fccd022ca, type: 2}
+    - target: {fileID: 100032, guid: 34bc8248e911cfb44893d6ce17772c77, type: 3}
+      propertyPath: m_Name
+      value: Dimy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 34bc8248e911cfb44893d6ce17772c77, type: 3}
   m_IsPrefabParent: 0
@@ -5311,6 +5331,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 3fad12102d1bd8e49ac4d5b2a2c72943, type: 2}
+    - target: {fileID: 100044, guid: 8d45dbf103f30894194d33873a183f80, type: 3}
+      propertyPath: m_Name
+      value: Oru
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d45dbf103f30894194d33873a183f80, type: 3}
   m_IsPrefabParent: 0

@@ -164,6 +164,7 @@ public class InputManager : MonoBehaviour {
                     eventSys.GetComponent<MyInputModule>().horizontalAxis = "XHorizontal";
                     eventSys.GetComponent<MyInputModule>().verticalAxis = "XVertical";
                     eventSys.GetComponent<MyInputModule>().submitButton = "Button A";
+					eventSys.GetComponent<MyInputModule>().cancelButton = "Button B";
                 }
 
                 else if (PS4_Controller == 1)
@@ -171,6 +172,7 @@ public class InputManager : MonoBehaviour {
                     eventSys.GetComponent<MyInputModule>().horizontalAxis = "PHorizontal";
                     eventSys.GetComponent<MyInputModule>().verticalAxis = "PVertical";
                     eventSys.GetComponent<MyInputModule>().submitButton = "Button B";
+					eventSys.GetComponent<MyInputModule>().cancelButton = "Button X";
                 }
             }
 

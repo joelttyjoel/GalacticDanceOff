@@ -60,14 +60,14 @@ public class IconFade : MonoBehaviour {
 		{
 			cooldown = false;
 			this.gameObject.GetComponent<Animator> ().Play ("ResizeAnimation");
-			Invoke ("CoolDown", 0.5f);
+			Invoke ("CoolDown", 1f);
 			image.sprite = info2;
 		} 
 		else if ((InputManager.instance.GetAxis (horizontalController) < 0 || Input.GetAxis ("Horizontal") < 0) && arrow && !Right && cooldown) 
 		{
 			cooldown = false;
 			this.gameObject.GetComponent<Animator> ().Play ("ResizeAnimation");
-			Invoke ("CoolDown", 0.5f);
+			Invoke ("CoolDown", 1f);
 			image.sprite = info2;
 		}
 	}

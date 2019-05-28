@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -588,7 +588,7 @@ Prefab:
     - target: {fileID: 224380158153402438, guid: 0a50281f696c8134aa0dbebb6a638224,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 199.9
+      value: 223.1
       objectReference: {fileID: 0}
     - target: {fileID: 224443974082625876, guid: 0a50281f696c8134aa0dbebb6a638224,
         type: 2}
@@ -803,12 +803,12 @@ Prefab:
     - target: {fileID: 114841704283052882, guid: 0a50281f696c8134aa0dbebb6a638224,
         type: 2}
       propertyPath: m_AnimationTriggers.m_PressedTrigger
-      value: 
+      value: Normal
       objectReference: {fileID: 0}
     - target: {fileID: 114488777968897114, guid: 0a50281f696c8134aa0dbebb6a638224,
         type: 2}
       propertyPath: m_AnimationTriggers.m_PressedTrigger
-      value: 
+      value: Normal
       objectReference: {fileID: 0}
     - target: {fileID: 114841704283052882, guid: 0a50281f696c8134aa0dbebb6a638224,
         type: 2}
@@ -954,6 +954,54 @@ Prefab:
       propertyPath: m_Navigation.m_SelectOnUp
       value: 
       objectReference: {fileID: 102083258}
+    - target: {fileID: 114761948133617600, guid: 0a50281f696c8134aa0dbebb6a638224,
+        type: 2}
+      propertyPath: changeSprite1
+      value: 
+      objectReference: {fileID: 21300000, guid: eea51af98f1bb5f48bcbde2ca128e694,
+        type: 3}
+    - target: {fileID: 114857654139389708, guid: 0a50281f696c8134aa0dbebb6a638224,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: eea51af98f1bb5f48bcbde2ca128e694,
+        type: 3}
+    - target: {fileID: 114761948133617600, guid: 0a50281f696c8134aa0dbebb6a638224,
+        type: 2}
+      propertyPath: changeSprite2
+      value: 
+      objectReference: {fileID: 21300000, guid: c4eff7950c9c87446b000aab7e4e748b,
+        type: 3}
+    - target: {fileID: 224646348238562164, guid: 0a50281f696c8134aa0dbebb6a638224,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 37.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224646348238562164, guid: 0a50281f696c8134aa0dbebb6a638224,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 95927765790823292, guid: 0a50281f696c8134aa0dbebb6a638224,
+        type: 2}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 95023351236012172, guid: 0a50281f696c8134aa0dbebb6a638224,
+        type: 2}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 95904816374953526, guid: 0a50281f696c8134aa0dbebb6a638224,
+        type: 2}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 95208227113317082, guid: 0a50281f696c8134aa0dbebb6a638224,
+        type: 2}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 95224341565163868, guid: 0a50281f696c8134aa0dbebb6a638224, type: 2}
     - {fileID: 95292926247780388, guid: 0a50281f696c8134aa0dbebb6a638224, type: 2}
@@ -1273,6 +1321,7 @@ MonoBehaviour:
   - {fileID: 1426854077}
   - {fileID: 1127731279}
   - {fileID: 102083255}
+  - {fileID: 161120724}
   countdown3: {fileID: 21300000, guid: ee7c13269efda7e48964e2c4ebfad187, type: 3}
   countdown2: {fileID: 21300000, guid: c33225531a2efdf4895c79ea0c92b282, type: 3}
   countdown1: {fileID: 21300000, guid: cbd7b1388eef9944fbc134b94531ea8e, type: 3}

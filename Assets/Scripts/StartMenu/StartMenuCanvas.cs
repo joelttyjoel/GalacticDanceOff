@@ -40,7 +40,7 @@ public class StartMenuCanvas : MonoBehaviour {
         
 
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+		if (Input.GetKeyDown(KeyCode.Backspace))
         {
             for (int i = 0; i < buttons.Length; i++)
             {

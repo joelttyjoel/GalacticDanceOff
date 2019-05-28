@@ -32,12 +32,12 @@ public class PauseGameScript : MonoBehaviour {
 		if (SceneSwitchereController.instance.Ps4) 
 		{
 			startButton = "PS4 Start Button";
-			backButton = "PS4 Back Button";
+			backButton = "Button X";
 		} 
 		else if(SceneSwitchereController.instance.xBox)
 		{
 			startButton = "Start Button";
-			backButton = "Back Button";
+			backButton = "Button B";
 		}
 
 	}
@@ -127,7 +127,7 @@ public class PauseGameScript : MonoBehaviour {
 	{
 		
 
-		if (Input.GetButtonDown(startButton) || Input.GetKeyDown(KeyCode.JoystickButton9)) 
+		if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown(startButton)) 
 		{
 			if (!menuBoard.activeInHierarchy && !SceneSwitchereController.instance.dissableAllInputs) 
 			{
@@ -135,16 +135,16 @@ public class PauseGameScript : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetButtonDown (backButton) || Input.GetKeyDown(KeyCode.JoystickButton8)) 
+		/*if (Input.GetButtonDown (backButton) || Input.GetKeyDown(KeyCode.JoystickButton8)) 
 		{
 			if (optionMenu.activeInHierarchy) 
 			{
 				ResumeGame ();
 			}
-		}
+		}*/
 
 
-		if (Input.GetButtonDown (backButton)) 
+		if (Input.GetButtonDown (backButton) || Input.GetKeyDown(KeyCode.Backspace)) 
 		{
 			for (int i = 0; i < buttons.Length; i++) 
 			{
@@ -157,6 +157,7 @@ public class PauseGameScript : MonoBehaviour {
 
 
 	}
+
 
     public void ReturnToMainMenu()
     {

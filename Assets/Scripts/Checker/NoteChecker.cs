@@ -38,9 +38,19 @@ public class NoteChecker : MonoBehaviour {
     private float timeUpdateFixed = 0.0f;
 
 
+    [SerializeField]
+    Color hitColorGood = Color.white;
+    [SerializeField]
+    Color hitColorPerfect = Color.yellow;
+
+
+    private ParticleSystem hitSystem;
+
     // Use this for initialization
     void Start ()
     {
+        hitSystem = GetComponent<ParticleSystem>();
+
         //read in images for hit
         goodPerfMissSprites.Add(goodPerfMiss[0].GetComponent<SpriteRenderer>());
         goodPerfMissSprites.Add(goodPerfMiss[1].GetComponent<SpriteRenderer>());
@@ -203,19 +213,23 @@ public class NoteChecker : MonoBehaviour {
             //check if correct note, if so hit, if not miss
             if (note1.noteType == noteKey)
             {
+                var main = hitSystem.main;
                 //is hit
-                GetComponent<ParticleSystem>().Stop();
-                GetComponent<ParticleSystem>().Play();
+                //hitSystem.Stop();
                 //if perfect
                 if (CheckNotePerfect(note1))
                 {
+                    main.startColor = hitColorPerfect;
                     PerfectHit(note1);
                 }
                 //if regular
                 else
                 {
+                    main.startColor = hitColorGood;
                     NormalHit(note1);
                 }
+                hitSystem.Play();
+
                 noteQueueList.RemoveAt(0);
                 note1.HasBeenHit();
             }

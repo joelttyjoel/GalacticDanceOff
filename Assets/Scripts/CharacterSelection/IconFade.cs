@@ -67,7 +67,7 @@ public class IconFade : MonoBehaviour {
 		{
 			cooldown = false;
 			this.gameObject.GetComponent<Animator> ().Play ("ResizeAnimation");
-			Invoke ("CoolDown", 0.5f);
+			Invoke ("CoolDown", 0.9f);
 			image.sprite = info2;
 		}
 	}

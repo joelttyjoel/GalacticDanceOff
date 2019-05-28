@@ -123,7 +123,6 @@ public class UISelectHandler : MonoBehaviour, ISelectHandler {
 			targetDir = CharSelect [currentSelect] - transform.position;
 			CharacterPage (currentSelect);
 		}*/
-
 		Quaternion newDir = Quaternion.LookRotation (new Vector3(targetDir.x, 0, -targetDir.z));
 		transform.rotation = Quaternion.Slerp (transform.rotation, newDir, speed * Time.deltaTime);
 	}

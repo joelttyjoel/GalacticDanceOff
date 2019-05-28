@@ -10,6 +10,9 @@ public class NonInteractableButton : MonoBehaviour {
 	public Transform backTransform;
 	public Image image;
 	public Sprite backsprite;
+	private string currentBack;
+	private string PS4_controller = "Button X"; 
+	private string XBOX_controller = "Button B";
 
 
 	// Use this for initialization
@@ -17,11 +20,20 @@ public class NonInteractableButton : MonoBehaviour {
 		back = back.GetComponent<Button> ();
 		backTransform = back.GetComponent<Transform> ();
 		image = back.GetComponent<Image> ();
+
+		currentBack = "BackKeyboard";
+		if (SceneSwitchereController.instance.Ps4)
+			currentBack = PS4_controller;
+		if (SceneSwitchereController.instance.xBox)
+			currentBack = XBOX_controller;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.Backspace) && !SceneSwitchereController.instance.dissableAllInputs) // or Back later 
+		
+
+		if ((Input.GetKeyDown (KeyCode.Backspace) ||  Input.GetButtonDown(currentBack)) && !SceneSwitchereController.instance.dissableAllInputs) 
 		{
 			image.sprite = backsprite;
 			backTransform.localScale *= 1.2f;

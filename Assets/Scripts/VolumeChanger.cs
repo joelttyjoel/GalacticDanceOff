@@ -64,7 +64,7 @@ public class VolumeChanger : MonoBehaviour {
 			
 
         //update value
-		if (Input.GetAxisRaw ("Horizontal") != 0 && EventSystem.current.currentSelectedGameObject.transform.childCount > 0) {
+		if (Input.GetAxisRaw(EventSystem.current.GetComponent<MyInputModule>().horizontalAxis) != 0 && EventSystem.current.currentSelectedGameObject.transform.childCount > 0) {
 			if (!oneFrameAxis && this.transform.parent.gameObject == EventSystem.current.currentSelectedGameObject) 
 			{
 				if(isMusic)
@@ -73,25 +73,29 @@ public class VolumeChanger : MonoBehaviour {
 					currentVolume = SceneSwitchereController.instance.volumeSound;
 				
 
-				if (Input.GetAxisRaw ("Horizontal") > 0 && EventSystem.current.currentSelectedGameObject == this.transform.parent.gameObject) {
+				if (Input.GetAxisRaw(EventSystem.current.GetComponent<MyInputModule>().horizontalAxis) > 0 && EventSystem.current.currentSelectedGameObject == this.transform.parent.gameObject) {
 					value = 0.1f;	
-					EventSystem.current.currentSelectedGameObject.transform.GetChild (2).GetComponent<Animator> ().Play ("ResizeAnimation");
-					//arrows [1].GetComponent<Animator> ().Play ("ResizeAnimation");
-				} else if(Input.GetAxisRaw ("Horizontal") < 0 && EventSystem.current.currentSelectedGameObject == this.transform.parent.gameObject) {
+					arrows [0].GetComponent<Animator> ().Play ("ResizeAnimation");
+					//EventSystem.current.currentSelectedGameObject.transform.GetChild (2).GetComponent<Animator> ().Play ("ResizeAnimation");
+
+				} else if(Input.GetAxisRaw(EventSystem.current.GetComponent<MyInputModule>().horizontalAxis) < 0 && EventSystem.current.currentSelectedGameObject == this.transform.parent.gameObject) {
 					value = -0.1f;
-					EventSystem.current.currentSelectedGameObject.transform.GetChild (1).GetComponent<Animator> ().Play ("ResizeAnimation");
+					arrows [0].GetComponent<Animator> ().Play ("ResizeAnimation");
+					//EventSystem.current.currentSelectedGameObject.transform.GetChild (1).GetComponent<Animator> ().Play ("ResizeAnimation");
 				}
 
-					lerpVolume = currentVolume + value;
+				lerpVolume = currentVolume + value;
 
+				float tempVol = currentVolume;
 
-					//pixel fixing to match the ButtonColor
+				//pixel fixing to match the ButtonColor
 				for (int i = 10; i > 0; i--) 
 				{
-					if (currentVolume < (float)i + 0.2f && currentVolume > (float)i - 0.8f) 
+					
+					if (tempVol < (float)i + 0.2f && tempVol > (float)i - 0.8f) 
 					{
-						currentVolume = i / 10;
-						if (currentVolume < 0.55f && currentVolume > 0.45f) 
+						tempVol = i / 10;
+						if (tempVol < 0.55f && tempVol > 0.45f) 
 						{
 							lerpVolume = 0.49f;
 						}
@@ -108,11 +112,11 @@ public class VolumeChanger : MonoBehaviour {
 		}
 		oneFrameAxis = false;
 
-		if (Input.GetAxisRaw ("Horizontal") != 0) 
+		if (Input.GetAxisRaw(EventSystem.current.GetComponent<MyInputModule>().horizontalAxis) != 0) 
 		{
 			oneFrameAxis = true;
 		}
-		if(Input.GetAxisRaw ("Horizontal") == 0)
+		if(Input.GetAxisRaw(EventSystem.current.GetComponent<MyInputModule>().horizontalAxis) == 0)
 		{
 			for (int i = 0; i < arrows.Length; i++) 
 			{

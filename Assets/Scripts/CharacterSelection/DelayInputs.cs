@@ -8,6 +8,9 @@ public class DelayInputs : MonoBehaviour {
 
 	private GameObject currentButton;
 	private AxisEventData currentAxis;
+	private string currentHorizontal;
+	private string PS4_controller = "PHorizontal"; 
+	private string XBOX_controller = "XHorizontal";
 
 	//timer
 	private float timeBetweenInputs = 1f; //in seconds
@@ -15,7 +18,11 @@ public class DelayInputs : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		currentHorizontal = "Horizontal";
+		if (SceneSwitchereController.instance.Ps4)
+			currentHorizontal = PS4_controller;
+		if (SceneSwitchereController.instance.xBox)
+			currentHorizontal = XBOX_controller;
 	}
 	
 	// Update is called once per frame
@@ -25,13 +32,13 @@ public class DelayInputs : MonoBehaviour {
 			currentAxis = new AxisEventData (EventSystem.current);
 			currentButton = EventSystem.current.currentSelectedGameObject;
 
-			if (Input.GetAxis ("Horizontal2") > 0) 
+			if ((Input.GetAxis (currentHorizontal) > 0 || Input.GetAxis("Horizontal") > 0) && !SceneSwitchereController.instance.dissableAllInputs) 
 			{
 				currentAxis.moveDir = MoveDirection.Right;
 				ExecuteEvents.Execute (currentButton, currentAxis, ExecuteEvents.moveHandler);
 				timer = timeBetweenInputs;
 			}
-			else if (Input.GetAxis ("Horizontal2") < 0) 
+			else if ((Input.GetAxis (currentHorizontal) < 0 || Input.GetAxis("Horizontal") < 0) && !SceneSwitchereController.instance.dissableAllInputs) 
 			{
 				currentAxis.moveDir = MoveDirection.Left;
 				ExecuteEvents.Execute (currentButton, currentAxis, ExecuteEvents.moveHandler);

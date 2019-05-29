@@ -117,6 +117,9 @@ public class GameManagerController : MonoBehaviour {
         //Get thing that reads from Fmod
         theGetter = musicManager.GetComponent<BeatGetterFromFmodText>();
 
+        //reset last won, is for setting button image
+        SceneSwitchereController.instance.wonLast = false;
+
         //set between
         betweenIsDone = true;
         //start doing automatic sequence thing
@@ -270,7 +273,7 @@ public class GameManagerController : MonoBehaviour {
         InputManager.instance.isInputsDisabled = true;
 
         //say text if early lose
-        if(currentBeatMap <= 2) fungusFlowChart.ExecuteBlock("CommentaryForEarlyLost");
+        fungusFlowChart.ExecuteBlock("CommentaryForEarlyLost");
 
         //SCREENSHAKE MMM BIG
         fungusFlowChart.ExecuteBlock("ShakeCameraRough");
@@ -386,11 +389,7 @@ public class GameManagerController : MonoBehaviour {
         leftAnimator.SetInteger("SelectState", 0);
         rightAnimator.SetInteger("SelectState", 0);
 
-        yield return new WaitForSeconds(1f);
-        if(playerScore > AIScore) fungusFlowChart.ExecuteBlock("CommentaryBetweenDoingGood");
-        else fungusFlowChart.ExecuteBlock("CommentaryBetweenDoingBad");
-
-        yield return new WaitForSeconds (2f);
+        yield return new WaitForSeconds (3f);
 
         AudioController.instance.PlayWinStinger();
 
@@ -404,6 +403,14 @@ public class GameManagerController : MonoBehaviour {
 
         yield return new WaitForSeconds (3f);
 		Debug.Log ("Animation");
+
+        //commntator
+        if (playerScore > AIScore) fungusFlowChart.ExecuteBlock("CommentaryBetweenDoingGood");
+        else fungusFlowChart.ExecuteBlock("CommentaryBetweenDoingBad");
+
+        //spotlight sound turn on
+        AudioController.instance.PlaySpotlight();
+
         if (playerScore > AIScore)
         {
             //left win
@@ -443,36 +450,75 @@ public class GameManagerController : MonoBehaviour {
         //disable inputs again
         InputManager.instance.isInputsDisabled = true;
         Debug.Log("Sequence finished");
-        if(playerScore > AIScore)
-        {
-            //set animations
-            leftAnimator.SetInteger("SelectState", 3);
-            rightAnimator.SetInteger("SelectState", 5);
-        }
-        else
-        {
-            //set animations
-            leftAnimator.SetInteger("SelectState", 5);
-            rightAnimator.SetInteger("SelectState", 3);
-        }
+        //set animations
+        leftAnimator.SetInteger("SelectState", 0);
+        rightAnimator.SetInteger("SelectState", 0);
         yield return new WaitForSeconds(3f);
-        Debug.Log("Do something");
-		if(playerScore > AIScore)
+        Debug.Log("Scoring final");
+
+        AudioController.instance.PlayWinStinger();
+
+        yield return new WaitForSeconds(3f);
+        Debug.Log("Win animations");
+        //spotlight sound turn on
+        AudioController.instance.PlaySpotlight();
+        bool didWin = false;
+        if (playerScore > AIScore)
 		{
 			//set animations
 			leftAnimator.SetInteger("SelectState", 3);
 			rightAnimator.SetInteger("SelectState", 5);
-		}
+            spotlightLeft.SetActive(true);
+            //add to finished win
+            didWin = true;
+        }
 		else
 		{
-			//set animations
-			leftAnimator.SetInteger("SelectState", 5);
+            //set animations
+            spotlightRight.SetActive(true);
+            leftAnimator.SetInteger("SelectState", 5);
 			rightAnimator.SetInteger("SelectState", 3);
 		}
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         Debug.Log("Done");
-        //when done, just reload scene again, boom
-        SceneSwitchereController.instance.LoadSceneByName("SongSelect", SceneSwitchereController.instance.nameCurrentSequence);
+        if(didWin)
+        {
+            //if big win
+            if (SceneSwitchereController.instance.numberClearedLevels >= 3)
+            {
+                fungusFlowChart.ExecuteBlock("EndOfCompetition");
+                yield return new WaitForSeconds(3f);
+                SceneSwitchereController.instance.GotoScene_SetName("Credits");
+                SceneSwitchereController.instance.GotoScene_SetSequence("null");
+            }
+            //small win
+            else
+            {
+                fungusFlowChart.ExecuteBlock("EndOfSong");
+                yield return new WaitForSeconds(3f);
+                SceneSwitchereController.instance.GotoScene_SetName("SongSelect");
+                SceneSwitchereController.instance.GotoScene_SetSequence("null");
+            }
+            
+            bool hasBeenClearedBefore = false;
+            foreach (string a in SceneSwitchereController.instance.buttonsAllCleared)
+            {
+                if (a == SceneSwitchereController.instance.lastBattleButtonName)
+                {
+                    hasBeenClearedBefore = true;
+                }
+            }
+            //only add one to score if hasn't been clread before
+            if (!hasBeenClearedBefore) SceneSwitchereController.instance.numberClearedLevels++;
+
+            SceneSwitchereController.instance.wonLast = true;
+        }
+        //lose
+        else
+        {
+            SceneSwitchereController.instance.GotoScene_SetName("SongSelect");
+            SceneSwitchereController.instance.GotoScene_SetSequence("null");
+        }
     }
 
     public IEnumerator SequenceStartRunEtc()

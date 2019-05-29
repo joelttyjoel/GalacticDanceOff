@@ -99,6 +99,9 @@ public class NoteController : MonoBehaviour {
 
             //note miss sounds
             AudioController.instance.PlayNoteSound(0f);
+
+            //send for dynamic music
+            MusicController.instance.AddNoteHitMiss(false);
         }
         //will deque
         noteChecker.GetComponent<NoteChecker>().DequeueNote();

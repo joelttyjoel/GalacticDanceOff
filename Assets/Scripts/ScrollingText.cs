@@ -65,6 +65,7 @@ public class ScrollingText : MonoBehaviour {
         //wait for x
         yield return new WaitForSeconds(3f);
         //go to menu scene
-        SceneSwitchereController.instance.LoadSceneByName("NewStartMenu", null);
+        SceneSwitchereController.instance.GotoScene_SetName("NewStartMenu");
+        SceneSwitchereController.instance.GotoScene_SetSequence("Null");
     }
 }

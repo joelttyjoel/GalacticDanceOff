@@ -58,6 +58,7 @@ public class PauseGameScript : MonoBehaviour {
 		pauseable = false;
 		Time.timeScale = 0f;
 		MusicController.instance.PauseMusic ();
+        AudioController.instance.PauseSound();
 		menuBoard.SetActive (true);
 		optionMenu.SetActive (true);
 
@@ -101,7 +102,8 @@ public class PauseGameScript : MonoBehaviour {
 
         InputManager.instance.isInputsDisabled = false;
 		MusicController.instance.ResumeMusic ();
-		Time.timeScale = 1f;
+        AudioController.instance.ResumeSound();
+        Time.timeScale = 1f;
 
 		yield return WaitToResumeGame (1f);
 

@@ -9,6 +9,8 @@ public class MusicController : MonoBehaviour
     [Header("The thing above reference")]
     public StudioEventEmitter myEmitter;
 
+    public StudioEventEmitter crowdEmitter;
+
     private int numberOfLevels = 1;
 
     public int numberOfNotesTracked = 12;
@@ -67,19 +69,24 @@ public class MusicController : MonoBehaviour
 
     private void SetHitPercentage(float percentage)
     {
-        myEmitter.SetParameter("Score", percentage * 100);
+        float hunnerdPercentage = percentage * 100;
+        myEmitter.SetParameter("Score", hunnerdPercentage);
+
+        crowdEmitter.SetParameter("Score", hunnerdPercentage);
     }
 
     public void PauseMusic()
     {
         //something with event, hmm
         myEmitter.EventInstance.setPaused(true);
+        crowdEmitter.EventInstance.setPaused(true);
     }
 
     public void ResumeMusic()
     {
         //same as pause but oposite
         myEmitter.EventInstance.setPaused(false);
+        crowdEmitter.EventInstance.setPaused(false);
     }
 
     public void EnterLevelByInt(int levelNumber)

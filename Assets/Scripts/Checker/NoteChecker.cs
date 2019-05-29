@@ -323,9 +323,6 @@ public class NoteChecker : MonoBehaviour {
             wasHit = true;
         }
 
-        //send for dynamic music
-        MusicController.instance.AddNoteHitMiss(wasHit);
-
         return wasHit;
     }
     //true if perfect, false if not
@@ -362,6 +359,8 @@ public class NoteChecker : MonoBehaviour {
         //noteCon.HasBeenHit();
         //Effects or other things
         //Debug.Log("Miss");
+        //send for dynamic music
+        MusicController.instance.AddNoteHitMiss(false);
         //play note miss sound
         AudioController.instance.PlayNoteSound(0f);
         //take damage on miss
@@ -377,6 +376,8 @@ public class NoteChecker : MonoBehaviour {
         StartCoroutine(FadeOnHitImage(goodPerfMissSprites[0]));
         GameManagerController.instance.addScore(true, false);
         //AudioController.instance.PlayNoteSound(1f);
+        //send for dynamic music
+        MusicController.instance.AddNoteHitMiss(true);
     }
 
     //Perfect timed hit
@@ -387,6 +388,8 @@ public class NoteChecker : MonoBehaviour {
         StartCoroutine(FadeOnHitImage(goodPerfMissSprites[1]));
         GameManagerController.instance.addScore(true, true);
         //AudioController.instance.PlayNoteSound(2f);
+        //send for dynamic music
+        MusicController.instance.AddNoteHitMiss(true);
     }
 
     private IEnumerator FadeOnHitImage(SpriteRenderer spriteToDo)

@@ -4765,7 +4765,7 @@ Prefab:
     - target: {fileID: 114294792002216600, guid: 2e29323a0ce0987478b547d152fc49c7,
         type: 2}
       propertyPath: selectedBlocks.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114294792002216600, guid: 2e29323a0ce0987478b547d152fc49c7,
         type: 2}
@@ -4808,7 +4808,7 @@ Prefab:
         type: 2}
       propertyPath: selectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 961910046}
+      objectReference: {fileID: 961910047}
     - target: {fileID: 114521117732876154, guid: 2e29323a0ce0987478b547d152fc49c7,
         type: 2}
       propertyPath: nodeRect.x
@@ -4817,7 +4817,7 @@ Prefab:
     - target: {fileID: 114521117732876154, guid: 2e29323a0ce0987478b547d152fc49c7,
         type: 2}
       propertyPath: nodeRect.y
-      value: 483.47827
+      value: 484.61462
       objectReference: {fileID: 0}
     - target: {fileID: 114668918081714562, guid: 2e29323a0ce0987478b547d152fc49c7,
         type: 2}
@@ -5017,7 +5017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 616cd37e21c7645c58a89edf5abee56f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 283
+  itemId: 354
   indentLevel: 0
   duration: 0.9
   amount: {x: 0.6, y: 0.05}
@@ -5037,11 +5037,11 @@ MonoBehaviour:
     serializedVersion: 2
     x: 67.234314
     y: -2.8017797
-    width: 168
+    width: 180.68181
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
-  itemId: 191
+  itemId: 352
   blockName: ShakeCameraRough
   description: 
   eventHandler: {fileID: 0}
@@ -5058,7 +5058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 616cd37e21c7645c58a89edf5abee56f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 284
+  itemId: 355
   indentLevel: 0
   duration: 0.25
   amount: {x: 0.015, y: 0.01}
@@ -5078,11 +5078,11 @@ MonoBehaviour:
     serializedVersion: 2
     x: 74.234314
     y: -41.80178
-    width: 155
+    width: 164.7727
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
-  itemId: 195
+  itemId: 353
   blockName: ShakeCameraSoft
   description: 
   eventHandler: {fileID: 0}
@@ -6926,6 +6926,57 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1658372816}
   m_Mesh: {fileID: 4300026, guid: 7941a05b2e074944b9d0263dfb8aecfa, type: 3}
+--- !u!1 &1700596580
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1700596582}
+  - component: {fileID: 1700596581}
+  m_Layer: 0
+  m_Name: Crowd
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1700596581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1700596580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/Sound/SFX/SFX_CrowdCheerLoop
+  PlayEvent: 1
+  StopEvent: 2
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!4 &1700596582
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1700596580}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.12296434, y: 0.47146195, z: -4.499467}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1701933344
 GameObject:
   m_ObjectHideFlags: 0
@@ -15061,6 +15112,11 @@ Prefab:
       propertyPath: m_Name
       value: MusicControllerGame
       objectReference: {fileID: 0}
+    - target: {fileID: 114432850065906706, guid: b30afee95a35a2346a5c381e7d2408a4,
+        type: 2}
+      propertyPath: crowdEmitter
+      value: 
+      objectReference: {fileID: 1700596581}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b30afee95a35a2346a5c381e7d2408a4, type: 2}
   m_IsPrefabParent: 0

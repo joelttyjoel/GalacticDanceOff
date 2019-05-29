@@ -313,8 +313,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 383177404}
   m_LocalRotation: {x: 0, y: 0, z: 0.9622655, w: 0.27211234}
-  m_LocalPosition: {x: -5.73, y: 4.06, z: 0}
-  m_LocalScale: {x: 4.58, y: 0.43000022, z: 1}
+  m_LocalPosition: {x: -5.47, y: 4.06, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1283347632}
   m_RootOrder: 2
@@ -353,7 +353,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 888feb4a32e3b564fb7e6f9b28cc8e10, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a45f3b0c51a659a4c9092cb3f71b27fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -375,6 +375,7 @@ GameObject:
   - component: {fileID: 391065833}
   - component: {fileID: 391065832}
   - component: {fileID: 391065835}
+  - component: {fileID: 391065836}
   m_Layer: 0
   m_Name: Stick1
   m_TagString: Untagged
@@ -465,6 +466,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1867526406}
+        m_MethodName: SetButtonSongSelect
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 391065830}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!95 &391065832
@@ -518,7 +530,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cbd7b1388eef9944fbc134b94531ea8e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 65e393399e5a1e14098eaa6036692f88, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -553,6 +565,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valueOnSelected: 1
+--- !u!114 &391065836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 391065830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71da77615e50a6d468afe13c30c4f652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisSpriteIfCleared: {fileID: 21300000, guid: dc60d557a8724984aa43f54280f19824,
+    type: 3}
 --- !u!1001 &445457008
 Prefab:
   m_ObjectHideFlags: 0
@@ -634,6 +659,7 @@ GameObject:
   - component: {fileID: 493506449}
   - component: {fileID: 493506452}
   - component: {fileID: 493506451}
+  - component: {fileID: 493506453}
   m_Layer: 0
   m_Name: Birb2
   m_TagString: Untagged
@@ -790,7 +816,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c33225531a2efdf4895c79ea0c92b282, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6b84dfc19d1d7fd46b8f6e0bb22cb0cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -800,6 +826,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &493506453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 493506448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71da77615e50a6d468afe13c30c4f652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisSpriteIfCleared: {fileID: 21300000, guid: 91fdbcc1a24d8d2478a9f04d4abc3577,
+    type: 3}
 --- !u!1 &574135860
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,8 +862,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 574135860}
   m_LocalRotation: {x: 0, y: 0, z: 0.718976, w: 0.695035}
-  m_LocalPosition: {x: -0.1, y: -3.93, z: 0}
-  m_LocalScale: {x: 1.85, y: 0.42999998, z: 1}
+  m_LocalPosition: {x: -0.16, y: -3.82, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.46, z: 1}
   m_Children: []
   m_Father: {fileID: 1283347632}
   m_RootOrder: 1
@@ -863,7 +902,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 888feb4a32e3b564fb7e6f9b28cc8e10, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ab6f1da53483b1d4781eea251fa84cc9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1008,6 +1047,7 @@ GameObject:
   - component: {fileID: 675101622}
   - component: {fileID: 675101621}
   - component: {fileID: 675101624}
+  - component: {fileID: 675101625}
   m_Layer: 0
   m_Name: Purple1
   m_TagString: Untagged
@@ -1053,7 +1093,62 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1867526406}
+        m_MethodName: SetOponentCharacter
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1867526406}
+        m_MethodName: GotoScene_SetName
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: BattleArena1Singleplayer
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1867526406}
+        m_MethodName: GotoScene_SetSequence
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Info_Rock_01
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1867526406}
+        m_MethodName: SetButtonSongSelect
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 675101619}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 445457010}
+        m_MethodName: PlayMainMenueSound
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!95 &675101621
@@ -1107,7 +1202,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cbd7b1388eef9944fbc134b94531ea8e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 65e393399e5a1e14098eaa6036692f88, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1142,6 +1237,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valueOnSelected: 4
+--- !u!114 &675101625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 675101619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71da77615e50a6d468afe13c30c4f652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisSpriteIfCleared: {fileID: 21300000, guid: dc60d557a8724984aa43f54280f19824,
+    type: 3}
 --- !u!1 &677300145
 GameObject:
   m_ObjectHideFlags: 0
@@ -1391,6 +1499,7 @@ GameObject:
   - component: {fileID: 1035013377}
   - component: {fileID: 1035013376}
   - component: {fileID: 1035013375}
+  - component: {fileID: 1035013378}
   m_Layer: 0
   m_Name: Birb1
   m_TagString: Untagged
@@ -1462,7 +1571,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cbd7b1388eef9944fbc134b94531ea8e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 65e393399e5a1e14098eaa6036692f88, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1513,6 +1622,19 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1035013378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1035013373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71da77615e50a6d468afe13c30c4f652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisSpriteIfCleared: {fileID: 21300000, guid: dc60d557a8724984aa43f54280f19824,
+    type: 3}
 --- !u!1001 &1068669215
 Prefab:
   m_ObjectHideFlags: 0
@@ -1737,8 +1859,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1150058042}
   m_LocalRotation: {x: -0, y: -0, z: 0.24082094, w: 0.97056955}
-  m_LocalPosition: {x: 6.64, y: 4.19, z: 0}
-  m_LocalScale: {x: 5.48, y: 0.43, z: 1}
+  m_LocalPosition: {x: 6.34, y: 4.04, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.43, z: 1}
   m_Children: []
   m_Father: {fileID: 1283347632}
   m_RootOrder: 0
@@ -1777,7 +1899,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 888feb4a32e3b564fb7e6f9b28cc8e10, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a45f3b0c51a659a4c9092cb3f71b27fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1799,6 +1921,7 @@ GameObject:
   - component: {fileID: 1278822782}
   - component: {fileID: 1278822781}
   - component: {fileID: 1278822784}
+  - component: {fileID: 1278822785}
   m_Layer: 0
   m_Name: Purple2
   m_TagString: Untagged
@@ -1875,7 +1998,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Info_Funk_02
+          m_StringArgument: Info_Rock_02
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 445457010}
@@ -1886,6 +2009,17 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1867526406}
+        m_MethodName: SetButtonSongSelect
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1278822779}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -1942,7 +2076,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c33225531a2efdf4895c79ea0c92b282, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6b84dfc19d1d7fd46b8f6e0bb22cb0cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1977,6 +2111,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valueOnSelected: 5
+--- !u!114 &1278822785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1278822779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71da77615e50a6d468afe13c30c4f652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisSpriteIfCleared: {fileID: 21300000, guid: 91fdbcc1a24d8d2478a9f04d4abc3577,
+    type: 3}
 --- !u!1 &1283347631
 GameObject:
   m_ObjectHideFlags: 0
@@ -2205,6 +2352,7 @@ GameObject:
   - component: {fileID: 1420564267}
   - component: {fileID: 1420564269}
   - component: {fileID: 1420564268}
+  - component: {fileID: 1420564271}
   m_Layer: 0
   m_Name: Birb3
   m_TagString: Untagged
@@ -2304,7 +2452,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ee7c13269efda7e48964e2c4ebfad187, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 89e369fbc740c7e4f841cb75b9337539, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2327,6 +2475,19 @@ Transform:
   m_Father: {fileID: 1350265893}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1420564271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1420564266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71da77615e50a6d468afe13c30c4f652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisSpriteIfCleared: {fileID: 21300000, guid: 2d7a546a755b3b94d982b4556e0f0f84,
+    type: 3}
 --- !u!1 &1458467103
 GameObject:
   m_ObjectHideFlags: 0
@@ -2339,6 +2500,7 @@ GameObject:
   - component: {fileID: 1458467106}
   - component: {fileID: 1458467105}
   - component: {fileID: 1458467108}
+  - component: {fileID: 1458467109}
   m_Layer: 0
   m_Name: Stick2
   m_TagString: Untagged
@@ -2429,6 +2591,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1867526406}
+        m_MethodName: SetButtonSongSelect
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1458467103}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!95 &1458467105
@@ -2482,7 +2655,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c33225531a2efdf4895c79ea0c92b282, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6b84dfc19d1d7fd46b8f6e0bb22cb0cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2517,6 +2690,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valueOnSelected: 2
+--- !u!114 &1458467109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1458467103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71da77615e50a6d468afe13c30c4f652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisSpriteIfCleared: {fileID: 21300000, guid: 91fdbcc1a24d8d2478a9f04d4abc3577,
+    type: 3}
 --- !u!1 &1587850782
 GameObject:
   m_ObjectHideFlags: 0
@@ -2675,6 +2861,7 @@ GameObject:
   - component: {fileID: 1596394046}
   - component: {fileID: 1596394045}
   - component: {fileID: 1596394048}
+  - component: {fileID: 1596394049}
   m_Layer: 0
   m_Name: Purple3
   m_TagString: Untagged
@@ -2689,7 +2876,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1596394043}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.8, y: -10.15, z: 0}
+  m_LocalPosition: {x: 2.8, y: -9.91, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 1350265893}
@@ -2746,7 +2933,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ee7c13269efda7e48964e2c4ebfad187, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 89e369fbc740c7e4f841cb75b9337539, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2794,7 +2981,62 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1867526406}
+        m_MethodName: SetOponentCharacter
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1867526406}
+        m_MethodName: GotoScene_SetName
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: BattleArena1Singleplayer
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1867526406}
+        m_MethodName: GotoScene_SetSequence
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Info_Rock_03
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1867526406}
+        m_MethodName: SetButtonSongSelect
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1596394043}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 445457010}
+        m_MethodName: PlayMainMenueSound
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1596394048
@@ -2809,6 +3051,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valueOnSelected: 6
+--- !u!114 &1596394049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1596394043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71da77615e50a6d468afe13c30c4f652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisSpriteIfCleared: {fileID: 21300000, guid: 2d7a546a755b3b94d982b4556e0f0f84,
+    type: 3}
 --- !u!1 &1622758595
 GameObject:
   m_ObjectHideFlags: 1
@@ -2970,6 +3225,7 @@ GameObject:
   - component: {fileID: 1885248007}
   - component: {fileID: 1885248006}
   - component: {fileID: 1885248009}
+  - component: {fileID: 1885248010}
   m_Layer: 0
   m_Name: Stick3
   m_TagString: Untagged
@@ -3041,7 +3297,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ee7c13269efda7e48964e2c4ebfad187, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 89e369fbc740c7e4f841cb75b9337539, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3134,6 +3390,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1867526406}
+        m_MethodName: SetButtonSongSelect
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1885248004}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1885248009
@@ -3148,6 +3415,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valueOnSelected: 3
+--- !u!114 &1885248010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1885248004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71da77615e50a6d468afe13c30c4f652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisSpriteIfCleared: {fileID: 21300000, guid: 2d7a546a755b3b94d982b4556e0f0f84,
+    type: 3}
 --- !u!1 &2086796774
 GameObject:
   m_ObjectHideFlags: 0

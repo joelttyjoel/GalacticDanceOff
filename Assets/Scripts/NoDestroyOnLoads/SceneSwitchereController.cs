@@ -19,6 +19,9 @@ public class SceneSwitchereController : MonoBehaviour {
 	public bool keyBoard, xBox, Ps4;
     //settings for character, oponent, cleared stages etc.
     public int numberClearedLevels = 0;
+    public string lastBattleButtonName = null;
+    public bool wonLast = false;
+    public List<string> buttonsAllCleared = new List<string>();
     //purple = 0, stick = 1, birb = 2
     public int selectedCharacter = 0;
     public int selectedOponent = 0;
@@ -44,7 +47,7 @@ public class SceneSwitchereController : MonoBehaviour {
         DontDestroyOnLoad(blackScreen.gameObject);
     }
 
-    public void LoadSceneByName(string nameOfScene, string nameOfSequence)
+    private void LoadSceneByName(string nameOfScene, string nameOfSequence)
     {
         //load scene no matter what
         SceneManager.LoadSceneAsync(nameOfScene);
@@ -101,6 +104,12 @@ public class SceneSwitchereController : MonoBehaviour {
     public void SetOponentCharacter(int selected)
     {
         selectedOponent = selected;
+    }
+
+    public void SetButtonSongSelect(GameObject sender)
+    {
+        lastBattleButtonName = sender.name;
+        Debug.Log("set button as last: "+sender.name);
     }
 
     public void SetVolume(float value, bool isMusic)
@@ -178,8 +187,9 @@ public class SceneSwitchereController : MonoBehaviour {
         if (currentIsMenu && !nextIsMenu)
         {
             MusicManagerScript.instance.SetVolumeMusic(0f);
-            MusicManagerScript.instance.ResetSelected();
         }
+        //always reset selected, can't go from selected to selected
+        MusicManagerScript.instance.ResetSelected();
 
         //SWITCH SCENE BETWEEN, stay black until next is loaded
         string currentScene = SceneManager.GetActiveScene().name;

@@ -21,6 +21,11 @@ public class ClickRemapper : MonoBehaviour {
     {
         sceneSwitcher.GotoScene_SetSequence(sequenceName);
     }
+    public void SetButtonSongSelect(GameObject sender)
+    {
+        SceneSwitchereController.instance.SetButtonSongSelect(sender);
+    }
+
     public void SetOwnCharacter(int selected)
     {
         SceneSwitchereController.instance.selectedCharacter = selected;

@@ -36,6 +36,10 @@ public class AudioController : MonoBehaviour {
     public string winStingerEventPath;
     private EventInstance winStingerSounds;
 
+    [FMODUnity.EventRef]
+    public string spotlightEventPath;
+    private EventInstance spotlightSounds;
+
     public bool audioIsEnabled = true;
 
     public static AudioController instance = null;
@@ -60,6 +64,7 @@ public class AudioController : MonoBehaviour {
         mainMenuSounds = FMODUnity.RuntimeManager.CreateInstance(mainMenuEventPath);
         scoreSounds = FMODUnity.RuntimeManager.CreateInstance(scoreEventPath);
         winStingerSounds = FMODUnity.RuntimeManager.CreateInstance(winStingerEventPath);
+        spotlightSounds = FMODUnity.RuntimeManager.CreateInstance(spotlightEventPath);
 
         //get vcas
         musicVca = FMODUnity.RuntimeManager.GetVCA(musicVolPath);
@@ -112,6 +117,12 @@ public class AudioController : MonoBehaviour {
         winStingerSounds.start();
     }
 
+    public void PlaySpotlight()
+    {
+        if (!audioIsEnabled) return;
+        spotlightSounds.start();
+    }
+
     public void SetVolumeByFloat(float value, bool isMusic)
     {
         if(isMusic)
@@ -122,5 +133,27 @@ public class AudioController : MonoBehaviour {
         {
             soundVca.setVolume(value);
         }
+    }
+    
+    //pause all but crowd sound
+    public void PauseSound()
+    {
+        buttonPress.setPaused(true);
+        hpSounds.setPaused(true);
+        pauseSounds.setPaused(true);
+        mainMenuSounds.setPaused(true);
+        scoreSounds.setPaused(true);
+        winStingerSounds.setPaused(true);
+        spotlightSounds.setPaused(true);
+    }
+    public void ResumeSound()
+    {
+        buttonPress.setPaused(false);
+        hpSounds.setPaused(false);
+        pauseSounds.setPaused(false);
+        mainMenuSounds.setPaused(false);
+        scoreSounds.setPaused(false);
+        winStingerSounds.setPaused(false);
+        spotlightSounds.setPaused(false);
     }
 }

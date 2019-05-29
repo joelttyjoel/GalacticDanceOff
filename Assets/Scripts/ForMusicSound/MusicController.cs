@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 using UnityEngine.UI;
@@ -10,7 +11,8 @@ public class MusicController : MonoBehaviour
 
     private int numberOfLevels = 1;
 
-    //hardcode names of parameters, dont change around, in fmod
+    public int numberOfNotesTracked = 12;
+    private List<bool> noteHits = new List<bool>();
 
     //for creating singleton, love easy referencing
     public static MusicController instance = null;
@@ -39,9 +41,33 @@ public class MusicController : MonoBehaviour
 
     }
 
-    public void SetVolumeBySlider(Slider sliderIn)
+    public void AddNoteHitMiss(bool wasHit)
     {
-        myEmitter.EventInstance.setVolume(sliderIn.value);
+        //add notevalue to end of list
+        noteHits.Add(wasHit);
+        //if is full, remove last element
+        if(noteHits.Count >= numberOfNotesTracked)
+        {
+            noteHits.RemoveAt(0);
+        }
+        //if not, compare how big percentage of notes are hit vs miss
+        float trueCount = 0;
+        float falseCount = 0;
+        foreach (bool a in noteHits)
+        {
+            if (a) trueCount++;
+            else falseCount++;
+        }
+
+        float percentageOfTrue = trueCount / (trueCount + falseCount);
+        //send this to musicEvent
+        SetHitPercentage(percentageOfTrue);
+        Debug.Log("percentage of true: "+percentageOfTrue);
+    }
+
+    private void SetHitPercentage(float percentage)
+    {
+        myEmitter.SetParameter("Score", percentage * 100);
     }
 
     public void PauseMusic()

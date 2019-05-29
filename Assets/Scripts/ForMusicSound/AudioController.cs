@@ -32,6 +32,10 @@ public class AudioController : MonoBehaviour {
     public string scoreEventPath;
     private EventInstance scoreSounds;
 
+    [FMODUnity.EventRef]
+    public string winStingerEventPath;
+    private EventInstance winStingerSounds;
+
     public bool audioIsEnabled = true;
 
     public static AudioController instance = null;
@@ -55,6 +59,7 @@ public class AudioController : MonoBehaviour {
         pauseSounds = FMODUnity.RuntimeManager.CreateInstance(pauseSoundsEventPath);
         mainMenuSounds = FMODUnity.RuntimeManager.CreateInstance(mainMenuEventPath);
         scoreSounds = FMODUnity.RuntimeManager.CreateInstance(scoreEventPath);
+        winStingerSounds = FMODUnity.RuntimeManager.CreateInstance(winStingerEventPath);
 
         //get vcas
         musicVca = FMODUnity.RuntimeManager.GetVCA(musicVolPath);
@@ -98,11 +103,16 @@ public class AudioController : MonoBehaviour {
         
         if (!audioIsEnabled) return;
         //scoreSounds.setParameterValue("MenuSelect", selectSound);
-        Debug.Log("Play score sound did I");
         scoreSounds.start();
     }
 
-	public void SetVolumeByFloat(float value, bool isMusic)
+    public void PlayWinStinger()
+    {
+        if (!audioIsEnabled) return;
+        winStingerSounds.start();
+    }
+
+    public void SetVolumeByFloat(float value, bool isMusic)
     {
         if(isMusic)
         {

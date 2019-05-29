@@ -323,6 +323,9 @@ public class NoteChecker : MonoBehaviour {
             wasHit = true;
         }
 
+        //send for dynamic music
+        MusicController.instance.AddNoteHitMiss(wasHit);
+
         return wasHit;
     }
     //true if perfect, false if not

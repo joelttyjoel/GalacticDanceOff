@@ -12,6 +12,7 @@ public class MusicManagerScript : MonoBehaviour {
 
     public static MusicManagerScript instance = null;
 
+    //THIS SCRIPT IS ONLY FOR MENU MUSIC, NOT OTHER MUSIC STUFF
     void Awake()
     {
         if (instance == null)

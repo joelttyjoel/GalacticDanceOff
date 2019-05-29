@@ -110,7 +110,7 @@ public class GameManagerController : MonoBehaviour {
         leftAnimator.SetInteger("SelectState", 1);
         rightAnimator.SetInteger("SelectState", 1);
         //get musicmanager
-        GameObject musicManager = GameObject.Find("MusicManager");
+        GameObject musicManager = GameObject.Find("MusicControllerGame");
         Debug.Assert(musicManager != null);
         //th thingy 
         eventEmitter = musicManager.GetComponent<FMOD_StudioEventEmitter>();
@@ -391,6 +391,9 @@ public class GameManagerController : MonoBehaviour {
         else fungusFlowChart.ExecuteBlock("CommentaryBetweenDoingBad");
 
         yield return new WaitForSeconds (2f);
+
+        AudioController.instance.PlayWinStinger();
+
 		Debug.Log ("Scoring");
 
         //start fireworks

@@ -18,6 +18,8 @@ public class InputManager : MonoBehaviour {
     Dictionary <string, bool>    xboxBool;
     Dictionary <string, bool>    ps4Bool;
 
+	[HideInInspector]
+	public string Submit;
 
     public EventSystem eventSys;
 
@@ -102,6 +104,7 @@ public class InputManager : MonoBehaviour {
 
     private void Start()
     {
+		Submit = "Button A";
         StartCoroutine(SearchForController());
     }
 
@@ -109,7 +112,9 @@ public class InputManager : MonoBehaviour {
     {
         if (SceneSwitchereController.instance.dissableAllInputs) return;
 
-		if (Input.GetKeyDown(KeyCode.Return) && EventSystem.current.currentSelectedGameObject.GetComponent<Button>().IsActive() && !SceneSwitchereController.instance.dissableAllInputs)
+		if ((Input.GetKeyDown(KeyCode.Return) &&
+			//((Input.GetButtonDown(Submit)) && (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "CharacterSelectSingleplayer") || UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "SongSelect"))
+			(EventSystem.current.currentSelectedGameObject.GetComponent<Button>().IsActive() && !SceneSwitchereController.instance.dissableAllInputs)))
         {
             EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
         }
@@ -165,6 +170,7 @@ public class InputManager : MonoBehaviour {
                     eventSys.GetComponent<MyInputModule>().verticalAxis = "XVertical";
                     eventSys.GetComponent<MyInputModule>().submitButton = "Button A";
 					eventSys.GetComponent<MyInputModule>().cancelButton = "Button B";
+					Submit = "Button A";
                 }
 
                 else if (PS4_Controller == 1)
@@ -173,6 +179,7 @@ public class InputManager : MonoBehaviour {
                     eventSys.GetComponent<MyInputModule>().verticalAxis = "PVertical";
                     eventSys.GetComponent<MyInputModule>().submitButton = "Button B";
 					eventSys.GetComponent<MyInputModule>().cancelButton = "Button X";
+					Submit = "Button B";
                 }
             }
 

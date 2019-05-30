@@ -71,13 +71,12 @@ public class UISelectHandler : MonoBehaviour, ISelectHandler {
     // Update is called once per frame
     void Update () 
 	{
-        if (Input.GetKeyDown(KeyCode.Return))
+        
+		if ((Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown(InputManager.instance.Submit)) && (EventSystem.current.currentSelectedGameObject.GetComponent<Animator>().isActiveAndEnabled && !SceneSwitchereController.instance.dissableAllInputs))
         {
-            if (EventSystem.current.currentSelectedGameObject.GetComponent<Animator>().isActiveAndEnabled && !SceneSwitchereController.instance.dissableAllInputs)
-            {
-                EventSystem.current.currentSelectedGameObject.GetComponent<Animator>().SetTrigger("Pressed");
-            }
+        	EventSystem.current.currentSelectedGameObject.GetComponent<Animator>().SetTrigger("Pressed");
         }
+        
 
         if (Input.GetKeyDown (KeyCode.Y)) 
 		{

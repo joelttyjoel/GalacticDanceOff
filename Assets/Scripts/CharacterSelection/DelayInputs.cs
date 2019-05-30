@@ -8,6 +8,7 @@ public class DelayInputs : MonoBehaviour {
 
 	private GameObject currentButton;
 	private AxisEventData currentAxis;
+	private string submit;
 	private string currentHorizontal;
 	private string PS4_controller = "PHorizontal"; 
 	private string XBOX_controller = "XHorizontal";
@@ -18,11 +19,16 @@ public class DelayInputs : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		submit = "Button A";
 		currentHorizontal = "Horizontal";
-		if (SceneSwitchereController.instance.Ps4)
+		if (SceneSwitchereController.instance.Ps4) {
+			submit = "Button B";
 			currentHorizontal = PS4_controller;
-		if (SceneSwitchereController.instance.xBox)
+		}
+		if (SceneSwitchereController.instance.xBox){
+			submit = "Button A";
 			currentHorizontal = XBOX_controller;
+		}
 	}
 	
 	// Update is called once per frame

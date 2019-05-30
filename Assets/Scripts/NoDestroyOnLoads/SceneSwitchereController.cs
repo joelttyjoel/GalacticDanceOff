@@ -55,7 +55,7 @@ public class SceneSwitchereController : MonoBehaviour {
         //Set current sequence
         nameCurrentSequence = nameOfSequence;
 
-        //select correct sequence list to search
+        //select correct sequence list to search // can crash the game
         List<Info_Sequence> listOfSeqToSearch;
         listOfSeqToSearch = all_Sequences_Sp;
         //search in list for correct name one

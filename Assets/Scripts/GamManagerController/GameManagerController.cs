@@ -433,9 +433,6 @@ public class GameManagerController : MonoBehaviour {
             a.GetComponent<ParticleSystem>().Stop();
         }
 
-		//Resume music I thinkk
-		AudioController.instance.ResumeSound();
-
         //set back spotlight
         spotlightLeft.SetActive(false);
         spotlightRight.SetActive(false);

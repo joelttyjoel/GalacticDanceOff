@@ -483,6 +483,18 @@ public class GameManagerController : MonoBehaviour {
         Debug.Log("Done");
         if(didWin)
         {
+            bool hasBeenClearedBefore = false;
+            foreach (string a in SceneSwitchereController.instance.buttonsAllCleared)
+            {
+                if (a == SceneSwitchereController.instance.lastBattleButtonName)
+                {
+                    hasBeenClearedBefore = true;
+                }
+            }
+            //only add one to score if hasn't been clread before
+            if (!hasBeenClearedBefore) SceneSwitchereController.instance.numberClearedLevels++;
+
+            SceneSwitchereController.instance.wonLast = true;
             //if big win
             if (SceneSwitchereController.instance.numberClearedLevels >= 3)
             {
@@ -499,19 +511,6 @@ public class GameManagerController : MonoBehaviour {
                 SceneSwitchereController.instance.GotoScene_SetName("SongSelect");
                 SceneSwitchereController.instance.GotoScene_SetSequence("null");
             }
-            
-            bool hasBeenClearedBefore = false;
-            foreach (string a in SceneSwitchereController.instance.buttonsAllCleared)
-            {
-                if (a == SceneSwitchereController.instance.lastBattleButtonName)
-                {
-                    hasBeenClearedBefore = true;
-                }
-            }
-            //only add one to score if hasn't been clread before
-            if (!hasBeenClearedBefore) SceneSwitchereController.instance.numberClearedLevels++;
-
-            SceneSwitchereController.instance.wonLast = true;
         }
         //lose
         else

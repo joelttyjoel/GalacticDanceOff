@@ -248,8 +248,8 @@ public class NoteChecker : MonoBehaviour {
                 //note miss
                 NoteMiss();
                 //remove note
-                //noteQueueList.RemoveAt(0);
-                //note1.HasBeenHit();
+                noteQueueList.RemoveAt(0);
+                note1.HasBeenHit();
             }
         }
         //first not wasn't in area, just outside area, if so, miss

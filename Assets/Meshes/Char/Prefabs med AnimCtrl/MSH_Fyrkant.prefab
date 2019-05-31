@@ -184,6 +184,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4478916123425370}
+  - component: {fileID: 114544813738697294}
   - component: {fileID: 137276771054124604}
   - component: {fileID: 320819124409257272}
   - component: {fileID: 95764446726766992}
@@ -292,6 +293,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4735016485068158}
+  - component: {fileID: 114344426472104720}
   - component: {fileID: 137000163208563922}
   m_Layer: 0
   m_Name: eye
@@ -1036,6 +1038,44 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114344426472104720
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1494625608288768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c917056057973384082be30ebf820093, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faceMaterials:
+  - {fileID: 2100000, guid: 01f20f66d871a3f46a2a056336ce696a, type: 2}
+  - {fileID: 2100000, guid: 01f20f66d871a3f46a2a056336ce696a, type: 2}
+  - {fileID: 2100000, guid: bad3fc047091bc74ca3671dd88b18759, type: 2}
+  - {fileID: 2100000, guid: bad3fc047091bc74ca3671dd88b18759, type: 2}
+  - {fileID: 2100000, guid: 1e74cd5a403a34745b6679111c51bb39, type: 2}
+  - {fileID: 2100000, guid: 1e74cd5a403a34745b6679111c51bb39, type: 2}
+  - {fileID: 2100000, guid: 6e69da0b5fd861b4097d3052d50b2a16, type: 2}
+--- !u!114 &114544813738697294
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1344528003386506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c917056057973384082be30ebf820093, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faceMaterials:
+  - {fileID: 2100000, guid: 01f20f66d871a3f46a2a056336ce696a, type: 2}
+  - {fileID: 2100000, guid: 01f20f66d871a3f46a2a056336ce696a, type: 2}
+  - {fileID: 2100000, guid: bad3fc047091bc74ca3671dd88b18759, type: 2}
+  - {fileID: 2100000, guid: bad3fc047091bc74ca3671dd88b18759, type: 2}
+  - {fileID: 2100000, guid: 1e74cd5a403a34745b6679111c51bb39, type: 2}
+  - {fileID: 2100000, guid: 1e74cd5a403a34745b6679111c51bb39, type: 2}
+  - {fileID: 2100000, guid: 6e69da0b5fd861b4097d3052d50b2a16, type: 2}
 --- !u!137 &137000163208563922
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

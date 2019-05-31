@@ -499,6 +499,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4163230312918038}
+  - component: {fileID: 114426580114766944}
   - component: {fileID: 137882998303285580}
   m_Layer: 0
   m_Name: napkin
@@ -1828,6 +1829,25 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114426580114766944
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1545738039305752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c917056057973384082be30ebf820093, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faceMaterials:
+  - {fileID: 2100000, guid: fbf5310d4aa7a0b43b4c7bf4073f0762, type: 2}
+  - {fileID: 2100000, guid: fbf5310d4aa7a0b43b4c7bf4073f0762, type: 2}
+  - {fileID: 2100000, guid: 6bf76f92179e1c84a94e20d8fa1a684c, type: 2}
+  - {fileID: 2100000, guid: 6bf76f92179e1c84a94e20d8fa1a684c, type: 2}
+  - {fileID: 2100000, guid: 65a118e4b75fe714dbb705b50555daae, type: 2}
+  - {fileID: 2100000, guid: 65a118e4b75fe714dbb705b50555daae, type: 2}
+  - {fileID: 2100000, guid: 19f02eb7ec1200a44b38273088f260c9, type: 2}
 --- !u!137 &137882998303285580
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

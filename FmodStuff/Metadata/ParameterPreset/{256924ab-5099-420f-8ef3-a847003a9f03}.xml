@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="ParameterPreset" id="{256924ab-5099-420f-8ef3-a847003a9f03}">
+        <property name="name">
+            <value>CrowdScore</value>
+        </property>
+        <relationship name="folder">
+            <destination>{4665fed4-c937-4a96-ac06-239d242f7258}</destination>
+        </relationship>
+        <relationship name="parameter">
+            <destination>{51bcb25a-ab81-458e-9d95-4bc612c3ab06}</destination>
+        </relationship>
+    </object>
+    <object class="GameParameter" id="{51bcb25a-ab81-458e-9d95-4bc612c3ab06}">
+        <property name="maximum">
+            <value>100</value>
+        </property>
+        <property name="initialValue">
+            <value>0</value>
+        </property>
+    </object>
+</objects>

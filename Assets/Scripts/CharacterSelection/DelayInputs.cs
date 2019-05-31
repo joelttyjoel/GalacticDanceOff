@@ -14,8 +14,8 @@ public class DelayInputs : MonoBehaviour {
 	private string XBOX_controller = "XHorizontal";
 
 	//timer
-	private float timeBetweenInputs = 1f; //in seconds
-	private float timer = 0;
+	private float timeBetweenInputs = 0.5f; //in seconds
+	private float timer = 0.3f;
 
 	// Use this for initialization
 	void Start () {

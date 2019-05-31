@@ -101,6 +101,7 @@
             <destination>{93dbe182-935f-4472-9525-d2494d264d5a}</destination>
             <destination>{f8c20df8-56ab-4e60-af1c-c1197903d290}</destination>
             <destination>{924b3ab5-97d4-4f54-9041-2fa9b6df982f}</destination>
+            <destination>{2e4a7ed7-d97f-4064-9b9e-b801f17ce47c}</destination>
         </relationship>
         <relationship name="mixerGroup">
             <destination>{68eaf064-b921-4fd2-95c1-8e3ef4729a49}</destination>
@@ -209,6 +210,7 @@
             <destination>{4e23ae1d-d937-4d9d-a8ba-62c8aca5715d}</destination>
             <destination>{67f016c9-a5da-45f3-8fb2-a9cf789039a9}</destination>
             <destination>{6bf28225-cda6-4cc4-b9e7-020f70933f9d}</destination>
+            <destination>{2e4a7ed7-d97f-4064-9b9e-b801f17ce47c}</destination>
         </relationship>
         <relationship name="markers">
             <destination>{79e22ba4-da8d-478c-bee5-649322db4790}</destination>
@@ -368,7 +370,7 @@
             <value>152</value>
         </property>
         <property name="length">
-            <value>10</value>
+            <value>5.3333333333333144</value>
         </property>
         <relationship name="audioFile">
             <destination>{97784fe4-920a-4d6c-b74a-267edaf118b2}</destination>
@@ -386,6 +388,17 @@
         <property name="length">
             <value>2</value>
         </property>
+    </object>
+    <object class="SingleSound" id="{2e4a7ed7-d97f-4064-9b9e-b801f17ce47c}">
+        <property name="start">
+            <value>157.33333333333331</value>
+        </property>
+        <property name="length">
+            <value>5.3333333333333144</value>
+        </property>
+        <relationship name="audioFile">
+            <destination>{97784fe4-920a-4d6c-b74a-267edaf118b2}</destination>
+        </relationship>
     </object>
     <object class="EventMixerGroup" id="{68eaf064-b921-4fd2-95c1-8e3ef4729a49}">
         <property name="name">
@@ -1135,7 +1148,7 @@
     </object>
     <object class="LoopRegion" id="{23018d7c-b2ea-4602-aa21-33aacf3fcf22}">
         <property name="position">
-            <value>152</value>
+            <value>157.33333333333331</value>
         </property>
         <property name="length">
             <value>5.3333333333333073</value>

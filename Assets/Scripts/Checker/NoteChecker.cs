@@ -38,9 +38,24 @@ public class NoteChecker : MonoBehaviour {
     private float timeUpdateFixed = 0.0f;
 
 
+    [SerializeField]
+    Color hitColorGood = Color.white;
+    [SerializeField]
+    int burstCountGood = 3;
+
+    [SerializeField]
+    Color hitColorPerfect = Color.yellow;
+    [SerializeField]
+    int burstCountPerfect = 10;
+
+
+    private ParticleSystem hitSystem;
+
     // Use this for initialization
     void Start ()
     {
+        hitSystem = GetComponent<ParticleSystem>();
+
         //read in images for hit
         goodPerfMissSprites.Add(goodPerfMiss[0].GetComponent<SpriteRenderer>());
         goodPerfMissSprites.Add(goodPerfMiss[1].GetComponent<SpriteRenderer>());
@@ -204,18 +219,27 @@ public class NoteChecker : MonoBehaviour {
             if (note1.noteType == noteKey)
             {
                 //is hit
-                GetComponent<ParticleSystem>().Stop();
-                GetComponent<ParticleSystem>().Play();
+                var main = hitSystem.main;
                 //if perfect
                 if (CheckNotePerfect(note1))
                 {
+                    main.startColor = hitColorPerfect;
+                    hitSystem.emission.SetBurst(0, new ParticleSystem.Burst(0.0f, burstCountPerfect));
+
                     PerfectHit(note1);
                 }
+
                 //if regular
                 else
                 {
+                    main.startColor = hitColorGood;
+                    hitSystem.emission.SetBurst(0, new ParticleSystem.Burst(0.0f, burstCountGood));
+
                     NormalHit(note1);
                 }
+
+                hitSystem.Play();
+
                 noteQueueList.RemoveAt(0);
                 note1.HasBeenHit();
             }

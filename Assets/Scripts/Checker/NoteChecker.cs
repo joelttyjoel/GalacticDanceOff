@@ -245,12 +245,11 @@ public class NoteChecker : MonoBehaviour {
             }
             else
             {
-                note1WasHit = false;
                 //note miss
                 NoteMiss();
                 //remove note
-                noteQueueList.RemoveAt(0);
-                note1.HasBeenHit();
+                //noteQueueList.RemoveAt(0);
+                //note1.HasBeenHit();
             }
         }
         //first not wasn't in area, just outside area, if so, miss
@@ -258,9 +257,9 @@ public class NoteChecker : MonoBehaviour {
         {
             NoteMiss();
         }
-        
 
-        ////if one or more notes always check first
+
+        //if one or more notes always check first
         //else if (noteQueueList.Count >= 1)
         //{
         //    NoteController note1 = noteQueueList[0];
@@ -288,7 +287,7 @@ public class NoteChecker : MonoBehaviour {
         //    }
         //}
         ////if two notes or more, do one more check on second note, only if first note was not hit
-        //if(!note1WasHit && noteQueueList.Count >= 2)
+        //if (!note1WasHit && noteQueueList.Count >= 2)
         //{
         //    //check second note too
         //    NoteController note2 = noteQueueList[0];
@@ -313,24 +312,6 @@ public class NoteChecker : MonoBehaviour {
         //        NoteMiss();
         //    }
         //}
-
-        //     //gets first note info
-        //     GameObject note = noteQueue.Peek();
-        //     NoteController noteCon = note.GetComponent<NoteController>();
-
-        //     //Checks if the right key for the note was pressed and the note is in the right area
-        //     if (noteCon.percentageOfTravel >= (1 - goodPercentageDistance)
-        //         && noteCon.percentageOfTravel <= (1 + goodPercentageDistance)
-        //&& noteCon.noteType == noteKey)
-        //     {
-        //         NoteGeneralHit(noteCon);
-        //     }
-
-        //     //Otherwise the note was not hit
-        //     else
-        //     {
-        //         NoteMiss(noteCon);
-        //     }
     }
 
     //true if hit, false if not hit

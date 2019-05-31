@@ -127,6 +127,13 @@ public class SceneSwitchereController : MonoBehaviour {
         }
     }
 
+    public void ResetVariables()
+    {
+        numberClearedLevels = 0;
+        buttonsAllCleared.Clear();
+        wonLast = false;
+    }
+
     //To enable on click, shhhhh is super effecient dont worry, is great
     private bool hasGotName = false;
     private bool hasGotSequence = false;

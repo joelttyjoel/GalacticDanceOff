@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CreditsSelectOnStart : MonoBehaviour {
-    Fungus.Flowchart flowChart;
+    public Fungus.Flowchart flowChart;
 	// Use this for initialization
 	void Start () {
 		if(SceneSwitchereController.instance.selectedCharacter == 0)

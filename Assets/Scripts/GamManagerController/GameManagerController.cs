@@ -22,6 +22,7 @@ public class GameManagerController : MonoBehaviour {
     [System.NonSerialized]
     public Fungus.Flowchart fungusFlowChart;
     public float timeBeforeFirstRun = 5f;
+    public int numberClearedToWin = 1;
 
     [Header("Animation settings")]
     [SerializeField]
@@ -142,7 +143,7 @@ public class GameManagerController : MonoBehaviour {
             playerHealth -= damagePerMiss;
             //shake camera
             //SCREENSHAKE MMM BIG
-            fungusFlowChart.ExecuteBlock("ShakeCameraSoft");
+            //fungusFlowChart.ExecuteBlock("ShakeCameraSoft");
             //set feel ouch
             int currentState = leftAnimator.GetInteger("SelectState");
             //set to one or the other
@@ -497,12 +498,14 @@ public class GameManagerController : MonoBehaviour {
 
             SceneSwitchereController.instance.wonLast = true;
             //if big win
-            if (SceneSwitchereController.instance.numberClearedLevels >= 3)
+            if (SceneSwitchereController.instance.numberClearedLevels >= numberClearedToWin)
             {
+                fungusFlowChart.SetIntegerVariable("CommentaryRan", SceneSwitchereController.instance.selectedCharacter);
                 fungusFlowChart.ExecuteBlock("EndOfCompetition");
+                SceneSwitchereController.instance.ResetVariables();
                 yield return new WaitForSeconds(3f);
-                SceneSwitchereController.instance.GotoScene_SetName("Credits");
-                SceneSwitchereController.instance.GotoScene_SetSequence("null");
+                //SceneSwitchereController.instance.GotoScene_SetName("Credits");
+                //SceneSwitchereController.instance.GotoScene_SetSequence("null");
             }
             //small win
             else

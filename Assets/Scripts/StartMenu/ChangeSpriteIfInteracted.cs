@@ -30,8 +30,6 @@ public class ChangeSpriteIfInteracted : MonoBehaviour {
         }
         else if (image.sprite != changeSprite1)
         {
-            Debug.Log("Switch sound PART 2");
-
             image.sprite = changeSprite1;
             this.transform.localScale = originalScale;
         }

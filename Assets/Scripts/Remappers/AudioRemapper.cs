@@ -36,4 +36,9 @@ public class AudioRemapper : MonoBehaviour {
     {
         audioController.PlayMainMenueSound(selectSound);
     }
+
+    public void PlaySongSelectSounds(float selectSound)
+    {
+        audioController.PlaySongSelectSounds(selectSound);
+    }
 }

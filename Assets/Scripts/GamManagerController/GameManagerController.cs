@@ -390,9 +390,10 @@ public class GameManagerController : MonoBehaviour {
         leftAnimator.SetInteger("SelectState", 0);
         rightAnimator.SetInteger("SelectState", 0);
 
-        yield return new WaitForSeconds (3f);
+        //increase crowd
+        MusicController.instance.crowdEmitter.SetParameter("CrowdScore", 100f);
 
-        AudioController.instance.PlayWinStinger();
+        yield return new WaitForSeconds (3f);
 
 		Debug.Log ("Scoring");
 
@@ -402,7 +403,10 @@ public class GameManagerController : MonoBehaviour {
             a.GetComponent<ParticleSystem>().Play();
         }
 
-        yield return new WaitForSeconds (3f);
+        yield return new WaitForSeconds(2.5f);
+        //start cheer a bit earlier
+        AudioController.instance.PlayCrowdCheer();
+        yield return new WaitForSeconds (0.5f);
 		Debug.Log ("Animation");
 
         //commntator
@@ -440,6 +444,10 @@ public class GameManagerController : MonoBehaviour {
         //set animations back to dancing once done, thanks
         leftAnimator.SetInteger("SelectState", 1);
         rightAnimator.SetInteger("SelectState", 1);
+
+        //increase crowd
+        MusicController.instance.crowdEmitter.SetParameter("CrowdScore", 0f);
+
         Debug.Log ("return to beatMap");
         betweenIsDone = true;
         //re enable inputs
@@ -455,6 +463,10 @@ public class GameManagerController : MonoBehaviour {
         //set animations
         leftAnimator.SetInteger("SelectState", 0);
         rightAnimator.SetInteger("SelectState", 0);
+
+        //increase crowd
+        MusicController.instance.crowdEmitter.SetParameter("CrowdScore", 100f);
+
         yield return new WaitForSeconds(3f);
         Debug.Log("Scoring final");
 

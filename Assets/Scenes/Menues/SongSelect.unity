@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 270107299}
   - component: {fileID: 270107298}
   - component: {fileID: 270107297}
+  - component: {fileID: 270107301}
   m_Layer: 0
   m_Name: BirbIcon
   m_TagString: Untagged
@@ -291,6 +292,18 @@ Transform:
   m_Father: {fileID: 1350265893}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &270107301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 270107296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b743df95ee5a1ce49b725c145e4fd19d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playSelectedSoundOnThis: 0
 --- !u!1 &383177404
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,7 +470,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 445457010}
-        m_MethodName: PlayMainMenueSound
+        m_MethodName: PlaySongSelectSounds
         m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -741,7 +754,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 445457010}
-        m_MethodName: PlayMainMenueSound
+        m_MethodName: PlaySongSelectSounds
         m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1140,7 +1153,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 445457010}
-        m_MethodName: PlayMainMenueSound
+        m_MethodName: PlaySongSelectSounds
         m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1260,6 +1273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 677300146}
   - component: {fileID: 677300147}
+  - component: {fileID: 677300148}
   m_Layer: 0
   m_Name: PlanetMoons_Rotation
   m_TagString: Untagged
@@ -1333,6 +1347,18 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &677300148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 677300145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b743df95ee5a1ce49b725c145e4fd19d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playSelectedSoundOnThis: 0
 --- !u!1 &867110967
 GameObject:
   m_ObjectHideFlags: 0
@@ -2003,7 +2029,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 445457010}
-        m_MethodName: PlayMainMenueSound
+        m_MethodName: PlaySongSelectSounds
         m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2208,6 +2234,7 @@ GameObject:
   - component: {fileID: 1356654815}
   - component: {fileID: 1356654814}
   - component: {fileID: 1356654817}
+  - component: {fileID: 1356654818}
   m_Layer: 0
   m_Name: StickIcon
   m_TagString: Untagged
@@ -2342,6 +2369,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valueOnSelected: 0
+--- !u!114 &1356654818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1356654812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b743df95ee5a1ce49b725c145e4fd19d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playSelectedSoundOnThis: 0
 --- !u!1 &1420564266
 GameObject:
   m_ObjectHideFlags: 0
@@ -2582,7 +2621,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 445457010}
-        m_MethodName: PlayMainMenueSound
+        m_MethodName: PlaySongSelectSounds
         m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2716,6 +2755,7 @@ GameObject:
   - component: {fileID: 1587850785}
   - component: {fileID: 1587850784}
   - component: {fileID: 1587850787}
+  - component: {fileID: 1587850788}
   m_Layer: 0
   m_Name: PurpleIcon
   m_TagString: Untagged
@@ -2850,6 +2890,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valueOnSelected: 0
+--- !u!114 &1587850788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1587850782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b743df95ee5a1ce49b725c145e4fd19d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playSelectedSoundOnThis: 0
 --- !u!1 &1596394043
 GameObject:
   m_ObjectHideFlags: 0
@@ -3028,13 +3080,13 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 445457010}
-        m_MethodName: PlayMainMenueSound
+        m_MethodName: PlaySongSelectSounds
         m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 3
+          m_FloatArgument: 1
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -3381,13 +3433,13 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 445457010}
-        m_MethodName: PlayMainMenueSound
+        m_MethodName: PlaySongSelectSounds
         m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 3
+          m_FloatArgument: 1
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2

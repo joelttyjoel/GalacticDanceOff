@@ -58,7 +58,7 @@ public class PauseGameScript : MonoBehaviour {
 		pauseable = false;
 		Time.timeScale = 0f;
 		MusicController.instance.PauseMusic ();
-        AudioController.instance.PauseSound();
+        //AudioController.instance.PauseSound();
 		menuBoard.SetActive (true);
 		optionMenu.SetActive (true);
 
@@ -164,6 +164,8 @@ public class PauseGameScript : MonoBehaviour {
     public void ReturnToMainMenu()
     {
         Time.timeScale = 1f;
+        AudioController.instance.ResumeSound();
+        //MusicController.instance.ResumeMusic();
     }
 
 }

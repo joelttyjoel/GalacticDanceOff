@@ -13,7 +13,8 @@ namespace UnityEngine.EventSystems
 
 		private Vector2 m_LastMousePosition;
 		private Vector2 m_MousePosition;
-
+        
+        private string lastSelectedGameObject;
 
 		protected MyInputModule()
 		{}
@@ -35,7 +36,15 @@ namespace UnityEngine.EventSystems
 			Cursor.lockState = CursorLockMode.Locked;
 			Cursor.lockState = CursorLockMode.Confined;
 			Cursor.visible = false;
-		}
+
+            if(this.gameObject.GetComponent<EventSystem>() != null)
+            {
+                if (this.gameObject.GetComponent<EventSystem>().currentSelectedGameObject != null)
+                    lastSelectedGameObject = this.gameObject.GetComponent<EventSystem>().currentSelectedGameObject.name;
+                else
+                    lastSelectedGameObject = "jeff";
+            }
+        }
 
 		[SerializeField]
 		private string m_HorizontalAxis = "Horizontal";
@@ -268,6 +277,17 @@ namespace UnityEngine.EventSystems
 			// Debug.Log(m_ProcessingEvent.rawType + " axis:" + m_AllowAxisEvents + " value:" + "(" + x + "," + y + ")");
 			var axisEventData = GetAxisEventData(movement.x, movement.y, 0.6f);
 			ExecuteEvents.Execute(eventSystem.currentSelectedGameObject, axisEventData, ExecuteEvents.moveHandler);
+            //on change thing play sound
+            if(lastSelectedGameObject != this.gameObject.GetComponent<EventSystem>().currentSelectedGameObject.name)
+            {
+                if(this.gameObject.GetComponent<EventSystem>().currentSelectedGameObject.GetComponent<OnSelectionChangePlaySound>() != null)
+                {
+                    this.gameObject.GetComponent<EventSystem>().currentSelectedGameObject.GetComponent<OnSelectionChangePlaySound>().WasSelected(lastSelectedGameObject);
+                }
+
+                lastSelectedGameObject = this.gameObject.GetComponent<EventSystem>().currentSelectedGameObject.name;
+            }
+
 			if (!similarDir)
 				m_ConsecutiveMoveCount = 0;
 			m_ConsecutiveMoveCount++;

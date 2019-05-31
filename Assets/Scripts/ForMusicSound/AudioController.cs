@@ -40,6 +40,18 @@ public class AudioController : MonoBehaviour {
     public string spotlightEventPath;
     private EventInstance spotlightSounds;
 
+    [FMODUnity.EventRef]
+    public string crowdCheerEventPath;
+    private EventInstance crowdCheerSounds;
+
+    [FMODUnity.EventRef]
+    public string fireworkEventPath;
+    private EventInstance fireWorkSounds;
+
+    [FMODUnity.EventRef]
+    public string songSelectSoundsPath;
+    private EventInstance songSelectSounds;
+
     public bool audioIsEnabled = true;
 
     public static AudioController instance = null;
@@ -65,6 +77,9 @@ public class AudioController : MonoBehaviour {
         scoreSounds = FMODUnity.RuntimeManager.CreateInstance(scoreEventPath);
         winStingerSounds = FMODUnity.RuntimeManager.CreateInstance(winStingerEventPath);
         spotlightSounds = FMODUnity.RuntimeManager.CreateInstance(spotlightEventPath);
+        crowdCheerSounds = FMODUnity.RuntimeManager.CreateInstance(crowdCheerEventPath);
+        fireWorkSounds = FMODUnity.RuntimeManager.CreateInstance(fireworkEventPath);
+        songSelectSounds = FMODUnity.RuntimeManager.CreateInstance(songSelectSoundsPath);
 
         //get vcas
         musicVca = FMODUnity.RuntimeManager.GetVCA(musicVolPath);
@@ -103,6 +118,13 @@ public class AudioController : MonoBehaviour {
         mainMenuSounds.start();
     }
 
+    public void PlaySongSelectSounds(float selectSound)
+    {
+        if (!audioIsEnabled) return;
+        songSelectSounds.setParameterValue("StageSelectUI", selectSound);
+        songSelectSounds.start();
+    }
+
     public void PlayScoreSound()
     {
         
@@ -123,6 +145,18 @@ public class AudioController : MonoBehaviour {
         spotlightSounds.start();
     }
 
+    public void PlayCrowdCheer()
+    {
+        if (!audioIsEnabled) return;
+        crowdCheerSounds.start();
+    }
+
+    public void PlayFireWork()
+    {
+        if (!audioIsEnabled) return;
+        fireWorkSounds.start();
+    }
+
     public void SetVolumeByFloat(float value, bool isMusic)
     {
         if(isMusic)
@@ -138,6 +172,7 @@ public class AudioController : MonoBehaviour {
     //pause all but crowd sound
     public void PauseSound()
     {
+        Debug.Log("Has been paused");
         buttonPress.setPaused(true);
         hpSounds.setPaused(true);
         pauseSounds.setPaused(true);
@@ -145,9 +180,11 @@ public class AudioController : MonoBehaviour {
         scoreSounds.setPaused(true);
         winStingerSounds.setPaused(true);
         spotlightSounds.setPaused(true);
+        crowdCheerSounds.setPaused(true);
     }
     public void ResumeSound()
     {
+        Debug.Log("Resumed");
         buttonPress.setPaused(false);
         hpSounds.setPaused(false);
         pauseSounds.setPaused(false);
@@ -155,5 +192,6 @@ public class AudioController : MonoBehaviour {
         scoreSounds.setPaused(false);
         winStingerSounds.setPaused(false);
         spotlightSounds.setPaused(false);
+        crowdCheerSounds.setPaused(false);
     }
 }

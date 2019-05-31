@@ -71,8 +71,6 @@ public class MusicController : MonoBehaviour
     {
         float hunnerdPercentage = percentage * 100;
         myEmitter.SetParameter("Score", hunnerdPercentage);
-
-        crowdEmitter.SetParameter("Score", hunnerdPercentage);
     }
 
     public void PauseMusic()

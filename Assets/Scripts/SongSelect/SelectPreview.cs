@@ -17,6 +17,7 @@ public class SelectPreview : MonoBehaviour, ISelectHandler
 
     public void OnSelect(BaseEventData eventData)
     {
+        Debug.Log("Set it to: " + valueOnSelected);
         musicEventReference.SetParameter("Selected Song", valueOnSelected);
     }
 }

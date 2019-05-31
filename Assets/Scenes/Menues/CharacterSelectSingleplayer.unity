@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -242,6 +242,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: null
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1481670305}
+        m_MethodName: PlayMainMenueSound
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 2
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1071,6 +1082,54 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!1001 &1481670304
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4791914642934270, guid: b3bacb9d25e95b9439249739c3ca1dd2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -360.30966
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791914642934270, guid: b3bacb9d25e95b9439249739c3ca1dd2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -235.50658
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791914642934270, guid: b3bacb9d25e95b9439249739c3ca1dd2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 92.902466
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791914642934270, guid: b3bacb9d25e95b9439249739c3ca1dd2, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791914642934270, guid: b3bacb9d25e95b9439249739c3ca1dd2, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791914642934270, guid: b3bacb9d25e95b9439249739c3ca1dd2, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791914642934270, guid: b3bacb9d25e95b9439249739c3ca1dd2, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791914642934270, guid: b3bacb9d25e95b9439249739c3ca1dd2, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b3bacb9d25e95b9439249739c3ca1dd2, type: 2}
+  m_IsPrefabParent: 0
+--- !u!114 &1481670305 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114277892884970158, guid: b3bacb9d25e95b9439249739c3ca1dd2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1481670304}
+  m_Script: {fileID: 11500000, guid: a02aa98e43a1b33438b611d28e3d91bc, type: 3}
 --- !u!1 &1578364180
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,6 +1290,17 @@ MonoBehaviour:
           m_StringArgument: null
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1481670305}
+        m_MethodName: PlayMainMenueSound
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 3
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &1747355417
@@ -1381,6 +1451,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: null
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114277892884970158, guid: b3bacb9d25e95b9439249739c3ca1dd2,
+          type: 2}
+        m_MethodName: PlayMainMenueSound
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 3
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -5094,6 +5176,17 @@ MonoBehaviour:
           m_StringArgument: null
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1481670305}
+        m_MethodName: PlayMainMenueSound
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 3
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1001 &1874114386
@@ -5256,6 +5349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInputsDisabled: 0
+  Submit: 
   eventSys: {fileID: 1747355419}
   Xbox_One_Controller: 0
   PS4_Controller: 0

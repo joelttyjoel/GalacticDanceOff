@@ -84,6 +84,9 @@ public class VolumeChanger : MonoBehaviour {
 					//EventSystem.current.currentSelectedGameObject.transform.GetChild (1).GetComponent<Animator> ().Play ("ResizeAnimation");
 				}
 
+                //both left and right sound
+                AudioController.instance.PlayMainMenueSound(0f);
+
 				lerpVolume = currentVolume + value;
 
 				float tempVol = currentVolume;

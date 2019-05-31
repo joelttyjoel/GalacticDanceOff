@@ -15,7 +15,7 @@ public class UISelectHandler : MonoBehaviour, ISelectHandler {
 
 	Dictionary <int, Vector3> CharSelect;
 	int currentSelect = 1;
-	float speed = 1.5f;
+	float speed = 4f;
 
 	void OnEnable()
 	{

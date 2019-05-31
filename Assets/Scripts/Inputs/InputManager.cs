@@ -110,14 +110,19 @@ public class InputManager : MonoBehaviour {
 
     void Update()
     {
+		if (Input.GetKeyDown (KeyCode.Y)) 
+		{
+			Debug.Log (EventSystem.current.currentSelectedGameObject);
+		}
         if (SceneSwitchereController.instance.dissableAllInputs) return;
 
-		if (Input.GetKeyDown(KeyCode.Return) || 
-			(Input.GetButtonDown(Submit) && UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "CharacterSelectSingleplayer") &&
+		if ((Input.GetKeyDown(KeyCode.Return) || 
+			(Input.GetButtonDown(Submit) && UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "CharacterSelectSingleplayer")) &&
 			(EventSystem.current.currentSelectedGameObject.GetComponent<Button>().IsActive() && !SceneSwitchereController.instance.dissableAllInputs))
         {
             EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
         }
+
         
     }
 

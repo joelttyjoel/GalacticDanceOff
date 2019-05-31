@@ -35,4 +35,8 @@ public class ClickRemapper : MonoBehaviour {
         SceneSwitchereController.instance.selectedOponent = selected;
     }
 
+    public void ResetVariables()
+    {
+        SceneSwitchereController.instance.ResetVariables();
+    }
 }

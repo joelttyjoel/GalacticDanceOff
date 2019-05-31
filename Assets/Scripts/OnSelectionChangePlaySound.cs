@@ -9,7 +9,7 @@ public class OnSelectionChangePlaySound : MonoBehaviour {
     public void WasSelected(string lastSelectedName)
     {
         Debug.Log("This was selected");
-        if(playSelectedSoundOnThis)
+        if(playSelectedSoundOnThis && this.isActiveAndEnabled)
         {
             AudioController.instance.PlayMainMenueSound(0f);
         }

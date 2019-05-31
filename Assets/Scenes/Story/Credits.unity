@@ -1925,6 +1925,9 @@ GameObject:
   - component: {fileID: 595136177}
   - component: {fileID: 595136182}
   - component: {fileID: 595136183}
+  - component: {fileID: 595136185}
+  - component: {fileID: 595136184}
+  - component: {fileID: 595136181}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -3062,6 +3065,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
+  - {fileID: 595136185}
   - {fileID: 595136165}
   - {fileID: 595136162}
   - {fileID: 595136161}
@@ -3300,6 +3304,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
+  - {fileID: 595136184}
   - {fileID: 595136166}
   - {fileID: 595136171}
   - {fileID: 595136170}
@@ -3485,6 +3490,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
+  - {fileID: 595136181}
   - {fileID: 595136173}
   - {fileID: 595136178}
   - {fileID: 595136180}
@@ -3509,6 +3515,23 @@ MonoBehaviour:
   _duration:
     floatRef: {fileID: 0}
     floatVal: 2.5
+  durationOLD: 0
+--- !u!114 &595136181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 595136116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 102
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 1.5
   durationOLD: 0
 --- !u!114 &595136182
 MonoBehaviour:
@@ -3543,6 +3566,40 @@ MonoBehaviour:
   _duration:
     floatRef: {fileID: 0}
     floatVal: 1.7
+  durationOLD: 0
+--- !u!114 &595136184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 595136116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 101
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 1.5
+  durationOLD: 0
+--- !u!114 &595136185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 595136116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 100
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 1.5
   durationOLD: 0
 --- !u!1 &613865954
 GameObject:

@@ -9568,8 +9568,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8e8d8144adb9f4ab5bce9621838e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chanceToHitAll: 0.75
-  chanceForPerfect: 0.6
+  chanceToHitAll: 1
+  chanceForPerfect: 1
 --- !u!4 &1342988170
 Transform:
   m_ObjectHideFlags: 0
@@ -10239,8 +10239,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 217, y: -529.2}
-  m_SizeDelta: {x: 222.46, y: 313}
+  m_AnchoredPosition: {x: 219.5, y: -529.2}
+  m_SizeDelta: {x: 267, y: 442}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1656460122
 MonoBehaviour:
@@ -10327,9 +10327,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee256de3d5d9304cb55b24d9929ee17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeSprite1: {fileID: 21300000, guid: 93b7170d5d82a30489c509b28879ccdd, type: 3}
-  changeSprite2: {fileID: 21300000, guid: 502bff53819654144acca0776791f068, type: 3}
-  resize: 1.2
+  changeSprite1: {fileID: 21300000, guid: fbaab90be66f930458b4df00c8a44eba, type: 3}
+  changeSprite2: {fileID: 21300000, guid: 472cc95662bd417428742159ae37d1d1, type: 3}
+  resize: 1.05
 --- !u!114 &1656460124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10349,7 +10349,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 93b7170d5d82a30489c509b28879ccdd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fbaab90be66f930458b4df00c8a44eba, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

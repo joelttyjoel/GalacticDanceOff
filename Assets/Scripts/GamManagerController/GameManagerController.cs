@@ -34,6 +34,7 @@ public class GameManagerController : MonoBehaviour {
     public GameObject leftCharacterHolder;
     public GameObject rightCharacterHolder;
     public List<GameObject> allCharacterPrefabs012;
+	public Animator[] audienceAnimations;
     private Animator leftAnimator;
     private Animator rightAnimator;
 
@@ -390,10 +391,9 @@ public class GameManagerController : MonoBehaviour {
         leftAnimator.SetInteger("SelectState", 0);
         rightAnimator.SetInteger("SelectState", 0);
 
-        //increase crowd
-        MusicController.instance.crowdEmitter.SetParameter("CrowdScore", 100f);
-
         yield return new WaitForSeconds (3f);
+
+        AudioController.instance.PlayWinStinger();
 
 		Debug.Log ("Scoring");
 
@@ -403,10 +403,7 @@ public class GameManagerController : MonoBehaviour {
             a.GetComponent<ParticleSystem>().Play();
         }
 
-        yield return new WaitForSeconds(2.5f);
-        //start cheer a bit earlier
-        AudioController.instance.PlayCrowdCheer();
-        yield return new WaitForSeconds (0.5f);
+        yield return new WaitForSeconds (3f);
 		Debug.Log ("Animation");
 
         //commntator
@@ -419,6 +416,10 @@ public class GameManagerController : MonoBehaviour {
         if (playerScore > AIScore)
         {
             //left win
+			for(int i = 0; i < audienceAnimations.Length; i++)
+			{
+				audienceAnimations [i].SetInteger ("SelectState", 2);
+			}
             spotlightLeft.SetActive(true);
             leftAnimator.SetInteger("SelectState", 2);
             rightAnimator.SetInteger("SelectState", 5);
@@ -426,6 +427,10 @@ public class GameManagerController : MonoBehaviour {
         else
         {
             //set animations
+			for(int i = 0; i < audienceAnimations.Length; i++)
+			{
+				audienceAnimations [i].SetInteger ("SelectState", 1);
+			}
             spotlightRight.SetActive(true);
             leftAnimator.SetInteger("SelectState", 5);
             rightAnimator.SetInteger("SelectState", 2);
@@ -438,16 +443,18 @@ public class GameManagerController : MonoBehaviour {
             a.GetComponent<ParticleSystem>().Stop();
         }
 
+
         //set back spotlight
         spotlightLeft.SetActive(false);
         spotlightRight.SetActive(false);
         //set animations back to dancing once done, thanks
         leftAnimator.SetInteger("SelectState", 1);
         rightAnimator.SetInteger("SelectState", 1);
-
-        //increase crowd
-        MusicController.instance.crowdEmitter.SetParameter("CrowdScore", 0f);
-
+		//Audience to idle animation
+		for(int i = 0; i < audienceAnimations.Length; i++)
+		{
+			audienceAnimations [i].SetInteger ("SelectState", 0);
+		}
         Debug.Log ("return to beatMap");
         betweenIsDone = true;
         //re enable inputs
@@ -463,10 +470,6 @@ public class GameManagerController : MonoBehaviour {
         //set animations
         leftAnimator.SetInteger("SelectState", 0);
         rightAnimator.SetInteger("SelectState", 0);
-
-        //increase crowd
-        MusicController.instance.crowdEmitter.SetParameter("CrowdScore", 100f);
-
         yield return new WaitForSeconds(3f);
         Debug.Log("Scoring final");
 
@@ -480,6 +483,11 @@ public class GameManagerController : MonoBehaviour {
         if (playerScore > AIScore)
 		{
 			//set animations
+			//Audience to idle animation
+			for(int i = 0; i < audienceAnimations.Length; i++)
+			{
+				audienceAnimations [i].SetInteger ("SelectState", 2);
+			}
 			leftAnimator.SetInteger("SelectState", 3);
 			rightAnimator.SetInteger("SelectState", 5);
             spotlightLeft.SetActive(true);
@@ -489,6 +497,11 @@ public class GameManagerController : MonoBehaviour {
 		else
 		{
             //set animations
+			//Audience to idle animation
+			for(int i = 0; i < audienceAnimations.Length; i++)
+			{
+				audienceAnimations [i].SetInteger ("SelectState", 1);
+			}
             spotlightRight.SetActive(true);
             leftAnimator.SetInteger("SelectState", 5);
 			rightAnimator.SetInteger("SelectState", 3);

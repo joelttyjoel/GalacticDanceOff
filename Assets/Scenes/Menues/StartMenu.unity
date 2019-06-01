@@ -166,7 +166,6 @@ GameObject:
   - component: {fileID: 60894727}
   - component: {fileID: 60894726}
   - component: {fileID: 60894729}
-  - component: {fileID: 60894730}
   m_Layer: 5
   m_Name: KeyBoard
   m_TagString: Untagged
@@ -324,18 +323,6 @@ MonoBehaviour:
   changeSprite1: {fileID: 21300000, guid: 619a3e79bb9d8eb4da94ee4ab4a28d27, type: 3}
   changeSprite2: {fileID: 21300000, guid: 8ad0ba49d6ff72d4489323550af25e54, type: 3}
   resize: 1.3
---- !u!114 &60894730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 60894724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b743df95ee5a1ce49b725c145e4fd19d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playSelectedSoundOnThis: 1
 --- !u!1 &68789796
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,7 +440,6 @@ GameObject:
   - component: {fileID: 225052242}
   - component: {fileID: 225052247}
   - component: {fileID: 225052246}
-  - component: {fileID: 225052245}
   m_Layer: 5
   m_Name: Volume
   m_TagString: Untagged
@@ -591,18 +577,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 225052240}
---- !u!114 &225052245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 225052240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b743df95ee5a1ce49b725c145e4fd19d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playSelectedSoundOnThis: 1
 --- !u!114 &225052246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -645,7 +619,6 @@ GameObject:
   - component: {fileID: 363451396}
   - component: {fileID: 363451395}
   - component: {fileID: 363451399}
-  - component: {fileID: 363451400}
   m_Layer: 0
   m_Name: SinglePlayer
   m_TagString: Untagged
@@ -743,17 +716,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 879584074}
-        m_MethodName: PlayMainMenueSound
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &363451396
@@ -847,18 +809,6 @@ MonoBehaviour:
   changeSprite1: {fileID: 21300000, guid: 3c5f4caf710e9c74e93721983303b227, type: 3}
   changeSprite2: {fileID: 21300000, guid: 379e1116340f7324f91a082d2cad5d08, type: 3}
   resize: 1.3
---- !u!114 &363451400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 363451393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b743df95ee5a1ce49b725c145e4fd19d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playSelectedSoundOnThis: 1
 --- !u!1 &395838131
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,7 +821,6 @@ GameObject:
   - component: {fileID: 395838134}
   - component: {fileID: 395838133}
   - component: {fileID: 395838136}
-  - component: {fileID: 395838137}
   m_Layer: 5
   m_Name: Xbox Controller
   m_TagString: Untagged
@@ -1029,18 +978,6 @@ MonoBehaviour:
   changeSprite1: {fileID: 21300000, guid: a564b04df7408d24889bb1405058fc8c, type: 3}
   changeSprite2: {fileID: 21300000, guid: 9cbaa4a9ed5925d4a8def303aa689f26, type: 3}
   resize: 1.3
---- !u!114 &395838137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 395838131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b743df95ee5a1ce49b725c145e4fd19d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playSelectedSoundOnThis: 1
 --- !u!1 &413090719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,7 +1058,6 @@ GameObject:
   - component: {fileID: 424989876}
   - component: {fileID: 424989874}
   - component: {fileID: 424989873}
-  - component: {fileID: 424989877}
   m_Layer: 5
   m_Name: 1600x1080
   m_TagString: Untagged
@@ -1203,24 +1139,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 879584074}
-        m_MethodName: PlayMainMenueSound
-        m_Mode: 4
+      - m_Target: {fileID: 700564203}
+        m_MethodName: SetWidth
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 900
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 700564203}
-        m_MethodName: SetFullscreen
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1279,18 +1204,6 @@ MonoBehaviour:
   changeSprite1: {fileID: 21300000, guid: 93ee99190729ecd4a83205bfefaf8218, type: 3}
   changeSprite2: {fileID: 21300000, guid: 357829ef36e0e7544947858277e5955b, type: 3}
   resize: 1.1
---- !u!114 &424989877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 424989871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b743df95ee5a1ce49b725c145e4fd19d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playSelectedSoundOnThis: 1
 --- !u!1 &511747474
 GameObject:
   m_ObjectHideFlags: 0
@@ -1417,7 +1330,6 @@ GameObject:
   - component: {fileID: 555834581}
   - component: {fileID: 555834580}
   - component: {fileID: 555834583}
-  - component: {fileID: 555834584}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -1521,17 +1433,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 879584074}
-        m_MethodName: PlayMainMenueSound
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 2
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &555834582
@@ -1575,18 +1476,6 @@ MonoBehaviour:
   changeSprite1: {fileID: 21300000, guid: b90012b8020a26e42b1cf74681ea8bfc, type: 3}
   changeSprite2: {fileID: 21300000, guid: 4b99cc9c75b96ff49928f921aa0b4856, type: 3}
   resize: 1.4
---- !u!114 &555834584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 555834578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b743df95ee5a1ce49b725c145e4fd19d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playSelectedSoundOnThis: 1
 --- !u!1 &572220026
 GameObject:
   m_ObjectHideFlags: 0
@@ -1685,7 +1574,6 @@ GameObject:
   - component: {fileID: 610566268}
   - component: {fileID: 610566266}
   - component: {fileID: 610566265}
-  - component: {fileID: 610566269}
   m_Layer: 5
   m_Name: 800x600
   m_TagString: Untagged
@@ -1767,24 +1655,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 879584074}
-        m_MethodName: PlayMainMenueSound
-        m_Mode: 4
+      - m_Target: {fileID: 700564203}
+        m_MethodName: SetWidth
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 600
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 700564203}
-        m_MethodName: SetFullscreen
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1843,18 +1720,6 @@ MonoBehaviour:
   changeSprite1: {fileID: 21300000, guid: df86e499a775a4d479d4354cd0c79dfb, type: 3}
   changeSprite2: {fileID: 21300000, guid: 5f0cb8f365c6f97438ab03a9f75b1b76, type: 3}
   resize: 1.1
---- !u!114 &610566269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 610566263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b743df95ee5a1ce49b725c145e4fd19d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playSelectedSoundOnThis: 1
 --- !u!1 &613168870
 GameObject:
   m_ObjectHideFlags: 0
@@ -2201,7 +2066,6 @@ GameObject:
   - component: {fileID: 925911642}
   - component: {fileID: 925911644}
   - component: {fileID: 925911647}
-  - component: {fileID: 925911645}
   m_Layer: 5
   m_Name: Sounds
   m_TagString: Untagged
@@ -2350,18 +2214,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &925911645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 925911640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b743df95ee5a1ce49b725c145e4fd19d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playSelectedSoundOnThis: 1
 --- !u!222 &925911646
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2697,7 +2549,6 @@ GameObject:
   - component: {fileID: 1136977733}
   - component: {fileID: 1136977732}
   - component: {fileID: 1136977735}
-  - component: {fileID: 1136977736}
   m_Layer: 5
   m_Name: PS4 Controller
   m_TagString: Untagged
@@ -2855,96 +2706,6 @@ MonoBehaviour:
   changeSprite1: {fileID: 21300000, guid: 1151e6a36cfd85c4b920ce1759559e4f, type: 3}
   changeSprite2: {fileID: 21300000, guid: 3662482427b145b408fc8a54c72af741, type: 3}
   resize: 1.3
---- !u!1001 &1224613616
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4164920939206724, guid: de3816dc1c487db4f9ab0a27f45c3447, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 31.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4164920939206724, guid: de3816dc1c487db4f9ab0a27f45c3447, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -5.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4164920939206724, guid: de3816dc1c487db4f9ab0a27f45c3447, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 19.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4164920939206724, guid: de3816dc1c487db4f9ab0a27f45c3447, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0.44170126
-      objectReference: {fileID: 0}
-    - target: {fileID: 4164920939206724, guid: de3816dc1c487db4f9ab0a27f45c3447, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0.6258606
-      objectReference: {fileID: 0}
-    - target: {fileID: 4164920939206724, guid: de3816dc1c487db4f9ab0a27f45c3447, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0.5657881
-      objectReference: {fileID: 0}
-    - target: {fileID: 4164920939206724, guid: de3816dc1c487db4f9ab0a27f45c3447, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.30509427
-      objectReference: {fileID: 0}
-    - target: {fileID: 4164920939206724, guid: de3816dc1c487db4f9ab0a27f45c3447, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 198010975416236488, guid: de3816dc1c487db4f9ab0a27f45c3447,
-        type: 2}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 1.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 198010975416236488, guid: de3816dc1c487db4f9ab0a27f45c3447,
-        type: 2}
-      propertyPath: randomSeed
-      value: 581148822
-      objectReference: {fileID: 0}
-    - target: {fileID: 1018919171718144, guid: de3816dc1c487db4f9ab0a27f45c3447, type: 2}
-      propertyPath: m_Name
-      value: Particle System (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4164920939206724, guid: de3816dc1c487db4f9ab0a27f45c3447, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -26.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 4164920939206724, guid: de3816dc1c487db4f9ab0a27f45c3447, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -101.13901
-      objectReference: {fileID: 0}
-    - target: {fileID: 4164920939206724, guid: de3816dc1c487db4f9ab0a27f45c3447, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -91.941
-      objectReference: {fileID: 0}
-    - target: {fileID: 198010975416236488, guid: de3816dc1c487db4f9ab0a27f45c3447,
-        type: 2}
-      propertyPath: RotationModule.curve.minScalar
-      value: -1.3089969
-      objectReference: {fileID: 0}
-    - target: {fileID: 198010975416236488, guid: de3816dc1c487db4f9ab0a27f45c3447,
-        type: 2}
-      propertyPath: RotationModule.curve.scalar
-      value: -3.1415925
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: de3816dc1c487db4f9ab0a27f45c3447, type: 2}
-  m_IsPrefabParent: 0
---- !u!114 &1136977736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1136977730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b743df95ee5a1ce49b725c145e4fd19d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playSelectedSoundOnThis: 1
 --- !u!1 &1243911003
 GameObject:
   m_ObjectHideFlags: 0
@@ -2957,7 +2718,6 @@ GameObject:
   - component: {fileID: 1243911007}
   - component: {fileID: 1243911006}
   - component: {fileID: 1243911005}
-  - component: {fileID: 1243911009}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -3102,31 +2862,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 879584074}
-        m_MethodName: PlayMainMenueSound
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 2
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1243911009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1243911003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b743df95ee5a1ce49b725c145e4fd19d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playSelectedSoundOnThis: 1
 --- !u!4 &1247862538 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4479781522074140, guid: faee1a056cd345e408f34368c3c6c091,
@@ -3218,7 +2955,6 @@ GameObject:
   - component: {fileID: 1442714211}
   - component: {fileID: 1442714210}
   - component: {fileID: 1442714213}
-  - component: {fileID: 1442714214}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -3322,17 +3058,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 879584074}
-        m_MethodName: PlayMainMenueSound
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 2
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1442714212
@@ -3376,85 +3101,6 @@ MonoBehaviour:
   changeSprite1: {fileID: 21300000, guid: eea51af98f1bb5f48bcbde2ca128e694, type: 3}
   changeSprite2: {fileID: 21300000, guid: c4eff7950c9c87446b000aab7e4e748b, type: 3}
   resize: 1.3
---- !u!1001 &1447891343
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4164920939206724, guid: de3816dc1c487db4f9ab0a27f45c3447, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -37.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4164920939206724, guid: de3816dc1c487db4f9ab0a27f45c3447, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -2.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4164920939206724, guid: de3816dc1c487db4f9ab0a27f45c3447, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 21.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4164920939206724, guid: de3816dc1c487db4f9ab0a27f45c3447, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0.6507757
-      objectReference: {fileID: 0}
-    - target: {fileID: 4164920939206724, guid: de3816dc1c487db4f9ab0a27f45c3447, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0.43957725
-      objectReference: {fileID: 0}
-    - target: {fileID: 4164920939206724, guid: de3816dc1c487db4f9ab0a27f45c3447, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0.34157786
-      objectReference: {fileID: 0}
-    - target: {fileID: 4164920939206724, guid: de3816dc1c487db4f9ab0a27f45c3447, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.51632106
-      objectReference: {fileID: 0}
-    - target: {fileID: 4164920939206724, guid: de3816dc1c487db4f9ab0a27f45c3447, type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 198010975416236488, guid: de3816dc1c487db4f9ab0a27f45c3447,
-        type: 2}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 1.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 198010975416236488, guid: de3816dc1c487db4f9ab0a27f45c3447,
-        type: 2}
-      propertyPath: randomSeed
-      value: 1668675172
-      objectReference: {fileID: 0}
-    - target: {fileID: 198010975416236488, guid: de3816dc1c487db4f9ab0a27f45c3447,
-        type: 2}
-      propertyPath: SizeModule.curve.minCurve.m_Curve.Array.data[0].value
-      value: 0.9328823
-      objectReference: {fileID: 0}
-    - target: {fileID: 198010975416236488, guid: de3816dc1c487db4f9ab0a27f45c3447,
-        type: 2}
-      propertyPath: SizeModule.curve.minCurve.m_Curve.Array.data[0].inSlope
-      value: 0.77009284
-      objectReference: {fileID: 0}
-    - target: {fileID: 198010975416236488, guid: de3816dc1c487db4f9ab0a27f45c3447,
-        type: 2}
-      propertyPath: SizeModule.curve.minCurve.m_Curve.Array.data[0].outSlope
-      value: 0.77009284
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: de3816dc1c487db4f9ab0a27f45c3447, type: 2}
-  m_IsPrefabParent: 0
---- !u!114 &1442714214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1442714208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b743df95ee5a1ce49b725c145e4fd19d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playSelectedSoundOnThis: 1
 --- !u!1 &1451259125
 GameObject:
   m_ObjectHideFlags: 0
@@ -3467,7 +3113,6 @@ GameObject:
   - component: {fileID: 1451259128}
   - component: {fileID: 1451259127}
   - component: {fileID: 1451259130}
-  - component: {fileID: 1451259131}
   m_Layer: 5
   m_Name: Quality
   m_TagString: Untagged
@@ -3571,17 +3216,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 879584074}
-        m_MethodName: PlayMainMenueSound
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1451259129
@@ -3625,18 +3259,6 @@ MonoBehaviour:
   changeSprite1: {fileID: 21300000, guid: 9e32df707357e844ca3b2ade62403999, type: 3}
   changeSprite2: {fileID: 21300000, guid: f1208424be50f2240af4081730767f63, type: 3}
   resize: 1.3
---- !u!114 &1451259131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1451259125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b743df95ee5a1ce49b725c145e4fd19d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playSelectedSoundOnThis: 1
 --- !u!1 &1499373996
 GameObject:
   m_ObjectHideFlags: 0
@@ -3961,7 +3583,6 @@ GameObject:
   - component: {fileID: 1615519872}
   - component: {fileID: 1615519871}
   - component: {fileID: 1615519875}
-  - component: {fileID: 1615519874}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -4065,17 +3686,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 879584074}
-        m_MethodName: PlayMainMenueSound
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 2
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1615519873
@@ -4105,18 +3715,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &1615519874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1615519869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b743df95ee5a1ce49b725c145e4fd19d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playSelectedSoundOnThis: 1
 --- !u!114 &1615519875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4143,7 +3741,6 @@ GameObject:
   - component: {fileID: 1635663698}
   - component: {fileID: 1635663700}
   - component: {fileID: 1635663701}
-  - component: {fileID: 1635663702}
   m_Layer: 5
   m_Name: Audio
   m_TagString: Untagged
@@ -4247,17 +3844,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 879584074}
-        m_MethodName: PlayMainMenueSound
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1635663700
@@ -4301,18 +3887,6 @@ MonoBehaviour:
   changeSprite1: {fileID: 21300000, guid: 09fa70bd370bf9249b0a16358932908e, type: 3}
   changeSprite2: {fileID: 21300000, guid: 17d539cf2ccbe514f93a146ade647f18, type: 3}
   resize: 1.3
---- !u!114 &1635663702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1635663696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b743df95ee5a1ce49b725c145e4fd19d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playSelectedSoundOnThis: 1
 --- !u!1001 &1660419680
 Prefab:
   m_ObjectHideFlags: 0
@@ -4411,7 +3985,6 @@ GameObject:
   - component: {fileID: 1725348488}
   - component: {fileID: 1725348487}
   - component: {fileID: 1725348491}
-  - component: {fileID: 1725348492}
   m_Layer: 0
   m_Name: Exit
   m_TagString: Untagged
@@ -4484,17 +4057,6 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 879584074}
-        m_MethodName: PlayMainMenueSound
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 2
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -4591,18 +4153,6 @@ MonoBehaviour:
   changeSprite1: {fileID: 21300000, guid: f667c6b2a4b8a4943933593445c848b5, type: 3}
   changeSprite2: {fileID: 21300000, guid: ef4b4bd0a8f2cf846a5cff57da4bdc41, type: 3}
   resize: 1.3
---- !u!114 &1725348492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1725348485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b743df95ee5a1ce49b725c145e4fd19d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playSelectedSoundOnThis: 1
 --- !u!1 &1747440105
 GameObject:
   m_ObjectHideFlags: 0
@@ -4615,7 +4165,6 @@ GameObject:
   - component: {fileID: 1747440110}
   - component: {fileID: 1747440108}
   - component: {fileID: 1747440107}
-  - component: {fileID: 1747440111}
   m_Layer: 5
   m_Name: 1280x720
   m_TagString: Untagged
@@ -4697,24 +4246,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 879584074}
-        m_MethodName: PlayMainMenueSound
-        m_Mode: 4
+      - m_Target: {fileID: 700564203}
+        m_MethodName: SetWidth
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 720
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 700564203}
-        m_MethodName: SetFullscreen
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4773,18 +4311,6 @@ MonoBehaviour:
   changeSprite1: {fileID: 21300000, guid: 49d28b0d2aa727d47938b5128ceaf00f, type: 3}
   changeSprite2: {fileID: 21300000, guid: 28a6795f52c9b104c8b92f9e4498a941, type: 3}
   resize: 1.1
---- !u!114 &1747440111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1747440105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b743df95ee5a1ce49b725c145e4fd19d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playSelectedSoundOnThis: 1
 --- !u!1 &1827375214
 GameObject:
   m_ObjectHideFlags: 0
@@ -4878,7 +4404,6 @@ GameObject:
   - component: {fileID: 1864150264}
   - component: {fileID: 1864150262}
   - component: {fileID: 1864150261}
-  - component: {fileID: 1864150265}
   m_Layer: 5
   m_Name: FullScreen
   m_TagString: Untagged
@@ -4960,17 +4485,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 879584074}
-        m_MethodName: PlayMainMenueSound
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1864150263
@@ -5014,18 +4528,6 @@ MonoBehaviour:
   changeSprite1: {fileID: 21300000, guid: edbe2dbb44d606047876a21e89212e33, type: 3}
   changeSprite2: {fileID: 21300000, guid: 94a4d051922cca14e9a4df48c09ff1d8, type: 3}
   resize: 1.1
---- !u!114 &1864150265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1864150259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b743df95ee5a1ce49b725c145e4fd19d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playSelectedSoundOnThis: 1
 --- !u!1 &1908215121
 GameObject:
   m_ObjectHideFlags: 0
@@ -5105,7 +4607,6 @@ GameObject:
   - component: {fileID: 1995224251}
   - component: {fileID: 1995224250}
   - component: {fileID: 1995224254}
-  - component: {fileID: 1995224255}
   m_Layer: 0
   m_Name: Settings
   m_TagString: Untagged
@@ -5203,17 +4704,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 879584074}
-        m_MethodName: PlayMainMenueSound
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1995224251
@@ -5307,18 +4797,6 @@ MonoBehaviour:
   changeSprite1: {fileID: 21300000, guid: 68c92f2eb19904048b0d5e7fd44a2ab5, type: 3}
   changeSprite2: {fileID: 21300000, guid: d9a45a9893ed59d4bb4479f7f1dac850, type: 3}
   resize: 1.3
---- !u!114 &1995224255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1995224248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b743df95ee5a1ce49b725c145e4fd19d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playSelectedSoundOnThis: 1
 --- !u!1 &2008493641
 GameObject:
   m_ObjectHideFlags: 0

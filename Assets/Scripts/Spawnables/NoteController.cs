@@ -35,9 +35,6 @@ public class NoteController : MonoBehaviour {
     private float percentageAboveFinal = 0.1f;
     private float totalPercentageFinal = 1.0f;
 
-    //start fade
-    private float startFadeDistance = 0.5f;
-
     public float percentageOfTravel = 0f;
     private float timeUntilGoal;
     private Vector3 originalPos;
@@ -51,8 +48,6 @@ public class NoteController : MonoBehaviour {
         percentageAboveFinal = GameManagerController.instance.percentagePerfectFromCenter / 2;
         //fade distance
         fadeDistance = GameManagerController.instance.fadeDistance;
-        //start fade distance
-        startFadeDistance = GameManagerController.instance.startFadeDistance * SceneSwitchereController.instance.currentSequence.speedMultiplier;
         //choose sprite dending on input method
         if (SceneSwitchereController.instance.keyBoard)
             GetComponent<SpriteRenderer>().sprite = spritesWASD[noteType];
@@ -121,7 +116,7 @@ public class NoteController : MonoBehaviour {
         while(true)
         {
             //Should be adjustd to something irrelevant of bpm
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(0.05f);
             sr.color = new Color(1, 1, 1, opacity);
             //fade depending on how far of distance is made
             opacity = (1 - ((percentageOfTravel - totalPercentageFinal) / fadeDistance));

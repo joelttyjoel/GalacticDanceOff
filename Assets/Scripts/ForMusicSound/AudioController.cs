@@ -52,6 +52,10 @@ public class AudioController : MonoBehaviour {
     public string songSelectSoundsPath;
     private EventInstance songSelectSounds;
 
+    [FMODUnity.EventRef]
+    public string planetSoundsPath;
+    private EventInstance planetSounds;
+
     public bool audioIsEnabled = true;
 
     public static AudioController instance = null;
@@ -80,6 +84,7 @@ public class AudioController : MonoBehaviour {
         crowdCheerSounds = FMODUnity.RuntimeManager.CreateInstance(crowdCheerEventPath);
         fireWorkSounds = FMODUnity.RuntimeManager.CreateInstance(fireworkEventPath);
         songSelectSounds = FMODUnity.RuntimeManager.CreateInstance(songSelectSoundsPath);
+        planetSounds = FMODUnity.RuntimeManager.CreateInstance(planetSoundsPath);
 
         //get vcas
         musicVca = FMODUnity.RuntimeManager.GetVCA(musicVolPath);
@@ -155,6 +160,12 @@ public class AudioController : MonoBehaviour {
     {
         if (!audioIsEnabled) return;
         fireWorkSounds.start();
+    }
+
+    public void PlayPlanetSound()
+    {
+        if (!audioIsEnabled) return;
+        planetSounds.start();
     }
 
     public void SetVolumeByFloat(float value, bool isMusic)

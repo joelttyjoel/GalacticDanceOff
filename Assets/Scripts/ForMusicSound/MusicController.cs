@@ -35,6 +35,13 @@ public class MusicController : MonoBehaviour
     {
         //get number of levels, used to reset etc
         numberOfLevels = GameManagerController.instance.beatMapNamesInOrder.Length;
+        //fill up bar of things
+        noteHits.Add(true);
+        noteHits.Add(true);
+        noteHits.Add(true);
+        noteHits.Add(true);
+        noteHits.Add(true);
+        noteHits.Add(true);
     }
 
     // Update is called once per frame
@@ -45,10 +52,20 @@ public class MusicController : MonoBehaviour
 
     public void AddNoteHitMiss(bool wasHit)
     {
-        //add notevalue to end of list
-        noteHits.Add(wasHit);
-        //if is full, remove last element
-        if(noteHits.Count >= numberOfNotesTracked)
+        //add notevalue to end of list, if false add more
+        if(wasHit)
+        {
+            noteHits.Add(wasHit);
+        }
+        else
+        {
+            noteHits.Add(wasHit);
+            noteHits.Add(wasHit);
+            noteHits.Add(wasHit);
+            noteHits.Add(wasHit);
+        }
+        //remove from back until isn't full anymore
+        while(noteHits.Count >= numberOfNotesTracked)
         {
             noteHits.RemoveAt(0);
         }

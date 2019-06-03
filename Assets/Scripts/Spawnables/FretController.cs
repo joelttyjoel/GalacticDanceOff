@@ -21,9 +21,6 @@ public class FretController : MonoBehaviour {
     private float percentageAboveFinal = 0.1f;
     private float totalPercentageFinal = 1.0f;
 
-    //start fade
-    private float startFadeDistance = 0.5f;
-
     public float percentageOfTravel = 0f;
     private float timeUntilGoal;
     private Vector3 originalPos;
@@ -40,8 +37,6 @@ public class FretController : MonoBehaviour {
         percentageAboveFinal = GameManagerController.instance.percentagePerfectFromCenter / 2;
         //fade distance
         fadeDistance = GameManagerController.instance.fadeDistance;
-        //start fade distance
-        startFadeDistance = GameManagerController.instance.startFadeDistance * SceneSwitchereController.instance.currentSequence.speedMultiplier;
         //set time until goal
         timeUntilGoal = beatsUntilGoal * timePerBeat;
         //set original position, moves from there X wise

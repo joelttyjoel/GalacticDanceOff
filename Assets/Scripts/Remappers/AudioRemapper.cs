@@ -21,6 +21,11 @@ public class AudioRemapper : MonoBehaviour {
         audioController.PlayHpSound(selectSound);
     }
 
+    public void PlayPlanetSound()
+    {
+        AudioController.instance.PlayPlanetSound();
+    }
+
     //public void SetParamPauseSound(float selectSound)
     //{
     //    if (!audioIsEnabled) return;

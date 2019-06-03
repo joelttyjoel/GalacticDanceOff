@@ -52,8 +52,6 @@ public class GameManagerController : MonoBehaviour {
     public float percentageGoodDistance = 0.1f;
     //note fade distance after has gone too far
     public float fadeDistance = 0.5f;
-    //fade from grey ish to white at start, hmm
-    public float startFadeDistance = 1.0f;
 
     //Edits EGOMeter
     [Header("EGO Bars")]
@@ -366,7 +364,7 @@ public class GameManagerController : MonoBehaviour {
         playerHealth = maxHealth;
 
         //wait for some time to make sure resetting has occured
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(5f);
         isRestarting = false;
         Debug.Log("Start sequence");
         StartCoroutine("SequenceStartRunEtc");

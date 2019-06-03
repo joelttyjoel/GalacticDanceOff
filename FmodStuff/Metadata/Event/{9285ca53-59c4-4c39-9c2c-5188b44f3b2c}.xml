@@ -47,6 +47,9 @@
         </relationship>
     </object>
     <object class="MixerInput" id="{715a60c9-718b-413e-af24-7c03b2470aa2}">
+        <relationship name="masters">
+            <destination>{751b2b94-1699-4a25-81b7-9697223be83f}</destination>
+        </relationship>
         <relationship name="effectChain">
             <destination>{cd13af1a-a91c-4c93-986c-ceb0da6b13ed}</destination>
         </relationship>
@@ -184,7 +187,7 @@
     <object class="MixerBusFader" id="{f8b75c71-7b07-4296-a59b-d13e6bd290ed}"/>
     <object class="LimiterEffect" id="{ff7e887e-ad8c-42d1-b3da-b06456126678}">
         <property name="boost">
-            <value>6.69999981</value>
+            <value>2.19999981</value>
         </property>
         <property name="ceiling">
             <value>-1.0999999</value>

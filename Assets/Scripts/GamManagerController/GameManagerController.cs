@@ -18,6 +18,7 @@ public class GameManagerController : MonoBehaviour {
     public GameObject spotlightLeft;
     public GameObject spotlightRight;
     public List<GameObject> fireworks;
+    public List<GameObject> confetties;
     public GameObject fungusFlowChartObject;
     [System.NonSerialized]
     public Fungus.Flowchart fungusFlowChart;
@@ -218,18 +219,20 @@ public class GameManagerController : MonoBehaviour {
     //score
     public void addScore(bool isLeftP, bool isPerfect)
     {
-        if(isLeftP)
+        int multiplier = MusicController.instance.starCountBig + 1;
+
+        if (isLeftP)
         {
-            if (isPerfect) playerScore += scoreForPerfectHit;
-            else playerScore += scoreForNormalHit;
+            if (isPerfect) playerScore += scoreForPerfectHit * multiplier;
+            else playerScore += scoreForNormalHit * multiplier;
             //now set hp thing
             SetScore(playerScore, playerScoreObject);
         }
 
         else
         {
-            if (isPerfect) AIScore += scoreForPerfectHit;
-            else AIScore += scoreForNormalHit;
+            if (isPerfect) AIScore += scoreForPerfectHit * (2 + Random.Range(0,2));
+            else AIScore += scoreForNormalHit * (2 + Random.Range(0, 2));
             //now set hp thing
             SetScore(AIScore, aiScoreObject);
         }
@@ -404,7 +407,13 @@ public class GameManagerController : MonoBehaviour {
         yield return new WaitForSeconds(2.5f);
         //start cheer a bit earlier
         AudioController.instance.PlayCrowdCheer();
-        yield return new WaitForSeconds (0.5f);
+        yield return new WaitForSeconds(0.3f);
+        //start confetties
+        foreach (GameObject a in confetties)
+        {
+            a.GetComponent<ParticleSystem>().Play();
+        }
+        yield return new WaitForSeconds (0.2f);
 		Debug.Log ("Animation");
 
         //commntator
@@ -472,6 +481,11 @@ public class GameManagerController : MonoBehaviour {
 
         yield return new WaitForSeconds(3f);
         Debug.Log("Win animations");
+        //play conffeties
+        foreach (GameObject a in confetties)
+        {
+            a.GetComponent<ParticleSystem>().Play();
+        }
         //spotlight sound turn on
         AudioController.instance.PlaySpotlight();
         bool didWin = false;
@@ -512,6 +526,9 @@ public class GameManagerController : MonoBehaviour {
             {
                 fungusFlowChart.SetIntegerVariable("CommentaryRan", SceneSwitchereController.instance.selectedCharacter);
                 fungusFlowChart.ExecuteBlock("EndOfCompetition");
+                yield return new WaitForSeconds(2f);
+                leftAnimator.SetInteger("SelectState", 1);
+                rightAnimator.SetInteger("SelectState", 1);
                 SceneSwitchereController.instance.ResetVariables();
                 yield return new WaitForSeconds(3f);
                 //SceneSwitchereController.instance.GotoScene_SetName("Credits");
@@ -521,7 +538,10 @@ public class GameManagerController : MonoBehaviour {
             else
             {
                 fungusFlowChart.ExecuteBlock("EndOfSong");
-                yield return new WaitForSeconds(3f);
+                yield return new WaitForSeconds(2f);
+                leftAnimator.SetInteger("SelectState", 1);
+                rightAnimator.SetInteger("SelectState", 1);
+                yield return new WaitForSeconds(1f);
                 SceneSwitchereController.instance.GotoScene_SetName("SongSelect");
                 SceneSwitchereController.instance.GotoScene_SetSequence("null");
             }
@@ -529,6 +549,11 @@ public class GameManagerController : MonoBehaviour {
         //lose
         else
         {
+            fungusFlowChart.ExecuteBlock("EndOfSong");
+            yield return new WaitForSeconds(2f);
+            leftAnimator.SetInteger("SelectState", 1);
+            rightAnimator.SetInteger("SelectState", 1);
+            yield return new WaitForSeconds(1f);
             SceneSwitchereController.instance.GotoScene_SetName("SongSelect");
             SceneSwitchereController.instance.GotoScene_SetSequence("null");
         }

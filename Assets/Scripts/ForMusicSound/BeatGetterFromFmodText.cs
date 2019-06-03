@@ -21,13 +21,16 @@
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
+using UnityEngine.Playables;
 
 public class BeatGetterFromFmodText : MonoBehaviour
 {
+    public List<PlayableDirector> omfers;
     // Variables that are modified in the callback need to be part of a seperate class.
     // This class needs to be 'blittable' otherwise it can't be pinned in memory.
     [StructLayout(LayoutKind.Sequential)]
@@ -206,6 +209,11 @@ public class BeatGetterFromFmodText : MonoBehaviour
         //ugly but shhhhhhh ok, spawn fret on each beat
         beatSpawnerTop.GetComponent<BeatmapSpawner>().SpawnFret(timePerBeat, timelineInfo.timeOfBeat);
         beatSpawnerBot.GetComponent<BeatmapSpawner>().SpawnFret(timePerBeat, timelineInfo.timeOfBeat);
+
+        //foreach(PlayableDirector a in omfers)
+        //{
+        //    a.Play();
+        //}
 
         //also polling if can enter next beatmap, can only happen on beat
         //if marker has changed during this turn, will change, yummy solutions

@@ -1,12 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class SongIconChecker : MonoBehaviour {
+public class SongIconChecker : MonoBehaviour, ISelectHandler, IDeselectHandler, IEventSystemHandler {
     public Sprite thisSpriteIfCleared;
+    public Sprite normalSprite;
+    public Sprite highlightedSprite;
 
-	// Use this for initialization
-	void Start () {
+    private bool clearedStage;
+
+    private void Awake()
+    {
+        clearedStage = false;
+    }
+    // Use this for initialization
+    void Start () {
         //if this button and won last, this is cleared
         //Debug.Log(this.gameObject.name + " " + SceneSwitchereController.instance.wonLast + SceneSwitchereController.instance.lastBattleButton);
         if (SceneSwitchereController.instance.wonLast && SceneSwitchereController.instance.lastBattleButtonName == this.gameObject.name)
@@ -25,8 +35,29 @@ public class SongIconChecker : MonoBehaviour {
         {
             if(a == this.gameObject.name)
             {
+                clearedStage = true;
                 this.gameObject.GetComponent<SpriteRenderer>().sprite = thisSpriteIfCleared;
             }
         }
+    }
+
+    public void OnSelect(BaseEventData eventData)
+    {
+       
+        if (!clearedStage)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = highlightedSprite;
+        }
+       
+        
+    }
+    public void OnDeselect(BaseEventData eventData)
+    {
+        
+        if (!clearedStage)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = normalSprite;
+        }
+        
     }
 }

@@ -11,9 +11,13 @@ public class MusicController : MonoBehaviour
 
     public StudioEventEmitter crowdEmitter;
 
-    private int numberOfLevels = 1;
+    public List<SpriteRenderer> stars;
+    public Sprite spriteGood;
+    public Sprite spriteBad;
 
-    public int numberOfNotesTracked = 12;
+    private int numberOfLevels = 1;
+    
+    public int numberOfNotesTracked = 20;
     private List<bool> noteHits = new List<bool>();
 
     //for creating singleton, love easy referencing
@@ -50,6 +54,15 @@ public class MusicController : MonoBehaviour
 
     }
 
+    //private void AddToStreak()
+    //{
+
+    //}
+    //private void ResetStreak()
+    //{
+
+    //}
+
     public void AddNoteHitMiss(bool wasHit)
     {
         //add notevalue to end of list, if false add more
@@ -59,6 +72,7 @@ public class MusicController : MonoBehaviour
         }
         else
         {
+            noteHits.Add(wasHit);
             noteHits.Add(wasHit);
             noteHits.Add(wasHit);
             noteHits.Add(wasHit);
@@ -81,6 +95,7 @@ public class MusicController : MonoBehaviour
         float percentageOfTrue = trueCount / (trueCount + falseCount);
         //send this to musicEvent
         SetHitPercentage(percentageOfTrue);
+        SetStars(percentageOfTrue);
         Debug.Log("percentage of true: "+percentageOfTrue);
     }
 
@@ -88,6 +103,25 @@ public class MusicController : MonoBehaviour
     {
         float hunnerdPercentage = percentage * 100;
         myEmitter.SetParameter("Score", hunnerdPercentage);
+    }
+
+    private void SetStars(float percentage)
+    {
+        float remainingOfStart = percentage;
+        //loop through all stars, if remaining >= 0.25f, current star can be good, if not, bad
+        for(int i = 0; i <= 3; i++)
+        {
+            if(remainingOfStart >= 0.25f)
+            {
+                stars[i].sprite = spriteGood;
+            }
+            else
+            {
+                stars[i].sprite = spriteBad;
+            }
+
+            remainingOfStart -= 0.25f;
+        }
     }
 
     public void PauseMusic()

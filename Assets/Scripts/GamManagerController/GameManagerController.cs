@@ -242,7 +242,7 @@ public class GameManagerController : MonoBehaviour {
         int totalNumLength = 5;
         int inputLength = inputScore.ToString().Length;
 
-        outputString += "Score: ";
+        outputString += " ";
 
         //add more shits at end
         for(int i = 0; i < totalNumLength - inputLength; i++)
@@ -409,17 +409,18 @@ public class GameManagerController : MonoBehaviour {
         //spotlight sound turn on
         AudioController.instance.PlaySpotlight();
 
-        if (playerScore > AIScore)
-        {
-            //left win
-            for (int i = 0; i < audienceAnimations.Length; i++)
-            {
-                audienceAnimations[i].SetInteger("SelectState", 2);
-            }
-            spotlightLeft.SetActive(true);
-            leftAnimator.SetInteger("SelectState", 2);
-            rightAnimator.SetInteger("SelectState", 5);
-        }
+		if (playerScore > AIScore) 
+		{
+			//left win
+			for (int i = 0; i < audienceAnimations.Length; i++) {
+				audienceAnimations [i].SetInteger ("SelectState", 2);
+			}
+			spotlightLeft.SetActive (true);
+			leftAnimator.SetInteger ("SelectState", 2);
+			rightAnimator.SetInteger ("SelectState", 5);
+
+
+		}
         else
         {
             //set animations
@@ -430,6 +431,8 @@ public class GameManagerController : MonoBehaviour {
             spotlightRight.SetActive(true);
             leftAnimator.SetInteger("SelectState", 5);
             rightAnimator.SetInteger("SelectState", 2);
+
+
         }
 
         yield return new WaitForSeconds (3.5f);
@@ -553,8 +556,20 @@ public class GameManagerController : MonoBehaviour {
 
     public IEnumerator SequenceStartRunEtc()
     {
-        //set start settings sequence
-        InputManager.instance.isInputsDisabled = true;
+		InputManager.instance.isInputsDisabled = true;
+
+		if (SceneSwitchereController.instance.hasDoneFirstLevel == false) 
+		{
+			SceneSwitchereController.instance.hasDoneFirstLevel = true;
+
+			fungusFlowChart.ExecuteBlock ("PresentationOfCommentary");
+			leftAnimator.SetInteger("SelectState", 0);
+			rightAnimator.SetInteger("SelectState", 0);
+			yield return new WaitForSeconds(44f);
+			leftAnimator.SetInteger("SelectState", 1);
+			rightAnimator.SetInteger("SelectState", 1);
+			yield return new WaitForSeconds(4f);
+		}
         //time until start first level
         yield return new WaitForSeconds(timeBeforeFirstRun);
         //set health to full on start

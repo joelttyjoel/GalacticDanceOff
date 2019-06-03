@@ -18,6 +18,7 @@ public class SceneSwitchereController : MonoBehaviour {
     //Single or multiplayer
 	public bool keyBoard, xBox, Ps4;
     //settings for character, oponent, cleared stages etc.
+	public bool hasDoneFirstLevel = false;
     public int numberClearedLevels = 0;
     public string lastBattleButtonName = null;
     public bool wonLast = false;

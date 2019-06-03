@@ -41,6 +41,7 @@
         </relationship>
         <relationship name="parameters">
             <destination>{07493e48-fb00-46a1-90fa-7e68056f8adb}</destination>
+            <destination>{3e247e24-98b3-4f3a-9f67-b70dbb34e549}</destination>
         </relationship>
         <relationship name="banks">
             <destination>{98400619-6855-4561-961f-47c37c1abded}</destination>
@@ -174,8 +175,14 @@
             <destination>{19c616ae-e8d1-4465-a9b6-5cf3a36c2660}</destination>
         </relationship>
     </object>
+    <object class="ParameterProxy" id="{3e247e24-98b3-4f3a-9f67-b70dbb34e549}">
+        <relationship name="preset">
+            <destination>{69e4a32f-8aa8-4488-9d92-02cd5e497eb1}</destination>
+        </relationship>
+    </object>
     <object class="EventMixerMaster" id="{6d92e26c-131d-4d64-bf8d-6b5f851f8625}">
         <property name="volume">
+<<<<<<< HEAD
 <<<<<<< HEAD
             <value>-18</value>
         </property>
@@ -186,6 +193,10 @@
             <value>-11.5</value>
         </property>
 >>>>>>> AddingFixingSOund
+=======
+            <value>-6</value>
+        </property>
+>>>>>>> ForMusicbois
         <relationship name="effectChain">
             <destination>{5935772f-ab0a-418a-8868-958754cafe72}</destination>
         </relationship>

@@ -262,6 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4729714269420918}
   - component: {fileID: 95307387184305952}
+  - component: {fileID: 320330596071103034}
   m_Layer: 0
   m_Name: MSH_Birb
   m_TagString: Untagged
@@ -904,3 +905,21 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.61959547, y: -0.00018459558, z: -0.012205422}
     m_Extent: {x: 1.1608014, y: 1.0450306, z: 0.7759033}
   m_DirtyAABB: 0
+--- !u!320 &320330596071103034
+PlayableDirector:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1696134294371986}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 0}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 0}
+    value: {fileID: 1495447275669192, guid: dae2b04c949f80c48a6136b8b8819140, type: 2}
+  m_ExposedReferences:
+    m_References: []

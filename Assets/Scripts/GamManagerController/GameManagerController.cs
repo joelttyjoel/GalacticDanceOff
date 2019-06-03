@@ -25,15 +25,10 @@ public class GameManagerController : MonoBehaviour {
     public int numberClearedToWin = 1;
 
     [Header("Animation settings")]
-    [SerializeField]
-    public List<int> listOfFramesPerAnimationPurple;
-    [SerializeField]
-    public List<int> listOfFramesPerAnimationYellow;
-    [SerializeField]
-    public List<int> listOfFramesPerAnimationBirb;
     public GameObject leftCharacterHolder;
     public GameObject rightCharacterHolder;
     public List<GameObject> allCharacterPrefabs012;
+    public Animator[] audienceAnimations;
     private Animator leftAnimator;
     private Animator rightAnimator;
 
@@ -417,6 +412,10 @@ public class GameManagerController : MonoBehaviour {
         if (playerScore > AIScore)
         {
             //left win
+            for (int i = 0; i < audienceAnimations.Length; i++)
+            {
+                audienceAnimations[i].SetInteger("SelectState", 2);
+            }
             spotlightLeft.SetActive(true);
             leftAnimator.SetInteger("SelectState", 2);
             rightAnimator.SetInteger("SelectState", 5);
@@ -424,6 +423,10 @@ public class GameManagerController : MonoBehaviour {
         else
         {
             //set animations
+            for (int i = 0; i < audienceAnimations.Length; i++)
+            {
+                audienceAnimations[i].SetInteger("SelectState", 1);
+            }
             spotlightRight.SetActive(true);
             leftAnimator.SetInteger("SelectState", 5);
             rightAnimator.SetInteger("SelectState", 2);
@@ -442,6 +445,12 @@ public class GameManagerController : MonoBehaviour {
         //set animations back to dancing once done, thanks
         leftAnimator.SetInteger("SelectState", 1);
         rightAnimator.SetInteger("SelectState", 1);
+
+        //Audience to idle animation
+        for (int i = 0; i < audienceAnimations.Length; i++)
+        {
+            audienceAnimations[i].SetInteger("SelectState", 0);
+        }
 
         //increase crowd
         MusicController.instance.crowdEmitter.SetParameter("CrowdScore", 0f);
@@ -477,8 +486,12 @@ public class GameManagerController : MonoBehaviour {
         bool didWin = false;
         if (playerScore > AIScore)
 		{
-			//set animations
-			leftAnimator.SetInteger("SelectState", 3);
+            for (int i = 0; i < audienceAnimations.Length; i++)
+            {
+                audienceAnimations[i].SetInteger("SelectState", 2);
+            }
+            //set animations
+            leftAnimator.SetInteger("SelectState", 3);
 			rightAnimator.SetInteger("SelectState", 5);
             spotlightLeft.SetActive(true);
             //add to finished win
@@ -486,6 +499,10 @@ public class GameManagerController : MonoBehaviour {
         }
 		else
 		{
+            for (int i = 0; i < audienceAnimations.Length; i++)
+            {
+                audienceAnimations[i].SetInteger("SelectState", 1);
+            }
             //set animations
             spotlightRight.SetActive(true);
             leftAnimator.SetInteger("SelectState", 5);

@@ -377,7 +377,7 @@ public class NoteChecker : MonoBehaviour {
     private void NormalHit(NoteController noteCon)
     {
         //Effects or other things
-        Debug.Log("Hit: " + (noteCon.percentageOfTravel + FixedDistancePercentage(noteCon)));
+        //Debug.Log("Hit: " + (noteCon.percentageOfTravel + FixedDistancePercentage(noteCon)));
         StartCoroutine(FadeOnHitImage(goodPerfMissSprites[0]));
         GameManagerController.instance.addScore(true, false);
         //AudioController.instance.PlayNoteSound(1f);
@@ -389,7 +389,7 @@ public class NoteChecker : MonoBehaviour {
     private void PerfectHit(NoteController noteCon)
     {
         //Effects or other things
-        Debug.Log("Perfect: " + (noteCon.percentageOfTravel + FixedDistancePercentage(noteCon)));
+        //Debug.Log("Perfect: " + (noteCon.percentageOfTravel + FixedDistancePercentage(noteCon)));
         StartCoroutine(FadeOnHitImage(goodPerfMissSprites[1]));
         GameManagerController.instance.addScore(true, true);
         //AudioController.instance.PlayNoteSound(2f);

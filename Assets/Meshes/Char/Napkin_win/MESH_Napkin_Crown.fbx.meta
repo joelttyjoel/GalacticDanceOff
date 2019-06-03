@@ -140,7 +140,22 @@ ModelImporter:
     4300002: napkin
     9500000: //RootNode
     13700000: napkin
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert7
+    second: {fileID: 2100000, guid: c86fee34f3ec5af47851259a3731300f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert8
+    second: {fileID: 2100000, guid: 6bf76f92179e1c84a94e20d8fa1a684c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pasted__MAT_Crown
+    second: {fileID: 2100000, guid: de7727f206acbeb45886d19cd106f76e, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -208,7 +223,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    rootMotionBoneName: 
+    rootMotionBoneName: napkin
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0

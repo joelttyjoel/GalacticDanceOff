@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1925,6 +1925,9 @@ GameObject:
   - component: {fileID: 595136177}
   - component: {fileID: 595136182}
   - component: {fileID: 595136183}
+  - component: {fileID: 595136185}
+  - component: {fileID: 595136184}
+  - component: {fileID: 595136181}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -1957,8 +1960,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 595136179}
-  selectedCommands: []
+  - {fileID: 595136172}
+  selectedCommands:
+  - {fileID: 595136169}
   variables: []
   description: A secret dialogue after/during the captions.
   stepPause: 0
@@ -2037,8 +2041,9 @@ MonoBehaviour:
   indentLevel: 0
   storyText: Finally over.
   description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
+  character: {fileID: 114146064131992356, guid: 875d165f729a3c14dae8d0c93a5214df,
+    type: 2}
+  portrait: {fileID: 21300000, guid: 1e15ca3f526ad1644bbfbe87cc9a78e5, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 1430812c5b48be549acac7246b0e0bd0, type: 3}
   showAlways: 1
   showCount: 1
@@ -2188,8 +2193,9 @@ MonoBehaviour:
   indentLevel: 0
   storyText: "Wait, is this on?\r"
   description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
+  character: {fileID: 114670610098037118, guid: 2e744bb3a3d7e6a48bc733487437fcad,
+    type: 2}
+  portrait: {fileID: 21300000, guid: d0472cee88d266a458de1d2982f07ef1, type: 3}
   voiceOverClip: {fileID: 8300000, guid: d07dbc9b7ed0d3b44affebe0ffd662aa, type: 3}
   showAlways: 1
   showCount: 1
@@ -2214,8 +2220,9 @@ MonoBehaviour:
   indentLevel: 0
   storyText: "Humans I tell you.\r"
   description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
+  character: {fileID: 114146064131992356, guid: 875d165f729a3c14dae8d0c93a5214df,
+    type: 2}
+  portrait: {fileID: 21300000, guid: 1e15ca3f526ad1644bbfbe87cc9a78e5, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 3c1dd993ab9801749a0b65b3685b8e62, type: 3}
   showAlways: 1
   showCount: 1
@@ -2241,8 +2248,9 @@ MonoBehaviour:
   storyText: Right? Didn't they choose an orange with tiny hands who does all kinds
     of crazy things?
   description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
+  character: {fileID: 114670610098037118, guid: 2e744bb3a3d7e6a48bc733487437fcad,
+    type: 2}
+  portrait: {fileID: 21300000, guid: d0472cee88d266a458de1d2982f07ef1, type: 3}
   voiceOverClip: {fileID: 8300000, guid: d8f56de2a7dc93e42865d5bef047d6a4, type: 3}
   showAlways: 1
   showCount: 1
@@ -2268,8 +2276,9 @@ MonoBehaviour:
   storyText: "Yeah, but haven\u2019t you heard about the galaxy.. what is it called?
     Milkyway? Don't they let people vote to choose their leaders there? \r"
   description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
+  character: {fileID: 114146064131992356, guid: 875d165f729a3c14dae8d0c93a5214df,
+    type: 2}
+  portrait: {fileID: 21300000, guid: 1e15ca3f526ad1644bbfbe87cc9a78e5, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 4451634c169fbd14f83691662c4cae98, type: 3}
   showAlways: 1
   showCount: 1
@@ -2295,8 +2304,9 @@ MonoBehaviour:
   storyText: "Why do we even have a dance off? Why can\u2019t we elect the president
     by like.. voting? Feels like that would save us a lot of time.\r"
   description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
+  character: {fileID: 114670610098037118, guid: 2e744bb3a3d7e6a48bc733487437fcad,
+    type: 2}
+  portrait: {fileID: 21300000, guid: d0472cee88d266a458de1d2982f07ef1, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 90df2413a098f4b46b6d439fe0d0f79a, type: 3}
   showAlways: 1
   showCount: 1
@@ -2322,8 +2332,9 @@ MonoBehaviour:
   storyText: "Do they even know how much this circus costs? It\u2019s not like the
     economy in the galaxy is peeking right now. "
   description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
+  character: {fileID: 114146064131992356, guid: 875d165f729a3c14dae8d0c93a5214df,
+    type: 2}
+  portrait: {fileID: 21300000, guid: 1e15ca3f526ad1644bbfbe87cc9a78e5, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 9f5214fde97f2ba42b059a4cc7a2b0fe, type: 3}
   showAlways: 1
   showCount: 1
@@ -2348,8 +2359,9 @@ MonoBehaviour:
   indentLevel: 0
   storyText: "I hear you. I don\u2019t get why they keep doing this.\r"
   description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
+  character: {fileID: 114670610098037118, guid: 2e744bb3a3d7e6a48bc733487437fcad,
+    type: 2}
+  portrait: {fileID: 21300000, guid: d0472cee88d266a458de1d2982f07ef1, type: 3}
   voiceOverClip: {fileID: 8300000, guid: 18c288e618e870344970d170c724519e, type: 3}
   showAlways: 1
   showCount: 1
@@ -2650,7 +2662,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 57
   indentLevel: 0
-  storyText: '                 '
+  storyText: '          '
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -2834,7 +2846,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 69
   indentLevel: 0
-  storyText: '                         '
+  storyText: '               '
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -3063,6 +3075,7 @@ MonoBehaviour:
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 595136165}
+  - {fileID: 595136185}
   - {fileID: 595136162}
   - {fileID: 595136161}
   - {fileID: 595136160}
@@ -3219,7 +3232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 85
   indentLevel: 0
-  storyText: '                         '
+  storyText: '            '
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -3290,7 +3303,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 186.90723
-    y: 221.14429
+    y: 220.14429
     width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -3301,6 +3314,7 @@ MonoBehaviour:
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 595136166}
+  - {fileID: 595136184}
   - {fileID: 595136171}
   - {fileID: 595136170}
   - {fileID: 595136167}
@@ -3394,7 +3408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 78
   indentLevel: 0
-  storyText: '                         '
+  storyText: '             '
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -3486,6 +3500,7 @@ MonoBehaviour:
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 595136173}
+  - {fileID: 595136181}
   - {fileID: 595136178}
   - {fileID: 595136180}
   - {fileID: 595136177}
@@ -3509,6 +3524,23 @@ MonoBehaviour:
   _duration:
     floatRef: {fileID: 0}
     floatVal: 2.5
+  durationOLD: 0
+--- !u!114 &595136181
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 595136116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 102
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 1.2
   durationOLD: 0
 --- !u!114 &595136182
 MonoBehaviour:
@@ -3543,6 +3575,40 @@ MonoBehaviour:
   _duration:
     floatRef: {fileID: 0}
     floatVal: 1.7
+  durationOLD: 0
+--- !u!114 &595136184
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 595136116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 101
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 1.2
+  durationOLD: 0
+--- !u!114 &595136185
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 595136116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 100
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 1.2
   durationOLD: 0
 --- !u!1 &613865954
 GameObject:

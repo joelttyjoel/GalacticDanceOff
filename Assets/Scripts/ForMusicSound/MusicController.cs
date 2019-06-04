@@ -68,8 +68,8 @@ public class MusicController : MonoBehaviour
         //calculate what percentage to be
         int starCount = 0;
         if (streak > 10) starCount++;
-        if (streak > 25) starCount++;
-        if (streak > 40) starCount++;
+        if (streak > 20) starCount++;
+        if (streak > 35) starCount++;
         if (streak > 55) starCount++;
         starCountBig = starCount;
         //do check for once execution
@@ -118,14 +118,16 @@ public class MusicController : MonoBehaviour
     {
         //something with event, hmm
         myEmitter.EventInstance.setPaused(true);
-        crowdEmitter.EventInstance.setPaused(true);
+
+        crowdEmitter.SetParameter("IsPause", 1);
     }
 
     public void ResumeMusic()
     {
         //same as pause but oposite
         myEmitter.EventInstance.setPaused(false);
-        crowdEmitter.EventInstance.setPaused(false);
+
+        crowdEmitter.SetParameter("IsPause", 0);
     }
 
     public void EnterLevelByInt(int levelNumber)

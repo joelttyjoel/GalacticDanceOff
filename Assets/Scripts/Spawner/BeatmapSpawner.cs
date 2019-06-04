@@ -28,9 +28,9 @@ public class BeatmapSpawner : MonoBehaviour {
 
     void Start () {
         //move distance Y to change speed for notes
-        Vector3 currentPos = transform.position;
+        Vector3 currentPos = GetComponent<RectTransform>().localPosition;
         Vector3 newPos = new Vector3(currentPos.x, currentPos.y * SceneSwitchereController.instance.currentSequence.speedMultiplier, currentPos.z);
-        transform.position = newPos;
+        GetComponent<RectTransform>().localPosition = newPos;
         //distance, to get position percentage
         distanceThisToDestroyer = Vector3.Distance(transform.position, noteCheckerGameobject.transform.position);
         noteCheck = noteCheckerGameobject.GetComponent<NoteChecker>();

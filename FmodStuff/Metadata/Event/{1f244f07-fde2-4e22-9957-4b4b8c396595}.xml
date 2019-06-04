@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.10.00">
     <object class="Event" id="{1f244f07-fde2-4e22-9957-4b4b8c396595}">
         <property name="name">
-            <value>Tehcno3</value>
+            <value>Techno3</value>
         </property>
         <property name="outputFormat">
             <value>1</value>
@@ -68,6 +68,9 @@
         </relationship>
     </object>
     <object class="MixerInput" id="{65f28204-7a0a-4602-b666-e55a5b67697f}">
+        <relationship name="masters">
+            <destination>{751b2b94-1699-4a25-81b7-9697223be83f}</destination>
+        </relationship>
         <relationship name="effectChain">
             <destination>{b260f284-6c08-4149-9de8-459019dbe9e7}</destination>
         </relationship>

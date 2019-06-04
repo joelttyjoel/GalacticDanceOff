@@ -245,7 +245,7 @@ public class GameManagerController : MonoBehaviour {
         int totalNumLength = 5;
         int inputLength = inputScore.ToString().Length;
 
-        outputString += " ";
+        outputString += "Score:";
 
         //add more shits at end
         for(int i = 0; i < totalNumLength - inputLength; i++)

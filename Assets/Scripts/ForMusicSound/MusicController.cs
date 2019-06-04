@@ -13,7 +13,7 @@ public class MusicController : MonoBehaviour
     public StudioEventEmitter crowdEmitter;
     
     public List<SpriteRenderer> stars;
-    public List<Animation> animations;
+    public List<Animator> animations;
     public Sprite spriteGood;
     public Sprite spriteBad;
 
@@ -51,12 +51,7 @@ public class MusicController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(lastCount != starCountBig)
-        {
-            Debug.Log("Play it");
-            lastCount = starCountBig;
-            if(starCountBig != 0) animations[starCountBig - 1].Play();
-        }
+
     }
 
     public void AddNoteHitMiss(bool wasHit)
@@ -77,6 +72,19 @@ public class MusicController : MonoBehaviour
         if (streak > 40) starCount++;
         if (streak > 55) starCount++;
         starCountBig = starCount;
+        //do check for once execution
+        if (lastCount != starCountBig)
+        {
+            //Debug.Log("Play it: " + starCountBig);
+            lastCount = starCountBig;
+            if (starCountBig != 0)
+                animations[starCountBig - 1].Play("thing");
+            if (starCountBig == 0)
+                GameManagerController.instance.fungusFlowChart.ExecuteBlock("CommentaryDuringDoingBad");
+            if (starCountBig == 2)
+                GameManagerController.instance.fungusFlowChart.ExecuteBlock("CommentaryDuringDoingGood");
+        }
+        //now do others
         float percentageToFull = ((float)starCount / (float)stars.Count);
         //send this to musicEvent
         SetHitPercentage(percentageToFull * 100f);

@@ -26,6 +26,8 @@ public class SceneSwitchereController : MonoBehaviour {
     //purple = 0, stick = 1, birb = 2
     public int selectedCharacter = 0;
     public int selectedOponent = 0;
+    public bool hasDoneCharacterSelect = false;
+    public bool hasDoneSongSelect = false;
     //volumes
     public float volumeMusic = 1;
     public float volumeSound = 1;

@@ -32,6 +32,8 @@ public class GameManagerController : MonoBehaviour {
     public Animator[] audienceAnimations;
     private Animator leftAnimator;
     private Animator rightAnimator;
+    public Animator winBanner;
+    public Animator loseBanner;
 
     [Header("General Settings")]
     //Variables for other objects
@@ -541,6 +543,10 @@ public class GameManagerController : MonoBehaviour {
             if (!hasBeenClearedBefore) SceneSwitchereController.instance.numberClearedLevels++;
 
             SceneSwitchereController.instance.wonLast = true;
+
+            //show win no matter what
+            winBanner.Play("thing");
+
             //if big win
             if (SceneSwitchereController.instance.numberClearedLevels >= numberClearedToWin)
             {
@@ -569,6 +575,7 @@ public class GameManagerController : MonoBehaviour {
         //lose
         else
         {
+            loseBanner.Play("thing");
             fungusFlowChart.ExecuteBlock("EndOfSong");
             yield return new WaitForSeconds(2f);
             leftAnimator.SetInteger("SelectState", 1);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 using UnityEngine.UI;
+using UnityEngine.Playables;
 
 public class MusicController : MonoBehaviour
 {
@@ -10,15 +11,19 @@ public class MusicController : MonoBehaviour
     public StudioEventEmitter myEmitter;
 
     public StudioEventEmitter crowdEmitter;
-
+    
     public List<SpriteRenderer> stars;
+    public List<Animator> animations;
     public Sprite spriteGood;
     public Sprite spriteBad;
 
+    private int lastCount = 0;
+
+    [System.NonSerialized]
+    public int starCountBig = 0;
     private int numberOfLevels = 1;
-    
-    public int numberOfNotesTracked = 20;
-    private List<bool> noteHits = new List<bool>();
+
+    public int streak = 0;
 
     //for creating singleton, love easy referencing
     public static MusicController instance = null;
@@ -39,13 +44,8 @@ public class MusicController : MonoBehaviour
     {
         //get number of levels, used to reset etc
         numberOfLevels = GameManagerController.instance.beatMapNamesInOrder.Length;
-        //fill up bar of things
-        noteHits.Add(true);
-        noteHits.Add(true);
-        noteHits.Add(true);
-        noteHits.Add(true);
-        noteHits.Add(true);
-        noteHits.Add(true);
+        lastCount = 0;
+        starCountBig = 0;
     }
 
     // Update is called once per frame
@@ -54,62 +54,52 @@ public class MusicController : MonoBehaviour
 
     }
 
-    //private void AddToStreak()
-    //{
-
-    //}
-    //private void ResetStreak()
-    //{
-
-    //}
-
     public void AddNoteHitMiss(bool wasHit)
     {
         //add notevalue to end of list, if false add more
         if(wasHit)
         {
-            noteHits.Add(wasHit);
+            streak++;
         }
         else
         {
-            noteHits.Add(wasHit);
-            noteHits.Add(wasHit);
-            noteHits.Add(wasHit);
-            noteHits.Add(wasHit);
-            noteHits.Add(wasHit);
+            streak = 0;
         }
-        //remove from back until isn't full anymore
-        while(noteHits.Count >= numberOfNotesTracked)
+        //calculate what percentage to be
+        int starCount = 0;
+        if (streak > 10) starCount++;
+        if (streak > 25) starCount++;
+        if (streak > 40) starCount++;
+        if (streak > 55) starCount++;
+        starCountBig = starCount;
+        //do check for once execution
+        if (lastCount != starCountBig)
         {
-            noteHits.RemoveAt(0);
+            //Debug.Log("Play it: " + starCountBig);
+            lastCount = starCountBig;
+            if (starCountBig != 0)
+                animations[starCountBig - 1].Play("thing");
+            if (starCountBig == 0)
+                GameManagerController.instance.fungusFlowChart.ExecuteBlock("CommentaryDuringDoingBad");
+            if (starCountBig == 2)
+                GameManagerController.instance.fungusFlowChart.ExecuteBlock("CommentaryDuringDoingGood");
         }
-        //if not, compare how big percentage of notes are hit vs miss
-        float trueCount = 0;
-        float falseCount = 0;
-        foreach (bool a in noteHits)
-        {
-            if (a) trueCount++;
-            else falseCount++;
-        }
-
-        float percentageOfTrue = trueCount / (trueCount + falseCount);
+        //now do others
+        float percentageToFull = ((float)starCount / (float)stars.Count);
         //send this to musicEvent
-        SetHitPercentage(percentageOfTrue);
-        SetStars(percentageOfTrue);
-        Debug.Log("percentage of true: "+percentageOfTrue);
+        SetHitPercentage(percentageToFull * 100f);
+        SetStars(percentageToFull);
     }
 
-    private void SetHitPercentage(float percentage)
+    private void SetHitPercentage(float percentageOfFull)
     {
-        float hunnerdPercentage = percentage * 100;
-        myEmitter.SetParameter("Score", hunnerdPercentage);
+        myEmitter.SetParameter("Score", percentageOfFull);
     }
 
-    private void SetStars(float percentage)
+    private void SetStars(float percentageOfFull)
     {
-        float remainingOfStart = percentage;
-        //loop through all stars, if remaining >= 0.25f, current star can be good, if not, bad
-        for(int i = 0; i <= 3; i++)
+        float remainingOfStart = percentageOfFull;
+        for (int i = 0; i <= stars.Count - 1; i++)
         {
             if(remainingOfStart >= 0.25f)
             {

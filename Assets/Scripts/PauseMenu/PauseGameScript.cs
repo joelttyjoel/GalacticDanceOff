@@ -16,6 +16,7 @@ public class PauseGameScript : MonoBehaviour {
 	public GameObject optionMenu;
 	public GameObject parentMenu;
 	public GameObject menuBoard;
+    public GameObject TutorialButton;
 
 	public GameObject childObject;
 	public Button[] buttons;
@@ -61,6 +62,7 @@ public class PauseGameScript : MonoBehaviour {
         //AudioController.instance.PauseSound();
 		menuBoard.SetActive (true);
 		optionMenu.SetActive (true);
+        TutorialButton.SetActive(true);
 
 
 		EventSystem.current.SetSelectedGameObject(null);

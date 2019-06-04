@@ -21,6 +21,7 @@
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 using FMODUnity;
@@ -28,6 +29,7 @@ using FMOD.Studio;
 
 public class BeatGetterFromFmodText : MonoBehaviour
 {
+    public List<Animator> omfers;
     // Variables that are modified in the callback need to be part of a seperate class.
     // This class needs to be 'blittable' otherwise it can't be pinned in memory.
     [StructLayout(LayoutKind.Sequential)]
@@ -195,7 +197,7 @@ public class BeatGetterFromFmodText : MonoBehaviour
         }
         currentLabelName = timelineInfo.lastMarker;
     }
-
+    
     private void BeatHasHap()
     {
         //Debug.Log("Beat");
@@ -206,6 +208,18 @@ public class BeatGetterFromFmodText : MonoBehaviour
         //ugly but shhhhhhh ok, spawn fret on each beat
         beatSpawnerTop.GetComponent<BeatmapSpawner>().SpawnFret(timePerBeat, timelineInfo.timeOfBeat);
         beatSpawnerBot.GetComponent<BeatmapSpawner>().SpawnFret(timePerBeat, timelineInfo.timeOfBeat);
+        
+        //for oomf animation thing
+        if(MusicController.instance.starCountBig >= 2)
+        {
+            if (!GameManagerController.instance.isRestarting)
+            {
+                foreach (Animator a in omfers)
+                {
+                    a.Play("thing");
+                }
+            }
+        }
 
         //also polling if can enter next beatmap, can only happen on beat
         //if marker has changed during this turn, will change, yummy solutions

@@ -12,6 +12,8 @@ public class PauseGameScript : MonoBehaviour {
 	private string startButton;
 	private string backButton;
 
+    public bool isPausable = true;
+
 	[Header("Menus")]
 	public GameObject optionMenu;
 	public GameObject parentMenu;
@@ -21,11 +23,23 @@ public class PauseGameScript : MonoBehaviour {
 	public GameObject childObject;
 	public Button[] buttons;
 	public Sprite countdown3, countdown2, countdown1, countdown0;
-	//[FMODUnity.EventRef]
-	//public string PauseEventEventPath;
-	//private EventInstance Pause;
+    //[FMODUnity.EventRef]
+    //public string PauseEventEventPath;
+    //private EventInstance Pause;
 
-	void Start ()
+    //make singleton
+    public static PauseGameScript instance = null;
+
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        //now replaces already existing gameManager instead
+        else if (instance != this)
+            Destroy(instance.gameObject);
+    }
+
+    void Start ()
 	{
 		image = childObject.GetComponent<Image> ();
 		startButton = "Start Button";
@@ -41,6 +55,7 @@ public class PauseGameScript : MonoBehaviour {
 			backButton = "Button B";
 		}
 
+        isPausable = true;
 	}
 
 
@@ -71,7 +86,10 @@ public class PauseGameScript : MonoBehaviour {
 
 	}
 
-
+    public void SetPausable(bool isWhat)
+    {
+        isPausable = isWhat;
+    }
 
 	public void ResumeGame()
 	{
@@ -129,7 +147,7 @@ public class PauseGameScript : MonoBehaviour {
 
 	void Update()
 	{
-		
+        if (!isPausable) return;
 
 		if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown(startButton)) 
 		{

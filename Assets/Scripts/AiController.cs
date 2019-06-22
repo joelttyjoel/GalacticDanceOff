@@ -19,6 +19,12 @@ public class AiController : MonoBehaviour {
             Destroy(instance.gameObject);
     }
 
+    void Start()
+    {
+        chanceToHitAll = SceneSwitchereController.instance.currentSequence.aiHitChance;
+        chanceForPerfect = SceneSwitchereController.instance.currentSequence.perfectOutOfThat;
+    }
+
     public void NoteForAi(float timeUntilGoal)
     {
         StartCoroutine(NoteTest(timeUntilGoal));
@@ -47,14 +53,4 @@ public class AiController : MonoBehaviour {
             GameManagerController.instance.takeDamage(false);
         }
     }
-
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

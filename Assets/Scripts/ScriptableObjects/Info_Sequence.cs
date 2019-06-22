@@ -10,6 +10,16 @@ public class Info_Sequence : ScriptableObject
     public float beatsSpawnToGoal = 4f;
     [SerializeField]
     public float speedMultiplier = 1f;
+    [SerializeField]
+    public int damageOnMiss = 100;
+    [SerializeField]
+    public int healingPer = 5;
+
+    //For AI nibba
+    [SerializeField]
+    public float aiHitChance = 0.5f;
+    [SerializeField]
+    public float perfectOutOfThat = 0.5f;
 
     //For MusicController
     [SerializeField]

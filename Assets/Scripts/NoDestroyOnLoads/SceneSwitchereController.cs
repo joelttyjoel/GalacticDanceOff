@@ -24,6 +24,7 @@ public class SceneSwitchereController : MonoBehaviour {
     public bool wonLast = false;
     public List<string> buttonsAllCleared = new List<string>();
     //purple = 0, stick = 1, birb = 2
+    public bool isCampaignMode = false;
     public int selectedCharacter = 0;
     public int selectedOponent = 0;
     public bool hasDoneCharacterSelect = false;
@@ -73,6 +74,11 @@ public class SceneSwitchereController : MonoBehaviour {
         //if not found, shit will break, but for now, just assume stuff with work
 
         Debug.Log("Changing to Scene: " + nameOfScene + " and playing sequence: " + nameOfSequence);
+    }
+
+    public void SetGameMode(bool isCampaign)
+    {
+        isCampaignMode = isCampaign;
     }
 
 	public void KeyBoard()

@@ -33,7 +33,7 @@ public class NonInteractableButton : MonoBehaviour {
 	void Update () {
 		
 
-		if ((Input.GetKeyDown (KeyCode.Backspace) ||  Input.GetButtonDown(currentBack)) && !SceneSwitchereController.instance.dissableAllInputs) 
+		if ((Input.GetKeyDown (KeyCode.Backspace) ||  Input.GetButtonDown(currentBack)) || Input.GetKeyDown(KeyCode.Escape) && !SceneSwitchereController.instance.dissableAllInputs) 
 		{
 			image.sprite = backsprite;
 			backTransform.localScale *= 1.2f;

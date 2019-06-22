@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PubNubAPI;
+using UnityEngine.UI;
+using SimpleJSON;
 
 public class GameManagerController : MonoBehaviour {
     [Header("Selected beatmap set settings")]
@@ -93,6 +96,39 @@ public class GameManagerController : MonoBehaviour {
     }
 
     void Start () {
+    //    PubNub pubnub;
+    //// Use this for initialization
+    //PNConfiguration pnConfiguration = new PNConfiguration();
+    //pnConfiguration.PublishKey = "pub-c-af007819-8187-4f84-8dc7-edcfbe8d3a7a";
+    //    pnConfiguration.SubscribeKey = "sub-c-3f3d7846-90e4-11e9-a5b2-9ea2e07f748b";
+
+    //    pnConfiguration.LogVerbosity = PNLogVerbosity.BODY;
+    //    pnConfiguration.UUID = Random.Range(0f, 9999999f).ToString();
+
+    //pubnub = new PubNub(pnConfiguration);
+
+    //    var usernametext = "i winned";// this would be set somewhere else in the code
+    //    var scoretext = "69";
+    //    MyClass myObject = new MyClass();
+    //    myObject.username = usernametext;
+    //    myObject.score = scoretext;
+    //    string json = JsonUtility.ToJson(myObject);
+    //    pubnub.Publish()
+    //        //was channel_
+    //        .Channel(channelName)
+    //        .Message(json)
+    //        .Async((result, status) =>
+    //        {
+    //            if (!status.Error)
+    //            {
+    //                Debug.Log(string.Format("Publish Timetoken: {0}", result.Timetoken));
+    //            }
+    //            else
+    //            {
+    //                Debug.Log(status.Error);
+    //                Debug.Log(status.ErrorData.Info);
+    //            }
+    //        });
         //set characters to do the dancin oof oof
         GameObject charLeft = Instantiate(allCharacterPrefabs012[SceneSwitchereController.instance.selectedCharacter], leftCharacterHolder.transform);
         charLeft.transform.SetParent(leftCharacterHolder.transform);
@@ -113,6 +149,9 @@ public class GameManagerController : MonoBehaviour {
         eventEmitter = musicManager.GetComponent<FMOD_StudioEventEmitter>();
         //Get thing that reads from Fmod
         theGetter = musicManager.GetComponent<BeatGetterFromFmodText>();
+        //settings beatmap
+        damagePerMiss = SceneSwitchereController.instance.currentSequence.damageOnMiss;
+        healingPerPoint10Sec = SceneSwitchereController.instance.currentSequence.healingPer;
 
         //reset last won, is for setting button image
         SceneSwitchereController.instance.wonLast = false;
@@ -478,6 +517,7 @@ public class GameManagerController : MonoBehaviour {
     //on won
     public IEnumerator FinishedSequence()
     {
+        PauseGameScript.instance.SetPausable(false);
         //disable inputs again
         InputManager.instance.isInputsDisabled = true;
         Debug.Log("Sequence finished");
@@ -489,11 +529,22 @@ public class GameManagerController : MonoBehaviour {
         MusicController.instance.crowdEmitter.SetParameter("CrowdScore", 100f);
 
         yield return new WaitForSeconds(3f);
+        //Add score to leaderboard
+        AddLeaderboardScore(PlayerPrefs.GetString("ScoreName").ToString(), playerScore.ToString());
+
+
         Debug.Log("Scoring final");
 
-        AudioController.instance.PlayWinStinger();
+        if (playerScore > AIScore)
+        {
+            AudioController.instance.PlayWinStinger();
+        }
+        else
+        {
+            AudioController.instance.PlayLoseStinger();
+        }
 
-        yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(3f);
         Debug.Log("Win animations");
         //play conffeties
         foreach (GameObject a in confetties)
@@ -547,8 +598,8 @@ public class GameManagerController : MonoBehaviour {
             //show win no matter what
             winBanner.Play("thing");
 
-            //if big win
-            if (SceneSwitchereController.instance.numberClearedLevels >= numberClearedToWin)
+            //if big win, only in campaign mode
+            if (SceneSwitchereController.instance.isCampaignMode == true && SceneSwitchereController.instance.numberClearedLevels >= numberClearedToWin)
             {
                 fungusFlowChart.SetIntegerVariable("CommentaryRan", SceneSwitchereController.instance.selectedCharacter);
                 fungusFlowChart.ExecuteBlock("EndOfCompetition");
@@ -590,18 +641,21 @@ public class GameManagerController : MonoBehaviour {
     {
 		InputManager.instance.isInputsDisabled = true;
 
-		if (SceneSwitchereController.instance.hasDoneFirstLevel == false) 
-		{
-			SceneSwitchereController.instance.hasDoneFirstLevel = true;
+        if(SceneSwitchereController.instance.isCampaignMode == true)
+        {
+            if (SceneSwitchereController.instance.hasDoneFirstLevel == false)
+            {
+                SceneSwitchereController.instance.hasDoneFirstLevel = true;
 
-			fungusFlowChart.ExecuteBlock ("PresentationOfCommentary");
-			leftAnimator.SetInteger("SelectState", 0);
-			rightAnimator.SetInteger("SelectState", 0);
-			yield return new WaitForSeconds(44f);
-			leftAnimator.SetInteger("SelectState", 1);
-			rightAnimator.SetInteger("SelectState", 1);
-			yield return new WaitForSeconds(4f);
-		}
+                fungusFlowChart.ExecuteBlock("PresentationOfCommentary");
+                leftAnimator.SetInteger("SelectState", 0);
+                rightAnimator.SetInteger("SelectState", 0);
+                yield return new WaitForSeconds(44f);
+                leftAnimator.SetInteger("SelectState", 1);
+                rightAnimator.SetInteger("SelectState", 1);
+                yield return new WaitForSeconds(4f);
+            }
+        }
         //time until start first level
         yield return new WaitForSeconds(timeBeforeFirstRun);
         //set health to full on start
@@ -651,5 +705,139 @@ public class GameManagerController : MonoBehaviour {
         theGetter.runNextBeatmap = true;
         theGetter.nameOfMapToRun = beatMapNamesInOrder[currentBeatMap - 1];
         //beatMapReader.StartRunningBeatmap(beatMapNamesInOrder[currentBeatMap]);
+    }
+
+    private void AddLeaderboardScore(string usernametext, string scoretext)
+    {
+        //create connection id say
+        PubNub pubnub;
+        // Use this for initialization
+        PNConfiguration pnConfiguration = new PNConfiguration();
+        pnConfiguration.PublishKey = "pub-c-af007819-8187-4f84-8dc7-edcfbe8d3a7a";
+        pnConfiguration.SubscribeKey = "sub-c-3f3d7846-90e4-11e9-a5b2-9ea2e07f748b";
+
+        pnConfiguration.LogVerbosity = PNLogVerbosity.BODY;
+        pnConfiguration.UUID = Random.Range(0f, 9999999f).ToString();
+
+        pubnub = new PubNub(pnConfiguration);
+
+        //set up what to send
+        MyClass myObject = new MyClass();
+        myObject.username = usernametext;
+        myObject.score = scoretext;
+        string json = JsonUtility.ToJson(myObject);
+
+        string channelName = "";
+        //get channel name to publish
+        if(SceneSwitchereController.instance.nameCurrentSequence == "Info_Funk_01")
+        {
+            channelName = "Funk1";
+        }
+        else if (SceneSwitchereController.instance.nameCurrentSequence == "Info_Funk_02")
+        {
+            channelName = "Funk2";
+        }
+        else if (SceneSwitchereController.instance.nameCurrentSequence == "Info_Funk_03")
+        {
+            channelName = "Funk3";
+        }
+
+        else if (SceneSwitchereController.instance.nameCurrentSequence == "Info_Rock_01")
+        {
+            channelName = "Rock1";
+        }
+        else if (SceneSwitchereController.instance.nameCurrentSequence == "Info_Rock_02")
+        {
+            channelName = "Rock2";
+        }
+        else if (SceneSwitchereController.instance.nameCurrentSequence == "Info_Rock_03")
+        {
+            channelName = "Rock3";
+        }
+
+        else if (SceneSwitchereController.instance.nameCurrentSequence == "Info_Techno_1")
+        {
+            channelName = "Techno1";
+        }
+        else if (SceneSwitchereController.instance.nameCurrentSequence == "Info_Techno_2")
+        {
+            channelName = "Techno2";
+        }
+        else if (SceneSwitchereController.instance.nameCurrentSequence == "Info_Techno_3")
+        {
+            channelName = "Techno3";
+        }
+
+        //public to current level one
+        pubnub.Publish()
+            //was channel_
+            .Channel(channelName)
+            .Message(json)
+            .Async((result, status) =>
+            {
+                if (!status.Error)
+                {
+                    Debug.Log(string.Format("Publish Timetoken: {0}", result.Timetoken));
+                }
+                else
+                {
+                    Debug.Log(status.Error);
+                    Debug.Log(status.ErrorData.Info);
+                }
+            });
+
+        //new thing for all
+        //create connection id say
+        //PubNub pubnub2;
+        //// Use this for initialization
+        //PNConfiguration pnConfiguration2 = new PNConfiguration();
+        //pnConfiguration2.PublishKey = "pub-c-af007819-8187-4f84-8dc7-edcfbe8d3a7a";
+        //pnConfiguration2.SubscribeKey = "sub-c-3f3d7846-90e4-11e9-a5b2-9ea2e07f748b";
+
+        //pnConfiguration2.LogVerbosity = PNLogVerbosity.BODY;
+        //pnConfiguration2.UUID = Random.Range(0f, 9999999f).ToString();
+
+        //pubnub2 = new PubNub(pnConfiguration2);
+        pubnub.Publish()
+            //was channel_
+            .Channel("All")
+            .Message(json)
+            .Async((result, status) =>
+            {
+                if (!status.Error)
+                {
+                    Debug.Log(string.Format("Publish Timetoken: {0}", result.Timetoken));
+                }
+                else
+                {
+                    Debug.Log(status.Error);
+                    Debug.Log(status.ErrorData.Info);
+                }
+            });
+
+        //always public to all, after delay
+        //SendResultAll(pubnub, json);
+    }
+
+    private IEnumerator SendResultAll(PubNub pubnub, string json)
+    {
+        yield return new WaitForSeconds(3f);
+
+        pubnub.Publish()
+            //was channel_
+            .Channel("All")
+            .Message(json)
+            .Async((result, status) =>
+            {
+                if (!status.Error)
+                {
+                    Debug.Log(string.Format("Publish Timetoken: {0}", result.Timetoken));
+                }
+                else
+                {
+                    Debug.Log(status.Error);
+                    Debug.Log(status.ErrorData.Info);
+                }
+            });
     }
 }

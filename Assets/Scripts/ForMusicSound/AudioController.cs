@@ -37,6 +37,10 @@ public class AudioController : MonoBehaviour {
     private EventInstance winStingerSounds;
 
     [FMODUnity.EventRef]
+    public string loseStingerEventPath;
+    private EventInstance loseStingerSounds;
+
+    [FMODUnity.EventRef]
     public string spotlightEventPath;
     private EventInstance spotlightSounds;
 
@@ -80,6 +84,7 @@ public class AudioController : MonoBehaviour {
         mainMenuSounds = FMODUnity.RuntimeManager.CreateInstance(mainMenuEventPath);
         scoreSounds = FMODUnity.RuntimeManager.CreateInstance(scoreEventPath);
         winStingerSounds = FMODUnity.RuntimeManager.CreateInstance(winStingerEventPath);
+        loseStingerSounds = FMODUnity.RuntimeManager.CreateInstance(loseStingerEventPath);
         spotlightSounds = FMODUnity.RuntimeManager.CreateInstance(spotlightEventPath);
         crowdCheerSounds = FMODUnity.RuntimeManager.CreateInstance(crowdCheerEventPath);
         fireWorkSounds = FMODUnity.RuntimeManager.CreateInstance(fireworkEventPath);
@@ -142,6 +147,12 @@ public class AudioController : MonoBehaviour {
     {
         if (!audioIsEnabled) return;
         winStingerSounds.start();
+    }
+
+    public void PlayLoseStinger()
+    {
+        if (!audioIsEnabled) return;
+        loseStingerSounds.start();
     }
 
     public void PlaySpotlight()

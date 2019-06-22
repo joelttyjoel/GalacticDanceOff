@@ -389,7 +389,7 @@ namespace Fungus
                 {
                     return objectValue;
                 }
-                else if (objType.IsEnum())
+                else if (objType.IsEnum)
                     return System.Enum.ToObject(objType, intValue);
 
                 break;

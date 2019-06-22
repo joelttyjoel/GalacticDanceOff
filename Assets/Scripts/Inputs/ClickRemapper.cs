@@ -35,8 +35,23 @@ public class ClickRemapper : MonoBehaviour {
         SceneSwitchereController.instance.selectedOponent = selected;
     }
 
+    public void SetPausable(bool thing)
+    {
+        PauseGameScript.instance.isPausable = thing;
+    }
+
+    public void SetCampaignMode(bool mode)
+    {
+        SceneSwitchereController.instance.SetGameMode(mode);
+    }
+
     public void ResetVariables()
     {
         SceneSwitchereController.instance.ResetVariables();
+    }
+    public void ResetPlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+        Debug.Log("ClEARING PLAYERPREFS");
     }
 }

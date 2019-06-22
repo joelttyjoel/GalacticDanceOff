@@ -79,10 +79,10 @@ public class MusicController : MonoBehaviour
             lastCount = starCountBig;
             if (starCountBig != 0)
                 animations[starCountBig - 1].Play("thing");
-            if (starCountBig == 0)
-                GameManagerController.instance.fungusFlowChart.ExecuteBlock("CommentaryDuringDoingBad");
+            //if (starCountBig == 0)
+            //    GameManagerController.instance.fungusFlowChart.ExecuteBlock("CommentaryDuringDoingBad");
             if (starCountBig == 2)
-                GameManagerController.instance.fungusFlowChart.ExecuteBlock("CommentaryDuringDoingGood");
+                GameManagerController.instance.fungusFlowChart.ExecuteBlock("CommentaryDuringGood");
         }
         //now do others
         float percentageToFull = ((float)starCount / (float)stars.Count);

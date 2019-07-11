@@ -7,13 +7,687 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 0000000042C1BFC8 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000000001FE08068 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] PlaybackSystem::init                     : done
 [LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] Manager::init                            : done.
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] SoundI::release                          : Intro temp (000000001FEB2898)
+[LOG] SoundI::release                          :     Intro temp (000000005050D398)
+[LOG] SoundI::release                          :     Intro temp (000000001FEB21D8)
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000001FEB1E78
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000001FEB1E78
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000001FEB2F58
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000001FEB2F58
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] SystemI::createSound                     : filename = FmodStuff\Build\Desktop/Master Bank.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000000001FEB21D8 : node = 000000005059D7B0
+[LOG] SystemI::createSound                     : add node to async list : head = 000000005050EEE8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000001FEB21D8
+[LOG] SystemI::createSoundInternal             :     Create name='FmodStuff\Build\Desktop/Master Bank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 66218400
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 248576
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000005059D8C8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Funk2 Tease', format=2, channels=2, frequency=48000, lengthbytes=607776, lengthpcm=2048000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000001FEB21D8
+[LOG] SoundI::getSubSound                      : sound 000000001FEB21D8.  Subsound index 0 / 1
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000001FEB2388
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000001FEB2388
+[LOG] SystemI::createSound                     : filename = FmodStuff\Build\Desktop/Master Bank.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000000001FEB2538 : node = 000000005059C550
+[LOG] SystemI::createSound                     : add node to async list : head = 000000005050EEE8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000001FEB2538
+[LOG] SystemI::createSoundInternal             :     Create name='FmodStuff\Build\Desktop/Master Bank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 66218400
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 248576
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000005059C668
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSound                     :     filename = FmodStuff\Build\Desktop/Master Bank.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 000000001FEB2898 : node = 000000005059CBE0
+[LOG] SystemI::createSound                     :     add node to async list : head = 000000005050EEE8.  list count = 0
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='MenuMusic', format=2, channels=2, frequency=48000, lengthbytes=1348096, lengthpcm=4608000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.998077.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000001FEB2538
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000001FEB2898
+[LOG] SystemI::createSoundInternal             :     Create name='FmodStuff\Build\Desktop/Master Bank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 66218400
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 248576
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000005059CCF8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='MM_Solo_Git&Roads', format=2, channels=2, frequency=48000, lengthbytes=806496, lengthpcm=4608000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000001FEB2898
+[LOG] SoundI::getSubSound                      : sound 000000001FEB2538.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      : sound 000000001FEB2898.  Subsound index 0 / 1
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000000110EED68
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000000110EED68
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000001FEB2A48
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000001FEB2A48
+[LOG] SoundI::release                          : MenuMusic (000000001FEB32B8)
+[LOG] SoundI::release                          :     MenuMusic (000000005050EF38)
+[LOG] SoundI::release                          :     MenuMusic (000000001FEB1E78)
+[LOG] SoundI::release                          : MM_Solo_Piano&Roads (000000001FEB1B18)
+[LOG] SoundI::release                          :     MM_Solo_Piano&Roads (000000005050F0D8)
+[LOG] SoundI::release                          :     MM_Solo_Piano&Roads (000000001FEB2F58)
+[LOG] SoundI::release                          : Funk2 Tease (000000001FEB21D8)
+[LOG] SoundI::release                          :     Funk2 Tease (000000001FEB3978)
+[LOG] SoundI::release                          :     Funk2 Tease (000000001FEB2388)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] SystemI::createSound                     : filename = FmodStuff\Build\Desktop/Master Bank.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 00000000110EEF18 : node = 000000005059C160
+[LOG] SystemI::createSound                     : add node to async list : head = 000000005050EEE8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000000110EEF18
+[LOG] SystemI::createSoundInternal             :     Create name='FmodStuff\Build\Desktop/Master Bank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 66218400
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 248576
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000005059C278
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Funk2 Tease', format=2, channels=2, frequency=48000, lengthbytes=607776, lengthpcm=2048000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000000110EEF18
+[LOG] SoundI::getSubSound                      : sound 00000000110EEF18.  Subsound index 0 / 1
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000000110EF0C8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000000110EF0C8
+[LOG] SoundI::release                          : MenuMusic (000000001FEB2538)
+[LOG] SoundI::release                          :     MenuMusic (000000001FEB3B18)
+[LOG] SoundI::release                          :     MenuMusic (000000001FEB2A48)
+[LOG] SoundI::release                          : MM_Solo_Git&Roads (000000001FEB2898)
+[LOG] SoundI::release                          :     MM_Solo_Git&Roads (000000001FEB3E58)
+[LOG] SoundI::release                          :     MM_Solo_Git&Roads (00000000110EED68)
+[LOG] SystemI::createSound                     : filename = FmodStuff\Build\Desktop/Master Bank.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 00000000110EE858 : node = 000000005059C010
+[LOG] SystemI::createSound                     : add node to async list : head = 000000005050EEE8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000000110EE858
+[LOG] SystemI::createSoundInternal             :     Create name='FmodStuff\Build\Desktop/Master Bank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 66218400
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 248576
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000005059C128
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSound                     :     filename = FmodStuff\Build\Desktop/Master Bank.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 00000000110EED68 : node = 000000005059C2B0
+[LOG] SystemI::createSound                     :     add node to async list : head = 000000005050EEE8.  list count = 0
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='MenuMusic', format=2, channels=2, frequency=48000, lengthbytes=1348096, lengthpcm=4608000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.998077.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000000110EE858
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000000110EED68
+[LOG] SystemI::createSoundInternal             :     Create name='FmodStuff\Build\Desktop/Master Bank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 66218400
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 248576
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000005059C3C8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='MM_Solo_Mono&Git', format=2, channels=2, frequency=48000, lengthbytes=1189344, lengthpcm=4608000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.998688.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000000110EED68
+[LOG] SoundI::getSubSound                      : sound 00000000110EE858.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      : sound 00000000110EED68.  Subsound index 0 / 1
+[LOG] SoundI::release                          : Funk2 Tease (00000000110EEF18)
+[LOG] SoundI::release                          :     Funk2 Tease (000000005050D538)
+[LOG] SoundI::release                          :     Funk2 Tease (00000000110EF0C8)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] SystemI::createSound                     : filename = FmodStuff\Build\Desktop/Master Bank.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000000001FEB1B18 : node = 000000005059CFD0
+[LOG] SystemI::createSound                     : add node to async list : head = 000000005050EEE8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000001FEB1B18
+[LOG] SystemI::createSoundInternal             :     Create name='FmodStuff\Build\Desktop/Master Bank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 66218400
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 248576
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000005059D0E8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Funk2_Trans+inr_A del', format=2, channels=2, frequency=48000, lengthbytes=127776, lengthpcm=512000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.624878.
+[LOG] SystemI::createSound                     :     filename = FmodStuff\Build\Desktop/Master Bank.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 000000001FEB2388 : node = 000000005059C6A0
+[LOG] SystemI::createSound                     :     add node to async list : head = 000000005050EEE8.  list count = 0
+[LOG] SystemI::createSound                     :     filename = FmodStuff\Build\Desktop/Master Bank.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 000000001FEB32B8 : node = 000000005059D120
+[LOG] SystemI::createSound                     :     add node to async list : head = 000000005050EEE8.  list count = 1
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000001FEB1B18
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000001FEB2388
+[LOG] SystemI::createSoundInternal             :     Create name='FmodStuff\Build\Desktop/Master Bank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 66218400
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 248576
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000005059C7B8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='SFX_Crowd_Cheer_Less_Clap_2', format=2, channels=2, frequency=48000, lengthbytes=292768, lengthpcm=912000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.707127.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000001FEB2388
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000001FEB32B8
+[LOG] SystemI::createSoundInternal             :     Create name='FmodStuff\Build\Desktop/Master Bank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 66218400
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 248576
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000005059D238
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='SFX_Crowd_Cheer_Less_1', format=2, channels=2, frequency=48000, lengthbytes=222976, lengthpcm=888000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.707094.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000001FEB32B8
+[LOG] SoundI::getSubSound                      : sound 000000001FEB1B18.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      : sound 000000001FEB2388.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      : sound 000000001FEB32B8.  Subsound index 0 / 1
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000001FEB2898
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000001FEB2898
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] SystemI::mixerSuspend                    : Suspending output.
+[LOG] SystemI::mixerResume                     : Resuming output.
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000001FEB1E78
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000001FEB1E78
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000001FEB2898
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000001FEB2898
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000001FEB2538
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000001FEB2538
+[LOG] SystemI::mixerSuspend                    : Suspending output.
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] SystemI::mixerResume                     : Resuming output.
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000001FEB1E78
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000001FEB1E78
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000001FEB2898
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000001FEB2898
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000001FEB2538
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000001FEB2538
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] SystemI::createSound                     : filename = FmodStuff\Build\Desktop/Master Bank.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000000001FEB2A48 : node = 000000005059CE80
+[LOG] SystemI::createSound                     : add node to async list : head = 000000005050EEE8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000001FEB2A48
+[LOG] SystemI::createSoundInternal             :     Create name='FmodStuff\Build\Desktop/Master Bank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 66218400
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 248576
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000005059CF98
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='SFX_Crowd_Low_loop_2', format=2, channels=2, frequency=48000, lengthbytes=237440, lengthpcm=984000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.561657.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000001FEB2A48
+[LOG] SoundI::getSubSound                      : sound 000000001FEB2A48.  Subsound index 0 / 1
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000000110EEF18
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000000110EEF18
+[LOG] SoundI::release                          : SFX_Crowd_Cheer_Less_Clap_2 (000000001FEB2388)
+[LOG] SoundI::release                          :     SFX_Crowd_Cheer_Less_Clap_2 (000000001FEB3978)
+[LOG] SoundI::release                          :     SFX_Crowd_Cheer_Less_Clap_2 (000000001FEB2538)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] SystemI::createSound                     : filename = FmodStuff\Build\Desktop/Master Bank.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 00000000110EF0C8 : node = 000000005059C7F0
+[LOG] SystemI::createSound                     : add node to async list : head = 000000005050EEE8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000000110EF0C8
+[LOG] SystemI::createSoundInternal             :     Create name='FmodStuff\Build\Desktop/Master Bank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 66218400
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 248576
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000005059C908
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSound                     :     filename = FmodStuff\Build\Desktop/Master Bank.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 000000001FEB2538 : node = 000000005059CA90
+[LOG] SystemI::createSound                     :     add node to async list : head = 000000005050EEE8.  list count = 0
+[LOG] SystemI::createSound                     :     filename = FmodStuff\Build\Desktop/Master Bank.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 000000001FEB2388 : node = 000000005059C550
+[LOG] SystemI::createSound                     :     add node to async list : head = 000000005050EEE8.  list count = 1
+[LOG] SystemI::createSound                     :     filename = FmodStuff\Build\Desktop/Master Bank.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 0000000050B293A8 : node = 000000005059D900
+[LOG] SystemI::createSound                     :     add node to async list : head = 000000005050EEE8.  list count = 2
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='SFX_Crowd_Cheer_Less_2', format=2, channels=2, frequency=48000, lengthbytes=244864, lengthpcm=960000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.687974.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000000110EF0C8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000001FEB2538
+[LOG] SystemI::createSoundInternal             :     Create name='FmodStuff\Build\Desktop/Master Bank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 66218400
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 248576
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000005059CBA8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='SFX_Crowd_Cheer_loop_2', format=2, channels=2, frequency=48000, lengthbytes=227296, lengthpcm=888000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.707166.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000001FEB2538
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000001FEB2388
+[LOG] SystemI::createSoundInternal             :     Create name='FmodStuff\Build\Desktop/Master Bank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 66218400
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 248576
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000005059C668
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='SFX_Crowd_Cheer_Clap_loop_2', format=2, channels=2, frequency=48000, lengthbytes=293824, lengthpcm=912000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.707128.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000001FEB2388
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000050B293A8
+[LOG] SystemI::createSoundInternal             :     Create name='FmodStuff\Build\Desktop/Master Bank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 66218400
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 248576
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000005059DA18
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='SFX_Crowd_Cheer_Less_Clap_2', format=2, channels=2, frequency=48000, lengthbytes=292768, lengthpcm=912000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.707127.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000050B293A8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000001FEB1E78
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000001FEB1E78
+[LOG] SoundI::getSubSound                      : sound 00000000110EF0C8.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      : sound 000000001FEB2538.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      : sound 000000001FEB2388.  Subsound index 0 / 1
+[LOG] SoundI::getSubSound                      : sound 0000000050B293A8.  Subsound index 0 / 1
+[LOG] SystemI::createSound                     : filename = FmodStuff\Build\Desktop/Master Bank.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000000050B291F8 : node = 000000005059CBE0
+[LOG] SystemI::createSound                     : add node to async list : head = 000000005050EEE8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000050B291F8
+[LOG] SystemI::createSoundInternal             :     Create name='FmodStuff\Build\Desktop/Master Bank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 66218400
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 248576
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000005059CCF8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Funk2_Trans+inr_A del', format=2, channels=2, frequency=48000, lengthbytes=127776, lengthpcm=512000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.624878.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000050B291F8
+[LOG] SoundI::getSubSound                      : sound 0000000050B291F8.  Subsound index 0 / 1
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000050B29558
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000050B29558
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000050B287D8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000050B287D8
+[LOG] SoundI::release                          : Funk2_Trans+inr_A del (000000001FEB1B18)
+[LOG] SoundI::release                          :     Funk2_Trans+inr_A del (000000001FEB3E58)
+[LOG] SoundI::release                          :     Funk2_Trans+inr_A del (000000001FEB1E78)
+[LOG] SoundI::release                          : SFX_Crowd_Cheer_Clap_loop_2 (000000001FEB2388)
+[LOG] SoundI::release                          :     SFX_Crowd_Cheer_Clap_loop_2 (000000007AA4D888)
+[LOG] SoundI::release                          :     SFX_Crowd_Cheer_Clap_loop_2 (0000000050B29048)
+[LOG] SoundI::release                          : SFX_Crowd_Cheer_Less_1 (000000001FEB32B8)
+[LOG] SoundI::release                          :     SFX_Crowd_Cheer_Less_1 (000000001FEB3B18)
+[LOG] SoundI::release                          :     SFX_Crowd_Cheer_Less_1 (000000001FEB2898)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] SystemI::createSound                     : filename = FmodStuff\Build\Desktop/Master Bank.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000000050B29F78 : node = 000000005059C160
+[LOG] SystemI::createSound                     : add node to async list : head = 000000005050EEE8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000050B29F78
+[LOG] SystemI::createSoundInternal             :     Create name='FmodStuff\Build\Desktop/Master Bank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 66218400
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 248576
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000005059C278
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Funk2_Trans+inr_A del', format=2, channels=2, frequency=48000, lengthbytes=127776, lengthpcm=512000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.624878.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000050B29F78
+[LOG] SoundI::getSubSound                      : sound 0000000050B29F78.  Subsound index 0 / 1
+[LOG] SoundI::release                          : Funk2_Trans+inr_A del (0000000050B291F8)
+[LOG] SoundI::release                          :     Funk2_Trans+inr_A del (000000007AA4C508)
+[LOG] SoundI::release                          :     Funk2_Trans+inr_A del (0000000050B29C18)
+[LOG] SystemI::createSound                     : filename = FmodStuff\Build\Desktop/Master Bank.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000000050B29708 : node = 000000005059D270
+[LOG] SystemI::createSound                     : add node to async list : head = 000000005050EEE8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000050B29708
+[LOG] SystemI::createSoundInternal             :     Create name='FmodStuff\Build\Desktop/Master Bank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 66218400
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 248576
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000005059D388
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='SFX_Crowd_Cheer_loop_1', format=2, channels=2, frequency=48000, lengthbytes=240320, lengthpcm=936000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.707166.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000050B29708
+[LOG] SoundI::getSubSound                      : sound 0000000050B29708.  Subsound index 0 / 1
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000050B28988
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000050B28988
+[LOG] SystemI::createSound                     : filename = FmodStuff\Build\Desktop/Master Bank.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000000050B28B38 : node = 000000005059C940
+[LOG] SystemI::createSound                     : add node to async list : head = 000000005050EEE8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000050B28B38
+[LOG] SystemI::createSoundInternal             :     Create name='FmodStuff\Build\Desktop/Master Bank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 66218400
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 248576
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000005059CA58
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='SFX_Crowd_Low_loop_3', format=2, channels=2, frequency=48000, lengthbytes=225664, lengthpcm=936000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.561666.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000050B28B38
+[LOG] SoundI::getSubSound                      : sound 0000000050B28B38.  Subsound index 0 / 1
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000050B298B8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000050B298B8
+[LOG] SoundI::release                          : SFX_Crowd_Cheer_loop_1 (0000000050B29708)
+[LOG] SoundI::release                          :     SFX_Crowd_Cheer_loop_1 (000000007AA4C6A8)
+[LOG] SoundI::release                          :     SFX_Crowd_Cheer_loop_1 (0000000050B28988)
+[LOG] SoundI::release                          : SFX_Crowd_Cheer_Less_Clap_2 (0000000050B293A8)
+[LOG] SoundI::release                          :     SFX_Crowd_Cheer_Less_Clap_2 (000000007AA4C1C8)
+[LOG] SoundI::release                          :     SFX_Crowd_Cheer_Less_Clap_2 (0000000050B287D8)
+[LOG] SoundI::release                          : SFX_Crowd_Low_loop_2 (000000001FEB2A48)
+[LOG] SoundI::release                          :     SFX_Crowd_Low_loop_2 (000000005050D398)
+[LOG] SoundI::release                          :     SFX_Crowd_Low_loop_2 (00000000110EEF18)
+[LOG] SoundI::release                          : Funk2_Trans+inr_A del (0000000050B29F78)
+[LOG] SoundI::release                          :     Funk2_Trans+inr_A del (000000007AA4C848)
+[LOG] SoundI::release                          :     Funk2_Trans+inr_A del (0000000050B29DC8)
+[LOG] SoundI::release                          : SFX_Crowd_Low_loop_3 (0000000050B28B38)
+[LOG] SoundI::release                          :     SFX_Crowd_Low_loop_3 (000000007AA4DBC8)
+[LOG] SoundI::release                          :     SFX_Crowd_Low_loop_3 (0000000050B298B8)
+[LOG] SoundI::release                          : SFX_Crowd_Cheer_loop_2 (000000001FEB2538)
+[LOG] SoundI::release                          :     SFX_Crowd_Cheer_loop_2 (000000007AA4CD28)
+[LOG] SoundI::release                          :     SFX_Crowd_Cheer_loop_2 (0000000050B28628)
+[LOG] SoundI::release                          : SFX_Crowd_Cheer_Less_2 (00000000110EF0C8)
+[LOG] SoundI::release                          :     SFX_Crowd_Cheer_Less_2 (000000001FEB3978)
+[LOG] SoundI::release                          :     SFX_Crowd_Cheer_Less_2 (0000000050B29558)
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000001FEB2F58
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000001FEB2F58
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000001FEB21D8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000001FEB21D8
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] SoundI::release                          : MM_Solo_Mono&Git (00000000110EED68)
+[LOG] SoundI::release                          :     MM_Solo_Mono&Git (000000005050EF38)
+[LOG] SoundI::release                          :     MM_Solo_Mono&Git (000000001FEB21D8)
+[LOG] SoundI::release                          : MenuMusic (00000000110EE858)
+[LOG] SoundI::release                          :     MenuMusic (000000005050D6D8)
+[LOG] SoundI::release                          :     MenuMusic (000000001FEB2F58)
+[LOG] SoundI::release                          :  (0000000050566A48)
+[LOG] SoundI::release                          :     SFX_UI_Gameplay_Pause_on_1 (000000005050DA18)
+[LOG] SoundI::release                          :  (00000000505EB168)
+[LOG] SoundI::release                          :     SFX_UI_Gameplay_Pause_off_1 (00000000505C0EA8)
+[LOG] SoundI::release                          :  (00000000505EBB78)
+[LOG] SoundI::release                          :     SFX_ButtonPress_Perfect_2 (00000000505C0B68)
+[LOG] SoundI::release                          :  (0000000050409238)
+[LOG] SoundI::release                          :     SFX_ButtonPress_OK_2 (00000000506F4598)
+[LOG] SoundI::release                          :  (00000000500FF448)
+[LOG] SoundI::release                          :     SFX_ButtonPress_Fail_1 (0000000050107D78)
+[LOG] SoundI::release                          :  (00000000505EA308)
+[LOG] SoundI::release                          :     SFX_ButtonPress_OK_1 (00000000506BA838)
+[LOG] SoundI::release                          :  (00000000506C1448)
+[LOG] SoundI::release                          :     SFX_ButtonPress_Perfect_1 (00000000506B97F8)
+[LOG] SoundI::release                          :  (00000000505EAE88)
+[LOG] SoundI::release                          :     Techno3_Tr+inr_A-B_Chicken (00000000505C1A08)
+[LOG] SoundI::release                          :  (00000000506C2588)
+[LOG] SoundI::release                          :     Techno3_Tr+inr_A-B_Komp (000000005050DEF8)
+[LOG] SoundI::release                          :  (00000000506C2138)
+[LOG] SoundI::release                          :     Techno3_Tr+inr_B-C_Drums (00000000506B9E78)
+[LOG] SoundI::release                          :  (00000000500FF168)
+[LOG] SoundI::release                          :     Techno3_Intro_Kick (0000000050107218)
+[LOG] SoundI::release                          :  (00000000505EB728)
+[LOG] SoundI::release                          :     Techno3_Tr+inr_B-C_Bass (00000000505C09C8)
+[LOG] SoundI::release                          :  (00000000500FFCE8)
+[LOG] SoundI::release                          :     Techno3_Intro_Drums (0000000050108258)
+[LOG] SoundI::release                          :  (0000000050061718)
+[LOG] SoundI::release                          :     Techno3_Tr+inr_B-C_Chicken (000000004BCDDEC8)
+[LOG] SoundI::release                          :  (0000000050061438)
+[LOG] SoundI::release                          :     Techno3_Tr+inr_B-C_Pad (00000000506F40B8)
+[LOG] SoundI::release                          :  (00000000506C1B78)
+[LOG] SoundI::release                          :     Techno3_Outro_Kick (00000000506BAD18)
+[LOG] SoundI::release                          :  (00000000500FE8C8)
+[LOG] SoundI::release                          :     Techno3_Tr+inr_A-B_Bass (00000000501066B8)
+[LOG] SoundI::release                          :  (00000000505EB898)
+[LOG] SoundI::release                          :     Techno3_Tr+inr_A-B_Kick (00000000505C23C8)
+[LOG] SoundI::release                          :  (0000000050061B68)
+[LOG] SoundI::release                          :     Techno3_Outro_Chicken (00000000506F4258)
+[LOG] SoundI::release                          :  (00000000505EA028)
+[LOG] SoundI::release                          :     Techno3_Intro_Komp (00000000505C1D48)
+[LOG] SoundI::release                          :  (0000000050062298)
+[LOG] SoundI::release                          :     Techno3_Outro_Bass (00000000506F3218)
+[LOG] SoundI::release                          :  (00000000500FF2D8)
+[LOG] SoundI::release                          :     Techno3_Intro_Bass (0000000050107BD8)
+[LOG] SoundI::release                          :  (00000000504080F8)
+[LOG] SoundI::release                          :     Techno3_Tr+inr_A-B_Drums (000000005042C468)
+[LOG] SoundI::release                          :  (00000000506C0D18)
+[LOG] SoundI::release                          :     Techno3_Tr+inr_A-B_Melodi (000000005050E098)
+[LOG] SoundI::release                          :  (0000000050408828)
+[LOG] SoundI::release                          :     Techno3_Outro_Melodi (000000005042DB28)
+[LOG] SoundI::release                          :  (0000000050062CA8)
+[LOG] SoundI::release                          :     Techno3_Tr+inr_B-C_Komp (000000004C4C9B58)
+[LOG] SoundI::release                          :  (0000000050408F58)
+[LOG] SoundI::release                          :     Techno3_Outro_Komp (000000005042D308)
+[LOG] SoundI::release                          :  (00000000500FF5B8)
+[LOG] SoundI::release                          :     Techno3_Outro_Pad (000000005042CE28)
+[LOG] SoundI::release                          :  (0000000050100418)
+[LOG] SoundI::release                          :     Techno3_Tr+inr_B-C_Kick (0000000050106ED8)
+[LOG] SoundI::release                          :  (00000000506C08C8)
+[LOG] SoundI::release                          :     SFX_Shhh_1 (00000000506B9318)
+[LOG] SoundI::release                          :  (0000000050100138)
+[LOG] SoundI::release                          :     SFX_Shhh_2 (00000000501076F8)
+[LOG] SoundI::release                          :  (00000000500629C8)
+[LOG] SoundI::release                          :     SFX_UI_Menu_Select_1 (00000000506F3BD8)
+[LOG] SoundI::release                          :  (00000000504086B8)
+[LOG] SoundI::release                          :     Funk3_Trans+inr_C del (000000005042C128)
+[LOG] SoundI::release                          :  (00000000506C0FF8)
+[LOG] SoundI::release                          :     Funk3_Trans+inr_C del_Rytm_git (000000005050EA58)
+[LOG] SoundI::release                          :  (00000000500626E8)
+[LOG] SoundI::release                          :     Funk3_Trans+inr_C_Lead (00000000506F3A38)
+[LOG] SoundI::release                          :  (0000000050061FB8)
+[LOG] SoundI::release                          :     Funk3_Trans+inr_B del (00000000506F33B8)
+[LOG] SoundI::release                          :  (00000000505EB448)
+[LOG] SoundI::release                          :     Funk3_Trans+inr_A del (00000000505C1528)
+[LOG] SoundI::release                          :  (00000000505EAD18)
+[LOG] SoundI::release                          :     Outro (00000000505C1EE8)
+[LOG] SoundI::release                          :  (0000000050062128)
+[LOG] SoundI::release                          :     950a93ea-94e1-4641-b90d-433d7d43621a (000000004C4CA1D8)
+[LOG] SoundI::release                          :  (00000000500FFA08)
+[LOG] SoundI::release                          :     SFX_Toys_GrayPigToy_1 (0000000050106B98)
+[LOG] SoundI::release                          :  (0000000050409518)
+[LOG] SoundI::release                          :     SFX_Toys_GrayPigToy_2 (000000005042C948)
+[LOG] SoundI::release                          :  (00000000500FFFC8)
+[LOG] SoundI::release                          :     SFX_Toys_GrayPigToy_3 (0000000050107558)
+[LOG] SoundI::release                          :  (00000000500FEBA8)
+[LOG] SoundI::release                          :     SFX_Toys_Kazoo_1 (0000000050107A38)
+[LOG] SoundI::release                          :  (0000000050061CD8)
+[LOG] SoundI::release                          :     SFX_Toys_Squeak_1 (00000000506F3558)
+[LOG] SoundI::release                          :  (00000000505EA198)
+[LOG] SoundI::release                          :     SFX_Toys_Squeak_2 (00000000506B94B8)
+[LOG] SoundI::release                          :  (00000000504083D8)
+[LOG] SoundI::release                          :     SFX_Toys_Squeak_3 (000000005042C608)
+[LOG] SoundI::release                          :  (00000000506C1CE8)
+[LOG] SoundI::release                          :     SFX_Toys_Squeak_4 (00000000506B9658)
+[LOG] SoundI::release                          :  (00000000505678A8)
+[LOG] SoundI::release                          :     SFX_Toys_Squeak_5 (000000005050E3D8)
+[LOG] SoundI::release                          :  (0000000050407B38)
+[LOG] SoundI::release                          :     SFX_Toys_Squeak_6 (000000005042D648)
+[LOG] SoundI::release                          :  (00000000500FF728)
+[LOG] SoundI::release                          :     SFX_Toys_WierdBlackTubeToy_1 (00000000501080B8)
+[LOG] SoundI::release                          :  (00000000504090C8)
+[LOG] SoundI::release                          :     SFX_Toys_WierdBlackTubeToy_2 (00000000506F43F8)
+[LOG] SoundI::release                          :  (00000000500FE758)
+[LOG] SoundI::release                          :     SFX_Toys_WierdBlackTubeToy_3 (00000000501083F8)
+[LOG] SoundI::release                          :  (00000000500FF898)
+[LOG] SoundI::release                          :     SFX_Toys_WierdBlackTubeToy_4 (0000000050106858)
+[LOG] SoundI::release                          :  (00000000506C2418)
+[LOG] SoundI::release                          :     SFX_Toys_WierdBlackTubeToy_5 (000000005050E578)
+[LOG] SoundI::release                          :  (0000000050061E48)
+[LOG] SoundI::release                          :     SFX_Toys_WierdSqueak (00000000506F3078)
+[LOG] SoundI::release                          :  (0000000050062B38)
+[LOG] SoundI::release                          :     Win stinger (00000000506F2ED8)
+[LOG] SoundI::release                          :  (00000000506C0A38)
+[LOG] SoundI::release                          :     Loose stinger (00000000506BA4F8)
+[LOG] SoundI::release                          :  (0000000050408C78)
+[LOG] SoundI::release                          :     SFX_UI_Menu_Press_1 (000000005042BDE8)
+[LOG] SoundI::release                          :  (00000000506C15B8)
+[LOG] SoundI::release                          :     SFX_UI_Menu_1_Select (00000000506BA358)
+[LOG] SoundI::release                          :  (00000000506C1168)
+[LOG] SoundI::release                          :     SFX_UI_Menu_2_Select (000000005050EBF8)
+[LOG] SoundI::release                          :  (00000000500615A8)
+[LOG] SoundI::release                          :     SFX_UI_Menu_3_Select (00000000506F4738)
+[LOG] SoundI::release                          :  (00000000505EB2D8)
+[LOG] SoundI::release                          :     SFX_UI_Menu_4_Select (00000000505C2228)
+[LOG] SoundI::release                          :  (00000000506C1728)
+[LOG] SoundI::release                          :     SFX_UI_Menu_1_Back (00000000506B9CD8)
+[LOG] SoundI::release                          :  (0000000050062408)
+[LOG] SoundI::release                          :     SFX_UI_Menu_2_Back (000000004BCDEBC8)
+[LOG] SoundI::release                          :  (00000000500FFE58)
+[LOG] SoundI::release                          :     SFX_UI_Menu_3_Back (0000000050107F18)
+[LOG] SoundI::release                          :  (0000000050409968)
+[LOG] SoundI::release                          :     SFX_UI_Menu_4_Back (000000005042D168)
+[LOG] SoundI::release                          :  (00000000500612C8)
+[LOG] SoundI::release                          :     SFX_UI_Menu_1_Forward (00000000506F3898)
+[LOG] SoundI::release                          :  (00000000500FE5E8)
+[LOG] SoundI::release                          :     SFX_UI_Menu_2_Forward (0000000050107078)
+[LOG] SoundI::release                          :  (00000000505EABA8)
+[LOG] SoundI::release                          :     SFX_UI_Menu_3_Forward (00000000505C2088)
+[LOG] SoundI::release                          :  (00000000506C1E58)
+[LOG] SoundI::release                          :     SFX_UI_Menu_4_Forward (00000000506B9B38)
+[LOG] SoundI::release                          :  (0000000050408548)
+[LOG] SoundI::release                          :     SFX_Fireworks_1 (000000005042D4A8)
+[LOG] SoundI::release                          :  (00000000504097F8)
+[LOG] SoundI::release                          :     SFX_Fireworks_2 (00000000506F3F18)
+[LOG] SoundI::release                          :  (00000000504093A8)
+[LOG] SoundI::release                          :     SFX_Fireworks_3 (000000005042BF88)
+[LOG] SoundI::release                          :  (0000000050408998)
+[LOG] SoundI::release                          :     Techno2_Tr+inr_A-B_Duetta (000000005042D7E8)
+[LOG] SoundI::release                          :  (00000000500FFB78)
+[LOG] SoundI::release                          :     Techno2_Intro_Duetta (00000000501073B8)
+[LOG] SoundI::release                          :  (00000000505EAA38)
+[LOG] SoundI::release                          :     Techno2_Tr+inr_B-C_Synkop (00000000505C1388)
+[LOG] SoundI::release                          :  (00000000506C22A8)
+[LOG] SoundI::release                          :     Techno2_Tr+inr_B-C_Melodi (00000000506BAB78)
+[LOG] SoundI::release                          :  (00000000505EA478)
+[LOG] SoundI::release                          :     Techno2_Intro_FX (00000000506B9998)
+[LOG] SoundI::release                          :  (00000000500FED18)
+[LOG] SoundI::release                          :     Techno2_Tr+inr_A-B_Chickens (00000000505C16C8)
+[LOG] SoundI::release                          :  (0000000050061158)
+[LOG] SoundI::release                          :     Techno2_Tr+inr_B-C_Drums (000000004BCDED68)
+[LOG] SoundI::release                          :  (0000000050062858)
+[LOG] SoundI::release                          :     Techno2_Tr+inr_B-C_Bass (00000000506F36F8)
+[LOG] SoundI::release                          :  (0000000050407F88)
+[LOG] SoundI::release                          :     Techno2_Tr+inr_A-B_Melodi (000000005042CC88)
+[LOG] SoundI::release                          :  (00000000505EBCE8)
+[LOG] SoundI::release                          :     Techno2_Tr+inr_B-C_Kick (00000000505C0D08)
+[LOG] SoundI::release                          :  (0000000050407CA8)
+[LOG] SoundI::release                          :     Techno2_Intro_Inräkning_Drums (000000005042CAE8)
+[LOG] SoundI::release                          :  (00000000506C0758)
+[LOG] SoundI::release                          :     SFX_Crowd_Cheer_OneShot_1 (000000005050E238)
+[LOG] SoundI::release                          :  (00000000506C0BA8)
+[LOG] SoundI::release                          :     SFX_Crowd_Cheer_OneShot_2 (000000005050DBB8)
+[LOG] SoundI::release                          :  (00000000505EBA08)
+[LOG] SoundI::release                          :     SFX_Crowd_Cheer_OneShot_3 (00000000505C11E8)
+[LOG] SoundI::release                          :  (00000000506C1898)
+[LOG] SoundI::release                          :     SFX_Crowd_Cheer_OneShot_4 (00000000506BA1B8)
+[LOG] SoundI::release                          :  (0000000050062578)
+[LOG] SoundI::release                          :     Rock1_Trans+inr_A del (00000000506F3D78)
+[LOG] SoundI::release                          :  (0000000050408268)
+[LOG] SoundI::release                          :     Rock1_Trans+inr_A_Lead1 (000000005042C2C8)
+[LOG] SoundI::release                          :  (0000000050062F88)
+[LOG] SoundI::release                          :     Outro (00000000506F2D38)
+[LOG] SoundI::release                          :  (00000000505EA758)
+[LOG] SoundI::release                          :     Rock1 fixad trans a (00000000505C0828)
+[LOG] SoundI::release                          :  (00000000500FEE88)
+[LOG] SoundI::release                          :     Rock1_Trans+inr_C del (00000000501069F8)
+[LOG] SoundI::release                          :  (0000000050061888)
+[LOG] SoundI::release                          :     SFX_Gameplay_ScoreDown (000000004BCDEA28)
+[LOG] SoundI::release                          :  (00000000505EB5B8)
+[LOG] SoundI::release                          :     SFX_Health_Up (00000000505C2568)
+[LOG] SoundI::release                          :  (00000000505EA8C8)
+[LOG] SoundI::release                          :     SFX_Health_Damage (00000000506B9178)
+[LOG] SoundI::release                          :  (0000000050409688)
+[LOG] SoundI::release                          :     Techno1_Trans+inr A del (00000000506F48D8)
+[LOG] SoundI::release                          :  (00000000500FEFF8)
+[LOG] SoundI::release                          :     Outro (00000000505C1868)
+[LOG] SoundI::release                          :  (00000000506C1A08)
+[LOG] SoundI::release                          :     Techno1_Trans+inr C del (00000000506B8FD8)
+[LOG] SoundI::release                          :  (00000000506C12D8)
+[LOG] SoundI::release                          :     Techno1_Trans+inr B del (000000005050D878)
+[LOG] SoundI::release                          :  (00000000505EA5E8)
+[LOG] SoundI::release                          :     SFX_Spotlight_1 (00000000506BA9D8)
+[LOG] SoundI::release                          :  (0000000050567E68)
+[LOG] SoundI::release                          :     Rock3_Trans+inr_C del (000000005050E8B8)
+[LOG] SoundI::release                          :  (00000000506C1FC8)
+[LOG] SoundI::release                          :     Rock3_Inr_A del (00000000506BA018)
+[LOG] SoundI::release                          :  (00000000506C0E88)
+[LOG] SoundI::release                          :     Rock3_Trans+inr_B del (00000000506BA698)
+[LOG] SoundI::release                          :  (0000000050408B08)
+[LOG] SoundI::release                          :     Rock3_Trans_A del (000000005042CFC8)
+[LOG] SoundI::release                          :  (00000000505EBE58)
+[LOG] SoundI::release                          :     Funk1_trans+inr_C del (00000000505C1BA8)
+[LOG] SoundI::release                          :  (00000000500FEA38)
+[LOG] SoundI::release                          :     Funk2_Outro (0000000050107898)
+[LOG] SoundI::release                          :  (0000000050566D28)
+[LOG] SoundI::release                          :     Rock2_Trans+inr_A del (000000005050E718)
+[LOG] SoundI::release                          :  (00000000505EAFF8)
+[LOG] SoundI::release                          :     SFX_StageSelect_Whoosh_1 (00000000505C1048)
+[LOG] SoundI::release                          :  (0000000050407E18)
+[LOG] SoundI::release                          :     SFX_StageSelect_Whoosh_2 (000000005042D988)
+[LOG] SoundI::release                          :  (00000000500619F8)
+[LOG] SoundI::release                          :     SFX_StageSelect_Whoosh_3 (00000000506F4A78)
+[LOG] SoundI::release                          :  (0000000050408DE8)
+[LOG] SoundI::release                          :     SFX_StageSelect_Whoosh_4 (000000005042C7A8)
+[LOG] SoundI::release                          :  (00000000501002A8)
+[LOG] SoundI::release                          :     SFX_StageSelect_Selected_1 (0000000050106D38)
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] SystemI::close                           : Closed.
 [LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
 [LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
 [LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)

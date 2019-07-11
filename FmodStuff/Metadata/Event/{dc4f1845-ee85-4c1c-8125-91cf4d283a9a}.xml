@@ -1406,6 +1406,7 @@ Cues används för att starta låten. </value>
         </property>
         <relationship name="automationCurves">
             <destination>{46f97897-b3d3-4778-9a81-a3fb4f084fc9}</destination>
+            <destination>{ed6ce03a-14c9-4bc2-bc6f-0be471c06552}</destination>
         </relationship>
     </object>
     <object class="Automator" id="{c9abc388-1ccf-4ecd-804c-74d6a6cd4049}">
@@ -1414,6 +1415,7 @@ Cues används för att starta låten. </value>
         </property>
         <relationship name="automationCurves">
             <destination>{d4015f08-a007-46e7-9800-e65f30c1c364}</destination>
+            <destination>{786ce6c2-f971-4afd-8679-a0f3a1a2c70b}</destination>
         </relationship>
     </object>
     <object class="Automator" id="{bf309b8e-25fb-44aa-ad88-0d16895b65a3}">
@@ -1422,6 +1424,7 @@ Cues används för att starta låten. </value>
         </property>
         <relationship name="automationCurves">
             <destination>{c678906c-2368-4349-88df-73baa8dcfc8a}</destination>
+            <destination>{f3fa61ce-beeb-43dc-85c2-d89afa2a531b}</destination>
         </relationship>
     </object>
     <object class="MixerBusEffectChain" id="{043e053d-917e-4706-a6af-d13ed698db91}">
@@ -1436,6 +1439,7 @@ Cues används för att starta låten. </value>
         </property>
         <relationship name="automationCurves">
             <destination>{97c86206-8964-45fa-9837-11375b79385a}</destination>
+            <destination>{8e95eef7-e819-46c0-b111-d491672524fd}</destination>
         </relationship>
     </object>
     <object class="Automator" id="{86d22f49-d812-45b4-8d4c-a885a221a748}">
@@ -1444,6 +1448,7 @@ Cues används för att starta låten. </value>
         </property>
         <relationship name="automationCurves">
             <destination>{f062291f-e5fb-43e3-8721-6dff1385b028}</destination>
+            <destination>{b5c68886-45b0-4cdc-8c8e-a00f143a112b}</destination>
         </relationship>
     </object>
     <object class="Automator" id="{0bae6d60-ddad-4b1e-8c36-6c8e04cd56e9}">
@@ -1452,6 +1457,7 @@ Cues används för att starta låten. </value>
         </property>
         <relationship name="automationCurves">
             <destination>{1acdb293-b405-4cbe-ae92-cf7b6b83b2e9}</destination>
+            <destination>{905d5075-695d-4c47-8713-acb3fc057770}</destination>
         </relationship>
     </object>
     <object class="MixerBusEffectChain" id="{9cbdcd75-a88d-4298-b462-150085884bf1}">
@@ -1468,6 +1474,7 @@ Cues används för att starta låten. </value>
         </property>
         <relationship name="automationCurves">
             <destination>{6d9cd562-ce22-4afd-95a2-1454b3e3d164}</destination>
+            <destination>{8542a753-615e-4c65-ab2e-c34f7185c229}</destination>
         </relationship>
     </object>
     <object class="Automator" id="{a7da3336-5568-43c1-a598-92b9a7d539f0}">
@@ -1476,6 +1483,7 @@ Cues används för att starta låten. </value>
         </property>
         <relationship name="automationCurves">
             <destination>{ead5d5b3-b3bc-4616-85f3-d9a2d1769374}</destination>
+            <destination>{d51ba62e-d6da-459d-b208-3179de90bad4}</destination>
         </relationship>
     </object>
     <object class="Automator" id="{b42a3a28-9618-4992-8da9-88d49f694706}">
@@ -1484,6 +1492,7 @@ Cues används för att starta låten. </value>
         </property>
         <relationship name="automationCurves">
             <destination>{a056b251-0cf6-437d-8578-96fa69dc4210}</destination>
+            <destination>{e627e6fb-4e0a-4265-a239-49ae240c5236}</destination>
         </relationship>
     </object>
     <object class="MixerBusEffectChain" id="{536f8871-5020-400f-8a95-c4706607ca53}">
@@ -1653,6 +1662,14 @@ Cues används för att starta låten. </value>
             <destination>{a1b19ad0-04ae-41fb-a124-89c3694a5c70}</destination>
         </relationship>
     </object>
+    <object class="AutomationCurve" id="{ed6ce03a-14c9-4bc2-bc6f-0be471c06552}">
+        <relationship name="parameter">
+            <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
+        </relationship>
+        <relationship name="automationPoints">
+            <destination>{5c76dd74-fec9-4eed-9855-983f6a9c848a}</destination>
+        </relationship>
+    </object>
     <object class="AutomationCurve" id="{d4015f08-a007-46e7-9800-e65f30c1c364}">
         <relationship name="parameter">
             <destination>{dde8bcb8-ae91-4359-85a1-f987a047b874}</destination>
@@ -1662,6 +1679,14 @@ Cues används för att starta låten. </value>
             <destination>{ebc84817-cbb1-46de-be3d-962dc9c49cba}</destination>
         </relationship>
     </object>
+    <object class="AutomationCurve" id="{786ce6c2-f971-4afd-8679-a0f3a1a2c70b}">
+        <relationship name="parameter">
+            <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
+        </relationship>
+        <relationship name="automationPoints">
+            <destination>{3c140d95-1d86-4d8b-b958-684a52df6414}</destination>
+        </relationship>
+    </object>
     <object class="AutomationCurve" id="{c678906c-2368-4349-88df-73baa8dcfc8a}">
         <relationship name="parameter">
             <destination>{dde8bcb8-ae91-4359-85a1-f987a047b874}</destination>
@@ -1669,6 +1694,14 @@ Cues används för att starta låten. </value>
         <relationship name="automationPoints">
             <destination>{b0f93771-7911-44dc-aad8-3be40e1a637d}</destination>
             <destination>{a7cccaef-b712-455c-99ea-9bb59f3afc83}</destination>
+        </relationship>
+    </object>
+    <object class="AutomationCurve" id="{f3fa61ce-beeb-43dc-85c2-d89afa2a531b}">
+        <relationship name="parameter">
+            <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
+        </relationship>
+        <relationship name="automationPoints">
+            <destination>{2454ad41-8370-43d0-bc8f-f2bbecd465fc}</destination>
         </relationship>
     </object>
     <object class="MixerBusFader" id="{641d106a-6e47-496d-a030-b9dc20bb888d}"/>
@@ -1681,6 +1714,14 @@ Cues används för att starta låten. </value>
             <destination>{713dbed4-c7c3-4a99-9c89-a4d932f35f68}</destination>
         </relationship>
     </object>
+    <object class="AutomationCurve" id="{8e95eef7-e819-46c0-b111-d491672524fd}">
+        <relationship name="parameter">
+            <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
+        </relationship>
+        <relationship name="automationPoints">
+            <destination>{f9aa07ba-5d33-4aed-bf5f-fd10d5fc33e2}</destination>
+        </relationship>
+    </object>
     <object class="AutomationCurve" id="{f062291f-e5fb-43e3-8721-6dff1385b028}">
         <relationship name="parameter">
             <destination>{dde8bcb8-ae91-4359-85a1-f987a047b874}</destination>
@@ -1690,6 +1731,14 @@ Cues används för att starta låten. </value>
             <destination>{63b1a1e5-95f2-4a46-859b-ab59ed3c90b3}</destination>
         </relationship>
     </object>
+    <object class="AutomationCurve" id="{b5c68886-45b0-4cdc-8c8e-a00f143a112b}">
+        <relationship name="parameter">
+            <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
+        </relationship>
+        <relationship name="automationPoints">
+            <destination>{ae358827-55e3-4d97-8cc0-207b6be06bb8}</destination>
+        </relationship>
+    </object>
     <object class="AutomationCurve" id="{1acdb293-b405-4cbe-ae92-cf7b6b83b2e9}">
         <relationship name="parameter">
             <destination>{dde8bcb8-ae91-4359-85a1-f987a047b874}</destination>
@@ -1697,6 +1746,14 @@ Cues används för att starta låten. </value>
         <relationship name="automationPoints">
             <destination>{01f7b25c-7b09-4393-a0b9-8d7d4cd3d28b}</destination>
             <destination>{653dedbd-06eb-4fba-989f-808d79ae95d3}</destination>
+        </relationship>
+    </object>
+    <object class="AutomationCurve" id="{905d5075-695d-4c47-8713-acb3fc057770}">
+        <relationship name="parameter">
+            <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
+        </relationship>
+        <relationship name="automationPoints">
+            <destination>{21179d94-727d-488f-887f-8db44d76dbb9}</destination>
         </relationship>
     </object>
     <object class="MixerBusFader" id="{31c04714-306a-4cb5-85e3-b47313c72692}"/>
@@ -1722,6 +1779,14 @@ Cues används för att starta låten. </value>
             <destination>{b30e2fc6-9c4d-488c-8169-7881bc21bab7}</destination>
         </relationship>
     </object>
+    <object class="AutomationCurve" id="{8542a753-615e-4c65-ab2e-c34f7185c229}">
+        <relationship name="parameter">
+            <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
+        </relationship>
+        <relationship name="automationPoints">
+            <destination>{89ba0992-d576-4d56-b6b9-e85e8248f27f}</destination>
+        </relationship>
+    </object>
     <object class="AutomationCurve" id="{ead5d5b3-b3bc-4616-85f3-d9a2d1769374}">
         <relationship name="parameter">
             <destination>{dde8bcb8-ae91-4359-85a1-f987a047b874}</destination>
@@ -1731,6 +1796,14 @@ Cues används för att starta låten. </value>
             <destination>{b3b23c85-3f62-416e-a11a-8131c7b748d0}</destination>
         </relationship>
     </object>
+    <object class="AutomationCurve" id="{d51ba62e-d6da-459d-b208-3179de90bad4}">
+        <relationship name="parameter">
+            <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
+        </relationship>
+        <relationship name="automationPoints">
+            <destination>{a3315e0e-2d82-4ee8-8a97-ef13d8a41f12}</destination>
+        </relationship>
+    </object>
     <object class="AutomationCurve" id="{a056b251-0cf6-437d-8578-96fa69dc4210}">
         <relationship name="parameter">
             <destination>{dde8bcb8-ae91-4359-85a1-f987a047b874}</destination>
@@ -1738,6 +1811,14 @@ Cues används för att starta låten. </value>
         <relationship name="automationPoints">
             <destination>{a952b8cf-509e-4ca3-8fb4-b75f453d6edd}</destination>
             <destination>{59dd861e-1719-4afc-a5eb-2fb73f8218be}</destination>
+        </relationship>
+    </object>
+    <object class="AutomationCurve" id="{e627e6fb-4e0a-4265-a239-49ae240c5236}">
+        <relationship name="parameter">
+            <destination>{3ffb1943-65b8-4b5f-839e-0838fc731241}</destination>
+        </relationship>
+        <relationship name="automationPoints">
+            <destination>{f2a0f4e9-b1a5-4735-af25-818fc52a3bca}</destination>
         </relationship>
     </object>
     <object class="MixerBusFader" id="{1440c09b-2529-4304-8d0e-0bace2b7969d}"/>
@@ -1768,6 +1849,14 @@ Cues används för att starta låten. </value>
             <value>-24</value>
         </property>
     </object>
+    <object class="AutomationPoint" id="{5c76dd74-fec9-4eed-9855-983f6a9c848a}">
+        <property name="position">
+            <value>2.9618838871807007</value>
+        </property>
+        <property name="value">
+            <value>0</value>
+        </property>
+    </object>
     <object class="AutomationPoint" id="{c2b739cc-aeab-487b-942a-260f21a2a265}">
         <property name="position">
             <value>0</value>
@@ -1782,6 +1871,14 @@ Cues används för att starta låten. </value>
         </property>
         <property name="value">
             <value>-24</value>
+        </property>
+    </object>
+    <object class="AutomationPoint" id="{3c140d95-1d86-4d8b-b958-684a52df6414}">
+        <property name="position">
+            <value>3.0906614474929053</value>
+        </property>
+        <property name="value">
+            <value>0</value>
         </property>
     </object>
     <object class="AutomationPoint" id="{b0f93771-7911-44dc-aad8-3be40e1a637d}">
@@ -1800,6 +1897,14 @@ Cues används för att starta låten. </value>
             <value>-24</value>
         </property>
     </object>
+    <object class="AutomationPoint" id="{2454ad41-8370-43d0-bc8f-f2bbecd465fc}">
+        <property name="position">
+            <value>3.2194390078051098</value>
+        </property>
+        <property name="value">
+            <value>0</value>
+        </property>
+    </object>
     <object class="AutomationPoint" id="{50ee9957-12cd-4b86-b3cd-994223062997}">
         <property name="position">
             <value>0</value>
@@ -1814,6 +1919,14 @@ Cues används för att starta låten. </value>
         </property>
         <property name="value">
             <value>-24</value>
+        </property>
+    </object>
+    <object class="AutomationPoint" id="{f9aa07ba-5d33-4aed-bf5f-fd10d5fc33e2}">
+        <property name="position">
+            <value>3.2194390078051098</value>
+        </property>
+        <property name="value">
+            <value>0</value>
         </property>
     </object>
     <object class="AutomationPoint" id="{f4071eb7-06b8-4964-86f7-c885ba85bfb4}">
@@ -1832,6 +1945,14 @@ Cues används för att starta låten. </value>
             <value>-24</value>
         </property>
     </object>
+    <object class="AutomationPoint" id="{ae358827-55e3-4d97-8cc0-207b6be06bb8}">
+        <property name="position">
+            <value>1.674108284058657</value>
+        </property>
+        <property name="value">
+            <value>0</value>
+        </property>
+    </object>
     <object class="AutomationPoint" id="{01f7b25c-7b09-4393-a0b9-8d7d4cd3d28b}">
         <property name="position">
             <value>0</value>
@@ -1846,6 +1967,14 @@ Cues används för att starta låten. </value>
         </property>
         <property name="value">
             <value>-24</value>
+        </property>
+    </object>
+    <object class="AutomationPoint" id="{21179d94-727d-488f-887f-8db44d76dbb9}">
+        <property name="position">
+            <value>2.1892185253074747</value>
+        </property>
+        <property name="value">
+            <value>0</value>
         </property>
     </object>
     <object class="Automator" id="{18e0150f-aa55-49b2-8745-b57006bc6138}">
@@ -1904,6 +2033,14 @@ Cues används för att starta låten. </value>
             <value>-24</value>
         </property>
     </object>
+    <object class="AutomationPoint" id="{89ba0992-d576-4d56-b6b9-e85e8248f27f}">
+        <property name="position">
+            <value>3.605771688741723</value>
+        </property>
+        <property name="value">
+            <value>0</value>
+        </property>
+    </object>
     <object class="AutomationPoint" id="{64e8cf39-3f79-48e7-84a3-2d527f01405d}">
         <property name="position">
             <value>0</value>
@@ -1920,6 +2057,14 @@ Cues används för att starta låten. </value>
             <value>-24</value>
         </property>
     </object>
+    <object class="AutomationPoint" id="{a3315e0e-2d82-4ee8-8a97-ef13d8a41f12}">
+        <property name="position">
+            <value>3.9921043696783358</value>
+        </property>
+        <property name="value">
+            <value>0</value>
+        </property>
+    </object>
     <object class="AutomationPoint" id="{a952b8cf-509e-4ca3-8fb4-b75f453d6edd}">
         <property name="position">
             <value>0</value>
@@ -1934,6 +2079,14 @@ Cues används för att starta låten. </value>
         </property>
         <property name="value">
             <value>-24</value>
+        </property>
+    </object>
+    <object class="AutomationPoint" id="{f2a0f4e9-b1a5-4735-af25-818fc52a3bca}">
+        <property name="position">
+            <value>2.7043287665562921</value>
+        </property>
+        <property name="value">
+            <value>0</value>
         </property>
     </object>
     <object class="AutomationCurve" id="{b569e658-3885-4d52-846a-faf3c05080ce}">

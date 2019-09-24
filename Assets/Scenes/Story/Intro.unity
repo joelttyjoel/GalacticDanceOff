@@ -309,7 +309,7 @@ Prefab:
         type: 2}
       propertyPath: selectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 121330294}
+      objectReference: {fileID: 121330284}
     - target: {fileID: 114221383502173190, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
         type: 2}
       propertyPath: selectedCommands.Array.data[0]
@@ -435,7 +435,7 @@ Prefab:
     - target: {fileID: 114179758221224202, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
         type: 2}
       propertyPath: nodeRect.x
-      value: 642.34125
+      value: 644.6825
       objectReference: {fileID: 0}
     - target: {fileID: 114221383502173190, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
         type: 2}
@@ -747,6 +747,16 @@ Prefab:
       propertyPath: nodeRect.y
       value: 68
       objectReference: {fileID: 0}
+    - target: {fileID: 114731941939959968, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
+        type: 2}
+      propertyPath: nodeRect.x
+      value: 781.79016
+      objectReference: {fileID: 0}
+    - target: {fileID: 114179758221224202, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
+        type: 2}
+      propertyPath: nodeRect.y
+      value: 64.488106
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114813778572563838, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b, type: 2}
     - {fileID: 114544610334029860, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b, type: 2}
@@ -797,6 +807,12 @@ MonoBehaviour:
   stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &121330284 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114179758221224202, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
+    type: 2}
+  m_PrefabInternal: {fileID: 121330280}
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
 --- !u!114 &121330285
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -961,12 +977,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 121330280}
   m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
---- !u!114 &121330294 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114076354028903508, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,
-    type: 2}
-  m_PrefabInternal: {fileID: 121330280}
-  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
 --- !u!114 &121330295 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114872436388599704, guid: 8b07da42fa4f74a4b9f3132ff49ecb5b,

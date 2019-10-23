@@ -13,6 +13,8 @@ public class PauseGameScript : MonoBehaviour {
 	private string backButton;
 
     public bool isPausable = true;
+    [Header("Final joel")]
+    public GameObject popupText;
 
 	[Header("Menus")]
 	public GameObject optionMenu;
@@ -63,7 +65,18 @@ public class PauseGameScript : MonoBehaviour {
 	private bool pauseable = true;
 	private void PauseGame()
 	{
-		
+		//final thing show bubble
+        //only shows bubble if has cleared less tat 2 levels, aka 1
+        if(SceneSwitchereController.instance.numberClearedLevels < 2)
+        {
+            popupText.SetActive(true);
+        }
+        else
+        {
+            popupText.SetActive(false);
+        }
+
+
         //start sound to play in pause menu thing
         AudioController.instance.SetParamPauseSound(4f);
         AudioController.instance.PlayPauseSound();
@@ -93,8 +106,10 @@ public class PauseGameScript : MonoBehaviour {
 
 	public void ResumeGame()
 	{
-		
-		pauseable = true;
+        //temp thing to show textbubble
+        popupText.SetActive(false);
+
+        pauseable = true;
 		StartCoroutine (CountDown());
 		optionMenu.SetActive (false);
 		menuBoard.SetActive (false);

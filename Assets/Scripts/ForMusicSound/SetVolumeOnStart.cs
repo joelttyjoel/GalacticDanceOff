@@ -6,7 +6,7 @@ public class SetVolumeOnStart : MonoBehaviour {
     public VolumeChanger thisOnes;
 
 	// Use this for initialization
-	void Start () {
+	void OnEnable () {
         thisOnes.SetOnStart();
 	}
 }

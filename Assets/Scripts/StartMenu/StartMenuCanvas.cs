@@ -8,9 +8,18 @@ public class StartMenuCanvas : MonoBehaviour {
 	private int height;
 	private int width;
 
+    private int originalHeight;
+    private int originalWidth;
+
 	public Button[] buttons;
 
-	public void SetHeight(int Height)
+    private void Start()
+    {
+        originalHeight = Screen.height;
+        originalWidth = Screen.width;
+    }
+
+    public void SetHeight(int Height)
 	{
 		height = Height;
 	}
@@ -27,7 +36,11 @@ public class StartMenuCanvas : MonoBehaviour {
 
 	public void Fullscreen()
 	{
-		Screen.fullScreen = !Screen.fullScreen;
+        if(Screen.fullScreen == false)
+        {
+            Screen.SetResolution(height, width, false);
+        }
+        Screen.fullScreen = !Screen.fullScreen;
 	}
 
 	public void ExitGame()

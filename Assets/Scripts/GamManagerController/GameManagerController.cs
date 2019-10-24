@@ -607,7 +607,7 @@ public class GameManagerController : MonoBehaviour {
                 leftAnimator.SetInteger("SelectState", 1);
                 rightAnimator.SetInteger("SelectState", 1);
                 SceneSwitchereController.instance.ResetVariables();
-                yield return new WaitForSeconds(3f);
+                yield return new WaitForSeconds(3.5f);
                 //SceneSwitchereController.instance.GotoScene_SetName("Credits");
                 //SceneSwitchereController.instance.GotoScene_SetSequence("null");
             }
@@ -618,7 +618,7 @@ public class GameManagerController : MonoBehaviour {
                 yield return new WaitForSeconds(2f);
                 leftAnimator.SetInteger("SelectState", 1);
                 rightAnimator.SetInteger("SelectState", 1);
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(2f);
                 SceneSwitchereController.instance.GotoScene_SetName("SongSelect");
                 SceneSwitchereController.instance.GotoScene_SetSequence("null");
             }
@@ -631,7 +631,7 @@ public class GameManagerController : MonoBehaviour {
             yield return new WaitForSeconds(2f);
             leftAnimator.SetInteger("SelectState", 1);
             rightAnimator.SetInteger("SelectState", 1);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             SceneSwitchereController.instance.GotoScene_SetName("SongSelect");
             SceneSwitchereController.instance.GotoScene_SetSequence("null");
         }

@@ -49,9 +49,9 @@ public class ClickRemapper : MonoBehaviour {
     {
         SceneSwitchereController.instance.ResetVariables();
     }
-    public void ResetPlayerPrefs()
-    {
-        PlayerPrefs.DeleteAll();
-        Debug.Log("ClEARING PLAYERPREFS");
-    }
+    //public void ResetPlayerPrefs()
+    //{
+    //    PlayerPrefs.DeleteAll();
+    //    Debug.Log("ClEARING PLAYERPREFS");
+    //}
 }
